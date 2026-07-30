@@ -1,0 +1,31 @@
+[
+  {
+    "Type": "dev_build",
+    "Manifest": "1917491314255731246",
+    "Date": "2022-10-12T11:43:27+00:00",
+    "Downloads": [
+      {
+        "Source": "telegram",
+        "Link": "https://t.me/FallGuysBuilds/201",
+        "Segments": [
+          {
+            "Size": 3891.1
+          },
+          {
+            "Size": 1249.4
+          }
+        ]
+      }
+    ],
+    "Data": {
+      "AppVer": "10.7.0",
+      "HasDontShipFolder": true,
+      "BuildNo": 4718,
+      "BuildCommit": "27cc7d94156",
+      "BuildDate": "28/11/2023",
+      "UnityVersion": "2021.3.16f1",
+      "SceneCount": 0,
+      "Season": "ss45"
+    }
+  }
+]

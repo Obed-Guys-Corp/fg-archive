@@ -1,0 +1,122 @@
+[
+  {
+    "Type": "android_build",
+    "Date": "2025-12-17",
+    "Downloads": [
+      {
+        "Source": "telegram",
+        "Link": "https://t.me/FallGuysBuilds/236",
+        "Segments": [
+          {
+            "Size": 2149.2
+          }
+        ]
+      }
+    ],
+    "Data": {
+      "AppVer": "21.1.2",
+      "BuildNo": 0,
+      "BuildCommit": "",
+      "BuildDate": "",
+      "UnityVersion": "2021.3.16f1",
+      "SceneCount": 0,
+      "Season": "not_season_3"
+    }
+  },
+  {
+    "Type": "android_build",
+    "Date": "2025-09-16",
+    "Downloads": [
+      {
+        "Source": "telegram",
+        "Link": "https://t.me/FallGuysBuilds/229",
+        "Segments": [
+          {
+            "Size": 2145.1
+          }
+        ]
+      }
+    ],
+    "Data": {
+      "AppVer": "21.0.0",
+      "BuildNo": 0,
+      "BuildCommit": "",
+      "BuildDate": "",
+      "UnityVersion": "2021.3.16f1",
+      "SceneCount": 0,
+      "Season": "not_season_3"
+    }
+  },
+  {
+    "Type": "android_build",
+    "Date": "2025-08-19",
+    "Downloads": [
+      {
+        "Source": "telegram",
+        "Link": "https://t.me/FallGuysBuilds/224",
+        "Segments": [
+          {
+            "Size": 2094.6
+          }
+        ]
+      }
+    ],
+    "Data": {
+      "AppVer": "20.0.2",
+      "BuildNo": 0,
+      "BuildCommit": "",
+      "BuildDate": "",
+      "UnityVersion": "2021.3.16f1",
+      "SceneCount": 0,
+      "Season": "not_season_2"
+    }
+  },
+  {
+    "Type": "android_build",
+    "Date": "2025-03-13",
+    "Downloads": [
+      {
+        "Source": "telegram",
+        "Link": "https://t.me/FallGuysBuilds/231",
+        "Segments": [
+          {
+            "Size": 1991.3
+          }
+        ]
+      }
+    ],
+    "Data": {
+      "AppVer": "11.6.1",
+      "BuildNo": 0,
+      "BuildCommit": "",
+      "BuildDate": "",
+      "UnityVersion": "2021.3.16f1",
+      "SceneCount": 0,
+      "Season": "ss5"
+    }
+  },
+  {
+    "Type": "android_build",
+    "Date": "2024-08-16",
+    "Downloads": [
+      {
+        "Source": "telegram",
+        "Link": "https://t.me/FallGuysBuilds/230",
+        "Segments": [
+          {
+            "Size": 1874.7
+          }
+        ]
+      }
+    ],
+    "Data": {
+      "AppVer": "11.1.4",
+      "BuildNo": 0,
+      "BuildCommit": "",
+      "BuildDate": "",
+      "UnityVersion": "2021.3.16f1",
+      "SceneCount": 0,
+      "Season": "ss5"
+    }
+  }
+]

@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "egs_build",
+    "Date": "2025-09-16",
+    "Downloads": [
+      {
+        "Source": "telegram",
+        "Link": "https://t.me/FallGuysBuilds/227",
+        "Segments": [
+          {
+            "Size": 3875
+          },
+          {
+            "Size": 2085
+          }
+        ]
+      }
+    ],
+    "Data": {
+      "AppVer": "21.0.0",
+      "BuildNo": 0,
+      "BuildCommit": "",
+      "BuildDate": "",
+      "UnityVersion": "2021.3.16f1",
+      "SceneCount": 0,
+      "Season": "not_season_3"
+    }
+  },
+  {
+    "Type": "egs_build",
+    "Date": "2025-08-19",
+    "Downloads": [
+      {
+        "Source": "telegram",
+        "Link": "https://t.me/FallGuysBuilds/220",
+        "Segments": [
+          {
+            "Size": 3891.1
+          },
+          {
+            "Size": 2281.3
+          }
+        ]
+      }
+    ],
+    "Data": {
+      "AppVer": "20.0.2",
+      "BuildNo": 0,
+      "BuildCommit": "",
+      "BuildDate": "",
+      "UnityVersion": "2021.3.16f1",
+      "SceneCount": 0,
+      "Season": "not_season_2"
+    }
+  },
+  {
+    "Type": "egs_build",
+    "Date": "2025-07-29",
+    "Downloads": [
+      {
+        "Source": "telegram",
+        "Link": "https://t.me/FallGuysBuilds/218",
+        "Segments": [
+          {
+            "Size": 3891.1
+          },
+          {
+            "Size": 2281.5
+          }
+        ]
+      }
+    ],
+    "Data": {
+      "AppVer": "20.0.0",
+      "BuildNo": 0,
+      "BuildCommit": "",
+      "BuildDate": "",
+      "UnityVersion": "2021.3.16f1",
+      "SceneCount": 0,
+      "Season": "not_season_2"
+    }
+  },
+  {
+    "Type": "egs_build",
+    "Date": "2025-06-19",
+    "Downloads": [
+      {
+        "Source": "telegram",
+        "Link": "https://t.me/FallGuysBuilds/211",
+        "Segments": [
+          {
+            "Size": 3891.1
+          },
+          {
+            "Size": 2163.0
+          }
+        ]
+      }
+    ],
+    "Data": {
+      "AppVer": "19.0.0",
+      "BuildNo": 0,
+      "BuildCommit": "",
+      "BuildDate": "",
+      "UnityVersion": "2021.3.16f1",
+      "SceneCount": 0,
+      "Season": "not_season_1"
+    }
+  },
+  {
+    "Type": "egs_build",
+    "Date": "2023-02-21",
+    "Downloads": [
+      {
+        "Source": "telegram",
+        "Link": "https://t.me/FallGuysBuilds/203",
+        "Segments": [
+          {
+            "Size": 3891.1
+          },
+          {
+            "Size": 1134.5
+          }
+        ]
+      }
+    ],
+    "Data": {
+      "AppVer": "9.0.4",
+      "HasDontShipFolder": true,
+      "BuildNo": 2925,
+      "BuildCommit": "240c958f039",
+      "BuildDate": "06/02/2023",
+      "UnityVersion": "2019.4.37f1",
+      "SceneCount": 0,
+      "Season": "ss3"
+    }
+  }
+]
