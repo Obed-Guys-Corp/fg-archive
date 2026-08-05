@@ -1,0 +1,35 @@
+{
+  "name": "fg-archive",
+  "version": "1.0.0",
+  "description": "Website of the Fall Guys builds archive",
+  "main": "src/index.ts",
+  "keywords": ["fallguys", "fall-guys", "archive", "web", "website"],
+  "author": "Obed Guys Corp.",
+  "license": "MIT",
+  "type": "module",
+  "homepage": "https://github.com/Obed-Guys-Corp/fg-archive#readme",
+  "bugs": {
+    "url": "https://github.com/Obed-Guys-Corp/fg-archive/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Obed-Guys-Corp/fg-archive.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prettier": "prettier --ignore-path .gitignore --ignore-path .prettierignore --write \"**/*.{ts,json,md,html,css}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.0"
+  },
+  "prettier": {
+    "tabWidth": 4,
+    "arrowParens": "avoid",
+    "trailingComma": "none",
+    "printWidth": 160
+  }
+}

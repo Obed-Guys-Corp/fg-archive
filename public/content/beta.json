@@ -1,0 +1,1601 @@
+[
+    {
+        "Type": "beta_build",
+        "Manifest": "1917491314255731246",
+        "Date": "2022-10-12T11:43:27+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/58",
+                "Segments": [
+                    {
+                        "Size": 3471.7
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "8.2.2",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "BuildDate": "",
+            "UnityVersion": "2019.4.37f1",
+            "SceneCount": 0,
+            "Season": "ss2"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "4484562195555822238",
+        "Date": "2022-10-04T11:49:31+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/57",
+                "Segments": [
+                    {
+                        "Size": 3471.8
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "8.2.1",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "BuildDate": "",
+            "UnityVersion": "2019.4.37f1",
+            "SceneCount": 0,
+            "Season": "ss2"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "3219250203981112018",
+        "Date": "2022-09-21T08:59:17+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/56",
+                "Segments": [
+                    {
+                        "Size": 3620.4
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "8.1.0",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "BuildDate": "",
+            "UnityVersion": "2019.4.37f1",
+            "SceneCount": 83,
+            "Season": "ss2"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "7442604419925670147",
+        "Date": "2022-09-13T14:57:51+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/54",
+                "Segments": [
+                    {
+                        "Size": 2048.0
+                    },
+                    {
+                        "Size": 1700.3
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "8.0.5",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "BuildDate": "",
+            "UnityVersion": "2019.4.37f1",
+            "SceneCount": 0,
+            "Season": "ss2"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "2806263671765728416",
+        "Date": "2022-09-06T10:40:55+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/52",
+                "Segments": [
+                    {
+                        "Size": 2048.0
+                    },
+                    {
+                        "Size": 1782.8
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "8.0.4",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "BuildDate": "",
+            "UnityVersion": "2019.4.37f1",
+            "SceneCount": 0,
+            "Season": "ss2"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "6960354653486919632",
+        "Date": "2022-08-23T17:15:09+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/50",
+                "Segments": [
+                    {
+                        "Size": 2048.0
+                    },
+                    {
+                        "Size": 1783.3
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "8.0.3",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "BuildDate": "",
+            "UnityVersion": "2019.4.37f1",
+            "SceneCount": 0,
+            "Season": "ss2"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "260107748922866684",
+        "Date": "2022-08-23T16:40:57+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/48",
+                "Segments": [
+                    {
+                        "Size": 3072.0
+                    },
+                    {
+                        "Size": 1757.7
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "8.0.0",
+            "BuildNo": 10884,
+            "BuildCommit": "b3f4391e7e5",
+            "BuildDate": "23/08/2022",
+            "UnityVersion": "2019.4.37f1",
+            "SceneCount": 87,
+            "Season": "ss2"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "5025329016136914108",
+        "Date": "2022-08-16T12:02:12+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/47",
+                "Segments": [
+                    {
+                        "Size": 3944.3
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "8.0.2",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "BuildDate": "",
+            "UnityVersion": "2019.4.37f1",
+            "SceneCount": 0,
+            "Season": "ss2"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "1880563640640409158",
+        "Date": "2022-07-20T09:55:35+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/46",
+                "Segments": [
+                    {
+                        "Size": 3918.0
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "8.0.1",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "BuildDate": "",
+            "UnityVersion": "2019.4.37f1",
+            "SceneCount": 0,
+            "Season": "ss2"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "7987271952550166701",
+        "Date": "2022-07-06T10:35:37+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/45",
+                "Segments": [
+                    {
+                        "Size": 2889.3
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "7.4.0",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "BuildDate": "",
+            "UnityVersion": "2019.4.37f1",
+            "SceneCount": 0,
+            "Season": "ss1"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "9129315978939769567",
+        "Date": "2022-06-30T15:05:03+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/44",
+                "Segments": [
+                    {
+                        "Size": 2889.2
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "7.3.0",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "BuildDate": "",
+            "UnityVersion": "2019.4.37f1",
+            "SceneCount": 0,
+            "Season": "ss1"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "1548428383670236596",
+        "Date": "2022-06-21T15:09:57+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/43",
+                "Segments": [
+                    {
+                        "Size": 2889.2
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "7.2.0",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "BuildDate": "",
+            "UnityVersion": "2019.4.37f1",
+            "SceneCount": 0,
+            "Season": "ss1"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "2260790007918850890",
+        "Date": "2022-06-15T11:33:37+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/42",
+                "Segments": [
+                    {
+                        "Size": 2884.1
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "7.0.5",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "BuildDate": "",
+            "UnityVersion": "2019.4.37f1",
+            "SceneCount": 0,
+            "Season": "ss1"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "2908684446307135161",
+        "Date": "2022-06-10T09:40:14+00:00",
+        "Downloads": [],
+        "Data": {
+            "AppVer": "",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "BuildDate": "",
+            "UnityVersion": "",
+            "SceneCount": 0,
+            "Season": "ss1"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "295951019766535017",
+        "Date": "2022-06-07T16:46:44+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/237",
+                "Segments": [
+                    {
+                        "Size": 2865.9
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "7.0.3",
+            "BuildNo": 9504,
+            "BuildCommit": "e5340161a7c",
+            "BuildDate": "01/06/2022",
+            "UnityVersion": "2019.4.37f1",
+            "SceneCount": 0,
+            "Season": "ss1"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "5566495668243817959",
+        "Date": "2022-05-31T09:07:47+00:00",
+        "Downloads": [],
+        "Data": {
+            "AppVer": "",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "BuildDate": "",
+            "UnityVersion": "",
+            "SceneCount": 0,
+            "Season": "ss1"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "4084609257839169662",
+        "Date": "2022-03-24T13:57:48+00:00",
+        "Downloads": [],
+        "Data": {
+            "AppVer": "",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "UnityVersion": "",
+            "SceneCount": 0,
+            "Season": "ls6"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "8133437184727010038",
+        "Date": "2022-03-16T11:52:54+00:00",
+        "Downloads": [],
+        "Data": {
+            "AppVer": "",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "UnityVersion": "",
+            "SceneCount": 0,
+            "Season": "ls6"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "4231113869147883442",
+        "Date": "2022-03-10T12:12:18+00:00",
+        "Downloads": [],
+        "Data": {
+            "AppVer": "",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "UnityVersion": "",
+            "SceneCount": 0,
+            "Season": "ls6"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "4837798740444489807",
+        "Date": "2022-03-02T16:05:30+00:00",
+        "Downloads": [],
+        "Data": {
+            "AppVer": "",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "UnityVersion": "",
+            "SceneCount": 0,
+            "Season": "ls6"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "844176140930114447",
+        "Date": "2022-02-28T12:43:21+00:00",
+        "Downloads": [],
+        "Data": {
+            "AppVer": "",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "UnityVersion": "",
+            "SceneCount": 0,
+            "Season": "ls6"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "7378650119843544125",
+        "Date": "2022-02-16T14:29:54+00:00",
+        "Downloads": [],
+        "Data": {
+            "AppVer": "",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "UnityVersion": "",
+            "SceneCount": 0,
+            "Season": "ls6"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "5010443105310074464",
+        "Date": "2022-02-10T14:17:15+00:00",
+        "Downloads": [],
+        "Data": {
+            "AppVer": "",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "UnityVersion": "",
+            "SceneCount": 0,
+            "Season": "ls6"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "3865806656189224239",
+        "Date": "2022-02-07T14:39:03+00:00",
+        "Downloads": [],
+        "Data": {
+            "AppVer": "",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "UnityVersion": "",
+            "SceneCount": 0,
+            "Season": "ls6"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "2176229559874318405",
+        "Date": "2022-01-28T12:54:58+00:00",
+        "Downloads": [],
+        "Data": {
+            "AppVer": "",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "UnityVersion": "",
+            "SceneCount": 0,
+            "Season": "ls6"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "649046803953808843",
+        "Date": "2022-01-21T15:04:51+00:00",
+        "Downloads": [],
+        "Data": {
+            "AppVer": "",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "UnityVersion": "",
+            "SceneCount": 0,
+            "Season": "ls6"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "3182812070715890382",
+        "Date": "2022-01-12T14:36:31+00:00",
+        "Downloads": [],
+        "Data": {
+            "AppVer": "",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "UnityVersion": "",
+            "SceneCount": 0,
+            "Season": "ls6"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "6092448972123214074",
+        "Date": "2021-11-24T18:54:31+00:00",
+        "Downloads": [],
+        "Data": {
+            "AppVer": "",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "UnityVersion": "",
+            "SceneCount": 0,
+            "Season": "ls6"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "6416487846536017352",
+        "Date": "2021-11-24T16:01:24+00:00",
+        "Downloads": [],
+        "Data": {
+            "AppVer": "",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "UnityVersion": "",
+            "SceneCount": 0,
+            "Season": "ls6"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "4813252633303435263",
+        "Date": "2021-11-18T15:00:35+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/242",
+                "Segments": [
+                    {
+                        "Size": 3800
+                    },
+                    {
+                        "Size": 494.6
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "6.0.0",
+            "BuildNo": 5718,
+            "BuildCommit": "86bef7bb54",
+            "BuildDate": "16/11/2021",
+            "UnityVersion": "2019.4.28f1",
+            "SceneCount": 0,
+            "Season": "ls6"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "8954168983224977823",
+        "Date": "2021-11-12T09:30:09+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/240",
+                "Segments": [
+                    {
+                        "Size": 756.7
+                    },
+                    {
+                        "Size": 3900
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "6.0.0",
+            "BuildNo": 5592,
+            "BuildCommit": "ff9236afc3",
+            "BuildDate": "09/11/2021",
+            "UnityVersion": "2019.4.28f1",
+            "SceneCount": 94,
+            "Season": "ls6"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "4067160061444929290",
+        "Date": "2021-11-04T16:33:53+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/234",
+                "Segments": [
+                    {
+                        "Size": 3800
+                    },
+                    {
+                        "Size": 929.3
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "6.0.0",
+            "BuildNo": 5404,
+            "BuildCommit": "5eba5f96c1",
+            "BuildDate": "02/11/2021",
+            "UnityVersion": "2019.4.28f1",
+            "SceneCount": 95,
+            "Season": "ls6"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "1660161000946919020",
+        "Date": "2021-09-22T13:21:14+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/41",
+                "Segments": [
+                    {
+                        "Size": 3810.2
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "5.2.0",
+            "BuildNo": 4585,
+            "BuildCommit": "76325d6893",
+            "UnityVersion": "2019.4.28f1",
+            "SceneCount": 86,
+            "Season": "ls55"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "3719230699988031233",
+        "Date": "2021-09-14T11:23:54+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/40",
+                "Segments": [
+                    {
+                        "Size": 3782.3
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "5.2.0",
+            "BuildNo": 4343,
+            "BuildCommit": "ea67ad22dd",
+            "UnityVersion": "2019.4.28f1",
+            "SceneCount": 86,
+            "Season": "ls55"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "223035365962542904",
+        "Date": "2021-08-23T12:13:30+00:00",
+        "Downloads": [],
+        "Data": {
+            "AppVer": "",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "UnityVersion": "",
+            "SceneCount": 0,
+            "Season": "ls55"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "7948834442916975744",
+        "Date": "2021-08-19T14:34:20+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/39",
+                "Segments": [
+                    {
+                        "Size": 3790.7
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "5.1.0",
+            "BuildNo": 3929,
+            "BuildCommit": "4486b73ed7",
+            "UnityVersion": "2019.4.28f1",
+            "SceneCount": 86,
+            "Season": "ls55"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "3198311818011218588",
+        "Date": "2021-08-18T11:19:03+00:00",
+        "Downloads": [],
+        "Data": {
+            "AppVer": "",
+            "BuildNo": 0,
+            "BuildCommit": "",
+            "UnityVersion": "",
+            "SceneCount": 0,
+            "Season": "ls55"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "2754746244643879419",
+        "Date": "2021-07-15T11:42:53+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/38",
+                "Segments": [
+                    {
+                        "Size": 3759.5
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "5.0.0",
+            "BuildNo": 3334,
+            "BuildCommit": "91b9683bfe",
+            "UnityVersion": "2019.4.15f1",
+            "SceneCount": 85,
+            "Season": "ls5"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "8816627681862548431",
+        "Date": "2021-06-24T14:35:20+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/37",
+                "Segments": [
+                    {
+                        "Size": 3756.8
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "5.0.0",
+            "BuildNo": 3250,
+            "BuildCommit": "1cd0e379c2",
+            "UnityVersion": "2019.4.15f1",
+            "SceneCount": 85,
+            "Season": "ls5"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "361787656523687009",
+        "Date": "2021-06-17T14:08:01+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/36",
+                "Segments": [
+                    {
+                        "Size": 3750.8
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "5.0.0",
+            "BuildNo": 3179,
+            "BuildCommit": "363ab90360",
+            "UnityVersion": "2019.4.15f1",
+            "SceneCount": 85,
+            "Season": "ls5"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "644049563942563381",
+        "Date": "2021-06-10T11:56:31+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/35",
+                "Segments": [
+                    {
+                        "Size": 3823.4
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "5.0.0",
+            "BuildNo": 3115,
+            "BuildCommit": "106d129b21",
+            "UnityVersion": "2019.4.15f1",
+            "SceneCount": 85,
+            "Season": "ls5"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "6578790605849895544",
+        "Date": "2021-05-05T09:41:19+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/34",
+                "Segments": [
+                    {
+                        "Size": 3198.1
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "4.1.0",
+            "HasDontShipFolder": true,
+            "BuildNo": 2821,
+            "BuildCommit": "a815524902",
+            "UnityVersion": "2019.4.15f1",
+            "SceneCount": 68,
+            "Season": "ls45"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "1914271609147606600",
+        "Date": "2021-04-30T09:02:05+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/33",
+                "Segments": [
+                    {
+                        "Size": 3193.8
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "4.1.0",
+            "BuildNo": 2767,
+            "BuildCommit": "47f4d61832",
+            "UnityVersion": "2019.4.15f1",
+            "SceneCount": 68,
+            "Season": "ls45"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "702910166757543401",
+        "Date": "2021-03-16T13:43:33+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/32",
+                "Segments": [
+                    {
+                        "Size": 2888.8
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.9.11",
+            "BuildNo": 2535,
+            "BuildCommit": "1b21918ca3",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 65,
+            "Season": "ls4"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "4881688919165660116",
+        "Date": "2021-03-09T14:31:05+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/31",
+                "Segments": [
+                    {
+                        "Size": 2957.4
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.9.12",
+            "BuildNo": 2485,
+            "BuildCommit": "5b04baf11d",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 65,
+            "Season": "ls4"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "478531136231470515",
+        "Date": "2021-03-05T14:18:55+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/30",
+                "Segments": [
+                    {
+                        "Size": 2974.5
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.9.10",
+            "BuildNo": 2474,
+            "BuildCommit": "bc9cec58f1",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 68,
+            "Season": "ls4"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "6306066469524105405",
+        "Date": "2021-03-03T11:14:03+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/29",
+                "Segments": [
+                    {
+                        "Size": 2971.1
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.9.10",
+            "BuildNo": 2437,
+            "BuildCommit": "8d0dff7529",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 68,
+            "Season": "ls4"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "2505359052681647220",
+        "Date": "2021-02-26T10:23:18+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/28",
+                "Segments": [
+                    {
+                        "Size": 2608.5
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.9.10",
+            "BuildNo": 2414,
+            "BuildCommit": "4905c28f4f",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 69,
+            "Season": "ls4"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "3647583975774255788",
+        "Date": "2021-01-25T10:39:56+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/27",
+                "Segments": [
+                    {
+                        "Size": 2230.0
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.9.10",
+            "BuildNo": 2218,
+            "BuildCommit": "137005294d",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 55,
+            "Season": "ls3"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "2255325849210825772",
+        "Date": "2020-12-08T11:12:01+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/26",
+                "Segments": [
+                    {
+                        "Size": 2248.8
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.9.7",
+            "BuildNo": 1995,
+            "BuildCommit": "43edb0d916",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 55,
+            "Season": "ls3"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "4738251595548207187",
+        "Date": "2020-12-01T10:39:27+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/25",
+                "Segments": [
+                    {
+                        "Size": 2198.3
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.9.5",
+            "BuildNo": 1952,
+            "BuildCommit": "c6bef22255",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 55,
+            "Season": "ls3"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "9076637784237837202",
+        "Date": "2020-11-25T11:04:11+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/24",
+                "Segments": [
+                    {
+                        "Size": 2104.9
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.9.5",
+            "BuildNo": 1910,
+            "BuildCommit": "6e4e966411",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 55,
+            "Season": "ls3"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "6908530620538985053",
+        "Date": "2020-11-03T10:10:06+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/23",
+                "Segments": [
+                    {
+                        "Size": 1757.9
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.9.4",
+            "BuildNo": 1791,
+            "BuildCommit": "d92f358b3d",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 43,
+            "Season": "ls2"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "8712873118538661495",
+        "Date": "2020-10-28T18:01:49+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/22",
+                "Segments": [
+                    {
+                        "Size": 1754.3
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.9.4",
+            "BuildNo": 1760,
+            "BuildCommit": "7d7abda1df",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 43,
+            "Season": "ls2"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "6826590548716202498",
+        "Date": "2020-10-01T17:11:36+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/21",
+                "Segments": [
+                    {
+                        "Size": 1502.1
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.9.3",
+            "BuildNo": 1603,
+            "BuildCommit": "3574666c2e",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 43,
+            "Season": "ls2"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "4492098296106046711",
+        "Date": "2020-09-29T15:28:37+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/20",
+                "Segments": [
+                    {
+                        "Size": 1488.6
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.9.1",
+            "BuildNo": 1584,
+            "BuildCommit": "416800bd45",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 43,
+            "Season": "ls2"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "2337599078467222343",
+        "Date": "2020-09-09T10:24:34+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/19",
+                "Segments": [
+                    {
+                        "Size": 1338.9
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.9.1",
+            "BuildNo": 1428,
+            "BuildCommit": "4aa5601aa0",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 37,
+            "Season": "ls2"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "3346223088010416053",
+        "Date": "2020-07-31T10:24:47+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/18",
+                "Segments": [
+                    {
+                        "Size": 1417.4
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.8.5",
+            "BuildNo": 1223,
+            "BuildCommit": "93d1638a09",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 46,
+            "Season": "ls1"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "7656533390063039698",
+        "Date": "2020-07-28T13:10:54+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/17",
+                "Segments": [
+                    {
+                        "Size": 1417.0
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.8.1",
+            "BuildNo": 1201,
+            "BuildCommit": "403347ac99",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 46,
+            "Season": "ls1"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "3457671012965562576",
+        "Date": "2020-07-24T08:59:57+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/16",
+                "Segments": [
+                    {
+                        "Size": 1345.9
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.7.1163",
+            "BuildNo": 1163,
+            "BuildCommit": "2fc8649a83",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 46,
+            "Season": "ls1"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "8788639582770879993",
+        "Date": "2020-07-21T13:57:23+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/15",
+                "Segments": [
+                    {
+                        "Size": 1345.8
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.7.1134",
+            "BuildNo": 1134,
+            "BuildCommit": "2928c959e8",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 46,
+            "Season": "ls1"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "7491072053054477724",
+        "Date": "2020-07-17T10:28:55+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/14",
+                "Segments": [
+                    {
+                        "Size": 1339.7
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.7.1107",
+            "BuildNo": 1107,
+            "BuildCommit": "7fa792721a",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 46,
+            "Season": "ls1"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "6682088963620259363",
+        "Date": "2020-07-10T13:18:58+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/13",
+                "Segments": [
+                    {
+                        "Size": 1375.8
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.4.1063",
+            "BuildNo": 1063,
+            "BuildCommit": "c7e6ea7321",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 46,
+            "Season": "ls1"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "2406765692739139398",
+        "Date": "2020-07-03T09:15:14+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/12",
+                "Segments": [
+                    {
+                        "Size": 1386.5
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.4.1009",
+            "BuildNo": 1009,
+            "BuildCommit": "b68b5c6961",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 45,
+            "Season": "ls1"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "5353840825335926700",
+        "Date": "2020-06-25T15:34:52+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/11",
+                "Segments": [
+                    {
+                        "Size": 1389.0
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.4.961",
+            "BuildNo": 961,
+            "BuildCommit": "c1da1047fd",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 45,
+            "Season": "ls1"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "4614539945800685723",
+        "Date": "2020-06-19T12:54:07+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/10",
+                "Segments": [
+                    {
+                        "Size": 1382.0
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.4.929",
+            "BuildNo": 929,
+            "BuildCommit": "c099f0e43b",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 45,
+            "Season": "ls1"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "950939325338762589",
+        "Date": "2020-06-05T14:52:13+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/9",
+                "Segments": [
+                    {
+                        "Size": 1300.7
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.4.841",
+            "BuildNo": 841,
+            "BuildCommit": "5d50757306",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 45,
+            "Season": "ls1"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "3782625109770824127",
+        "Date": "2020-05-29T15:15:39+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/8",
+                "Segments": [
+                    {
+                        "Size": 1300.5
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.4.761",
+            "BuildNo": 761,
+            "BuildCommit": "af7abd20a4",
+            "UnityVersion": "2019.3.14f1",
+            "SceneCount": 43,
+            "Season": "ls0"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "727289179000503292",
+        "Date": "2020-05-22T09:23:10+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/7",
+                "Segments": [
+                    {
+                        "Size": 1257.5
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.4.701",
+            "BuildNo": 701,
+            "BuildCommit": "ff0e995286",
+            "UnityVersion": "2019.3.9f1",
+            "SceneCount": 43,
+            "Season": "ls0"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "3720351679280612815",
+        "Date": "2020-05-13T14:42:22+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/6",
+                "Segments": [
+                    {
+                        "Size": 1185.8
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.4.640",
+            "BuildNo": 640,
+            "BuildCommit": "eaaa57c66e",
+            "UnityVersion": "2019.3.9f1",
+            "SceneCount": 43,
+            "Season": "ls0"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "6514712531791417440",
+        "Date": "2020-04-30T10:55:07+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/5",
+                "Segments": [
+                    {
+                        "Size": 1158.9
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "0.4.541",
+            "BuildNo": 541,
+            "BuildCommit": "73601c59a9",
+            "UnityVersion": "2019.3.9f1",
+            "SceneCount": 56,
+            "Season": "ls0"
+        }
+    },
+    {
+        "Type": "beta_build",
+        "Manifest": "156185681441698559",
+        "Date": "2020-04-27T10:13:04+00:00",
+        "Downloads": [
+            {
+                "Source": "telegram",
+                "Link": "https://t.me/FallGuysBuilds/4",
+                "Segments": [
+                    {
+                        "Size": 704.7
+                    }
+                ]
+            }
+        ],
+        "Data": {
+            "AppVer": "-buildVersion",
+            "BuildNo": 1043,
+            "BuildCommit": "0d3c7999f",
+            "UnityVersion": "2019.2.1f1",
+            "SceneCount": 42,
+            "Season": "ls0"
+        }
+    }
+]
