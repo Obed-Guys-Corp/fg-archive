@@ -6,7 +6,10 @@ import type { AppState, Build, BuildType } from "../types";
 
 const tabContent = document.getElementById("typeTabContent")!;
 
+const tabAlert = document.getElementById("tabAlert")!;
+
 export function renderTabContent(state: AppState, selectedType: BuildType, selectedSeason: string): void {
+    tabAlert.innerHTML = "";
     tabContent.innerHTML = "";
 
     const byType = Api.builds.filter(item => item.Type === selectedType);
@@ -18,6 +21,7 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
         bySeason.set(season, [...(bySeason.get(season) ?? []), item]);
     }
 
+    let hasLostMedia = false;
     for (const [season, items] of bySeason) {
         const header = document.createElement("div");
         header.className = "col-12 mt-4 mb-2";
@@ -28,9 +32,23 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
 
         const row = document.createElement("div");
         row.className = "row";
-        for (const item of items) row.appendChild(renderCard(item));
+        for (const item of items) {
+            if (item.Downloads === null || item.Downloads?.length == 0)
+                hasLostMedia = true;
+
+            row.appendChild(renderCard(item));
+        }
+
         tabContent.appendChild(row);
     }
+
+    if (hasLostMedia)
+        tabAlert.innerHTML = `
+            <div class="alert alert-warning my-3" role="alert">
+                <h5 class="alert-heading">${t(`tab.lostMediaTitle`)}</h5>
+                <p class="mb-0">${t(`tab.lostMediaDesc`)}</p>
+            </div>
+        `;
 
     setFooter(state);
 }
