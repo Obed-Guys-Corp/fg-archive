@@ -19,13 +19,13 @@ npm install
 #### Scripts
 
 `npm run dev` - Start dev server  
-`npm run build` - Production build to dist/  
-`npm run preview` - Preview production build from dist/  
+`npm run build` - Production build to `dist/`  
+`npm run preview` - Preview production build from `dist/`  
 `npm run prettier` - Format code with Prettier
 
 ## License
 
-This project is licensed under the **MIT**.  
+This project is licensed under the **MIT License**.  
 See the [LICENSE](LICENSE) file for details.
 
 ## Disclaimer
