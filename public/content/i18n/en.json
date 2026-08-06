@@ -8,7 +8,7 @@
     "footer.total": "Total",
     "footer.available": "Available",
     "footer.size": "Size",
-    "footer.note": "Red-marked builds are lost media or haven't been uploaded yet. Note: some seasons might be set incorrectly.",
+    "footer.note": "Please note that information about builds is set only when available and provided information may be inaccurate",
     "card.hasMonoSources": "Has Mono Sources",
     "card.title": "{0} — {1}",
     "card.size": "{0} {1} ({2})",

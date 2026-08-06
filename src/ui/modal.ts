@@ -26,7 +26,7 @@ function showBuildModal(item: Build): void {
     const manifestLine = egs ? "" : `<li class="list-group-item">${t("modal.field", t("modal.manifest"), item.Manifest || t("modal.unknown"))}</li>`;
 
     const dateValue = egs ? new Date(item.Date).toLocaleDateString() : new Date(item.Date).toLocaleString();
-    const dateLabel = egs ? t("modal.releaseDate") : t("modal.steamPublishDate");
+    const dateLabel = t("modal.releaseDate");
 
     modalData.innerHTML = `
         <h6 class="mb-2">${t("modal.buildDetails")}</h6>
@@ -97,10 +97,7 @@ function showBuildModal(item: Build): void {
     }
     if (item.Manifest) {
         const steamBtn = document.createElement("a");
-        steamBtn.href =
-            item.Type === "beta_build"
-                ? `https://steamdb.info/depot/1265941/history/?changeid=M:${item.Manifest}`
-                : `https://steamdb.info/depot/1097151/history/?changeid=M:${item.Manifest}`;
+        steamBtn.href = `https://steamdb.info/depot/${item.Type === "beta_build" ? 1265941 : 1097151}/history/?changeid=M:${item.Manifest}`;
         steamBtn.target = "_blank";
         steamBtn.className = "btn btn-secondary";
         steamBtn.textContent = t("modal.viewSteamDB");
