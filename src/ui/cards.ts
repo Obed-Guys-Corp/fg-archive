@@ -88,6 +88,10 @@ function renderCard(item: Build): HTMLElement {
 function renderDontShipBadge(item: Build): string {
     if (!item.Data.HasDontShipFolder) return "";
 
-    const badge = `<span class="badge rounded-pill" style="background-color: #6f42c1; color: white; font-size: 0.8em; vertical-align: middle;">${t("card.hasMonoSources")}</span>`;
-    return `<div class="mt-1 text-end">${badge}</div>`;
+    return `
+        <div class="mt-2 small text-info">
+            <i class="bi bi-info-circle-fill me-1"></i>
+            ${t("card.hasMonoSources")}
+        </div>
+    `;
 }

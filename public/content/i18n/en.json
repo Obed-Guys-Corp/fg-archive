@@ -11,7 +11,7 @@
     "footer.note": "Please note that information about builds is set only when available and provided information may be inaccurate",
     "tab.lostMediaTitle": "Lost media ahead!",
     "tab.lostMediaDesc": "Some builds on this page are marked red: those builds aren't available for download because we couldn't find them. If you have any information about those builds let us know!",
-    "card.hasMonoSources": "Has Mono Sources",
+    "card.hasMonoSources": "Has mono DLLs",
     "card.title": "{0} — {1}",
     "card.size": "{0} {1} ({2})",
     "card.seasonCount": "{0} ({1})",
