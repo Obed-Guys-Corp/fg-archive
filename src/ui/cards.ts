@@ -33,8 +33,7 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
         const row = document.createElement("div");
         row.className = "row";
         for (const item of items) {
-            if (item.Downloads === null || item.Downloads?.length == 0)
-                hasLostMedia = true;
+            if (item.Downloads === null || item.Downloads?.length == 0) hasLostMedia = true;
 
             row.appendChild(renderCard(item));
         }
