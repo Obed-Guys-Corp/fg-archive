@@ -20,9 +20,9 @@ export function setFooter(state: AppState): void {
     const typeAvailableCount = availableBuilds(typeBuilds).length;
 
     // Example:
-    // Total Builds: 168 - Total size: 507.28 GB | Beta Builds: 72 - Available: 55 - Size: 142.54 GB
+    // Total: 168 - Available: 144 - Size: 507.28 GB | Beta Builds: 72 - Available: 55 - Size: 142.54 GB
     footerCounts.textContent =
-        `${t("footer.totalBuilds")}: ${totalBuildsCount} - ${t("footer.totalAvailable")}: ${totalAvailableCount} - ${t("footer.totalSize")}: ${totalSize} ${t("unitGB")} | ` +
+        `${t("footer.total")}: ${totalBuildsCount} - ${t("footer.available")}: ${totalAvailableCount} - ${t("footer.size")}: ${totalSize} ${t("unitGB")} | ` +
         `${typeLabel}: ${typeBuildsCount} - ${t("footer.available")}: ${typeAvailableCount} - ${t("footer.size")}: ${typeSize} ${t("unitGB")}`;
 
     footerNotes.textContent = t("footer.note");
