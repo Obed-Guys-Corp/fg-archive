@@ -1,8 +1,8 @@
 import { Api } from "../api";
 import { t } from "../i18n/i18n";
 import { capitalize } from "../utils/string";
-import { isEGS } from "../utils/stats";
-import type { Build } from "../types";
+import { isSteam } from "../utils/stats";
+import type { AnyBuild, Build, BuildType, SteamProperties } from "../types";
 
 const modalData = document.getElementById("modalData")!;
 const modalSegments = document.getElementById("modalSegments")!;
@@ -10,22 +10,33 @@ const modalFooter = document.getElementById("modalFooter")!;
 
 export function initCardClick(): void {
     document.addEventListener("click", e => {
+        console.log(1);
         const card = (e.target as HTMLElement).closest<HTMLElement>(".card");
-        const idx = card?.dataset.index;
-        if (!idx) return;
-        const item = Api.builds[Number(idx)];
+        if (!card) return;
+
+         console.log(2);
+        const type = card.dataset.type as BuildType | undefined;
+        const index = Number(card.dataset.index);
+
+        if (!type || !Number.isInteger(index)) return;
+         console.log(3);
+         
+        const item = Api.builds[type][index];
         if (!item) return;
-        showBuildModal(item);
+
+        showBuildModal(item, type);
+
         new bootstrap.Modal(document.getElementById("modal_build_info")!).show();
     });
 }
 
-function showBuildModal(item: Build): void {
-    const season = t(item.Data.Season);
-    const egs = isEGS(item);
-    const manifestLine = egs ? "" : `<li class="list-group-item">${t("modal.field", t("modal.manifest"), item.Manifest || t("modal.unknown"))}</li>`;
+function showBuildModal(item: Build, type: BuildType): void {
+    const season = t(item.properties.season);
+    const steam = isSteam(type);
+    const steamManifest = isSteam(type) ? (item.properties as SteamProperties).manifest ?? "" : "";
+    const manifestLine = steam ? "" : `<li class="list-group-item">${t("modal.field", t("modal.manifest"), steamManifest || t("modal.unknown"))}</li>`;
 
-    const dateValue = egs ? new Date(item.Date).toLocaleDateString() : new Date(item.Date).toLocaleString();
+    const dateValue = !steam ? new Date(item.release_date).toLocaleDateString() : new Date(item.release_date).toLocaleString();
     const dateLabel = t("modal.releaseDate");
 
     modalData.innerHTML = `
@@ -33,21 +44,21 @@ function showBuildModal(item: Build): void {
         <ul class="list-group">
           ${manifestLine}
           <li class="list-group-item">${t("modal.field", dateLabel, dateValue)}</li>
-          <li class="list-group-item">${t("modal.field", t("modal.appVersion"), item.Data.AppVer || t("modal.unknown"))}</li>
-          <li class="list-group-item">${t("modal.field", t("modal.buildNo"), item.Data.BuildNo === 0 ? "?" : (item.Data.BuildNo ?? "?"))}</li>
-          <li class="list-group-item">${t("modal.field", t("modal.commit"), item.Data.BuildCommit || t("modal.unknown"))}</li>
-          <li class="list-group-item">${t("modal.field", t("modal.buildDate"), item.Data.BuildDate || t("modal.unknown"))}</li>
-          <li class="list-group-item">${t("modal.field", t("modal.unityVersion"), item.Data.UnityVersion || t("modal.unknown"))}</li>
-          <li class="list-group-item">${t("modal.field", t("modal.scenes"), item.Data.SceneCount === 0 ? "?" : (item.Data.SceneCount ?? "?"))}</li>
+          <li class="list-group-item">${t("modal.field", t("modal.appVersion"), item.properties.version || t("modal.unknown"))}</li>
+          <li class="list-group-item">${t("modal.field", t("modal.buildNo"), item.properties.build_number === 0 ? "?" : (item.properties.build_number ?? "?"))}</li>
+          <li class="list-group-item">${t("modal.field", t("modal.commit"), item.properties.build_commit || t("modal.unknown"))}</li>
+          <li class="list-group-item">${t("modal.field", t("modal.buildDate"), item.properties.build_date || t("modal.unknown"))}</li>
+          <li class="list-group-item">${t("modal.field", t("modal.unityVersion"), item.properties.unity_version || t("modal.unknown"))}</li>
+          <li class="list-group-item">${t("modal.field", t("modal.scenes"), item.properties.scenes === 0 ? "?" : (item.properties.scenes ?? "?"))}</li>
           <li class="list-group-item">${t("modal.field", t("modal.season"), season || t("modal.unknown"))}</li>
         </ul>`;
 
-    const allSegments = (item.Downloads ?? [])
+    const allSegments = (item.downloads ?? [])
         .flatMap(download =>
-            (download.Segments ?? []).map((seg, i) => ({
-                source: download.Source,
+            (download.segments ?? []).map((seg, i) => ({
+                source: download.source,
                 index: i + 1,
-                sizeGB: seg.Size / 1024
+                sizeGB: seg.size / 1024
             }))
         )
         .filter(seg => seg.sizeGB > 0);
@@ -84,20 +95,20 @@ function showBuildModal(item: Build): void {
     }
 
     modalFooter.innerHTML = "";
-    for (const download of item.Downloads ?? []) {
-        if (download.Link.trim() !== "") {
+    for (const download of item.downloads ?? []) {
+        if (download.link.trim() !== "") {
             const btn = document.createElement("a");
-            btn.href = download.Link;
+            btn.href = download.link;
             btn.target = "_blank";
             btn.className = "btn btn-primary me-2";
-            const source = download.Source;
+            const source = download.source;
             btn.textContent = t("modal.downloadIn", capitalize(source));
             modalFooter.appendChild(btn);
         }
     }
-    if (item.Manifest) {
+    if (steam && steamManifest) {
         const steamBtn = document.createElement("a");
-        steamBtn.href = `https://steamdb.info/depot/${item.Type === "beta_build" ? 1265941 : 1097151}/history/?changeid=M:${item.Manifest}`;
+        steamBtn.href = `https://steamdb.info/depot/${type === "steam_beta" ? 1265941 : 1097151}/history/?changeid=M:${steamManifest}`;
         steamBtn.target = "_blank";
         steamBtn.className = "btn btn-secondary";
         steamBtn.textContent = t("modal.viewSteamDB");

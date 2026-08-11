@@ -1,0 +1,119 @@
+{
+    "android_ega": [
+        {
+            "release_date": "2025-12-17",
+            "downloads": [
+                {
+                    "source": "telegram",
+                    "link": "https://t.me/FallGuysBuilds/236",
+                    "segments": [
+                        {
+                            "size": 2149.2
+                        }
+                    ]
+                }
+            ],
+            "properties": {
+                "version": "21.1.2",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "not_season_3"
+            }
+        },
+        {
+            "release_date": "2025-09-16",
+            "downloads": [
+                {
+                    "source": "telegram",
+                    "link": "https://t.me/FallGuysBuilds/229",
+                    "segments": [
+                        {
+                            "size": 2145.1
+                        }
+                    ]
+                }
+            ],
+            "properties": {
+                "version": "21.0.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "not_season_3"
+            }
+        },
+        {
+            "release_date": "2025-08-19",
+            "downloads": [
+                {
+                    "source": "telegram",
+                    "link": "https://t.me/FallGuysBuilds/224",
+                    "segments": [
+                        {
+                            "size": 2094.6
+                        }
+                    ]
+                }
+            ],
+            "properties": {
+                "version": "20.0.2",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "not_season_2"
+            }
+        },
+        {
+            "release_date": "2025-03-13",
+            "downloads": [
+                {
+                    "source": "telegram",
+                    "link": "https://t.me/FallGuysBuilds/231",
+                    "segments": [
+                        {
+                            "size": 1991.3
+                        }
+                    ]
+                }
+            ],
+            "properties": {
+                "version": "11.6.1",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "ss5"
+            }
+        },
+        {
+            "release_date": "2024-08-16",
+            "downloads": [
+                {
+                    "source": "telegram",
+                    "link": "https://t.me/FallGuysBuilds/230",
+                    "segments": [
+                        {
+                            "size": 1874.7
+                        }
+                    ]
+                }
+            ],
+            "properties": {
+                "version": "11.1.4",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "ss5"
+            }
+        }
+    ]
+}

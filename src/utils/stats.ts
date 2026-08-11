@@ -1,11 +1,11 @@
-import type { Build, Download } from "../types";
+import type { Build, BuildType, Download } from "../types";
 
 export function isAvailable(build: Build): boolean {
-    return (build.Downloads ?? []).some(d => d.Link.trim() !== "");
+    return (build.downloads ?? []).some(d => d.link.trim() !== "");
 }
 
-export function isEGS(build: Build): boolean {
-    return build.Type === "android_build" || build.Type === "egs_build";
+export function isSteam(type: BuildType): boolean {
+    return type === "steam_beta" || type === "steam";
 }
 
 export function availableBuilds(builds: Build[]): Build[] {
@@ -13,11 +13,11 @@ export function availableBuilds(builds: Build[]): Build[] {
 }
 
 export function downloadSizeMB(download: Download): number {
-    return (download.Segments ?? []).reduce((sum, seg) => sum + (seg.Size ?? 0), 0);
+    return (download.segments ?? []).reduce((sum, seg) => sum + (seg.size ?? 0), 0);
 }
 
 export function buildSizeMB(build: Build): number {
-    const first = build.Downloads?.[0];
+    const first = build.downloads?.[0];
     return first ? downloadSizeMB(first) : 0;
 }
 

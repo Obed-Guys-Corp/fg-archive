@@ -17,8 +17,8 @@ export function renderFilter(state: AppState, selectedType: BuildType): void {
     filter.appendChild(allOption);
 
     const seasons = new Set<string>();
-    for (const item of Api.builds) {
-        if (item.Type === selectedType && item.Data.Season) seasons.add(item.Data.Season);
+    for (const item of Api.builds[selectedType]) {
+        if (item.properties.season) seasons.add(item.properties.season);
     }
 
     for (const season of [...seasons].sort()) {
@@ -35,7 +35,7 @@ export function renderFilter(state: AppState, selectedType: BuildType): void {
     };
 }
 
-const TAB_ORDER: BuildType[] = ["beta_build", "steam_build", "egs_build", "android_build", "dev_build"];
+const TAB_ORDER: BuildType[] = ["steam_beta", "steam", "egs_beta", "egs", "android_ega"];
 
 export function renderTabs(state: AppState): void {
     typeTabs.innerHTML = "";

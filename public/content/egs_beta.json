@@ -1,0 +1,32 @@
+{
+    "egs_beta": [
+        {
+            "release_date": "2022-10-12T11:43:27+00:00",
+            "downloads": [
+                {
+                    "source": "telegram",
+                    "link": "https://t.me/FallGuysBuilds/201",
+                    "segments": [
+                        {
+                            "size": 3891.1
+                        },
+                        {
+                            "size": 1249.4
+                        }
+                    ]
+                }
+            ],
+            "properties": {
+                "manifest": "1917491314255731246",
+                "version": "10.7.0",
+                "build_number": 4718,
+                "build_commit": "27cc7d94156",
+                "build_date": "28/11/2023",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "ss45",
+                "source_leak": true
+            }
+        }
+    ]
+}
