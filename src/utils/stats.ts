@@ -1,7 +1,7 @@
 import type { Build, BuildType, Download } from "../types";
 
 export function isAvailable(build: Build): boolean {
-    return (build.downloads ?? []).some(d => d.link.trim() !== "");
+    return (build.downloads?.available ?? []).some(d => d.link.trim() !== "");
 }
 
 export function isSteam(type: BuildType): boolean {
@@ -12,13 +12,8 @@ export function availableBuilds(builds: Build[]): Build[] {
     return builds.filter(isAvailable);
 }
 
-export function downloadSizeMB(download: Download): number {
-    return (download.segments ?? []).reduce((sum, seg) => sum + (seg.size ?? 0), 0);
-}
-
 export function buildSizeMB(build: Build): number {
-    const first = build.downloads?.[0];
-    return first ? downloadSizeMB(first) : 0;
+    return build.downloads?.total_size ?? 0;
 }
 
 export function totalSizeMB(builds: Build[]): number {

@@ -5,7 +5,7 @@ export interface AppState {
 
 export interface Build<TProperties = GenericProperties> {
     release_date: string;
-    downloads?: Download[];
+    downloads?: Downloads;
     properties: TProperties;
 }
 
@@ -38,10 +38,15 @@ export type AnyBuild = {
     [K in BuildType]: Build<BuildPropertiesMap[K]>
 }[BuildType];
 
+export interface Downloads {
+    total_size: number;
+    available: Download[];
+}
+
 export interface Download {
     source: DownloadSource;
     link: string;
-    segments: Segment[];
+    segments: Segment[] | null;
 }
 
 export type DownloadSource = "telegram" | "gdrive";

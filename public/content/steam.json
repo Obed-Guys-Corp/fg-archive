@@ -2,7 +2,10 @@
     "steam": [
         {
             "release_date": "2025-12-17T09:58:07+00:00",
-            "downloads": [],
+            "downloads": {
+                "total_size": 0,
+                "available": []
+            },
             "properties": {
                 "manifest": "7873417187350688982",
                 "version": "21.1.2",
@@ -16,7 +19,10 @@
         },
         {
             "release_date": "2025-11-27T09:58:44+00:00",
-            "downloads": [],
+            "downloads": {
+                "total_size": 0,
+                "available": []
+            },
             "properties": {
                 "manifest": "339111521546687935",
                 "version": "21.1.1",
@@ -30,7 +36,10 @@
         },
         {
             "release_date": "2025-10-14T08:52:22+00:00",
-            "downloads": [],
+            "downloads": {
+                "total_size": 0,
+                "available": []
+            },
             "properties": {
                 "manifest": "515102807960757872",
                 "version": "21.0.1",
@@ -44,7 +53,10 @@
         },
         {
             "release_date": "2025-10-03T09:48:56+00:00",
-            "downloads": [],
+            "downloads": {
+                "total_size": 0,
+                "available": []
+            },
             "properties": {
                 "manifest": "4955211832044305461",
                 "version": "21.0.0",
@@ -58,7 +70,10 @@
         },
         {
             "release_date": "2025-09-16T08:59:40+00:00",
-            "downloads": [],
+            "downloads": {
+                "total_size": 0,
+                "available": []
+            },
             "properties": {
                 "manifest": "8806787142867023096",
                 "version": "21.0.0",
@@ -72,7 +87,10 @@
         },
         {
             "release_date": "2025-08-19T09:24:44+00:00",
-            "downloads": [],
+            "downloads": {
+                "total_size": 0,
+                "available": []
+            },
             "properties": {
                 "manifest": "3567894125916403143",
                 "version": "20.0.2",
@@ -86,7 +104,10 @@
         },
         {
             "release_date": "2025-07-29T08:58:10+00:00",
-            "downloads": [],
+            "downloads": {
+                "total_size": 0,
+                "available": []
+            },
             "properties": {
                 "manifest": "4547926260597266440",
                 "version": "20.0.0",
@@ -100,20 +121,23 @@
         },
         {
             "release_date": "2025-06-19T08:54:53+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/197",
-                    "segments": [
-                        {
-                            "size": 3891.1
-                        },
-                        {
-                            "size": 3474
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 7365.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/197",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3474
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "2790638740024239269",
                 "version": "19.0.0",
@@ -127,20 +151,23 @@
         },
         {
             "release_date": "2025-05-27T08:52:32+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/195",
-                    "segments": [
-                        {
-                            "size": 3891.1
-                        },
-                        {
-                            "size": 3473.8
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 7364.9,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/195",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3473.8
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "3073243705540486626",
                 "version": "19.0.0",
@@ -154,20 +181,23 @@
         },
         {
             "release_date": "2025-04-01T09:03:19+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/193",
-                    "segments": [
-                        {
-                            "size": 3891.1
-                        },
-                        {
-                            "size": 3408.5
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 7299.6,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/193",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3408.5
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "4040175459828593816",
                 "version": "18.0.0",
@@ -181,20 +211,23 @@
         },
         {
             "release_date": "2025-03-13T09:55:28+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/191",
-                    "segments": [
-                        {
-                            "size": 3891.1
-                        },
-                        {
-                            "size": 3337.4
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 7228.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/191",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3337.4
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "3018561164260187613",
                 "version": "11.6.1",
@@ -208,20 +241,23 @@
         },
         {
             "release_date": "2025-02-04T09:51:15+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/189",
-                    "segments": [
-                        {
-                            "size": 3891.1
-                        },
-                        {
-                            "size": 3332.7
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 7223.799999999999,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/189",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3332.7
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "5893653626185196174",
                 "version": "11.6.0",
@@ -235,20 +271,23 @@
         },
         {
             "release_date": "2024-12-10T10:10:05+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/187",
-                    "segments": [
-                        {
-                            "size": 3891.1
-                        },
-                        {
-                            "size": 3277.6
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 7168.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/187",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3277.6
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "6997704982161685131",
                 "version": "11.5.0",
@@ -262,20 +301,23 @@
         },
         {
             "release_date": "2024-11-07T09:57:57+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/185",
-                    "segments": [
-                        {
-                            "size": 3891.1
-                        },
-                        {
-                            "size": 3227.4
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 7118.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/185",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3227.4
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "4296583284325860558",
                 "version": "11.4.0",
@@ -289,20 +331,23 @@
         },
         {
             "release_date": "2024-10-08T08:58:46+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/183",
-                    "segments": [
-                        {
-                            "size": 3891.1
-                        },
-                        {
-                            "size": 3136.9
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 7028,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/183",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3136.9
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "6693036074298579858",
                 "version": "11.3.0",
@@ -316,20 +361,23 @@
         },
         {
             "release_date": "2024-09-24T08:53:45+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/181",
-                    "segments": [
-                        {
-                            "size": 3891.1
-                        },
-                        {
-                            "size": 3071.1
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 6962.2,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/181",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3071.1
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "5121157970244341640",
                 "version": "11.2.1",
@@ -343,20 +391,23 @@
         },
         {
             "release_date": "2024-09-03T08:55:33+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/179",
-                    "segments": [
-                        {
-                            "size": 3891.1
-                        },
-                        {
-                            "size": 3072.4
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 6963.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/179",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3072.4
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "5441502081485695704",
                 "version": "11.2.0",
@@ -370,20 +421,23 @@
         },
         {
             "release_date": "2024-07-23T08:58:11+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/177",
-                    "segments": [
-                        {
-                            "size": 3891.1
-                        },
-                        {
-                            "size": 2940.7
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 6831.799999999999,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/177",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 2940.7
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "3963141464932978334",
                 "version": "11.1.0",
@@ -397,23 +451,26 @@
         },
         {
             "release_date": "2024-06-11T08:51:49+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/174",
-                    "segments": [
-                        {
-                            "size": 1950
-                        },
-                        {
-                            "size": 1950
-                        },
-                        {
-                            "size": 1284.6
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 5184.6,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/174",
+                        "segments": [
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 1284.6
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "8367987026827237202",
                 "version": "11.0.1",
@@ -427,20 +484,23 @@
         },
         {
             "release_date": "2024-05-07T09:58:37+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/172",
-                    "segments": [
-                        {
-                            "size": 3788.7
-                        },
-                        {
-                            "size": 2467.6
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 6256.299999999999,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/172",
+                        "segments": [
+                            {
+                                "size": 3788.7
+                            },
+                            {
+                                "size": 2467.6
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "7702932384876208572",
                 "version": "10.9.1",
@@ -454,20 +514,23 @@
         },
         {
             "release_date": "2024-03-19T09:58:18+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/170",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 2515.7
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 5587.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/170",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 2515.7
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "5053812274934992034",
                 "version": "10.8.1",
@@ -481,20 +544,23 @@
         },
         {
             "release_date": "2024-02-28T09:57:35+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/168",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 2517.6
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 5589.6,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/168",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 2517.6
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "2243315629817704326",
                 "version": "10.8.0",
@@ -508,20 +574,23 @@
         },
         {
             "release_date": "2024-02-06T10:01:03+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/166",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 2234.3
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 5306.3,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/166",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 2234.3
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "876509041486140192",
                 "version": "10.7.1",
@@ -535,23 +604,26 @@
         },
         {
             "release_date": "2024-01-23T10:13:44+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/163",
-                    "segments": [
-                        {
-                            "size": 1950
-                        },
-                        {
-                            "size": 1950
-                        },
-                        {
-                            "size": 1059.7
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4959.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/163",
+                        "segments": [
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 1059.7
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "5300007209693711132",
                 "version": "10.7.0",
@@ -565,20 +637,23 @@
         },
         {
             "release_date": "2023-12-21T09:52:45+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/161",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 3055.4
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 6127.4,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/161",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 3055.4
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "7787227976603798712",
                 "version": "10.6.2",
@@ -592,23 +667,26 @@
         },
         {
             "release_date": "2023-12-15T09:59:37+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/158",
-                    "segments": [
-                        {
-                            "size": 1950
-                        },
-                        {
-                            "size": 1950
-                        },
-                        {
-                            "size": 1287.5
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 5187.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/158",
+                        "segments": [
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 1287.5
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "3762345879302785049",
                 "version": "10.6.1",
@@ -622,20 +700,23 @@
         },
         {
             "release_date": "2023-12-06T09:59:33+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/156",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1904.5
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4976.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/156",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1904.5
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "8498041862316156194",
                 "version": "10.6.0",
@@ -649,23 +730,26 @@
         },
         {
             "release_date": "2023-11-07T09:56:47+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/153",
-                    "segments": [
-                        {
-                            "size": 1950
-                        },
-                        {
-                            "size": 1950
-                        },
-                        {
-                            "size": 993.1
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4893.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/153",
+                        "segments": [
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 993.1
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "4371744759528657474",
                 "version": "10.5.0",
@@ -679,20 +763,23 @@
         },
         {
             "release_date": "2023-10-17T08:58:11+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/151",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1767.1
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4839.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/151",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1767.1
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "4468080355735082549",
                 "version": "10.4.2",
@@ -706,20 +793,23 @@
         },
         {
             "release_date": "2023-09-28T14:00:47+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/149",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1766.4
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4838.4,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/149",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1766.4
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "3628645968777028845",
                 "version": "",
@@ -733,23 +823,26 @@
         },
         {
             "release_date": "2023-09-27T09:00:14+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/146",
-                    "segments": [
-                        {
-                            "size": 1950
-                        },
-                        {
-                            "size": 1950
-                        },
-                        {
-                            "size": 938.4
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4838.4,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/146",
+                        "segments": [
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 938.4
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "7725735156774365021",
                 "version": "10.4.0",
@@ -763,20 +856,23 @@
         },
         {
             "release_date": "2023-08-16T09:00:18+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/144",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1874.8
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4946.8,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/144",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1874.8
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "4638928565622023862",
                 "version": "10.3.0",
@@ -790,20 +886,23 @@
         },
         {
             "release_date": "2023-06-29T09:02:14+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/142",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1802.3
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4874.3,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/142",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1802.3
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "6628840078918077996",
                 "version": "10.2.1",
@@ -817,20 +916,23 @@
         },
         {
             "release_date": "2023-06-27T08:57:47+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/140",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1802.3
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4874.3,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/140",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1802.3
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "6328879370377982902",
                 "version": "10.2.0",
@@ -844,20 +946,23 @@
         },
         {
             "release_date": "2023-06-06T08:59:53+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/138",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1767.2
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4839.2,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/138",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1767.2
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "7804690452509254711",
                 "version": "10.1.0",
@@ -871,20 +976,23 @@
         },
         {
             "release_date": "2023-05-10T08:58:08+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/136",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1759.7
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4831.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/136",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1759.7
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "2421232278122776259",
                 "version": "10.0.0",
@@ -898,20 +1006,23 @@
         },
         {
             "release_date": "2023-02-21T09:59:23+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/134",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1633.1
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4705.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/134",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1633.1
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "7824665334839160650",
                 "version": "9.0.4",
@@ -925,20 +1036,23 @@
         },
         {
             "release_date": "2023-01-19T09:57:57+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/132",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1633
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4705,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/132",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1633
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "8341426816879611829",
                 "version": "9.0.3",
@@ -952,20 +1066,23 @@
         },
         {
             "release_date": "2022-12-14T16:00:37+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/130",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1633
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4705,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/130",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1633
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "1687397381238085436",
                 "version": "9.0.2",
@@ -979,20 +1096,23 @@
         },
         {
             "release_date": "2022-12-02T09:54:43+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/128",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1633
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4705,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/128",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1633
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "590955972299648477",
                 "version": "9.0.1",
@@ -1006,20 +1126,23 @@
         },
         {
             "release_date": "2022-11-22T09:58:09+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/126",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1633.2
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4705.2,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/126",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1633.2
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "479085044588393229",
                 "version": "9.0.0",
@@ -1033,20 +1156,23 @@
         },
         {
             "release_date": "2022-11-01T09:51:03+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/124",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1154.5
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4226.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/124",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1154.5
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "3555965707510986996",
                 "version": "8.2.0",
@@ -1060,20 +1186,23 @@
         },
         {
             "release_date": "2022-10-18T08:59:31+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/122",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1152.9
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4224.9,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/122",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1152.9
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "9197053796078784898",
                 "version": "",
@@ -1087,20 +1216,23 @@
         },
         {
             "release_date": "2022-09-15T08:58:49+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/120",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1666.2
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4738.2,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/120",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1666.2
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "218905112541351819",
                 "version": "8.0.0",
@@ -1114,17 +1246,16 @@
         },
         {
             "release_date": "2022-08-23T09:00:19+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/119",
-                    "segments": [
-                        {
-                            "size": 3745.3
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 3745.3,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/119",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "242988054047923695",
                 "version": "",
@@ -1138,17 +1269,16 @@
         },
         {
             "release_date": "2022-07-14T08:59:31+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/118",
-                    "segments": [
-                        {
-                            "size": 3760.1
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 3760.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/118",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "5376636721554121138",
                 "version": "",
@@ -1162,17 +1292,16 @@
         },
         {
             "release_date": "2022-07-06T09:00:32+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/117",
-                    "segments": [
-                        {
-                            "size": 3686.9
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 3686.9,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/117",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "978133964548439964",
                 "version": "",
@@ -1186,17 +1315,16 @@
         },
         {
             "release_date": "2022-06-27T09:00:36+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/116",
-                    "segments": [
-                        {
-                            "size": 3696.3
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 3696.3,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/116",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "5745550454379341276",
                 "version": "",
@@ -1210,17 +1338,16 @@
         },
         {
             "release_date": "2022-06-21T07:58:32+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/115",
-                    "segments": [
-                        {
-                            "size": 3687.2
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 3687.2,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/115",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "4435719763172881585",
                 "version": "7.0.0",
@@ -1234,17 +1361,16 @@
         },
         {
             "release_date": "2022-05-09T10:05:39+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/114",
-                    "segments": [
-                        {
-                            "size": 2913.5
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 2913.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/114",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "2736941346251070698",
                 "version": "6.3.0",
@@ -1258,17 +1384,16 @@
         },
         {
             "release_date": "2022-03-31T10:03:06+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/113",
-                    "segments": [
-                        {
-                            "size": 2913.5
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 2913.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/113",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "3539631198148609646",
                 "version": "",
@@ -1282,17 +1407,16 @@
         },
         {
             "release_date": "2022-03-04T11:12:49+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/112",
-                    "segments": [
-                        {
-                            "size": 2914.5
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 2914.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/112",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "7648259600739599889",
                 "version": "",
@@ -1306,17 +1430,16 @@
         },
         {
             "release_date": "2022-02-22T14:19:17+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/111",
-                    "segments": [
-                        {
-                            "size": 2905.7
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 2905.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/111",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "8767273831226382243",
                 "version": "",
@@ -1330,23 +1453,26 @@
         },
         {
             "release_date": "2022-01-13T12:03:48+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/108",
-                    "segments": [
-                        {
-                            "size": 2048
-                        },
-                        {
-                            "size": 2048
-                        },
-                        {
-                            "size": 248.1
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4344.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/108",
+                        "segments": [
+                            {
+                                "size": 2048
+                            },
+                            {
+                                "size": 2048
+                            },
+                            {
+                                "size": 248.1
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "1884605578774488475",
                 "version": "",
@@ -1360,23 +1486,26 @@
         },
         {
             "release_date": "2021-12-09T11:04:35+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/105",
-                    "segments": [
-                        {
-                            "size": 2048
-                        },
-                        {
-                            "size": 2048
-                        },
-                        {
-                            "size": 247.1
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4343.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/105",
+                        "segments": [
+                            {
+                                "size": 2048
+                            },
+                            {
+                                "size": 2048
+                            },
+                            {
+                                "size": 247.1
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "4848691758868654778",
                 "version": "",
@@ -1390,20 +1519,23 @@
         },
         {
             "release_date": "2021-12-07T11:04:16+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/103",
-                    "segments": [
-                        {
-                            "size": 3584
-                        },
-                        {
-                            "size": 755.2
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4339.2,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/103",
+                        "segments": [
+                            {
+                                "size": 3584
+                            },
+                            {
+                                "size": 755.2
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "8465018983924282468",
                 "version": "",
@@ -1417,20 +1549,23 @@
         },
         {
             "release_date": "2021-12-02T17:13:43+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/102",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1267
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4339,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/102",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1267
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "6998577641171871598",
                 "version": "",
@@ -1444,20 +1579,23 @@
         },
         {
             "release_date": "2021-12-01T14:33:38+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/99",
-                    "segments": [
-                        {
-                            "size": 3584
-                        },
-                        {
-                            "size": 755
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4339,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/99",
+                        "segments": [
+                            {
+                                "size": 3584
+                            },
+                            {
+                                "size": 755
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "3115093187342213137",
                 "version": "",
@@ -1471,20 +1609,23 @@
         },
         {
             "release_date": "2021-11-30T13:01:23+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/97",
-                    "segments": [
-                        {
-                            "size": 3072
-                        },
-                        {
-                            "size": 1267
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 4339,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/97",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1267
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "4255532964276673288",
                 "version": "",
@@ -1498,17 +1639,16 @@
         },
         {
             "release_date": "2021-10-20T08:55:19+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/95",
-                    "segments": [
-                        {
-                            "size": 3836.7
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 3836.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/95",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "9178225534409480726",
                 "version": "",
@@ -1522,17 +1662,16 @@
         },
         {
             "release_date": "2021-10-05T10:57:10+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/94",
-                    "segments": [
-                        {
-                            "size": 3832.9
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 3832.9,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/94",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "8788493614976874816",
                 "version": "",
@@ -1546,17 +1685,16 @@
         },
         {
             "release_date": "2021-08-31T09:40:01+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/93",
-                    "segments": [
-                        {
-                            "size": 3805.4
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 3805.4,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/93",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "7823190448145834983",
                 "version": "",
@@ -1570,17 +1708,16 @@
         },
         {
             "release_date": "2021-08-05T14:40:21+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/92",
-                    "segments": [
-                        {
-                            "size": 3757.7
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 3757.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/92",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "6532741374031236985",
                 "version": "",
@@ -1594,17 +1731,16 @@
         },
         {
             "release_date": "2021-07-20T09:04:07+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/91",
-                    "segments": [
-                        {
-                            "size": 3759.4
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 3759.4,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/91",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "5693399366362827278",
                 "version": "",
@@ -1618,17 +1754,16 @@
         },
         {
             "release_date": "2021-06-01T09:32:13+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/90",
-                    "segments": [
-                        {
-                            "size": 3048
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 3048,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/90",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "1389344541695781740",
                 "version": "",
@@ -1642,17 +1777,16 @@
         },
         {
             "release_date": "2021-05-20T08:54:22+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/89",
-                    "segments": [
-                        {
-                            "size": 3040.7
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 3040.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/89",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "3268970811856408153",
                 "version": "",
@@ -1666,17 +1800,16 @@
         },
         {
             "release_date": "2021-05-14T14:00:52+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/88",
-                    "segments": [
-                        {
-                            "size": 3040.8
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 3040.8,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/88",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "7130325047774921606",
                 "version": "",
@@ -1690,17 +1823,16 @@
         },
         {
             "release_date": "2021-05-13T09:33:03+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/87",
-                    "segments": [
-                        {
-                            "size": 3183.4
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 3183.4,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/87",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "9072305705647716775",
                 "version": "",
@@ -1714,17 +1846,16 @@
         },
         {
             "release_date": "2021-04-06T15:31:23+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/86",
-                    "segments": [
-                        {
-                            "size": 2888.8
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 2888.8,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/86",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "7259681007687138983",
                 "version": "",
@@ -1738,17 +1869,16 @@
         },
         {
             "release_date": "2021-04-06T13:14:07+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/85",
-                    "segments": [
-                        {
-                            "size": 2888.8
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 2888.8,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/85",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "8186821359203181145",
                 "version": "",
@@ -1762,17 +1892,16 @@
         },
         {
             "release_date": "2021-03-22T10:08:32+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/84",
-                    "segments": [
-                        {
-                            "size": 2888.8
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 2888.8,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/84",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "5893883379728001054",
                 "version": "",
@@ -1786,17 +1915,16 @@
         },
         {
             "release_date": "2021-02-02T12:01:43+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/83",
-                    "segments": [
-                        {
-                            "size": 2229.5
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 2229.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/83",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "300011685960600518",
                 "version": "0.9.10",
@@ -1810,17 +1938,16 @@
         },
         {
             "release_date": "2021-01-11T13:03:41+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/82",
-                    "segments": [
-                        {
-                            "size": 2244.7
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 2244.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/82",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "1703959378194142378",
                 "version": "",
@@ -1834,17 +1961,16 @@
         },
         {
             "release_date": "2020-12-17T14:24:46+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/81",
-                    "segments": [
-                        {
-                            "size": 2239.8
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 2239.8,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/81",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "2347463014525970390",
                 "version": "",
@@ -1858,17 +1984,16 @@
         },
         {
             "release_date": "2020-12-15T11:03:56+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/80",
-                    "segments": [
-                        {
-                            "size": 2239.6
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 2239.6,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/80",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "4643743283249613721",
                 "version": "",
@@ -1882,17 +2007,16 @@
         },
         {
             "release_date": "2020-11-30T15:36:21+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/79",
-                    "segments": [
-                        {
-                            "size": 1768.1
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 1768.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/79",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "2862592106262426959",
                 "version": "",
@@ -1906,17 +2030,16 @@
         },
         {
             "release_date": "2020-11-10T11:06:46+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/78",
-                    "segments": [
-                        {
-                            "size": 1764.5
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 1764.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/78",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "1287946132897679594",
                 "version": "",
@@ -1930,17 +2053,16 @@
         },
         {
             "release_date": "2020-10-19T13:44:20+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/76",
-                    "segments": [
-                        {
-                            "size": 1712
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 1712,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/76",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "3233052260934368807",
                 "version": "",
@@ -1954,17 +2076,16 @@
         },
         {
             "release_date": "2020-10-08T08:58:10+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/74",
-                    "segments": [
-                        {
-                            "size": 1710.6
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 1710.6,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/74",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "3694740791525983586",
                 "version": "",
@@ -1978,17 +2099,16 @@
         },
         {
             "release_date": "2020-09-15T11:31:43+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/73",
-                    "segments": [
-                        {
-                            "size": 1344.3
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 1344.3,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/73",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "8688381616420641174",
                 "version": "",
@@ -2002,17 +2122,16 @@
         },
         {
             "release_date": "2020-08-24T15:56:26+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/72",
-                    "segments": [
-                        {
-                            "size": 1328.6
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 1328.6,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/72",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "6038344339979299117",
                 "version": "",
@@ -2026,17 +2145,16 @@
         },
         {
             "release_date": "2020-08-13T13:15:13+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/71",
-                    "segments": [
-                        {
-                            "size": 1417.5
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 1417.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/71",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "117650925852504231",
                 "version": "",
@@ -2050,17 +2168,16 @@
         },
         {
             "release_date": "2020-08-07T14:04:49+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/70",
-                    "segments": [
-                        {
-                            "size": 1417.4
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 1417.4,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/70",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "6005306049049899391",
                 "version": "",
@@ -2074,17 +2191,16 @@
         },
         {
             "release_date": "2020-08-07T10:51:54+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/69",
-                    "segments": [
-                        {
-                            "size": 1417.1
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 1417.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/69",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "606630862955742779",
                 "version": "",
@@ -2098,17 +2214,16 @@
         },
         {
             "release_date": "2020-08-04T06:59:42+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/68",
-                    "segments": [
-                        {
-                            "size": 1417.4
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 1417.4,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/68",
+                        "segments": null
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "1199846569987058453",
                 "version": "",

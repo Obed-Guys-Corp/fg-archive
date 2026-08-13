@@ -53,9 +53,9 @@ function showBuildModal(item: Build, type: BuildType): void {
           <li class="list-group-item">${t("modal.field", t("modal.season"), season || t("modal.unknown"))}</li>
         </ul>`;
 
-    const allSegments = (item.downloads ?? [])
+    const allSegments = (item.downloads?.available ?? [])
         .flatMap(download =>
-            (download.segments ?? []).map((seg, i) => ({
+            (download.segments ?? [{ size: item.downloads!.total_size }]).map((seg, i) => ({
                 source: download.source,
                 index: i + 1,
                 sizeGB: seg.size / 1024
@@ -95,7 +95,7 @@ function showBuildModal(item: Build, type: BuildType): void {
     }
 
     modalFooter.innerHTML = "";
-    for (const download of item.downloads ?? []) {
+    for (const download of item.downloads?.available ?? []) {
         if (download.link.trim() !== "") {
             const btn = document.createElement("a");
             btn.href = download.link;

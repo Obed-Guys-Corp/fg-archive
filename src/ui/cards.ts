@@ -1,6 +1,6 @@
 import { Api } from "../api";
 import { t } from "../i18n/i18n";
-import { downloadSizeMB, isAvailable, isSteam, toGB } from "../utils/stats";
+import { buildSizeMB, isAvailable, isSteam, toGB } from "../utils/stats";
 import { setFooter } from "./footer";
 import type { AnyBuild, AppState, Build, BuildType, SteamProperties } from "../types";
 
@@ -32,7 +32,7 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
         const row = document.createElement("div");
         row.className = "row";
         for (const item of items) {
-            if (item.downloads === null || item.downloads?.length === 0) hasLostMedia = true;
+            if ((item.downloads?.available.length ?? 0) === 0) hasLostMedia = true;
             const index = Api.builds[selectedType].indexOf(item);
             row.appendChild(renderCard(item, selectedType, index));
         }
@@ -52,12 +52,12 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
 }
 
 function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement {
-    const downloads = item.downloads ?? [];
+    const downloads = item.downloads;
     const available = isAvailable(item);
     const badgeContainer = renderDontShipBadge(item);
 
     // Size (Download sources length)
-    const sizeDisplay = downloads.length ? t("card.size", toGB(downloadSizeMB(downloads[0]!)), t("unitGB"), downloads.length) : "";
+    const sizeDisplay = downloads?.available.length ? t("card.size", toGB(buildSizeMB(item)), t("unitGB"), downloads.available.length) : "";
 
     // Can't get manifest on android and egs builds
     const manifestDisplay = isSteam(type) ? (item.properties as SteamProperties).manifest ?? "" : "";

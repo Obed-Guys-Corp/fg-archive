@@ -2,20 +2,23 @@
     "egs_beta": [
         {
             "release_date": "2022-10-12T11:43:27+00:00",
-            "downloads": [
-                {
-                    "source": "telegram",
-                    "link": "https://t.me/FallGuysBuilds/201",
-                    "segments": [
-                        {
-                            "size": 3891.1
-                        },
-                        {
-                            "size": 1249.4
-                        }
-                    ]
-                }
-            ],
+            "downloads": {
+                "total_size": 5140.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/201",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 1249.4
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": {
                 "manifest": "1917491314255731246",
                 "version": "10.7.0",
