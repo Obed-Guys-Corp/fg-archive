@@ -1,2207 +1,2239 @@
-[
-    {
-        "Type": "steam_build",
-        "Manifest": "7873417187350688982",
-        "Date": "2025-12-17T09:58:07+00:00",
-        "Downloads": [],
-        "Data": {
-            "AppVer": "21.1.2",
-            "BuildNo": 20267,
-            "BuildCommit": "95133c93719",
-            "BuildDate": "05/12/2025",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "not_season_3"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "339111521546687935",
-        "Date": "2025-11-27T09:58:44+00:00",
-        "Downloads": [],
-        "Data": {
-            "AppVer": "21.1.1",
-            "BuildNo": 20168,
-            "BuildCommit": "0e30a4865ff",
-            "BuildDate": "10/11/2025",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "not_season_3"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "515102807960757872",
-        "Date": "2025-10-14T08:52:22+00:00",
-        "Downloads": [],
-        "Data": {
-            "AppVer": "21.0.1",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "not_season_3"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "4955211832044305461",
-        "Date": "2025-10-03T09:48:56+00:00",
-        "Downloads": [],
-        "Data": {
-            "AppVer": "21.0.0",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "not_season_3"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "8806787142867023096",
-        "Date": "2025-09-16T08:59:40+00:00",
-        "Downloads": [],
-        "Data": {
-            "AppVer": "21.0.0",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "not_season_3"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "3567894125916403143",
-        "Date": "2025-08-19T09:24:44+00:00",
-        "Downloads": [],
-        "Data": {
-            "AppVer": "20.0.2",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "not_season_2"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "4547926260597266440",
-        "Date": "2025-07-29T08:58:10+00:00",
-        "Downloads": [],
-        "Data": {
-            "AppVer": "20.0.0",
-            "BuildNo": 19623,
-            "BuildCommit": "6b3a17d2651",
-            "BuildDate": "27/06/2025",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "not_season_2"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "2790638740024239269",
-        "Date": "2025-06-19T08:54:53+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/197",
-                "Segments": [
-                    {
-                        "Size": 3891.1
-                    },
-                    {
-                        "Size": 3474
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "19.0.0",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "not_season_1"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "3073243705540486626",
-        "Date": "2025-05-27T08:52:32+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/195",
-                "Segments": [
-                    {
-                        "Size": 3891.1
-                    },
-                    {
-                        "Size": 3473.8
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "19.0.0",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "not_season_1"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "4040175459828593816",
-        "Date": "2025-04-01T09:03:19+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/193",
-                "Segments": [
-                    {
-                        "Size": 3891.1
-                    },
-                    {
-                        "Size": 3408.5
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "18.0.0",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "not_season_0"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "3018561164260187613",
-        "Date": "2025-03-13T09:55:28+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/191",
-                "Segments": [
-                    {
-                        "Size": 3891.1
-                    },
-                    {
-                        "Size": 3337.4
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "11.6.1",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "ss5"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "5893653626185196174",
-        "Date": "2025-02-04T09:51:15+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/189",
-                "Segments": [
-                    {
-                        "Size": 3891.1
-                    },
-                    {
-                        "Size": 3332.7
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "11.6.0",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "ss5"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "6997704982161685131",
-        "Date": "2024-12-10T10:10:05+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/187",
-                "Segments": [
-                    {
-                        "Size": 3891.1
-                    },
-                    {
-                        "Size": 3277.6
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "11.5.0",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "ss5"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "4296583284325860558",
-        "Date": "2024-11-07T09:57:57+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/185",
-                "Segments": [
-                    {
-                        "Size": 3891.1
-                    },
-                    {
-                        "Size": 3227.4
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "11.4.0",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "ss5"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "6693036074298579858",
-        "Date": "2024-10-08T08:58:46+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/183",
-                "Segments": [
-                    {
-                        "Size": 3891.1
-                    },
-                    {
-                        "Size": 3136.9
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "11.3.0",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "ss5"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "5121157970244341640",
-        "Date": "2024-09-24T08:53:45+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/181",
-                "Segments": [
-                    {
-                        "Size": 3891.1
-                    },
-                    {
-                        "Size": 3071.1
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "11.2.1",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "ss5"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "5441502081485695704",
-        "Date": "2024-09-03T08:55:33+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/179",
-                "Segments": [
-                    {
-                        "Size": 3891.1
-                    },
-                    {
-                        "Size": 3072.4
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "11.2.0",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "ss5"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "3963141464932978334",
-        "Date": "2024-07-23T08:58:11+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/177",
-                "Segments": [
-                    {
-                        "Size": 3891.1
-                    },
-                    {
-                        "Size": 2940.7
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "11.1.0",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 114,
-            "Season": "ss5"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "8367987026827237202",
-        "Date": "2024-06-11T08:51:49+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/174",
-                "Segments": [
-                    {
-                        "Size": 1950
-                    },
-                    {
-                        "Size": 1950
-                    },
-                    {
-                        "Size": 1284.6
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "11.0.1",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "ss5"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "7702932384876208572",
-        "Date": "2024-05-07T09:58:37+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/172",
-                "Segments": [
-                    {
-                        "Size": 3788.7
-                    },
-                    {
-                        "Size": 2467.6
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "10.9.1",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 93,
-            "Season": "ss45"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "5053812274934992034",
-        "Date": "2024-03-19T09:58:18+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/170",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 2515.7
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "10.8.1",
-            "BuildNo": 16228,
-            "BuildCommit": "77e16d03b4f",
-            "BuildDate": "05/03/2024",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 109,
-            "Season": "ss45"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "2243315629817704326",
-        "Date": "2024-02-28T09:57:35+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/168",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 2517.6
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "10.8.0",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ss45"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "876509041486140192",
-        "Date": "2024-02-06T10:01:03+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/166",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 2234.3
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "10.7.1",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "ss45"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "5300007209693711132",
-        "Date": "2024-01-23T10:13:44+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/163",
-                "Segments": [
-                    {
-                        "Size": 1950
-                    },
-                    {
-                        "Size": 1950
-                    },
-                    {
-                        "Size": 1059.7
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "10.7.0",
-            "BuildNo": 15509,
-            "BuildCommit": "caf5bdb38f8",
-            "BuildDate": "22/12/2023",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 109,
-            "Season": "ss45"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "7787227976603798712",
-        "Date": "2023-12-21T09:52:45+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/161",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 3055.4
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "10.6.2",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "ss45"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "3762345879302785049",
-        "Date": "2023-12-15T09:59:37+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/158",
-                "Segments": [
-                    {
-                        "Size": 1950
-                    },
-                    {
-                        "Size": 1950
-                    },
-                    {
-                        "Size": 1287.5
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "10.6.1",
-            "BuildNo": 15373,
-            "BuildCommit": "aa3e8470569",
-            "BuildDate": "07/12/2023",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 119,
-            "Season": "ss45"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "8498041862316156194",
-        "Date": "2023-12-06T09:59:33+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/156",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1904.5
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "10.6.0",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "ss45"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "4371744759528657474",
-        "Date": "2023-11-07T09:56:47+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/153",
-                "Segments": [
-                    {
-                        "Size": 1950
-                    },
-                    {
-                        "Size": 1950
-                    },
-                    {
-                        "Size": 993.1
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "10.5.0",
-            "BuildNo": 15882,
-            "BuildCommit": "f0080fc3055",
-            "BuildDate": "25/10/2023",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 109,
-            "Season": "ss45"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "4468080355735082549",
-        "Date": "2023-10-17T08:58:11+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/151",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1767.1
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "10.4.2",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "ss45"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "3628645968777028845",
-        "Date": "2023-09-28T14:00:47+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/149",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1766.4
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "ss45"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "7725735156774365021",
-        "Date": "2023-09-27T09:00:14+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/146",
-                "Segments": [
-                    {
-                        "Size": 1950
-                    },
-                    {
-                        "Size": 1950
-                    },
-                    {
-                        "Size": 938.4
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "10.4.0",
-            "BuildNo": 15461,
-            "BuildCommit": "6aef742d5ad",
-            "BuildDate": "08/09/2023",
-            "UnityVersion": "2021.3.16f1",
-            "SceneCount": 0,
-            "Season": "ss45"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "4638928565622023862",
-        "Date": "2023-08-16T09:00:18+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/144",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1874.8
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "10.3.0",
-            "BuildNo": 14930,
-            "BuildCommit": "2293ba87d5b",
-            "BuildDate": "19/07/2023",
-            "UnityVersion": "2019.4.37f1",
-            "SceneCount": 0,
-            "Season": "ss4"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "6628840078918077996",
-        "Date": "2023-06-29T09:02:14+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/142",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1802.3
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "10.2.1",
-            "BuildNo": 4126,
-            "BuildCommit": "456a9946916",
-            "BuildDate": "27/06/2023",
-            "UnityVersion": "2019.4.37f1",
-            "SceneCount": 0,
-            "Season": "ss4"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "6328879370377982902",
-        "Date": "2023-06-27T08:57:47+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/140",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1802.3
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "10.2.0",
-            "BuildNo": 14554,
-            "BuildCommit": "43110a28b9d",
-            "BuildDate": "06/06/2023",
-            "UnityVersion": "2019.4.37f1",
-            "SceneCount": 0,
-            "Season": "ss4"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "7804690452509254711",
-        "Date": "2023-06-06T08:59:53+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/138",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1767.2
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "10.1.0",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ss4"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "2421232278122776259",
-        "Date": "2023-05-10T08:58:08+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/136",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1759.7
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "10.0.0",
-            "BuildNo": 14014,
-            "BuildCommit": "4a0d5f452d9",
-            "BuildDate": "17/04/2023",
-            "UnityVersion": "2019.4.37f1",
-            "SceneCount": 0,
-            "Season": "ss4"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "7824665334839160650",
-        "Date": "2023-02-21T09:59:23+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/134",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1633.1
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "9.0.4",
-            "BuildNo": 13155,
-            "BuildCommit": "240c958f039",
-            "BuildDate": "03/02/2023",
-            "UnityVersion": "2019.4.37f1",
-            "SceneCount": 0,
-            "Season": "ss3"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "8341426816879611829",
-        "Date": "2023-01-19T09:57:57+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/132",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1633
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "9.0.3",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2019.4.37f1",
-            "SceneCount": 0,
-            "Season": "ss3"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "1687397381238085436",
-        "Date": "2022-12-14T16:00:37+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/130",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1633
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "9.0.2",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2019.4.37f1",
-            "SceneCount": 0,
-            "Season": "ss3"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "590955972299648477",
-        "Date": "2022-12-02T09:54:43+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/128",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1633
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "9.0.1",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2019.4.37f1",
-            "SceneCount": 0,
-            "Season": "ss3"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "479085044588393229",
-        "Date": "2022-11-22T09:58:09+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/126",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1633.2
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "9.0.0",
-            "BuildNo": 12200,
-            "BuildCommit": "c3dd948ddf1",
-            "BuildDate": "08/11/2022",
-            "UnityVersion": "2019.4.37f1",
-            "SceneCount": 0,
-            "Season": "ss3"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "3555965707510986996",
-        "Date": "2022-11-01T09:51:03+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/124",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1154.5
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "8.2.0",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2019.4.37f1",
-            "SceneCount": 0,
-            "Season": "ss2"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "9197053796078784898",
-        "Date": "2022-10-18T08:59:31+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/122",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1152.9
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2019.4.37f1",
-            "SceneCount": 0,
-            "Season": "ss2"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "218905112541351819",
-        "Date": "2022-09-15T08:58:49+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/120",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1666.2
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "8.0.0",
-            "BuildNo": 10884,
-            "BuildCommit": "b3f4391e7e5",
-            "BuildDate": "23/08/2022",
-            "UnityVersion": "2019.4.37f1",
-            "SceneCount": 87,
-            "Season": "ss2"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "242988054047923695",
-        "Date": "2022-08-23T09:00:19+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/119",
-                "Segments": [
-                    {
-                        "Size": 3745.3
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "2019.4.37f1",
-            "SceneCount": 0,
-            "Season": "ss1"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "5376636721554121138",
-        "Date": "2022-07-14T08:59:31+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/118",
-                "Segments": [
-                    {
-                        "Size": 3760.1
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ss1"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "978133964548439964",
-        "Date": "2022-07-06T09:00:32+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/117",
-                "Segments": [
-                    {
-                        "Size": 3686.9
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ss1"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "5745550454379341276",
-        "Date": "2022-06-27T09:00:36+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/116",
-                "Segments": [
-                    {
-                        "Size": 3696.3
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ss1"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "4435719763172881585",
-        "Date": "2022-06-21T07:58:32+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/115",
-                "Segments": [
-                    {
-                        "Size": 3687.2
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "7.0.0",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ss1"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "2736941346251070698",
-        "Date": "2022-05-09T10:05:39+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/114",
-                "Segments": [
-                    {
-                        "Size": 2913.5
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "6.3.0",
-            "BuildNo": 8945,
-            "BuildCommit": "b4d49ebf81a",
-            "BuildDate": "",
-            "UnityVersion": "2019.4.31f1",
-            "SceneCount": 92,
-            "Season": "ls65"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "3539631198148609646",
-        "Date": "2022-03-31T10:03:06+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/113",
-                "Segments": [
-                    {
-                        "Size": 2913.5
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls65"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "7648259600739599889",
-        "Date": "2022-03-04T11:12:49+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/112",
-                "Segments": [
-                    {
-                        "Size": 2914.5
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls65"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "8767273831226382243",
-        "Date": "2022-02-22T14:19:17+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/111",
-                "Segments": [
-                    {
-                        "Size": 2905.7
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls6"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "1884605578774488475",
-        "Date": "2022-01-13T12:03:48+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/108",
-                "Segments": [
-                    {
-                        "Size": 2048
-                    },
-                    {
-                        "Size": 2048
-                    },
-                    {
-                        "Size": 248.1
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls6"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "4848691758868654778",
-        "Date": "2021-12-09T11:04:35+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/105",
-                "Segments": [
-                    {
-                        "Size": 2048
-                    },
-                    {
-                        "Size": 2048
-                    },
-                    {
-                        "Size": 247.1
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls6"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "8465018983924282468",
-        "Date": "2021-12-07T11:04:16+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/103",
-                "Segments": [
-                    {
-                        "Size": 3584
-                    },
-                    {
-                        "Size": 755.2
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls6"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "6998577641171871598",
-        "Date": "2021-12-02T17:13:43+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/102",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1267
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls6"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "3115093187342213137",
-        "Date": "2021-12-01T14:33:38+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/99",
-                "Segments": [
-                    {
-                        "Size": 3584
-                    },
-                    {
-                        "Size": 755
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls6"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "4255532964276673288",
-        "Date": "2021-11-30T13:01:23+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/97",
-                "Segments": [
-                    {
-                        "Size": 3072
-                    },
-                    {
-                        "Size": 1267
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls6"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "9178225534409480726",
-        "Date": "2021-10-20T08:55:19+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/95",
-                "Segments": [
-                    {
-                        "Size": 3836.7
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls55"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "8788493614976874816",
-        "Date": "2021-10-05T10:57:10+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/94",
-                "Segments": [
-                    {
-                        "Size": 3832.9
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls55"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "7823190448145834983",
-        "Date": "2021-08-31T09:40:01+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/93",
-                "Segments": [
-                    {
-                        "Size": 3805.4
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls55"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "6532741374031236985",
-        "Date": "2021-08-05T14:40:21+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/92",
-                "Segments": [
-                    {
-                        "Size": 3757.7
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls5"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "5693399366362827278",
-        "Date": "2021-07-20T09:04:07+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/91",
-                "Segments": [
-                    {
-                        "Size": 3759.4
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls5"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "1389344541695781740",
-        "Date": "2021-06-01T09:32:13+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/90",
-                "Segments": [
-                    {
-                        "Size": 3048
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls45"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "3268970811856408153",
-        "Date": "2021-05-20T08:54:22+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/89",
-                "Segments": [
-                    {
-                        "Size": 3040.7
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls45"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "7130325047774921606",
-        "Date": "2021-05-14T14:00:52+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/88",
-                "Segments": [
-                    {
-                        "Size": 3040.8
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls45"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "9072305705647716775",
-        "Date": "2021-05-13T09:33:03+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/87",
-                "Segments": [
-                    {
-                        "Size": 3183.4
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls45"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "7259681007687138983",
-        "Date": "2021-04-06T15:31:23+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/86",
-                "Segments": [
-                    {
-                        "Size": 2888.8
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls4"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "8186821359203181145",
-        "Date": "2021-04-06T13:14:07+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/85",
-                "Segments": [
-                    {
-                        "Size": 2888.8
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls4"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "5893883379728001054",
-        "Date": "2021-03-22T10:08:32+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/84",
-                "Segments": [
-                    {
-                        "Size": 2888.8
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls4"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "300011685960600518",
-        "Date": "2021-02-02T12:01:43+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/83",
-                "Segments": [
-                    {
-                        "Size": 2229.5
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "0.9.10",
-            "BuildNo": 2247,
-            "BuildCommit": "2658879519",
-            "BuildDate": "",
-            "UnityVersion": "2019.3.14f1",
-            "SceneCount": 55,
-            "Season": "ls35"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "1703959378194142378",
-        "Date": "2021-01-11T13:03:41+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/82",
-                "Segments": [
-                    {
-                        "Size": 2244.7
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls3"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "2347463014525970390",
-        "Date": "2020-12-17T14:24:46+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/81",
-                "Segments": [
-                    {
-                        "Size": 2239.8
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls3"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "4643743283249613721",
-        "Date": "2020-12-15T11:03:56+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/80",
-                "Segments": [
-                    {
-                        "Size": 2239.6
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls3"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "2862592106262426959",
-        "Date": "2020-11-30T15:36:21+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/79",
-                "Segments": [
-                    {
-                        "Size": 1768.1
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls25"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "1287946132897679594",
-        "Date": "2020-11-10T11:06:46+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/78",
-                "Segments": [
-                    {
-                        "Size": 1764.5
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls25"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "3233052260934368807",
-        "Date": "2020-10-19T13:44:20+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/76",
-                "Segments": [
-                    {
-                        "Size": 1712
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls2"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "3694740791525983586",
-        "Date": "2020-10-08T08:58:10+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/74",
-                "Segments": [
-                    {
-                        "Size": 1710.6
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls2"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "8688381616420641174",
-        "Date": "2020-09-15T11:31:43+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/73",
-                "Segments": [
-                    {
-                        "Size": 1344.3
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls15"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "6038344339979299117",
-        "Date": "2020-08-24T15:56:26+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/72",
-                "Segments": [
-                    {
-                        "Size": 1328.6
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls15"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "117650925852504231",
-        "Date": "2020-08-13T13:15:13+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/71",
-                "Segments": [
-                    {
-                        "Size": 1417.5
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls1"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "6005306049049899391",
-        "Date": "2020-08-07T14:04:49+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/70",
-                "Segments": [
-                    {
-                        "Size": 1417.4
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls1"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "606630862955742779",
-        "Date": "2020-08-07T10:51:54+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/69",
-                "Segments": [
-                    {
-                        "Size": 1417.1
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls1"
-        }
-    },
-    {
-        "Type": "steam_build",
-        "Manifest": "1199846569987058453",
-        "Date": "2020-08-04T06:59:42+00:00",
-        "Downloads": [
-            {
-                "Source": "telegram",
-                "Link": "https://t.me/FallGuysBuilds/68",
-                "Segments": [
-                    {
-                        "Size": 1417.4
-                    }
-                ]
-            }
-        ],
-        "Data": {
-            "AppVer": "",
-            "BuildNo": 0,
-            "BuildCommit": "",
-            "BuildDate": "",
-            "UnityVersion": "",
-            "SceneCount": 0,
-            "Season": "ls1"
-        }
-    }
-]
+{
+    "steam": [
+        {
+            "release_date": "2025-12-17T09:58:07+00:00",
+            "downloads": {
+                "total_size": 0,
+                "available": []
+            },
+            "properties": {
+                "manifest": "7873417187350688982",
+                "version": "21.1.2",
+                "build_number": 20267,
+                "build_commit": "95133c93719",
+                "build_date": "05/12/2025",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "not_season_3"
+            }
+        },
+        {
+            "release_date": "2025-11-27T09:58:44+00:00",
+            "downloads": {
+                "total_size": 0,
+                "available": []
+            },
+            "properties": {
+                "manifest": "339111521546687935",
+                "version": "21.1.1",
+                "build_number": 20168,
+                "build_commit": "0e30a4865ff",
+                "build_date": "10/11/2025",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "not_season_3"
+            }
+        },
+        {
+            "release_date": "2025-10-14T08:52:22+00:00",
+            "downloads": {
+                "total_size": 0,
+                "available": []
+            },
+            "properties": {
+                "manifest": "515102807960757872",
+                "version": "21.0.1",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "not_season_3"
+            }
+        },
+        {
+            "release_date": "2025-10-03T09:48:56+00:00",
+            "downloads": {
+                "total_size": 0,
+                "available": []
+            },
+            "properties": {
+                "manifest": "4955211832044305461",
+                "version": "21.0.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "not_season_3"
+            }
+        },
+        {
+            "release_date": "2025-09-16T08:59:40+00:00",
+            "downloads": {
+                "total_size": 0,
+                "available": []
+            },
+            "properties": {
+                "manifest": "8806787142867023096",
+                "version": "21.0.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "not_season_3"
+            }
+        },
+        {
+            "release_date": "2025-08-19T09:24:44+00:00",
+            "downloads": {
+                "total_size": 0,
+                "available": []
+            },
+            "properties": {
+                "manifest": "3567894125916403143",
+                "version": "20.0.2",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "not_season_2"
+            }
+        },
+        {
+            "release_date": "2025-07-29T08:58:10+00:00",
+            "downloads": {
+                "total_size": 0,
+                "available": []
+            },
+            "properties": {
+                "manifest": "4547926260597266440",
+                "version": "20.0.0",
+                "build_number": 19623,
+                "build_commit": "6b3a17d2651",
+                "build_date": "27/06/2025",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "not_season_2"
+            }
+        },
+        {
+            "release_date": "2025-06-19T08:54:53+00:00",
+            "downloads": {
+                "total_size": 7365.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/197",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3474
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "2790638740024239269",
+                "version": "19.0.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "not_season_1"
+            }
+        },
+        {
+            "release_date": "2025-05-27T08:52:32+00:00",
+            "downloads": {
+                "total_size": 7364.9,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/195",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3473.8
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "3073243705540486626",
+                "version": "19.0.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "not_season_1"
+            }
+        },
+        {
+            "release_date": "2025-04-01T09:03:19+00:00",
+            "downloads": {
+                "total_size": 7299.6,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/193",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3408.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "4040175459828593816",
+                "version": "18.0.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "not_season_0"
+            }
+        },
+        {
+            "release_date": "2025-03-13T09:55:28+00:00",
+            "downloads": {
+                "total_size": 7228.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/191",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3337.4
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "3018561164260187613",
+                "version": "11.6.1",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "ss5"
+            }
+        },
+        {
+            "release_date": "2025-02-04T09:51:15+00:00",
+            "downloads": {
+                "total_size": 7223.799999999999,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/189",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3332.7
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "5893653626185196174",
+                "version": "11.6.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "ss5"
+            }
+        },
+        {
+            "release_date": "2024-12-10T10:10:05+00:00",
+            "downloads": {
+                "total_size": 7168.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/187",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3277.6
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "6997704982161685131",
+                "version": "11.5.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "ss5"
+            }
+        },
+        {
+            "release_date": "2024-11-07T09:57:57+00:00",
+            "downloads": {
+                "total_size": 7118.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/185",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3227.4
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "4296583284325860558",
+                "version": "11.4.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "ss5"
+            }
+        },
+        {
+            "release_date": "2024-10-08T08:58:46+00:00",
+            "downloads": {
+                "total_size": 7028,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/183",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3136.9
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "6693036074298579858",
+                "version": "11.3.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "ss5"
+            }
+        },
+        {
+            "release_date": "2024-09-24T08:53:45+00:00",
+            "downloads": {
+                "total_size": 6962.2,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/181",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3071.1
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "5121157970244341640",
+                "version": "11.2.1",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "ss5"
+            }
+        },
+        {
+            "release_date": "2024-09-03T08:55:33+00:00",
+            "downloads": {
+                "total_size": 6963.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/179",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 3072.4
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "5441502081485695704",
+                "version": "11.2.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "ss5"
+            }
+        },
+        {
+            "release_date": "2024-07-23T08:58:11+00:00",
+            "downloads": {
+                "total_size": 6831.799999999999,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/177",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 2940.7
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "3963141464932978334",
+                "version": "11.1.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 114,
+                "season": "ss5"
+            }
+        },
+        {
+            "release_date": "2024-06-11T08:51:49+00:00",
+            "downloads": {
+                "total_size": 5184.6,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/174",
+                        "segments": [
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 1284.6
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "8367987026827237202",
+                "version": "11.0.1",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "ss5"
+            }
+        },
+        {
+            "release_date": "2024-05-07T09:58:37+00:00",
+            "downloads": {
+                "total_size": 6256.299999999999,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/172",
+                        "segments": [
+                            {
+                                "size": 3788.7
+                            },
+                            {
+                                "size": 2467.6
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "7702932384876208572",
+                "version": "10.9.1",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 93,
+                "season": "ss45"
+            }
+        },
+        {
+            "release_date": "2024-03-19T09:58:18+00:00",
+            "downloads": {
+                "total_size": 5587.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/170",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 2515.7
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "5053812274934992034",
+                "version": "10.8.1",
+                "build_number": 16228,
+                "build_commit": "77e16d03b4f",
+                "build_date": "05/03/2024",
+                "unity_version": "2021.3.16f1",
+                "scenes": 109,
+                "season": "ss45"
+            }
+        },
+        {
+            "release_date": "2024-02-28T09:57:35+00:00",
+            "downloads": {
+                "total_size": 5589.6,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/168",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 2517.6
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "2243315629817704326",
+                "version": "10.8.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ss45"
+            }
+        },
+        {
+            "release_date": "2024-02-06T10:01:03+00:00",
+            "downloads": {
+                "total_size": 5306.3,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/166",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 2234.3
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "876509041486140192",
+                "version": "10.7.1",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "ss45"
+            }
+        },
+        {
+            "release_date": "2024-01-23T10:13:44+00:00",
+            "downloads": {
+                "total_size": 4959.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/163",
+                        "segments": [
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 1059.7
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "5300007209693711132",
+                "version": "10.7.0",
+                "build_number": 15509,
+                "build_commit": "caf5bdb38f8",
+                "build_date": "22/12/2023",
+                "unity_version": "2021.3.16f1",
+                "scenes": 109,
+                "season": "ss45"
+            }
+        },
+        {
+            "release_date": "2023-12-21T09:52:45+00:00",
+            "downloads": {
+                "total_size": 6127.4,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/161",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 3055.4
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "7787227976603798712",
+                "version": "10.6.2",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "ss45"
+            }
+        },
+        {
+            "release_date": "2023-12-15T09:59:37+00:00",
+            "downloads": {
+                "total_size": 5187.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/158",
+                        "segments": [
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 1287.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "3762345879302785049",
+                "version": "10.6.1",
+                "build_number": 15373,
+                "build_commit": "aa3e8470569",
+                "build_date": "07/12/2023",
+                "unity_version": "2021.3.16f1",
+                "scenes": 119,
+                "season": "ss45"
+            }
+        },
+        {
+            "release_date": "2023-12-06T09:59:33+00:00",
+            "downloads": {
+                "total_size": 4976.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/156",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1904.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "8498041862316156194",
+                "version": "10.6.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "ss45"
+            }
+        },
+        {
+            "release_date": "2023-11-07T09:56:47+00:00",
+            "downloads": {
+                "total_size": 4893.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/153",
+                        "segments": [
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 993.1
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "4371744759528657474",
+                "version": "10.5.0",
+                "build_number": 15882,
+                "build_commit": "f0080fc3055",
+                "build_date": "25/10/2023",
+                "unity_version": "2021.3.16f1",
+                "scenes": 109,
+                "season": "ss45"
+            }
+        },
+        {
+            "release_date": "2023-10-17T08:58:11+00:00",
+            "downloads": {
+                "total_size": 4839.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/151",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1767.1
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "4468080355735082549",
+                "version": "10.4.2",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "ss45"
+            }
+        },
+        {
+            "release_date": "2023-09-28T14:00:47+00:00",
+            "downloads": {
+                "total_size": 4838.4,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/149",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1766.4
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "3628645968777028845",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "ss45"
+            }
+        },
+        {
+            "release_date": "2023-09-27T09:00:14+00:00",
+            "downloads": {
+                "total_size": 4838.4,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/146",
+                        "segments": [
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 1950
+                            },
+                            {
+                                "size": 938.4
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "7725735156774365021",
+                "version": "10.4.0",
+                "build_number": 15461,
+                "build_commit": "6aef742d5ad",
+                "build_date": "08/09/2023",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "ss45"
+            }
+        },
+        {
+            "release_date": "2023-08-16T09:00:18+00:00",
+            "downloads": {
+                "total_size": 4946.8,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/144",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1874.8
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "4638928565622023862",
+                "version": "10.3.0",
+                "build_number": 14930,
+                "build_commit": "2293ba87d5b",
+                "build_date": "19/07/2023",
+                "unity_version": "2019.4.37f1",
+                "scenes": 0,
+                "season": "ss4"
+            }
+        },
+        {
+            "release_date": "2023-06-29T09:02:14+00:00",
+            "downloads": {
+                "total_size": 4874.3,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/142",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1802.3
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "6628840078918077996",
+                "version": "10.2.1",
+                "build_number": 4126,
+                "build_commit": "456a9946916",
+                "build_date": "27/06/2023",
+                "unity_version": "2019.4.37f1",
+                "scenes": 0,
+                "season": "ss4"
+            }
+        },
+        {
+            "release_date": "2023-06-27T08:57:47+00:00",
+            "downloads": {
+                "total_size": 4874.3,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/140",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1802.3
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "6328879370377982902",
+                "version": "10.2.0",
+                "build_number": 14554,
+                "build_commit": "43110a28b9d",
+                "build_date": "06/06/2023",
+                "unity_version": "2019.4.37f1",
+                "scenes": 0,
+                "season": "ss4"
+            }
+        },
+        {
+            "release_date": "2023-06-06T08:59:53+00:00",
+            "downloads": {
+                "total_size": 4839.2,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/138",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1767.2
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "7804690452509254711",
+                "version": "10.1.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ss4"
+            }
+        },
+        {
+            "release_date": "2023-05-10T08:58:08+00:00",
+            "downloads": {
+                "total_size": 4831.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/136",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1759.7
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "2421232278122776259",
+                "version": "10.0.0",
+                "build_number": 14014,
+                "build_commit": "4a0d5f452d9",
+                "build_date": "17/04/2023",
+                "unity_version": "2019.4.37f1",
+                "scenes": 0,
+                "season": "ss4"
+            }
+        },
+        {
+            "release_date": "2023-02-21T09:59:23+00:00",
+            "downloads": {
+                "total_size": 4705.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/134",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1633.1
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "7824665334839160650",
+                "version": "9.0.4",
+                "build_number": 13155,
+                "build_commit": "240c958f039",
+                "build_date": "03/02/2023",
+                "unity_version": "2019.4.37f1",
+                "scenes": 0,
+                "season": "ss3"
+            }
+        },
+        {
+            "release_date": "2023-01-19T09:57:57+00:00",
+            "downloads": {
+                "total_size": 4705,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/132",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1633
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "8341426816879611829",
+                "version": "9.0.3",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2019.4.37f1",
+                "scenes": 0,
+                "season": "ss3"
+            }
+        },
+        {
+            "release_date": "2022-12-14T16:00:37+00:00",
+            "downloads": {
+                "total_size": 4705,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/130",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1633
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "1687397381238085436",
+                "version": "9.0.2",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2019.4.37f1",
+                "scenes": 0,
+                "season": "ss3"
+            }
+        },
+        {
+            "release_date": "2022-12-02T09:54:43+00:00",
+            "downloads": {
+                "total_size": 4705,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/128",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1633
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "590955972299648477",
+                "version": "9.0.1",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2019.4.37f1",
+                "scenes": 0,
+                "season": "ss3"
+            }
+        },
+        {
+            "release_date": "2022-11-22T09:58:09+00:00",
+            "downloads": {
+                "total_size": 4705.2,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/126",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1633.2
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "479085044588393229",
+                "version": "9.0.0",
+                "build_number": 12200,
+                "build_commit": "c3dd948ddf1",
+                "build_date": "08/11/2022",
+                "unity_version": "2019.4.37f1",
+                "scenes": 0,
+                "season": "ss3"
+            }
+        },
+        {
+            "release_date": "2022-11-01T09:51:03+00:00",
+            "downloads": {
+                "total_size": 4226.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/124",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1154.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "3555965707510986996",
+                "version": "8.2.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2019.4.37f1",
+                "scenes": 0,
+                "season": "ss2"
+            }
+        },
+        {
+            "release_date": "2022-10-18T08:59:31+00:00",
+            "downloads": {
+                "total_size": 4224.9,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/122",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1152.9
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "9197053796078784898",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2019.4.37f1",
+                "scenes": 0,
+                "season": "ss2"
+            }
+        },
+        {
+            "release_date": "2022-09-15T08:58:49+00:00",
+            "downloads": {
+                "total_size": 4738.2,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/120",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1666.2
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "218905112541351819",
+                "version": "8.0.0",
+                "build_number": 10884,
+                "build_commit": "b3f4391e7e5",
+                "build_date": "23/08/2022",
+                "unity_version": "2019.4.37f1",
+                "scenes": 87,
+                "season": "ss2"
+            }
+        },
+        {
+            "release_date": "2022-08-23T09:00:19+00:00",
+            "downloads": {
+                "total_size": 3745.3,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/119",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "242988054047923695",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2019.4.37f1",
+                "scenes": 0,
+                "season": "ss1"
+            }
+        },
+        {
+            "release_date": "2022-07-14T08:59:31+00:00",
+            "downloads": {
+                "total_size": 3760.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/118",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "5376636721554121138",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ss1"
+            }
+        },
+        {
+            "release_date": "2022-07-06T09:00:32+00:00",
+            "downloads": {
+                "total_size": 3686.9,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/117",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "978133964548439964",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ss1"
+            }
+        },
+        {
+            "release_date": "2022-06-27T09:00:36+00:00",
+            "downloads": {
+                "total_size": 3696.3,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/116",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "5745550454379341276",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ss1"
+            }
+        },
+        {
+            "release_date": "2022-06-21T07:58:32+00:00",
+            "downloads": {
+                "total_size": 3687.2,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/115",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "4435719763172881585",
+                "version": "7.0.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ss1"
+            }
+        },
+        {
+            "release_date": "2022-05-09T10:05:39+00:00",
+            "downloads": {
+                "total_size": 2913.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/114",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "2736941346251070698",
+                "version": "6.3.0",
+                "build_number": 8945,
+                "build_commit": "b4d49ebf81a",
+                "build_date": "",
+                "unity_version": "2019.4.31f1",
+                "scenes": 92,
+                "season": "ls65"
+            }
+        },
+        {
+            "release_date": "2022-03-31T10:03:06+00:00",
+            "downloads": {
+                "total_size": 2913.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/113",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "3539631198148609646",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls65"
+            }
+        },
+        {
+            "release_date": "2022-03-04T11:12:49+00:00",
+            "downloads": {
+                "total_size": 2914.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/112",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "7648259600739599889",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls65"
+            }
+        },
+        {
+            "release_date": "2022-02-22T14:19:17+00:00",
+            "downloads": {
+                "total_size": 2905.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/111",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "8767273831226382243",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls6"
+            }
+        },
+        {
+            "release_date": "2022-01-13T12:03:48+00:00",
+            "downloads": {
+                "total_size": 4344.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/108",
+                        "segments": [
+                            {
+                                "size": 2048
+                            },
+                            {
+                                "size": 2048
+                            },
+                            {
+                                "size": 248.1
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "1884605578774488475",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls6"
+            }
+        },
+        {
+            "release_date": "2021-12-09T11:04:35+00:00",
+            "downloads": {
+                "total_size": 4343.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/105",
+                        "segments": [
+                            {
+                                "size": 2048
+                            },
+                            {
+                                "size": 2048
+                            },
+                            {
+                                "size": 247.1
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "4848691758868654778",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls6"
+            }
+        },
+        {
+            "release_date": "2021-12-07T11:04:16+00:00",
+            "downloads": {
+                "total_size": 4339.2,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/103",
+                        "segments": [
+                            {
+                                "size": 3584
+                            },
+                            {
+                                "size": 755.2
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "8465018983924282468",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls6"
+            }
+        },
+        {
+            "release_date": "2021-12-02T17:13:43+00:00",
+            "downloads": {
+                "total_size": 4339,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/102",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1267
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "6998577641171871598",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls6"
+            }
+        },
+        {
+            "release_date": "2021-12-01T14:33:38+00:00",
+            "downloads": {
+                "total_size": 4339,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/99",
+                        "segments": [
+                            {
+                                "size": 3584
+                            },
+                            {
+                                "size": 755
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "3115093187342213137",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls6"
+            }
+        },
+        {
+            "release_date": "2021-11-30T13:01:23+00:00",
+            "downloads": {
+                "total_size": 4339,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/97",
+                        "segments": [
+                            {
+                                "size": 3072
+                            },
+                            {
+                                "size": 1267
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "4255532964276673288",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls6"
+            }
+        },
+        {
+            "release_date": "2021-10-20T08:55:19+00:00",
+            "downloads": {
+                "total_size": 3836.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/95",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "9178225534409480726",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls55"
+            }
+        },
+        {
+            "release_date": "2021-10-05T10:57:10+00:00",
+            "downloads": {
+                "total_size": 3832.9,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/94",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "8788493614976874816",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls55"
+            }
+        },
+        {
+            "release_date": "2021-08-31T09:40:01+00:00",
+            "downloads": {
+                "total_size": 3805.4,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/93",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "7823190448145834983",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls55"
+            }
+        },
+        {
+            "release_date": "2021-08-05T14:40:21+00:00",
+            "downloads": {
+                "total_size": 3757.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/92",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "6532741374031236985",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls5"
+            }
+        },
+        {
+            "release_date": "2021-07-20T09:04:07+00:00",
+            "downloads": {
+                "total_size": 3759.4,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/91",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "5693399366362827278",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls5"
+            }
+        },
+        {
+            "release_date": "2021-06-01T09:32:13+00:00",
+            "downloads": {
+                "total_size": 3048,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/90",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "1389344541695781740",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls45"
+            }
+        },
+        {
+            "release_date": "2021-05-20T08:54:22+00:00",
+            "downloads": {
+                "total_size": 3040.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/89",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "3268970811856408153",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls45"
+            }
+        },
+        {
+            "release_date": "2021-05-14T14:00:52+00:00",
+            "downloads": {
+                "total_size": 3040.8,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/88",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "7130325047774921606",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls45"
+            }
+        },
+        {
+            "release_date": "2021-05-13T09:33:03+00:00",
+            "downloads": {
+                "total_size": 3183.4,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/87",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "9072305705647716775",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls45"
+            }
+        },
+        {
+            "release_date": "2021-04-06T15:31:23+00:00",
+            "downloads": {
+                "total_size": 2888.8,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/86",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "7259681007687138983",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls4"
+            }
+        },
+        {
+            "release_date": "2021-04-06T13:14:07+00:00",
+            "downloads": {
+                "total_size": 2888.8,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/85",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "8186821359203181145",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls4"
+            }
+        },
+        {
+            "release_date": "2021-03-22T10:08:32+00:00",
+            "downloads": {
+                "total_size": 2888.8,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/84",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "5893883379728001054",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls4"
+            }
+        },
+        {
+            "release_date": "2021-02-02T12:01:43+00:00",
+            "downloads": {
+                "total_size": 2229.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/83",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "300011685960600518",
+                "version": "0.9.10",
+                "build_number": 2247,
+                "build_commit": "2658879519",
+                "build_date": "",
+                "unity_version": "2019.3.14f1",
+                "scenes": 55,
+                "season": "ls35"
+            }
+        },
+        {
+            "release_date": "2021-01-11T13:03:41+00:00",
+            "downloads": {
+                "total_size": 2244.7,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/82",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "1703959378194142378",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls3"
+            }
+        },
+        {
+            "release_date": "2020-12-17T14:24:46+00:00",
+            "downloads": {
+                "total_size": 2239.8,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/81",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "2347463014525970390",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls3"
+            }
+        },
+        {
+            "release_date": "2020-12-15T11:03:56+00:00",
+            "downloads": {
+                "total_size": 2239.6,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/80",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "4643743283249613721",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls3"
+            }
+        },
+        {
+            "release_date": "2020-11-30T15:36:21+00:00",
+            "downloads": {
+                "total_size": 1768.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/79",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "2862592106262426959",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls25"
+            }
+        },
+        {
+            "release_date": "2020-11-10T11:06:46+00:00",
+            "downloads": {
+                "total_size": 1764.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/78",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "1287946132897679594",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls25"
+            }
+        },
+        {
+            "release_date": "2020-10-19T13:44:20+00:00",
+            "downloads": {
+                "total_size": 1712,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/76",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "3233052260934368807",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls2"
+            }
+        },
+        {
+            "release_date": "2020-10-08T08:58:10+00:00",
+            "downloads": {
+                "total_size": 1710.6,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/74",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "3694740791525983586",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls2"
+            }
+        },
+        {
+            "release_date": "2020-09-15T11:31:43+00:00",
+            "downloads": {
+                "total_size": 1344.3,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/73",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "8688381616420641174",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls15"
+            }
+        },
+        {
+            "release_date": "2020-08-24T15:56:26+00:00",
+            "downloads": {
+                "total_size": 1328.6,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/72",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "6038344339979299117",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls15"
+            }
+        },
+        {
+            "release_date": "2020-08-13T13:15:13+00:00",
+            "downloads": {
+                "total_size": 1417.5,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/71",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "117650925852504231",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls1"
+            }
+        },
+        {
+            "release_date": "2020-08-07T14:04:49+00:00",
+            "downloads": {
+                "total_size": 1417.4,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/70",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "6005306049049899391",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls1"
+            }
+        },
+        {
+            "release_date": "2020-08-07T10:51:54+00:00",
+            "downloads": {
+                "total_size": 1417.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/69",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "606630862955742779",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls1"
+            }
+        },
+        {
+            "release_date": "2020-08-04T06:59:42+00:00",
+            "downloads": {
+                "total_size": 1417.4,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/68",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": "1199846569987058453",
+                "version": "",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "",
+                "scenes": 0,
+                "season": "ls1"
+            }
+        }
+    ]
+}

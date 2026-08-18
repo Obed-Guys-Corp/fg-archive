@@ -3,37 +3,75 @@ export interface AppState {
     currentSeason: string;
 }
 
-export interface Build {
-    Type: BuildType;
-    Manifest?: string;
-    Date: string;
-    Downloads?: Download[];
-    Data: BuildData;
+export interface Build<TProperties = GenericProperties> {
+    release_date: string;
+    downloads?: Downloads;
+    properties: TProperties;
 }
 
-export type BuildType = "beta_build" | "steam_build" | "egs_build" | "android_build" | "dev_build";
+export type BuildType =
+    | "steam_beta"
+    | "steam"
+    | "egs"
+    | "android_ega"
+    | "egs_beta"
+    | "android_os"
+    | "ios_ega"
+    | "switch";
+
+export interface BuildPropertiesMap {
+    steam_beta: SteamProperties;
+    steam: SteamProperties;
+    egs: GenericProperties;
+    android_ega: AndroidProperties;
+    egs_beta: GenericProperties;
+    android_os: AndroidProperties;
+    ios_ega: GenericProperties;
+    switch: GenericProperties;
+}
+
+export type Builds = {
+    [K in BuildType]: Build<BuildPropertiesMap[K]>[];
+};
+
+export type AnyBuild = {
+    [K in BuildType]: Build<BuildPropertiesMap[K]>
+}[BuildType];
+
+export interface Downloads {
+    total_size: number;
+    available: Download[];
+}
 
 export interface Download {
-    Source: DownloadSource;
-    Link: string;
-    Segments: Segment[];
+    source: DownloadSource;
+    link: string;
+    segments: Segment[] | null;
 }
 
 export type DownloadSource = "telegram" | "gdrive";
 
 export interface Segment {
-    Size: number;
+    size: number;
 }
 
-export interface BuildData {
-    AppVer?: string;
-    BuildNo?: number;
-    BuildCommit?: string;
-    BuildDate?: string;
-    UnityVersion?: string;
-    SceneCount?: number;
-    Season: Season;
-    HasDontShipFolder?: boolean;
+export interface GenericProperties {
+    version?: string;
+    build_number?: number;
+    build_commit?: string;
+    build_date?: string;
+    unity_version?: string;
+    scenes?: number;
+    season: Season;
+    source_leak?: boolean;
+}
+
+export interface AndroidProperties extends GenericProperties {
+    obb_hash?: string;
+}
+
+export interface SteamProperties extends GenericProperties {
+    manifest?: string;
 }
 
 export type Season =

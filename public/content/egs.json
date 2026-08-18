@@ -1,0 +1,154 @@
+{
+    "egs": [
+        {
+            "release_date": "2025-09-16",
+            "downloads": {
+                "total_size": 5960,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/227",
+                        "segments": [
+                            {
+                                "size": 3875
+                            },
+                            {
+                                "size": 2085
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": null,
+                "version": "21.0.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "not_season_3"
+            }
+        },
+        {
+            "release_date": "2025-08-19",
+            "downloads": {
+                "total_size": 6172.4,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/220",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 2281.3
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": null,
+                "version": "20.0.2",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "not_season_2"
+            }
+        },
+        {
+            "release_date": "2025-07-29",
+            "downloads": {
+                "total_size": 6172.6,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/218",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 2281.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": null,
+                "version": "20.0.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "not_season_2"
+            }
+        },
+        {
+            "release_date": "2025-06-19",
+            "downloads": {
+                "total_size": 6054.1,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/211",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 2163
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": null,
+                "version": "19.0.0",
+                "build_number": 0,
+                "build_commit": "",
+                "build_date": "",
+                "unity_version": "2021.3.16f1",
+                "scenes": 0,
+                "season": "not_season_1"
+            }
+        },
+        {
+            "release_date": "2023-02-21",
+            "downloads": {
+                "total_size": 5025.6,
+                "available": [
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/203",
+                        "segments": [
+                            {
+                                "size": 3891.1
+                            },
+                            {
+                                "size": 1134.5
+                            }
+                        ]
+                    }
+                ]
+            },
+            "properties": {
+                "manifest": null,
+                "version": "9.0.4",
+                "build_number": 2925,
+                "build_commit": "240c958f039",
+                "build_date": "06/02/2023",
+                "unity_version": "2019.4.37f1",
+                "scenes": 0,
+                "season": "ss3"
+            }
+        }
+    ]
+}

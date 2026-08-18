@@ -1,23 +1,22 @@
 import { Api } from "../api";
 import { t } from "../i18n/i18n";
-import { downloadSizeMB, isAvailable, isEGS, toGB } from "../utils/stats";
+import { buildSizeMB, isAvailable, isSteam, toGB } from "../utils/stats";
 import { setFooter } from "./footer";
-import type { AppState, Build, BuildType } from "../types";
+import type { AnyBuild, AppState, Build, BuildType, SteamProperties } from "../types";
 
 const tabContent = document.getElementById("typeTabContent")!;
-
 const tabAlert = document.getElementById("tabAlert")!;
 
 export function renderTabContent(state: AppState, selectedType: BuildType, selectedSeason: string): void {
     tabAlert.innerHTML = "";
     tabContent.innerHTML = "";
 
-    const byType = Api.builds.filter(item => item.Type === selectedType);
-    const filtered = selectedSeason ? byType.filter(item => item.Data.Season === selectedSeason) : byType;
-
+    const byType = Api.builds[selectedType];
+    const filtered = selectedSeason ? byType.filter(item => item.properties.season === selectedSeason) : byType;
+    
     const bySeason = new Map<string, Build[]>();
     for (const item of filtered) {
-        const season = item.Data.Season;
+        const season = item.properties.season;
         bySeason.set(season, [...(bySeason.get(season) ?? []), item]);
     }
 
@@ -33,9 +32,9 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
         const row = document.createElement("div");
         row.className = "row";
         for (const item of items) {
-            if (item.Downloads === null || item.Downloads?.length == 0) hasLostMedia = true;
-
-            row.appendChild(renderCard(item));
+            if ((item.downloads?.available.length ?? 0) === 0) hasLostMedia = true;
+            const index = Api.builds[selectedType].indexOf(item);
+            row.appendChild(renderCard(item, selectedType, index));
         }
 
         tabContent.appendChild(row);
@@ -52,27 +51,27 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
     setFooter(state);
 }
 
-function renderCard(item: Build): HTMLElement {
-    const idx = Api.builds.indexOf(item);
-    const downloads = item.Downloads ?? [];
+function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement {
+    const downloads = item.downloads;
     const available = isAvailable(item);
     const badgeContainer = renderDontShipBadge(item);
+
     // Size (Download sources length)
-    const sizeDisplay = downloads.length ? t("card.size", toGB(downloadSizeMB(downloads[0]!)), t("unitGB"), downloads.length) : "";
+    const sizeDisplay = downloads?.available.length ? t("card.size", toGB(buildSizeMB(item)), t("unitGB"), downloads.available.length) : "";
+
     // Can't get manifest on android and egs builds
-    const manifestDisplay = isEGS(item) ? "" : item.Manifest;
-    const season = item.Data.Season;
+    const manifestDisplay = isSteam(type) ? (item.properties as SteamProperties).manifest ?? "" : "";
+    const season = item.properties.season;
 
     const card = document.createElement("div");
     card.className = "col-md-4 mb-3";
     card.innerHTML = `
-        <div class="card position-relative p-3 ${!available ? "border border-danger" : ""}"
-             data-index="${idx}">
+        <div class="card position-relative p-3 ${!available ? "border border-danger" : ""}" data-type="${type}" data-index="${index}">
           <div class="position-absolute top-0 end-0 mt-2 me-2 text-muted small">
-            ${item.Data.AppVer ?? ""}
+            ${item.properties.version ?? ""}
           </div>
           <h5 style="padding-right: 6rem;">
-            ${t("card.title", t(season), new Date(item.Date).toLocaleDateString())}
+            ${t("card.title", t(season), new Date(item.release_date).toLocaleDateString())}
           </h5>
           <small class="text-muted d-flex justify-content-between">
             <span>${manifestDisplay}</span>
@@ -81,11 +80,12 @@ function renderCard(item: Build): HTMLElement {
           ${badgeContainer}
         </div>
     `;
+
     return card;
 }
 
 function renderDontShipBadge(item: Build): string {
-    if (!item.Data.HasDontShipFolder) return "";
+    if (!item.properties.source_leak) return "";
 
     return `
         <div class="mt-2 small text-info">

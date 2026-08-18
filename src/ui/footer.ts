@@ -8,14 +8,15 @@ const footerSelected = document.getElementById("footerSelected")!;
 const footerNotes = document.getElementById("footerNotes")!;
 
 export function setFooter(state: AppState): void {
-    const totalBuilds = Api.builds;
+    const totalBuilds = Object.values(Api.builds).flat();
     const totalBuildsCount = totalBuilds.length;
     const totalAvailableCount = availableBuilds(totalBuilds).length;
     const totalSize = toGB(totalSizeMB(totalBuilds));
 
     // Selected type
     const typeLabel = state.currentType ? t(state.currentType) : t("footer.allBuilds");
-    const typeBuilds = state.currentType ? totalBuilds.filter(i => i.Type === state.currentType) : totalBuilds;
+
+    const typeBuilds = state.currentType ? Api.builds[state.currentType] : totalBuilds;
     const typeBuildsCount = typeBuilds.length;
     const typeSize = toGB(totalSizeMB(typeBuilds));
     const typeAvailableCount = availableBuilds(typeBuilds).length;

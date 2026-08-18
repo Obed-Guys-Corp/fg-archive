@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-    base: "/fg-archive/"
+    base: "/fg-archive/",
+    appType: "mpa"
 });
