@@ -14,13 +14,13 @@ export function initCardClick(): void {
         const card = (e.target as HTMLElement).closest<HTMLElement>(".card");
         if (!card) return;
 
-         console.log(2);
+        console.log(2);
         const type = card.dataset.type as BuildType | undefined;
         const index = Number(card.dataset.index);
 
         if (!type || !Number.isInteger(index)) return;
-         console.log(3);
-         
+        console.log(3);
+
         const item = Api.builds[type][index];
         if (!item) return;
 
@@ -33,7 +33,7 @@ export function initCardClick(): void {
 function showBuildModal(item: Build, type: BuildType): void {
     const season = t(item.properties.season);
     const steam = isSteam(type);
-    const steamManifest = isSteam(type) ? (item.properties as SteamProperties).manifest ?? "" : "";
+    const steamManifest = isSteam(type) ? ((item.properties as SteamProperties).manifest ?? "") : "";
     const manifestLine = steam ? "" : `<li class="list-group-item">${t("modal.field", t("modal.manifest"), steamManifest || t("modal.unknown"))}</li>`;
 
     const dateValue = !steam ? new Date(item.release_date).toLocaleDateString() : new Date(item.release_date).toLocaleString();

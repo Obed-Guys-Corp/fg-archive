@@ -9,7 +9,7 @@ export class Api {
         egs_beta: [],
         android_os: [],
         ios_ega: [],
-        switch: [],
+        switch: []
     };
     private static _strings: Record<string, string> = {};
     private static _loaded = false;
@@ -17,16 +17,7 @@ export class Api {
     public static async fetchBuilds(): Promise<Builds> {
         if (this._loaded) return this._builds;
 
-        const files: BuildType[] = [
-            "android_ega",
-            "steam_beta",
-            "steam",
-            "egs",
-            "egs_beta",
-            "android_os",
-            "ios_ega",
-            "switch",
-        ];
+        const files: BuildType[] = ["android_ega", "steam_beta", "steam", "egs", "egs_beta", "android_os", "ios_ega", "switch"];
 
         await Promise.all(
             files.map(async type => {

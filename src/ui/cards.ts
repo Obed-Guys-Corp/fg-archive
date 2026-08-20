@@ -13,7 +13,7 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
 
     const byType = Api.builds[selectedType];
     const filtered = selectedSeason ? byType.filter(item => item.properties.season === selectedSeason) : byType;
-    
+
     const bySeason = new Map<string, Build[]>();
     for (const item of filtered) {
         const season = item.properties.season;
@@ -60,7 +60,7 @@ function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement
     const sizeDisplay = downloads?.available.length ? t("card.size", toGB(buildSizeMB(item)), t("unitGB"), downloads.available.length) : "";
 
     // Can't get manifest on android and egs builds
-    const manifestDisplay = isSteam(type) ? (item.properties as SteamProperties).manifest ?? "" : "";
+    const manifestDisplay = isSteam(type) ? ((item.properties as SteamProperties).manifest ?? "") : "";
     const season = item.properties.season;
 
     const card = document.createElement("div");

@@ -9,15 +9,7 @@ export interface Build<TProperties = GenericProperties> {
     properties: TProperties;
 }
 
-export type BuildType =
-    | "steam_beta"
-    | "steam"
-    | "egs"
-    | "android_ega"
-    | "egs_beta"
-    | "android_os"
-    | "ios_ega"
-    | "switch";
+export type BuildType = "steam_beta" | "steam" | "egs" | "android_ega" | "egs_beta" | "android_os" | "ios_ega" | "switch";
 
 export interface BuildPropertiesMap {
     steam_beta: SteamProperties;
@@ -35,7 +27,7 @@ export type Builds = {
 };
 
 export type AnyBuild = {
-    [K in BuildType]: Build<BuildPropertiesMap[K]>
+    [K in BuildType]: Build<BuildPropertiesMap[K]>;
 }[BuildType];
 
 export interface Downloads {
