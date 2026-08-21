@@ -31,6 +31,7 @@
     "modal.segmentsTitle": "Segments – {0}",
     "modal.segment": "Segment {0}: {1} GB",
     "modal.downloadIn": "Download in {0}",
+    "modal.downloadOn": "Download on {0}",
     "modal.viewSteamDB": "View on SteamDB",
     "help.title": "I want to help",
     "help.body1": "If you have any builds that are not yet available to download here and would like to see them added, feel free to send them via Telegram channel dm's or contact me at <b>@floyzi102</b> on Discord or Twitter.",
@@ -90,5 +91,7 @@
     "egs_beta": "Epic Games Beta",
     "android_os": "Android: One Store",
     "ios_ega": "iOS: Epic Games",
-    "switch": "Nintendo Switch"
+    "switch": "Nintendo Switch",
+    "telegram": "Telegram",
+    "gdrive": "Google Drive"
 }

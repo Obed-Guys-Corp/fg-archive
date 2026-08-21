@@ -8,18 +8,20 @@ const modalData = document.getElementById("modalData")!;
 const modalSegments = document.getElementById("modalSegments")!;
 const modalFooter = document.getElementById("modalFooter")!;
 
+const downloadLocMap = new Map<string, string>([
+    ["telegram", "modal.downloadIn"],
+    ["gdrive", "modal.downloadOn"]
+]);
+
 export function initCardClick(): void {
     document.addEventListener("click", e => {
-        console.log(1);
         const card = (e.target as HTMLElement).closest<HTMLElement>(".card");
         if (!card) return;
 
-        console.log(2);
         const type = card.dataset.type as BuildType | undefined;
         const index = Number(card.dataset.index);
 
         if (!type || !Number.isInteger(index)) return;
-        console.log(3);
 
         const item = Api.builds[type][index];
         if (!item) return;
@@ -72,10 +74,9 @@ function showBuildModal(item: Build, type: BuildType): void {
         }
         modalSegments.innerHTML = [...segmentsBySource.entries()]
             .map(([source, segments], i) => {
-                const capitalized = capitalize(source);
                 return `
                     <div class="mb-4 ${i === 0 ? "mt-3" : ""}">
-                      <h6 class="mb-2">${t("modal.segmentsTitle", capitalized)}</h6>
+                      <h6 class="mb-2">${t("modal.segmentsTitle", t(source))}</h6>
                       ${segments
                           .map(
                               seg =>
@@ -102,7 +103,7 @@ function showBuildModal(item: Build, type: BuildType): void {
             btn.target = "_blank";
             btn.className = "btn btn-primary me-2";
             const source = download.source;
-            btn.textContent = t("modal.downloadIn", capitalize(source));
+            btn.textContent = t(downloadLocMap.get(source) ?? "", t(source));
             modalFooter.appendChild(btn);
         }
     }
