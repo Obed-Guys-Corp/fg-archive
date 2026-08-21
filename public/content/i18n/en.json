@@ -11,7 +11,7 @@
     "footer.note": "Please note that information about builds is set only when available and provided information may be inaccurate",
     "footer.github": "GitHub",
     "tab.lostMediaTitle": "Lost media ahead!",
-    "tab.lostMediaDesc": "Some builds on this page are marked red: those builds aren't available for download because we couldn't find them. If you have any information about those builds let us know!",
+    "tab.lostMediaDesc": "Some builds on this page are marked red: those builds aren't available for download because we couldn't find them. If you have any information about those builds let us know so we can add them!",
     "card.hasMonoSources": "Has mono DLLs",
     "card.title": "{0} — {1}",
     "card.size": "{0} {1} ({2})",
@@ -83,9 +83,12 @@
     "not_season_2": "Tropical Tides",
     "not_season_3_title": "Slime Factory Update",
     "not_season_3": "Slime Factory",
-    "beta_build": "Beta Builds",
-    "steam_build": "Steam Builds",
-    "egs_build": "Epic Games Builds",
-    "android_build": "Android Builds",
-    "dev_build": "Dev Builds"
+    "steam_beta": "Steam Beta",
+    "steam": "Steam",
+    "egs": "Epic Games",
+    "android_ega": "Android: Epic Games",
+    "egs_beta": "Epic Games Beta",
+    "android_os": "Android: One Store",
+    "ios_ega": "iOS: Epic Games",
+    "switch": "Nintendo Switch"
 }
