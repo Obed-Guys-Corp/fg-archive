@@ -2,7 +2,9 @@ import { Api } from "../api";
 
 /** Resolves key and replaces {0}, {1} placeholders with provided arguments */
 export function t(key: string, ...args: (string | number)[]): string {
-    const text = Api.strings[key] ?? key;
+    var loc = Api.strings[key];
+    if (loc === undefined) console.warn("missing: " + key)
+    const text = loc ?? key;
     if (args.length === 0) return text;
 
     return text.replace(/{(\d+)}/g, (match, number) => {
