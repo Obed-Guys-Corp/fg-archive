@@ -1014,7 +1014,8 @@
                 "build_date": null,
                 "unity_version": "2019.4.15f1",
                 "scenes": 68,
-                "season": "ls45"
+                "season": "ls45",
+                "source_leak": true
             }
         },
         {
@@ -1042,7 +1043,8 @@
                 "build_date": null,
                 "unity_version": "2019.4.15f1",
                 "scenes": 68,
-                "season": "ls45"
+                "season": "ls45",
+                "source_leak": true
             }
         },
         {
