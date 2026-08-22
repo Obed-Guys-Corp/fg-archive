@@ -56,6 +56,10 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
             t("tab.lostMediaDesc", `<a href="${LINKS.discord}" class="alert-link">${t(`tab.lostMediaDesc.link`)}</a>`)
         );
 
+    const tooltip = (window as any).bootstrap.Tooltip;
+
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new tooltip(el));
+
     setFooter(state);
 }
 
@@ -110,7 +114,7 @@ function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement
             ${item.properties.version ?? ""}
           </div>
           <h5 style="padding-right: 6rem;">
-            ${t("card.title", t(season), new Date(item.release_date).toLocaleDateString())} ${sourceLeak ? '<i class="text-info bi bi-code-slash"></i>' : ""}
+            ${t("card.title", t(season), new Date(item.release_date).toLocaleDateString())} ${sourceLeak ? `<i class="text-info bi bi-code-slash" data-bs-toggle="tooltip" data-bs-title="${t("card.sourceLeak")}"></i>` : ""}
           </h5>
           <small class="text-muted d-flex justify-content-between">
             <span>${manifestDisplay}</span>
