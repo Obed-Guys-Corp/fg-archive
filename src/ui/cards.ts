@@ -3,6 +3,7 @@ import { t } from "../i18n/i18n";
 import { buildSizeMB, isAvailable, isSteam, toGB } from "../utils/stats";
 import { setFooter } from "./footer";
 import type { AnyBuild, AppState, Build, BuildType, SteamProperties } from "../types";
+import { LINKS } from "../constants/links";
 
 const tabContent = document.getElementById("typeTabContent")!;
 const tabAlert = document.getElementById("tabAlert")!;
@@ -44,7 +45,7 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
         tabAlert.innerHTML = `
             <div class="alert alert-warning my-3" role="alert">
                 <h5 class="alert-heading">${t(`tab.lostMediaTitle`)}</h5>
-                <p class="mb-0">${t(`tab.lostMediaDesc`)}</p>
+                <p class="mb-0">${t(`tab.lostMediaDesc`, `<a href="${LINKS.discord}" class="alert-link">${t(`tab.lostMediaDesc.link`)}</a>`)}</p>
             </div>
         `;
 
