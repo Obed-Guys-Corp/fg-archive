@@ -41,15 +41,30 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
         tabContent.appendChild(row);
     }
 
-    if (hasLostMedia)
-        tabAlert.innerHTML = `
-            <div class="alert alert-warning my-3" role="alert">
-                <h5 class="alert-heading">${t(`tab.lostMediaTitle`)}</h5>
-                <p class="mb-0">${t(`tab.lostMediaDesc`, `<a href="${LINKS.discord}" class="alert-link">${t(`tab.lostMediaDesc.link`)}</a>`)}</p>
-            </div>
-        `;
+    if (hasLostMedia) {
+        createAlert(tabAlert, "alert-heading", t("tab.lostMediaTitle"), t("tab.lostMediaDesc", `<a href="${LINKS.discord}" class="alert-link">${t(`tab.lostMediaDesc.link`)}</a>`))
+    }
 
     setFooter(state);
+}
+
+function createAlert(container: HTMLElement, style: string, title: string, desc: string) {
+   const div = document.createElement("div");
+    div.className = "alert alert-warning my-3";
+    div.setAttribute("role", "alert");
+
+    const h5 = document.createElement("h5");
+    h5.className = style;
+    h5.textContent = title;
+
+    const p = document.createElement("p");
+    p.className = "mb-0";
+    p.innerHTML = desc;
+
+    div.appendChild(h5);
+    div.appendChild(p);
+
+    container.appendChild(div);
 }
 
 function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement {
