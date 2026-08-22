@@ -96,5 +96,7 @@
     "gdrive": "Google Drive",
     "modal.fileTitle": "File – {0}",
     "gbFiller": "{0} GB",
-    "footer.discord": "Discord"
+    "footer.discord": "Discord",
+    "tab.didYouKnow": "Did you know?",
+    "tab.sourceLeaksDesc": "Builds that have {0} icon next to their name contain very useful source code leaks!"
 }

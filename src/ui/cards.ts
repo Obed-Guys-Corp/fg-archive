@@ -22,6 +22,8 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
     }
 
     let hasLostMedia = false;
+    let letsLeakSomething = false;
+
     for (const [season, items] of bySeason) {
         const header = document.createElement("div");
         header.className = "col-12 mt-4 mb-2";
@@ -34,6 +36,8 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
         row.className = "row";
         for (const item of items) {
             if ((item.downloads?.available.length ?? 0) === 0) hasLostMedia = true;
+            if (item.properties.source_leak) letsLeakSomething = true;
+
             const index = Api.builds[selectedType].indexOf(item);
             row.appendChild(renderCard(item, selectedType, index));
         }
@@ -41,20 +45,22 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
         tabContent.appendChild(row);
     }
 
-    if (hasLostMedia) {
-        createAlert(tabAlert, "alert-heading", t("tab.lostMediaTitle"), t("tab.lostMediaDesc", `<a href="${LINKS.discord}" class="alert-link">${t(`tab.lostMediaDesc.link`)}</a>`))
-    }
+     if (letsLeakSomething)
+        createAlert(tabAlert, "alert-info", t("tab.didYouKnow"), t("tab.sourceLeaksDesc", `<i class="text-info bi bi-code-slash"></i>`))
 
+    if (hasLostMedia)
+        createAlert(tabAlert, "alert-warning", t("tab.lostMediaTitle"), t("tab.lostMediaDesc", `<a href="${LINKS.discord}" class="alert-link">${t(`tab.lostMediaDesc.link`)}</a>`))
+    
     setFooter(state);
 }
 
 function createAlert(container: HTMLElement, style: string, title: string, desc: string) {
    const div = document.createElement("div");
-    div.className = "alert alert-warning my-3";
+    div.className = `alert ${style} my-3`;
     div.setAttribute("role", "alert");
 
     const h5 = document.createElement("h5");
-    h5.className = style;
+    h5.className = "alert-heading";
     h5.textContent = title;
 
     const p = document.createElement("p");
