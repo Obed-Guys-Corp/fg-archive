@@ -6,6 +6,9 @@ import { renderFilter, renderTabs } from "./ui/tabs";
 import { applyTheme, getInitialTheme, toggleTheme } from "./ui/theme";
 import type { AppState, BuildType } from "./types";
 import "../css/styles.css";
+import { LINKS } from "./constants/links";
+import { addFooterLink } from "./utils/footer";
+import { readableUrl } from "./utils/string";
 
 const state: AppState = {
     currentType: null,
@@ -35,6 +38,15 @@ async function init(): Promise<void> {
 
     // I18n
     initStaticText();
+
+    const footerLinks = document.getElementById("footerRight")!;
+    const helpModal = document.getElementById("helpModal")!;
+
+    if (footerLinks && helpModal) {
+        addFooterLink(footerLinks, helpModal, LINKS.telegram, readableUrl(LINKS.telegram))
+        addFooterLink(footerLinks, helpModal, LINKS.discord, t("footer.discord"))
+        addFooterLink(footerLinks, helpModal, LINKS.github, t("footer.github"))
+    }
 
     renderTabs(state);
 

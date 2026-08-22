@@ -2,7 +2,6 @@
     "filter.all": "All",
     "unitGB": "GB",
     "footer.poweredBy": "Powered by Obed Guys Corp.",
-    "footer.telegramLink": "t.me/FallGuysBuilds",
     "footer.help": "I Want To Help",
     "footer.allBuilds": "All Builds",
     "footer.total": "Total",
@@ -95,5 +94,6 @@
     "telegram": "Telegram",
     "gdrive": "Google Drive",
     "modal.fileTitle": "File – {0}",
-    "gbFiller": "{0} GB"
+    "gbFiller": "{0} GB",
+    "footer.discord": "Discord"
 }
