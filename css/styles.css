@@ -7,15 +7,18 @@ html {
     flex-direction: column;
     overflow-x: hidden;
 }
+
 body {
     flex: 1;
     background-color: var(--bs-body-bg);
     color: var(--bs-body-color);
 }
+
 main.flex-fill {
     flex: 1 0 auto;
     padding-top: 4rem;
 }
+
 .navbar {
     position: fixed;
     top: 0;
@@ -24,6 +27,7 @@ main.flex-fill {
     z-index: 1030;
     background-color: var(--bs-gray-800);
 }
+
 .card:hover {
     cursor: pointer;
     background-color: rgba(0, 123, 255, 0.15);
@@ -32,14 +36,17 @@ main.flex-fill {
         background-color 0.2s,
         box-shadow 0.2s;
 }
+
 .card.border.border-danger:hover {
     box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.5);
     background-color: rgba(220, 53, 69, 0.15);
 }
+
 #typeTabContent,
 #typeTabs {
     margin-top: 1rem;
 }
+
 .navbar-brand {
     max-width: 50vw;
     white-space: nowrap;
@@ -47,24 +54,29 @@ main.flex-fill {
     text-overflow: ellipsis;
     flex-shrink: 1;
 }
+
 .navbar .d-flex.align-items-center {
     flex-wrap: nowrap;
     gap: 0.5rem;
     min-width: 0;
 }
+
 #seasonFilter {
     min-width: 120px;
     max-width: 150px;
     flex-shrink: 1;
 }
+
 #toggleThemeBtn {
     flex-shrink: 0;
 }
+
 .page-wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
+
 .titan-one-font {
     font-family: "Titan One", cursive;
 }
