@@ -55,7 +55,6 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
 function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement {
     const downloads = item.downloads;
     const available = isAvailable(item);
-    const badgeContainer = renderDontShipBadge(item);
 
     // Size (Download sources length)
     const sizeDisplay = downloads?.available.length ? t("card.size", toGB(buildSizeMB(item)), t("unitGB"), downloads.available.length) : "";
@@ -63,6 +62,7 @@ function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement
     // Can't get manifest on android and egs builds
     const manifestDisplay = isSteam(type) ? ((item.properties as SteamProperties).manifest ?? "") : "";
     const season = item.properties.season;
+    const sourceLeak = item.properties.source_leak;
 
     const card = document.createElement("div");
     card.className = "col-md-4 mb-3";
@@ -72,26 +72,14 @@ function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement
             ${item.properties.version ?? ""}
           </div>
           <h5 style="padding-right: 6rem;">
-            ${t("card.title", t(season), new Date(item.release_date).toLocaleDateString())}
+            ${t("card.title", t(season), new Date(item.release_date).toLocaleDateString())} ${sourceLeak ? '<i class="text-info bi bi-code-slash"></i>' : ""}
           </h5>
           <small class="text-muted d-flex justify-content-between">
             <span>${manifestDisplay}</span>
             ${sizeDisplay ? `<span>${sizeDisplay}</span>` : ""}
           </small>
-          ${badgeContainer}
         </div>
     `;
 
     return card;
-}
-
-function renderDontShipBadge(item: Build): string {
-    if (!item.properties.source_leak) return "";
-
-    return `
-        <div class="mt-2 small text-info">
-            <i class="bi bi-info-circle-fill me-1"></i>
-            ${t("card.hasMonoSources")}
-        </div>
-    `;
 }
