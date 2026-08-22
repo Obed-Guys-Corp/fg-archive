@@ -3,5 +3,5 @@ export function capitalize(value: string): string {
 }
 
 export function readableUrl(url: string): string {
-    return url.replace(/^https?:\/\/(www\.)?/, "");;
+    return url.replace(/^https?:\/\/(www\.)?/, "");
 }

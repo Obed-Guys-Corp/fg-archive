@@ -46,11 +46,15 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
         tabContent.appendChild(row);
     }
 
-    if (letsLeakSomething)
-        createAlert(tabAlert, "alert-info", t("tab.didYouKnow"), t("tab.sourceLeaksDesc", `<i class="text-info bi bi-code-slash"></i>`))
+    if (letsLeakSomething) createAlert(tabAlert, "alert-info", t("tab.didYouKnow"), t("tab.sourceLeaksDesc", `<i class="text-info bi bi-code-slash"></i>`));
 
     if (hasLostMedia)
-        createAlert(tabAlert, "alert-warning", t("tab.lostMediaTitle"), t("tab.lostMediaDesc", `<a href="${LINKS.discord}" class="alert-link">${t(`tab.lostMediaDesc.link`)}</a>`))
+        createAlert(
+            tabAlert,
+            "alert-warning",
+            t("tab.lostMediaTitle"),
+            t("tab.lostMediaDesc", `<a href="${LINKS.discord}" class="alert-link">${t(`tab.lostMediaDesc.link`)}</a>`)
+        );
 
     setFooter(state);
 }
@@ -79,12 +83,19 @@ function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement
     const available = isAvailable(item);
 
     // Size (Download sources length)
-    const sizeDisplay = downloads?.available.length ? t("card.size", toGB(buildSizeMB(item)), t("unitGB"), downloads.available
-        .map(item => {
-            const val = sourceIcons.get(item.source);
-            return val !== undefined ? `<i class="${val}"></i>` : t(item.source);
-        })
-        .join(" ")) : "";
+    const sizeDisplay = downloads?.available.length
+        ? t(
+              "card.size",
+              toGB(buildSizeMB(item)),
+              t("unitGB"),
+              downloads.available
+                  .map(item => {
+                      const val = sourceIcons.get(item.source);
+                      return val !== undefined ? `<i class="${val}"></i>` : t(item.source);
+                  })
+                  .join(" ")
+          )
+        : "";
 
     // Can't get manifest on android and egs builds
     const manifestDisplay = isSteam(type) ? ((item.properties as SteamProperties).manifest ?? "") : "";

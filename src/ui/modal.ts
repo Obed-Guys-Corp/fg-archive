@@ -101,7 +101,7 @@ function showBuildModal(item: Build, type: BuildType): void {
             btn.className = "btn btn-primary me-2";
             const source = download.source;
             const icon = sourceIcons.get(source);
-            btn.innerHTML = `${icon !== undefined ? `<i class="${icon}"></i>` : ""} ${t(sourceLocales.get(source) ?? "modal.downloadIn", t(source))}`
+            btn.innerHTML = `${icon !== undefined ? `<i class="${icon}"></i>` : ""} ${t(sourceLocales.get(source) ?? "modal.downloadIn", t(source))}`;
             modalFooter.appendChild(btn);
         }
     }

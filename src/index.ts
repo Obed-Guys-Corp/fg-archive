@@ -43,9 +43,9 @@ async function init(): Promise<void> {
     const helpModal = document.getElementById("helpModal")!;
 
     if (footerLinks && helpModal) {
-        addFooterLink(footerLinks, helpModal, LINKS.telegram, readableUrl(LINKS.telegram))
-        addFooterLink(footerLinks, helpModal, LINKS.discord, t("footer.discord"))
-        addFooterLink(footerLinks, helpModal, LINKS.github, t("footer.github"))
+        addFooterLink(footerLinks, helpModal, LINKS.telegram, readableUrl(LINKS.telegram));
+        addFooterLink(footerLinks, helpModal, LINKS.discord, t("footer.discord"));
+        addFooterLink(footerLinks, helpModal, LINKS.github, t("footer.github"));
     }
 
     renderTabs(state);
