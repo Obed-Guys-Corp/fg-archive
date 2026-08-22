@@ -76,11 +76,12 @@ function showBuildModal(item: Build, type: BuildType): void {
             .map(([source, segments], i) => {
                 return `
                     <div class="mb-4 ${i === 0 ? "mt-3" : ""}">
-                      <h6 class="mb-2">${t("modal.segmentsTitle", t(source))}</h6>
+                      <h6 class="mb-2">${t(segments.length !== 1 ? "modal.segmentsTitle" : "modal.fileTitle", t(source))}</h6>
                       ${segments
                           .map(
                               seg =>
-                                  `<div class="alert alert-info p-2 mb-2 w-100" style="text-align: left;">${t("modal.segment", seg.index, seg.sizeGB.toFixed(2))}</div>`
+                                  `<div class="alert alert-info p-2 mb-2 w-100" style="text-align: left;">
+                                    ${segments.length !== 1 ? t("modal.segment", seg.index, seg.sizeGB.toFixed(2)) : t("gbFiller", seg.sizeGB.toFixed(2))}</div>`
                           )
                           .join("")}
                     </div>

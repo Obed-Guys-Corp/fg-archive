@@ -28,8 +28,8 @@
     "modal.unityVersion": "Unity Version",
     "modal.scenes": "Scenes",
     "modal.season": "Season",
-    "modal.segmentsTitle": "Segments – {0}",
-    "modal.segment": "Segment {0}: {1} GB",
+    "modal.segmentsTitle": "File Segments – {0}",
+    "modal.segment": "{0}: {1} GB",
     "modal.downloadIn": "Download in {0}",
     "modal.downloadOn": "Download on {0}",
     "modal.viewSteamDB": "View on SteamDB",
@@ -93,5 +93,7 @@
     "ios_ega": "iOS: Epic Games",
     "switch": "Nintendo Switch",
     "telegram": "Telegram",
-    "gdrive": "Google Drive"
+    "gdrive": "Google Drive",
+    "modal.fileTitle": "File – {0}",
+    "gbFiller": "{0} GB"
 }
