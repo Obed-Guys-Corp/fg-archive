@@ -4,14 +4,10 @@ import { buildSizeMB, isAvailable, isSteam, toGB } from "../utils/stats";
 import { setFooter } from "./footer";
 import type { AnyBuild, AppState, Build, BuildType, SteamProperties } from "../types";
 import { LINKS } from "../constants/links";
+import { sourceIcons } from "./source-maps";
 
 const tabContent = document.getElementById("typeTabContent")!;
 const tabAlert = document.getElementById("tabAlert")!;
-
-const iconsMap = new Map<string, string>([
-    ["telegram", "nf nf-fae-telegram"],
-    ["gdrive", "nf nf-fa-google_drive"]
-]);
 
 export function renderTabContent(state: AppState, selectedType: BuildType, selectedSeason: string): void {
     tabAlert.innerHTML = "";
@@ -85,8 +81,8 @@ function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement
     // Size (Download sources length)
     const sizeDisplay = downloads?.available.length ? t("card.size", toGB(buildSizeMB(item)), t("unitGB"), downloads.available
         .map(item => {
-            const val = iconsMap.get(item.source);
-            return val !== undefined ? `<i class="${val}"></i>` : ``;
+            const val = sourceIcons.get(item.source);
+            return val !== undefined ? `<i class="${val}"></i>` : t(item.source);
         })
         .join(" ")) : "";
 

@@ -3,15 +3,11 @@ import { t } from "../i18n/i18n";
 import { capitalize } from "../utils/string";
 import { isSteam } from "../utils/stats";
 import type { AnyBuild, Build, BuildType, SteamProperties } from "../types";
+import { sourceIcons, sourceLocales } from "./source-maps";
 
 const modalData = document.getElementById("modalData")!;
 const modalSegments = document.getElementById("modalSegments")!;
 const modalFooter = document.getElementById("modalFooter")!;
-
-const downloadLocMap = new Map<string, string>([
-    ["telegram", "modal.downloadIn"],
-    ["gdrive", "modal.downloadOn"]
-]);
 
 export function initCardClick(): void {
     document.addEventListener("click", e => {
@@ -104,7 +100,8 @@ function showBuildModal(item: Build, type: BuildType): void {
             btn.target = "_blank";
             btn.className = "btn btn-primary me-2";
             const source = download.source;
-            btn.textContent = t(downloadLocMap.get(source) ?? "", t(source));
+            const icon = sourceIcons.get(source);
+            btn.innerHTML = `${icon !== undefined ? `<i class="${icon}"></i>` : ""} ${t(sourceLocales.get(source) ?? "modal.downloadIn", t(source))}`
             modalFooter.appendChild(btn);
         }
     }
