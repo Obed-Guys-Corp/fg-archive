@@ -5,6 +5,7 @@ import { setFooter } from "./footer";
 import type { AnyBuild, AppState, Build, BuildType, SteamProperties } from "../types";
 import { LINKS } from "../constants/links";
 import { sourceIcons } from "./source-maps";
+import * as bootstrap from "bootstrap";
 
 const tabContent = document.getElementById("typeTabContent")!;
 const tabAlert = document.getElementById("tabAlert")!;
@@ -56,9 +57,7 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
             t("tab.lostMediaDesc", `<a href="${LINKS.discord}" class="alert-link">${t(`tab.lostMediaDesc.link`)}</a>`)
         );
 
-    const tooltip = (window as any).bootstrap.Tooltip;
-
-    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new tooltip(el));
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
 
     setFooter(state);
 }

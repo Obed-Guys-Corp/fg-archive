@@ -4,6 +4,7 @@ import { capitalize } from "../utils/string";
 import { isSteam } from "../utils/stats";
 import type { AnyBuild, Build, BuildType, SteamProperties } from "../types";
 import { sourceIcons, sourceLocales } from "./source-maps";
+import * as bootstrap from "bootstrap";
 
 const modalData = document.getElementById("modalData")!;
 const modalSegments = document.getElementById("modalSegments")!;

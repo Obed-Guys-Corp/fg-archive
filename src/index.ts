@@ -5,10 +5,14 @@ import { initCardClick } from "./ui/modal";
 import { renderFilter, renderTabs } from "./ui/tabs";
 import { applyTheme, getInitialTheme, toggleTheme } from "./ui/theme";
 import type { AppState, BuildType } from "./types";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../css/styles.css";
 import { LINKS } from "./constants/links";
 import { addFooterLink } from "./utils/footer";
 import { readableUrl } from "./utils/string";
+import * as bootstrap from 'bootstrap';
 
 const state: AppState = {
     currentType: null,

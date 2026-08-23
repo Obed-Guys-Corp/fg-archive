@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "Website of the Fall Guys builds archive",
   "main": "src/index.ts",
-  "keywords": ["fallguys", "fall-guys", "archive", "web", "website"],
+  "keywords": [
+    "fallguys",
+    "fall-guys",
+    "archive",
+    "web",
+    "website"
+  ],
   "author": "Obed Guys Corp.",
   "license": "MIT",
   "type": "module",
@@ -22,6 +28,7 @@
     "prettier": "prettier --ignore-path .gitignore --ignore-path .prettierignore --write \"**/*.{ts,json,md,html,css}\""
   },
   "devDependencies": {
+    "@types/bootstrap": "^5.2.11",
     "prettier": "^3.9.6",
     "typescript": "^7.0.2",
     "vite": "^8.2.0"
@@ -31,5 +38,9 @@
     "arrowParens": "avoid",
     "trailingComma": "none",
     "printWidth": 160
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1"
   }
 }
