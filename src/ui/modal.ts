@@ -35,14 +35,13 @@ function showBuildModal(item: Build, type: BuildType): void {
     const steamManifest = isSteam(type) ? ((item.properties as SteamProperties).manifest ?? "") : "";
     const manifestLine = steam ? "" : `<li class="list-group-item">${t("modal.field", t("modal.manifest"), steamManifest || t("modal.unknown"))}</li>`;
 
-    const dateValue = !steam ? new Date(item.release_date).toLocaleDateString() : new Date(item.release_date).toLocaleString();
-    const dateLabel = t("modal.releaseDate");
+    const relDate = item.release_date ? !steam ? new Date(item.release_date).toLocaleDateString() : new Date(item.release_date).toLocaleString() : t("modal.unknown");
 
     modalData.innerHTML = `
         <h6 class="mb-2">${t("modal.buildDetails")}</h6>
         <ul class="list-group">
           ${manifestLine}
-          <li class="list-group-item">${t("modal.field", dateLabel, dateValue)}</li>
+          <li class="list-group-item">${t("modal.field", t("modal.releaseDate"), relDate)}</li>
           <li class="list-group-item">${t("modal.field", t("modal.appVersion"), item.properties.version || t("modal.unknown"))}</li>
           <li class="list-group-item">${t("modal.field", t("modal.buildNo"), item.properties.build_number === 0 ? "?" : (item.properties.build_number ?? "?"))}</li>
           <li class="list-group-item">${t("modal.field", t("modal.commit"), item.properties.build_commit || t("modal.unknown"))}</li>

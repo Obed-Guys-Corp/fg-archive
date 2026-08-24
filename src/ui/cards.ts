@@ -30,14 +30,14 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
         const header = document.createElement("div");
         header.className = "col-12 mt-4 mb-2";
         const count = items.length;
-        const headerText = t("card.seasonCount", t(`${season}_title`), count);
+        const headerText = t("card.seasonCount", season ? t(`${season}_title`) : t(`fallback.noSeason`), count);
         header.innerHTML = `<h4>${headerText}</h4>`;
         tabContent.appendChild(header);
 
         const row = document.createElement("div");
         row.className = "row";
         for (const item of items) {
-            if ((item.downloads?.available.length ?? 0) === 0) hasLostMedia = true;
+            if ((item.downloads?.available?.length ?? 0) === 0) hasLostMedia = true;
             if (item.properties.source_leak) letsLeakSomething = true;
 
             const index = Api.builds[selectedType].indexOf(item);
@@ -86,7 +86,7 @@ function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement
     const available = isAvailable(item);
 
     // Size (Download sources length)
-    const sizeDisplay = downloads?.available.length
+    const sizeDisplay = downloads?.available?.length
         ? t(
               "card.size",
               toGB(buildSizeMB(item)),
@@ -113,7 +113,7 @@ function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement
             ${item.properties.version ?? ""}
           </div>
           <h5 style="padding-right: 6rem;">
-            ${t("card.title", t(season), new Date(item.release_date).toLocaleDateString())} ${sourceLeak ? `<i class="text-info bi bi-code-slash" data-bs-toggle="tooltip" data-bs-title="${t("card.sourceLeak")}"></i>` : ""}
+            ${t("card.title", season ? t(season) : t("fallback.noSeason"), item.release_date ? new Date(item.release_date).toLocaleDateString() : t("fallback.noDate"))} ${sourceLeak ? `<i class="text-info bi bi-code-slash" data-bs-toggle="tooltip" data-bs-title="${t("card.sourceLeak")}"></i>` : ""}
           </h5>
           <small class="text-muted d-flex justify-content-between">
             <span>${manifestDisplay}</span>

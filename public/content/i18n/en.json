@@ -99,5 +99,8 @@
     "footer.discord": "Discord",
     "tab.didYouKnow": "Did you know?",
     "tab.sourceLeaksDesc": "Builds that have {0} icon next to their name contain very useful source code leaks!",
-    "card.sourceLeak": "Contains leaked mono DLLs"
+    "card.sourceLeak": "Contains leaked mono DLLs",
+    "fallback.noSeason": "No Season",
+    "fallback.noDate": "No Date",
+    "fallback.unknown": "Unknown"
 }
