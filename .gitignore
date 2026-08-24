@@ -1,3 +1,9 @@
 node_modules
 .direnv
 dist
+
+# scripts
+.idea/
+bin/
+obj/
+*.DotSettings.user
