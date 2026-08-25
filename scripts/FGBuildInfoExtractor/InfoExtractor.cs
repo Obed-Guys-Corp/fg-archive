@@ -1,17 +1,18 @@
-﻿using AssetsTools.NET;
+﻿using AddressablesTools;
+using AddressablesTools.Catalog;
+using AssetsTools.NET;
 using AssetsTools.NET.Cpp2IL;
 using AssetsTools.NET.Extra;
-using System.Text;
 using System.Text.Json;
 
 internal sealed class InfoExtractor
 {
-    internal sealed record BuildInfo(string Version, int BuildNumber, string BuildCommit, string BuildDate, string Env, string Signature);
+    internal sealed record BuildInfo(string Version, int BuildNumber, string BuildCommit, string BuildDate, int Scenes, string Env, string Signature);
     internal sealed record ExtractedBuildInfo(int BuildNumber, string BuildCommit, string BuildDate);
     internal sealed record ClientServer(string Address, int Port);
     internal sealed record BuildEnvironment(ClientServer GatewayServer, ClientServer LoginServer, ClientServer AnalyticsServer, string Signature);
     internal sealed record EnvironmentSelection(string Name, string Signature);
-    readonly string[] _knownEnvs = 
+    static readonly string[] _knownEnvs =
     [
         "Production",
         "OpenBeta",
@@ -38,6 +39,7 @@ internal sealed class InfoExtractor
     readonly string _buildPath;
     readonly string? _dataPath;
     readonly string _bundlesPath;
+    readonly string _catalogPath;
     readonly string _globalGameManagersPath;
     readonly string _resourcesPath;
     readonly AssetsManager _manager;
@@ -59,8 +61,9 @@ internal sealed class InfoExtractor
         _resourcesPath = Path.Combine(_dataPath, "resources.assets");
         _globalGameManagersPath = Path.Combine(_dataPath, "globalgamemanagers");
         _bundlesPath = Path.Combine(_dataPath, "StreamingAssets", "aa~", "StandaloneWindows64");
+        _catalogPath = Path.Combine(_dataPath, "StreamingAssets", "aa~", "catalog.bundle");
 
-        _manager.LoadClassPackage("lz4.tpk");
+        _manager.LoadClassPackage(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "lz4.tpk"));
 
         var il2cpp = FindCpp2IlFiles.Find(_dataPath);
 
@@ -79,18 +82,14 @@ internal sealed class InfoExtractor
     {
         Console.WriteLine($"Working with: {_buildPath}");
 
-        if (!Directory.Exists(_dataPath))
-        {
-            Console.Error.WriteLine($"Can't find game data path: {_dataPath}");
-            return 1;
-        }
-
         LookForBuildEnvs();
 
-        var buildInfo = FindBuildInfo();
+        var scenes = FindScenes();
+        var buildInfo = FindBuildInfo(scenes.Count);
 
         Console.WriteLine("\n\n");
 
+        // Envs (with urls and ports)
         if (_envs.Count > 0)
             Console.WriteLine(JsonSerializer.Serialize(_envs, JsonOptions));
         else
@@ -98,6 +97,12 @@ internal sealed class InfoExtractor
 
         Console.WriteLine("");
 
+        // Scenes names
+        Console.WriteLine(JsonSerializer.Serialize(new { Scenes = scenes }, JsonOptions));
+
+        Console.WriteLine("");
+
+        // Build info
         if (buildInfo != null)
             Console.WriteLine(JsonSerializer.Serialize(buildInfo, JsonOptions));
         else
@@ -112,40 +117,44 @@ internal sealed class InfoExtractor
 
         var asset = _manager.LoadAssetsFile(_resourcesPath);
 
-        _manager.LoadClassDatabaseFromPackage(asset.file.Metadata.UnityVersion);
-
-        foreach (var info in asset.file.GetAssetsOfType(AssetClassID.MonoBehaviour))
+        try
         {
-            try
+            _manager.LoadClassDatabaseFromPackage(asset.file.Metadata.UnityVersion);
+
+            foreach (var info in asset.file.GetAssetsOfType(AssetClassID.MonoBehaviour))
             {
-                var baseField = _manager.GetBaseField(asset, info);
-                var name = baseField["m_Name"].AsString;
+                try
+                {
+                    var baseField = _manager.GetBaseField(asset, info);
+                    var name = baseField["m_Name"].AsString;
 
-                if (!_knownEnvs.Contains(name)) continue;
+                    if (!_knownEnvs.Contains(name)) continue;
 
-                var loginServ = ResolveServer(baseField, "LoginServer");
-                var gatewayServ = ResolveServer(baseField, "GatewayServer");
-                var analyticsServ = ResolveServer(baseField, "AnalyticsServer");
-                var sign = baseField["ClientVersionSignature"].AsString;
+                    var loginServ = ResolveServer(baseField, "LoginServer");
+                    var gatewayServ = ResolveServer(baseField, "GatewayServer");
+                    var analyticsServ = ResolveServer(baseField, "AnalyticsServer");
+                    var sign = baseField["ClientVersionSignature"].AsString;
 
-                _envs.Add(name, new(gatewayServ, loginServ, analyticsServ, sign));
+                    _envs.Add(name, new(gatewayServ, loginServ, analyticsServ, sign));
+                }
+                catch { }
             }
-            catch
-            {
-                
-            }
+        }
+        finally
+        {
+            _manager.UnloadAssetsFile(asset);
         }
     }
 
-    static ClientServer ResolveServer(AssetTypeValueField field, string serv)
+    static ClientServer ResolveServer(AssetTypeValueField field, string serverName)
     {
-        var sField = field[serv];
-        if (sField == null) return new(null, 0);
+        var server = field[serverName];
+        if (server == null) return new(string.Empty, 0);
 
-        return new(sField["Address"]?.AsString, sField["Port"].AsInt);
+        return new(server["Address"]?.AsString ?? string.Empty, server["Port"].AsInt);
     }
 
-    BuildInfo? FindBuildInfo()
+    BuildInfo? FindBuildInfo(int scenes)
     {
         var version = FindApplicationVersion();
         var extractedBuildInfo = FindInBundles() ?? FindInStandaloneAssets();
@@ -157,6 +166,7 @@ internal sealed class InfoExtractor
             extractedBuildInfo.BuildNumber,
             extractedBuildInfo.BuildCommit,
             extractedBuildInfo.BuildDate,
+            scenes,
             environment.Name,
             environment.Signature);
     }
@@ -232,6 +242,97 @@ internal sealed class InfoExtractor
         return string.Empty;
     }
 
+    List<string> FindScenes()
+    {
+        Console.WriteLine("Looking for scenes...");
+
+        var addressableScenes = FindAddressableScenes();
+        if (addressableScenes.Count > 0)
+        {
+            var addressableSceneNames = addressableScenes.Values.Order(StringComparer.OrdinalIgnoreCase).ToList();
+            Console.WriteLine($"Found {addressableSceneNames.Count} scenes");
+            return addressableSceneNames;
+        }
+
+        var scenePaths = FindBuildSettingsScenePaths();
+
+        var sceneNames = scenePaths
+            .Select(scenePath => Path.GetFileNameWithoutExtension(scenePath) ?? string.Empty)
+            .Where(sceneName => sceneName.Length > 0)
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .Order(StringComparer.OrdinalIgnoreCase)
+            .ToList();
+        Console.WriteLine($"Found {sceneNames.Count} scenes");
+        return sceneNames;
+    }
+
+    HashSet<string> FindBuildSettingsScenePaths()
+    {
+        var scenePaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+        var assetPaths = new[] { _globalGameManagersPath, $"{_globalGameManagersPath}.assets" };
+
+        foreach (var assetPath in assetPaths)
+        {
+            if (!File.Exists(assetPath)) continue;
+
+            try
+            {
+                var assetsFile = _manager.LoadAssetsFile(assetPath);
+
+                try
+                {
+                    foreach (var info in assetsFile.file.GetAssetsOfType(AssetClassID.BuildSettings))
+                    {
+                        var asset = _manager.GetBaseField(assetsFile, info);
+
+                        foreach (var scene in asset["scenes.Array"].Children)
+                        {
+                            var path = scene.AsString;
+                            if (path.EndsWith(".unity", StringComparison.OrdinalIgnoreCase))
+                                scenePaths.Add(path);
+                        }
+                    }
+                }
+                finally
+                {
+                    _manager.UnloadAssetsFile(assetsFile);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine($"Skipped {assetPath}: {e.Message}");
+            }
+        }
+
+        return scenePaths;
+    }
+
+    Dictionary<string, string> FindAddressableScenes()
+    {
+        if (!File.Exists(_catalogPath)) return [];
+
+        try
+        {
+            var catalog = AddressablesCatalogFileParser.FromBundle(_catalogPath);
+            var scenes = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+            foreach (var location in catalog.Resources.Values.SelectMany(locations => locations))
+            {
+                if (location.Type.ClassName != "UnityEngine.ResourceManagement.ResourceProviders.SceneInstance") continue;
+
+                scenes.TryAdd(location.InternalId, location.PrimaryKey);
+            }
+
+            return scenes;
+        }
+        catch (Exception e)
+        {
+            Console.Error.WriteLine($"Can't read Addressables catalog {_catalogPath}: {e.Message}");
+            return [];
+        }
+    }
+
     ExtractedBuildInfo? FindInBundles()
     {
         if (!Directory.Exists(_bundlesPath)) return null;
@@ -254,7 +355,9 @@ internal sealed class InfoExtractor
 
     ExtractedBuildInfo? FindInStandaloneAssets()
     {
-        var assetPaths = Directory.EnumerateFiles(_dataPath!, "*.assets", SearchOption.TopDirectoryOnly).Where(IsStandaloneAsset).OrderBy(GetStandaloneAssetPriority);
+        var assetPaths = Directory.EnumerateFiles(_dataPath!, "*.assets", SearchOption.TopDirectoryOnly)
+            .Where(IsStandaloneAsset)
+            .OrderBy(GetStandaloneAssetPriority);
 
         foreach (var assetPath in assetPaths)
         {
@@ -295,14 +398,7 @@ internal sealed class InfoExtractor
 
         try
         {
-            if (assetsFile.file.Metadata.TypeTreeEnabled)
-            {
-                var extractedBuildInfo = ReadAssetContents(_manager, assetsFile);
-                if (extractedBuildInfo != null) return extractedBuildInfo;
-            }
-
-            // Old asset files may have no field info, so read their raw data
-            return ReadLegacyAssetContents(assetsFile, assetPath);
+            return ReadBuildInfo(assetsFile);
         }
         finally
         {
@@ -327,7 +423,7 @@ internal sealed class InfoExtractor
 
                 try
                 {
-                    var extractedBuildInfo = ReadAssetContents(_manager, assetsFile);
+                    var extractedBuildInfo = ReadBuildInfo(assetsFile);
                     if (extractedBuildInfo != null) return extractedBuildInfo;
                 }
                 finally
@@ -344,7 +440,7 @@ internal sealed class InfoExtractor
         return null;
     }
 
-    static ExtractedBuildInfo? ReadAssetContents(AssetsManager manager, AssetsFileInstance assetsFile)
+    ExtractedBuildInfo? ReadBuildInfo(AssetsFileInstance assetsFile)
     {
         foreach (var info in assetsFile.file.GetAssetsOfType(AssetClassID.MonoBehaviour))
         {
@@ -352,14 +448,12 @@ internal sealed class InfoExtractor
 
             try
             {
-                asset = manager.GetBaseField(assetsFile, info);
+                asset = _manager.GetBaseField(assetsFile, info);
             }
             catch (Exception)
             {
                 continue;
             }
-
-            if (!HasField(asset, "commit") || !HasField(asset, "buildNumber")) continue;
 
             var commit = ReadString(asset, "commit");
             if (!IsCommit(commit)) continue;
@@ -373,64 +467,7 @@ internal sealed class InfoExtractor
         return null;
     }
 
-    static ExtractedBuildInfo? ReadLegacyAssetContents(AssetsFileInstance assetsFile, string assetPath)
-    {
-        using var stream = File.OpenRead(assetPath);
-
-        foreach (var info in assetsFile.file.GetAssetsOfType(AssetClassID.MonoBehaviour))
-        {
-            var bytes = new byte[info.ByteSize];
-
-            stream.Position = info.GetAbsoluteByteOffset(assetsFile.file);
-            stream.ReadExactly(bytes);
-
-            var buildInfo = ReadLegacyBuildInfo(bytes);
-
-            if (buildInfo != null)
-            {
-                Console.WriteLine($"Found in: {assetsFile.path}");
-                return buildInfo;
-            }
-        }
-
-        return null;
-    }
-
-    static ExtractedBuildInfo? ReadLegacyBuildInfo(byte[] bytes)
-    {
-        for (var offset = 0; offset <= bytes.Length - 12; offset += 4)
-        {
-            var position = offset;
-
-            if (!TryReadUnityString(bytes, ref position, out var name) || name != "BuildInfo") continue;
-            if (!TryReadUnityString(bytes, ref position, out var commit) || !IsCommit(commit)) continue;
-            if (!TryReadUnityString(bytes, ref position, out var buildNumberText) || !int.TryParse(buildNumberText, out var buildNumber)) continue;
-
-            return new ExtractedBuildInfo(buildNumber, commit, string.Empty);
-        }
-
-        return null;
-    }
-
-    static bool TryReadUnityString(byte[] bytes, ref int offset, out string value)
-    {
-        value = string.Empty;
-        if (offset > bytes.Length - 4) return false;
-
-        var length = BitConverter.ToInt32(bytes, offset);
-        offset += 4;
-
-        if (length < 0 || length > bytes.Length - offset) return false;
-
-        value = Encoding.UTF8.GetString(bytes, offset, length);
-        offset += length;
-        offset = (offset + 3) & ~3;
-
-        return offset <= bytes.Length;
-    }
-
-    static bool IsCommit(string value) => value.Length is >= 7 and <= 40 && value.All(char.IsAsciiHexDigit);
-    static bool HasField(AssetTypeValueField asset, string name) => asset.Children.Any(child => child.FieldName == name);
+    static bool IsCommit(string value) => value.Length >= 7 && value.Length <= 40 && value.All(char.IsAsciiHexDigit);
     static string ReadString(AssetTypeValueField asset, string name) => asset.Children.FirstOrDefault(child => child.FieldName == name)?.AsString ?? string.Empty;
     static string ReadFirstString(AssetTypeValueField asset, params string[] names) => names.Select(name => ReadString(asset, name)).FirstOrDefault(value => value.Length > 0) ?? string.Empty;
 }
