@@ -25,7 +25,7 @@
       default = pkgs.mkShell {
         buildInputs = with pkgs; [
           nodejs
-          dotnet-sdk_8
+          dotnet-sdk_10
         ];
       };
     });
