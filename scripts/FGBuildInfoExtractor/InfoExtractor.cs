@@ -1,4 +1,5 @@
 ﻿using AssetsTools.NET;
+using AssetsTools.NET.Cpp2IL;
 using AssetsTools.NET.Extra;
 using System.Text;
 using System.Text.Json;
@@ -6,6 +7,26 @@ using System.Text.Json;
 internal sealed class InfoExtractor
 {
     internal sealed record BuildInfo(int BuildNumber, string BuildCommit, string BuildDate);
+    internal sealed record ClientServer(string Address, int Port);
+    internal sealed record BuildEnvironment(ClientServer GatewayServer, ClientServer LoginServer, ClientServer AnalyticsServer, string Signature);
+    readonly string[] _knownEnvs = 
+    [
+        "Production",
+        "OpenBeta",
+        "ClosedBeta",
+        "Unstable",
+        "China",
+        "CompatQA",
+        "ComplianceQA",
+        "Development",
+        "ExternalQA",
+        "InternalQA",
+        "LoadTesting",
+        "Mobile",
+        "MobileQA",
+        "Porting",
+        "Staging"
+    ];
     static readonly JsonSerializerOptions JsonOptions = new()
     {
         PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
@@ -15,9 +36,15 @@ internal sealed class InfoExtractor
     readonly string _buildPath;
     readonly string? _dataPath;
     readonly string _bundlesPath;
+    readonly string _resourcesPath;
+    readonly AssetsManager _manager;
+    readonly Dictionary<string, BuildEnvironment> _envs;
 
     public InfoExtractor(string buildPath)
     {
+        _manager = new();
+
+        _envs = [];
         _buildPath = buildPath;
 
         if (!Directory.Exists(_buildPath)) throw new DirectoryNotFoundException(buildPath);
@@ -26,12 +53,27 @@ internal sealed class InfoExtractor
 
         if (!Directory.Exists(_dataPath)) throw new DirectoryNotFoundException(_dataPath);
 
+        _resourcesPath = Path.Combine(_dataPath, "resources.assets");
         _bundlesPath = Path.Combine(_dataPath, "StreamingAssets", "aa~", "StandaloneWindows64");
+
+        _manager.LoadClassPackage("lz4.tpk");
+
+        var il2cpp = FindCpp2IlFiles.Find(_dataPath);
+
+        if (il2cpp.success)
+        {
+            _manager.MonoTempGenerator = new Cpp2IlTempGenerator(il2cpp.metaPath, il2cpp.asmPath);
+        }
+        else
+        {
+            var managedPath = Path.Combine(_dataPath, "Managed");
+            _manager.MonoTempGenerator = new MonoCecilTempGenerator(managedPath);
+        }
     }
 
     public int Run()
     {
-        Console.WriteLine($"FGBuild: {_buildPath}");
+        Console.WriteLine($"Working with: {_buildPath}");
 
         if (!Directory.Exists(_dataPath))
         {
@@ -39,16 +81,62 @@ internal sealed class InfoExtractor
             return 1;
         }
 
-        var buildInfo = FindInBundles() ?? FindInStandaloneAssets();
-        if (buildInfo == null)
-        {
-            Console.Error.WriteLine("BuildInfo was not found in the supplied game files");
-            return 2;
-        }
+        LookForBuildEnvs();
 
-        Console.WriteLine(JsonSerializer.Serialize(buildInfo, JsonOptions));
+        var buildInfo = FindInBundles() ?? FindInStandaloneAssets();
+
+        Console.WriteLine("\n\n");
+
+        if (_envs.Count > 0)
+            Console.WriteLine(JsonSerializer.Serialize(_envs, JsonOptions));
+        else
+            Console.WriteLine($"No envs found");
+
+        if (buildInfo != null)
+            Console.WriteLine(JsonSerializer.Serialize(buildInfo, JsonOptions));
+        else
+            Console.WriteLine($"No build info found");
 
         return 0;
+    }
+
+    void LookForBuildEnvs()
+    {
+        Console.WriteLine("Looking for build envs...");
+
+        var asset = _manager.LoadAssetsFile(_resourcesPath);
+
+        _manager.LoadClassDatabaseFromPackage(asset.file.Metadata.UnityVersion);
+
+        foreach (var info in asset.file.GetAssetsOfType(AssetClassID.MonoBehaviour))
+        {
+            try
+            {
+                var baseField = _manager.GetBaseField(asset, info);
+                var name = baseField["m_Name"].AsString;
+
+                if (!_knownEnvs.Contains(name)) continue;
+
+                var loginServ = ResolveServer(baseField, "LoginServer");
+                var gatewayServ = ResolveServer(baseField, "GatewayServer");
+                var analyticsServ = ResolveServer(baseField, "AnalyticsServer");
+                var sign = baseField["ClientVersionSignature"].AsString;
+
+                _envs.Add(name, new(gatewayServ, loginServ, analyticsServ, sign));
+            }
+            catch
+            {
+                
+            }
+        }
+    }
+
+    static ClientServer ResolveServer(AssetTypeValueField field, string serv)
+    {
+        var sField = field[serv];
+        if (sField == null) return new(null, 0);
+
+        return new(sField["Address"]?.AsString, sField["Port"].AsInt);
     }
 
     BuildInfo? FindInBundles()
@@ -108,16 +196,15 @@ internal sealed class InfoExtractor
         return 3;
     }
 
-    static BuildInfo? ReadStandaloneAsset(string assetPath)
+    BuildInfo? ReadStandaloneAsset(string assetPath)
     {
-        var manager = new AssetsManager();
-        var assetsFile = manager.LoadAssetsFile(assetPath);
+        var assetsFile = _manager.LoadAssetsFile(assetPath);
 
         try
         {
             if (assetsFile.file.Metadata.TypeTreeEnabled)
             {
-                var buildInfo = ReadAssetContents(manager, assetsFile);
+                var buildInfo = ReadAssetContents(_manager, assetsFile);
                 if (buildInfo != null) return buildInfo;
             }
 
@@ -126,14 +213,13 @@ internal sealed class InfoExtractor
         }
         finally
         {
-            manager.UnloadAssetsFile(assetsFile);
+            _manager.UnloadAssetsFile(assetsFile);
         }
     }
 
-    static BuildInfo? ReadBundle(string bundlePath)
+    BuildInfo? ReadBundle(string bundlePath)
     {
-        var manager = new AssetsManager();
-        var bundle = manager.LoadBundleFile(bundlePath, unpackIfPacked: true);
+        var bundle = _manager.LoadBundleFile(bundlePath, unpackIfPacked: true);
 
         try
         {
@@ -143,23 +229,23 @@ internal sealed class InfoExtractor
             {
                 if (!bundle.file.IsAssetsFile(index)) continue;
 
-                var assetsFile = manager.LoadAssetsFileFromBundle(bundle, index, loadDeps: false);
+                var assetsFile = _manager.LoadAssetsFileFromBundle(bundle, index, loadDeps: false);
                 if (assetsFile == null) continue;
 
                 try
                 {
-                    var buildInfo = ReadAssetContents(manager, assetsFile);
+                    var buildInfo = ReadAssetContents(_manager, assetsFile);
                     if (buildInfo != null) return buildInfo;
                 }
                 finally
                 {
-                    manager.UnloadAssetsFile(assetsFile);
+                    _manager.UnloadAssetsFile(assetsFile);
                 }
             }
         }
         finally
         {
-            manager.UnloadBundleFile(bundle);
+            _manager.UnloadBundleFile(bundle);
         }
 
         return null;
@@ -207,8 +293,11 @@ internal sealed class InfoExtractor
 
             var buildInfo = ReadLegacyBuildInfo(bytes);
 
-            Console.WriteLine($"Found in: {assetsFile.path}");
-            if (buildInfo != null) return buildInfo;
+            if (buildInfo != null)
+            {
+                Console.WriteLine($"Found in: {assetsFile.path}");
+                return buildInfo;
+            }
         }
 
         return null;
