@@ -20,12 +20,12 @@
             "properties": {
                 "manifest": "1917491314255731246",
                 "version": "8.2.2",
-                "build_number": 0,
-                "build_commit": "",
-                "build_date": "",
+                "build_number": 11746,
+                "build_commit": "272bf035405",
+                "build_date": "10/10/2022",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "OpenBeta",
+                "signature": "AE1398FA9C2ECC1C255BCD87AB513F6D71FA29C0221F30FDFBB7D2C007DEB98E",
                 "season": "ss2"
             }
         },
@@ -49,12 +49,12 @@
             "properties": {
                 "manifest": "4484562195555822238",
                 "version": "8.2.1",
-                "build_number": 0,
-                "build_commit": "",
-                "build_date": "",
+                "build_number": 11556,
+                "build_commit": "fd9d1f14355",
+                "build_date": "29/09/2022",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "OpenBeta",
+                "signature": "D5352A8DBE78652C7156D92FD76A5BBCEE62BB04E4C2ADA93A66A147CBDCBAE6",
                 "season": "ss2"
             }
         },
@@ -78,12 +78,12 @@
             "properties": {
                 "manifest": "3219250203981112018",
                 "version": "8.1.0",
-                "build_number": 0,
-                "build_commit": "",
-                "build_date": "",
+                "build_number": 11320,
+                "build_commit": "463f310ce43",
+                "build_date": "15/09/2022",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "OpenBeta",
+                "signature": "8DA4F59250504D99CA1938D2C8E7F4588BCD3E56B6507D8478E4C24DD32C7009",
                 "season": "ss2"
             }
         },
@@ -114,12 +114,12 @@
             "properties": {
                 "manifest": "7442604419925670147",
                 "version": "8.0.5",
-                "build_number": 0,
-                "build_commit": "",
-                "build_date": "",
+                "build_number": 11166,
+                "build_commit": "d3322d6435e",
+                "build_date": "08/09/2022",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "OpenBeta",
+                "signature": "3BA1B06C5427991AACB259E91D3ADCDA0262D710E800474D2CA1DC944B3905F2",
                 "season": "ss2"
             }
         },
@@ -150,12 +150,12 @@
             "properties": {
                 "manifest": "2806263671765728416",
                 "version": "8.0.4",
-                "build_number": 0,
-                "build_commit": "",
-                "build_date": "",
+                "build_number": 11018,
+                "build_commit": "8ec3ca43ac3",
+                "build_date": "01/09/2022",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "OpenBeta",
+                "signature": "334E5F6435D2ABD273A31B4C1F1498314F8202323BD9D869660BCDD0C9474807",
                 "season": "ss2"
             }
         },
@@ -186,12 +186,12 @@
             "properties": {
                 "manifest": "6960354653486919632",
                 "version": "8.0.3",
-                "build_number": 0,
-                "build_commit": "",
-                "build_date": "",
+                "build_number": 10855,
+                "build_commit": "4458ad8fba7",
+                "build_date": "19/08/2022",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "OpenBeta",
+                "signature": "E982B7752130F77AA0EB1AC6A171613B5382188B54D2B8AC0463408EE1136AEF",
                 "season": "ss2"
             }
         },
@@ -251,12 +251,12 @@
             "properties": {
                 "manifest": "5025329016136914108",
                 "version": "8.0.2",
-                "build_number": 0,
-                "build_commit": "",
-                "build_date": "",
+                "build_number": 10748,
+                "build_commit": "cbcb799d935",
+                "build_date": "12/08/2022",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "OpenBeta",
+                "signature": "0D9F624C01AF67B2E3E95F707E78745DBC94B99AE143D5DE304CC8332554BAF2",
                 "season": "ss2"
             }
         },
@@ -280,12 +280,12 @@
             "properties": {
                 "manifest": "1880563640640409158",
                 "version": "8.0.1",
-                "build_number": 0,
-                "build_commit": "",
-                "build_date": "",
+                "build_number": 10520,
+                "build_commit": "b0ab9816b93",
+                "build_date": "18/07/2022",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "OpenBeta",
+                "signature": "46A3C52F61B46ACC0E7741CC46F1F1F54DC303406123F401731732E96E3A89D5",
                 "season": "ss2"
             }
         },
@@ -309,12 +309,12 @@
             "properties": {
                 "manifest": "7987271952550166701",
                 "version": "7.4.0",
-                "build_number": 0,
-                "build_commit": "",
-                "build_date": "",
+                "build_number": 10195,
+                "build_commit": "fb071c5f979",
+                "build_date": "04/07/2022",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "OpenBeta",
+                "signature": "E14D1E0BF8C650EE9A8EF3D327AC4BDFD5FBD09591EA042CBA81E6500457181C",
                 "season": "ss1"
             }
         },
@@ -338,12 +338,12 @@
             "properties": {
                 "manifest": "9129315978939769567",
                 "version": "7.3.0",
-                "build_number": 0,
-                "build_commit": "",
-                "build_date": "",
+                "build_number": 10055,
+                "build_commit": "ca892359bce",
+                "build_date": "28/06/2022",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "OpenBeta",
+                "signature": "81C2575DD70478B335FE2B30E83B799C1345FE623EA9E92C9C320B40074A340B",
                 "season": "ss1"
             }
         },
@@ -367,12 +367,12 @@
             "properties": {
                 "manifest": "1548428383670236596",
                 "version": "7.2.0",
-                "build_number": 0,
-                "build_commit": "",
-                "build_date": "",
+                "build_number": 9855,
+                "build_commit": "1fc33c5e257",
+                "build_date": "16/06/2022",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "OpenBeta",
+                "signature": "7CED0241E695436D7361D7F98F9A1D03AEEB0CE03B6C1FD1035BCA5586759B6F",
                 "season": "ss1"
             }
         },
@@ -396,12 +396,12 @@
             "properties": {
                 "manifest": "2260790007918850890",
                 "version": "7.0.5",
-                "build_number": 0,
-                "build_commit": "",
-                "build_date": "",
+                "build_number": 9762,
+                "build_commit": "792883fa2dd",
+                "build_date": "13/06/2022",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "OpenBeta",
+                "signature": "745C0B42591E4F5307D8EB0DFFE192E710B64E96B2D3DA4B4085B0A0E30E91FF",
                 "season": "ss1"
             }
         },
