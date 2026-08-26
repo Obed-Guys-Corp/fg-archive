@@ -26,7 +26,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "scenes": 0,
+                "env": "",
+                "signature": "",
                 "season": "not_season_3"
             }
         },
@@ -56,7 +57,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "scenes": 0,
+                "env": "",
+                "signature": "",
                 "season": "not_season_2"
             }
         },
@@ -86,7 +88,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "scenes": 0,
+                "env": "",
+                "signature": "",
                 "season": "not_season_2"
             }
         },
@@ -116,7 +119,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "scenes": 0,
+                "env": "",
+                "signature": "",
                 "season": "not_season_1"
             }
         },
@@ -146,7 +150,8 @@
                 "build_commit": "240c958f039",
                 "build_date": "06/02/2023",
                 "unity_version": "2019.4.37f1",
-                "scenes": 0,
+                "env": "",
+                "signature": "",
                 "season": "ss3"
             }
         }

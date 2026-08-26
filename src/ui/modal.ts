@@ -35,7 +35,11 @@ function showBuildModal(item: Build, type: BuildType): void {
     const steamManifest = isSteam(type) ? ((item.properties as SteamProperties).manifest ?? "") : "";
     const manifestLine = steam ? "" : `<li class="list-group-item">${t("modal.field", t("modal.manifest"), steamManifest || t("modal.unknown"))}</li>`;
 
-    const relDate = item.release_date ? !steam ? new Date(item.release_date).toLocaleDateString() : new Date(item.release_date).toLocaleString() : t("modal.unknown");
+    const relDate = item.release_date
+        ? !steam
+            ? new Date(item.release_date).toLocaleDateString()
+            : new Date(item.release_date).toLocaleString()
+        : t("modal.unknown");
 
     modalData.innerHTML = `
         <h6 class="mb-2">${t("modal.buildDetails")}</h6>
@@ -47,7 +51,8 @@ function showBuildModal(item: Build, type: BuildType): void {
           <li class="list-group-item">${t("modal.field", t("modal.commit"), item.properties.build_commit || t("modal.unknown"))}</li>
           <li class="list-group-item">${t("modal.field", t("modal.buildDate"), item.properties.build_date || t("modal.unknown"))}</li>
           <li class="list-group-item">${t("modal.field", t("modal.unityVersion"), item.properties.unity_version || t("modal.unknown"))}</li>
-          <li class="list-group-item">${t("modal.field", t("modal.scenes"), item.properties.scenes === 0 ? "?" : (item.properties.scenes ?? "?"))}</li>
+          <li class="list-group-item">${t("modal.field", t("modal.env"), item.properties.env || t("modal.unknown"))}</li>
+          <li class="list-group-item">${t("modal.field", t("modal.signature"), item.properties.signature || t("modal.unknown"))}</li>
           <li class="list-group-item">${t("modal.field", t("modal.season"), season || t("modal.unknown"))}</li>
         </ul>`;
 

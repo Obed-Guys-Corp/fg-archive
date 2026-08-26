@@ -26,7 +26,8 @@
                 "build_commit": "27cc7d94156",
                 "build_date": "28/11/2023",
                 "unity_version": "2021.3.16f1",
-                "scenes": 0,
+                "env": "",
+                "signature": "",
                 "season": "ss45",
                 "source_leak": true
             }

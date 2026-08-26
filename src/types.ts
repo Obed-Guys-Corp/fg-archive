@@ -53,7 +53,8 @@ export interface GenericProperties {
     build_commit?: string;
     build_date?: string;
     unity_version?: string;
-    scenes?: number;
+    env?: Environment;
+    signature?: string;
     season: Season;
     source_leak?: boolean;
 }
@@ -65,6 +66,23 @@ export interface AndroidProperties extends GenericProperties {
 export interface SteamProperties extends GenericProperties {
     manifest?: string;
 }
+
+export type Environment =
+    | "Production"
+    | "OpenBeta"
+    | "ClosedBeta"
+    | "Unstable"
+    | "China"
+    | "CompatQA"
+    | "ComplianceQA"
+    | "Development"
+    | "ExternalQA"
+    | "InternalQA"
+    | "LoadTesting"
+    | "Mobile"
+    | "MobileQA"
+    | "Porting"
+    | "Staging";
 
 export type Season =
     | "ls0"

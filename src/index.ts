@@ -12,7 +12,7 @@ import "../css/styles.css";
 import { LINKS } from "./constants/links";
 import { addFooterLink } from "./utils/footer";
 import { readableUrl } from "./utils/string";
-import * as bootstrap from 'bootstrap';
+import * as bootstrap from "bootstrap";
 
 const state: AppState = {
     currentType: null,
