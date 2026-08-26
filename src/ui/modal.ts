@@ -68,7 +68,7 @@ function showBuildModal(item: Build, type: BuildType): void {
 
     if (allSegments.length > 0) {
         modalSegments.style.display = "block";
-        modalSegments.className = "col-md-6";
+        modalSegments.className = "col-md-4";
         const segmentsBySource = new Map<string, typeof allSegments>();
         for (const seg of allSegments) {
             segmentsBySource.set(seg.source, [...(segmentsBySource.get(seg.source) ?? []), seg]);
@@ -89,7 +89,7 @@ function showBuildModal(item: Build, type: BuildType): void {
                 `;
             })
             .join("");
-        modalData.className = "col-md-6";
+        modalData.className = "col-md-8";
     } else {
         modalSegments.style.display = "none";
         modalSegments.className = "";
