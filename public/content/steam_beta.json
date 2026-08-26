@@ -226,8 +226,8 @@
                 "build_commit": "b3f4391e7e5",
                 "build_date": "23/08/2022",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "ClosedBeta",
+                "signature": "3196A52FC71CE41E4F86C5DCC14EBE039F43F074CBCDCADF3EB5891516256169",
                 "season": "ss2"
             }
         },
