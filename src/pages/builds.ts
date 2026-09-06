@@ -3,6 +3,7 @@ import { initCardClick } from "../ui/builds/modal";
 import { renderTabContent } from "../ui/builds/cards";
 import { renderFilter, renderTabs } from "../ui/builds/tabs";
 import { Api } from "../api";
+import { t } from "../i18n/i18n";
 
 const state: AppState = {
     currentType: null,
@@ -44,7 +45,7 @@ export async function renderBuilds(): Promise<void> {
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" data-i18n="modal.buildDetails"></h5>
+                    <h5 class="modal-title">${t("modal.buildDetails")}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body row">

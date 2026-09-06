@@ -52,7 +52,7 @@ function showBuildModal(item: Build, type: BuildType): void {
           <li class="list-group-item">${t("modal.field", t("modal.buildDate"), item.properties.build_date || t("modal.unknown"))}</li>
           <li class="list-group-item">${t("modal.field", t("modal.unityVersion"), item.properties.unity_version || t("modal.unknown"))}</li>
           <li class="list-group-item">${t("modal.field", t("modal.env"), item.properties.env || t("modal.unknown"))}</li>
-          <li class="list-group-item">${t("modal.field", t("modal.signature"), item.properties.signature || t("modal.unknown"))}</li>
+          <li class="list-group-item text-break">${t("modal.field", t("modal.signature"), item.properties.signature || t("modal.unknown"))}</li>
           <li class="list-group-item">${t("modal.field", t("modal.season"), season || t("modal.unknown"))}</li>
         </ul>`;
 
