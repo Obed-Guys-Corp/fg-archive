@@ -1,6 +1,6 @@
 # Fall Guys Archive
 
-Website of the Fall Guys builds archive
+Website of the Fall Guys archive
 
 Visit us: https://obed-guys-corp.github.io/fg-archive
 

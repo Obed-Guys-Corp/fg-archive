@@ -40,7 +40,7 @@ async function init(): Promise<void> {
         const link = (event.target as HTMLElement).closest<HTMLAnchorElement>("a[data-navigation]");
 
         if (!link) return;
-        
+
         event.preventDefault();
 
         history.pushState(null, "", link.href);
@@ -64,7 +64,18 @@ async function renderCurrentPage(): Promise<void> {
     }
 
     document.getElementById("controls")!.innerHTML = "";
+    const footer = document.getElementById("footerLeft");
 
+    if (footer) {
+        const mainText = document.getElementById("footerMainText");
+
+        Array.from(footer.children).forEach(child => {
+            if (child !== mainText) {
+                child.remove();
+            }
+        });
+    }
+    
     await route.render();
 }
 

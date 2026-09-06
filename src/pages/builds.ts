@@ -58,6 +58,7 @@ export async function renderBuilds(): Promise<void> {
         return;
     }
 
+    setupFooter(document.getElementById("footerLeft")!)
     renderTabs(state);
 
     const firstBtn = document.querySelector<HTMLButtonElement>("#typeTabs button[data-type]");
@@ -66,4 +67,24 @@ export async function renderBuilds(): Promise<void> {
         renderFilter(state, firstType);
         renderTabContent(state, firstType, state.currentSeason);
     }
+}
+
+function setupFooter(container: HTMLElement): void {
+    const selected = document.createElement("div");
+    selected.id = "footerSelected";
+    selected.style.fontWeight = "500";
+    selected.className = "text-white-50";
+
+    const total = document.createElement("div");
+    total.id = "footerTotal";
+    total.style.fontSize = "0.9rem";
+    total.style.fontWeight = "500";
+    total.className = "text-white-50";
+
+    const notes = document.createElement("div");
+    notes.id = "footerNotes";
+    notes.style.fontSize = "0.7rem";
+    notes.className = "text-white-50";
+
+    container.append(selected, total, notes);
 }
