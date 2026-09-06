@@ -1,7 +1,7 @@
 import type { AppState, BuildType } from "../types";
-import { initCardClick } from "../ui/modal";
-import { renderTabContent } from "../ui/cards";
-import { renderFilter, renderTabs } from "../ui/tabs";
+import { initCardClick } from "../ui/builds/modal";
+import { renderTabContent } from "../ui/builds/cards";
+import { renderFilter, renderTabs } from "../ui/builds/tabs";
 import { Api } from "../api";
 
 const state: AppState = {

@@ -7,12 +7,12 @@ import "../css/styles.css";
 import { LINKS } from "./constants/links";
 import { addFooterLink } from "./utils/footer";
 import { readableUrl } from "./utils/string";
-import { initNavbar, updateNav } from "./ui/navbar";
+import { initNavbar, updateNav } from "./ui/builds/navbar";
 import { renderBase } from "./pages/base";
 import { renderBuilds } from "./pages/builds";
 import { maps } from "./map";
 import * as bootstrap from "bootstrap";
-import { initCardClick } from "./ui/modal";
+import { initCardClick } from "./ui/builds/modal";
 
 async function init(): Promise<void> {
     initNavbar();
@@ -75,7 +75,7 @@ async function renderCurrentPage(): Promise<void> {
             }
         });
     }
-    
+
     await route.render();
 }
 

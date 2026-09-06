@@ -1,7 +1,7 @@
-import { Api } from "../api";
-import { t } from "../i18n/i18n";
+import { Api } from "../../api";
+import { t } from "../../i18n/i18n";
 import { renderTabContent } from "./cards";
-import type { AppState, BuildType } from "../types";
+import type { AppState, BuildType } from "../../types";
 
 export function renderFilter(state: AppState, selectedType: BuildType): void {
     const filter = document.getElementById("seasonFilter")! as HTMLSelectElement;

@@ -1,5 +1,5 @@
-import { t } from "../i18n/i18n";
-import { maps } from "../map";
+import { t } from "../../i18n/i18n";
+import { maps } from "../../map";
 
 export function initNavbar(): void {
     const brand = document.querySelector<HTMLAnchorElement>("#mainNavbar .navbar-brand");

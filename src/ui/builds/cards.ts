@@ -1,10 +1,10 @@
-import { Api } from "../api";
-import { t } from "../i18n/i18n";
-import { availableBuilds, buildSizeMB, isAvailable, isSteam, toGB, totalSizeMB } from "../utils/stats";
-import type { AnyBuild, AppState, Build, BuildType, SteamProperties } from "../types";
-import { LINKS } from "../constants/links";
-import { sourceIcons } from "./source-maps";
+import { Api } from "../../api";
+import { t } from "../../i18n/i18n";
+import { availableBuilds, buildSizeMB, isAvailable, isSteam, toGB, totalSizeMB } from "../../utils/stats";
+import type { AnyBuild, AppState, Build, BuildType, SteamProperties } from "../../types";
+import { LINKS } from "../../constants/links";
 import * as bootstrap from "bootstrap";
+import { sourceIcons } from "./source-maps";
 
 export function renderTabContent(state: AppState, selectedType: BuildType, selectedSeason: string): void {
     const tabAlert = document.getElementById("tabAlert")!;

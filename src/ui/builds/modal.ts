@@ -1,10 +1,10 @@
-import { Api } from "../api";
-import { t } from "../i18n/i18n";
-import { capitalize } from "../utils/string";
-import { isSteam } from "../utils/stats";
-import type { AnyBuild, Build, BuildType, SteamProperties } from "../types";
-import { sourceIcons, sourceLocales } from "./source-maps";
+import { Api } from "../../api";
+import { t } from "../../i18n/i18n";
+import { capitalize } from "../../utils/string";
+import { isSteam } from "../../utils/stats";
+import type { AnyBuild, Build, BuildType, SteamProperties } from "../../types";
 import * as bootstrap from "bootstrap";
+import { sourceIcons, sourceLocales } from "./source-maps";
 
 export function initCardClick(): void {
     document.addEventListener("click", e => {
