@@ -29,6 +29,13 @@ export async function renderBuilds(): Promise<void> {
 
     app.innerHTML = `
         <div id="listContainer" class="container py-3">
+
+        <div id="builds_loading" class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+
             <ul class="nav nav-tabs" id="typeTabs" role="tablist"></ul>
             <div id="tabAlert"></div>
             <div class="tab-content" id="typeTabContent"></div>
@@ -67,6 +74,8 @@ export async function renderBuilds(): Promise<void> {
         renderFilter(state, firstType);
         renderTabContent(state, firstType, state.currentSeason);
     }
+
+    document.getElementById("builds_loading")?.remove();
 }
 
 function setupFooter(container: HTMLElement): void {
