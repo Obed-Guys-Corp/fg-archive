@@ -24,12 +24,6 @@ async function init(): Promise<void> {
     document.getElementById("toggleThemeBtn")!.onclick = toggleTheme;
     applyTheme(getInitialTheme());
 
-    // Init help modal
-    document.getElementById("helpModal")!.addEventListener("click", e => {
-        e.preventDefault();
-        new bootstrap.Modal(document.getElementById("modal_help")!).show();
-    });
-
     initCardClick();
 
     try {
@@ -44,12 +38,11 @@ async function init(): Promise<void> {
     initStaticText();
 
     const footerLinks = document.getElementById("footerRight")!;
-    const helpModal = document.getElementById("helpModal")!;
 
-    if (footerLinks && helpModal) {
-        addFooterLink(footerLinks, helpModal, LINKS.telegram, readableUrl(LINKS.telegram));
-        addFooterLink(footerLinks, helpModal, LINKS.discord, t("footer.discord"));
-        addFooterLink(footerLinks, helpModal, LINKS.github, t("footer.github"));
+    if (footerLinks) {
+        addFooterLink(footerLinks, LINKS.telegram, readableUrl(LINKS.telegram));
+        addFooterLink(footerLinks, LINKS.discord, t("footer.discord"));
+        addFooterLink(footerLinks, LINKS.github, t("footer.github"));
     }
 
     renderTabs(state);
