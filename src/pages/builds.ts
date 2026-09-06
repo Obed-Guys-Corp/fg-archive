@@ -35,7 +35,6 @@ export async function renderBuilds(): Promise<void> {
                 <span class="sr-only"></span>
             </div>
         </div>
-
             <ul class="nav nav-tabs" id="typeTabs" role="tablist"></ul>
             <div id="tabAlert"></div>
             <div class="tab-content" id="typeTabContent"></div>

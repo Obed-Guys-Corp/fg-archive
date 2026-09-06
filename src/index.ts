@@ -15,14 +15,14 @@ import * as bootstrap from "bootstrap";
 import { initCardClick } from "./ui/builds/modal";
 
 async function init(): Promise<void> {
-    initNavbar();
-
     // Init theme
     document.getElementById("toggleThemeBtn")!.onclick = toggleTheme;
     applyTheme(getInitialTheme());
 
     await Api.fetchStrings();
 
+    initNavbar();
+    
     renderCurrentPage();
 
     initStaticText();

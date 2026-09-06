@@ -103,5 +103,9 @@
     "card.sourceLeak": "Contains leaked mono DLLs",
     "fallback.noSeason": "No Season",
     "fallback.noDate": "No Date",
-    "fallback.unknown": "Unknown"
+    "fallback.unknown": "Unknown",
+    "base_title": "Fall Guys Archive",
+    "base_desc": "Website meant to archive Fall Guys",
+    "builds_title": "Builds",
+    "cms_title": "CMS"
 }
