@@ -1,7 +1,7 @@
 {
   "name": "fg-archive",
   "version": "1.0.0",
-  "description": "Website of the Fall Guys builds archive",
+  "description": "Website of the Fall Guys archive",
   "main": "src/index.ts",
   "keywords": [
     "fallguys",
