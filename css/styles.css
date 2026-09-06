@@ -10,8 +10,6 @@ html {
 
 body {
     flex: 1;
-    background-color: var(--bs-body-bg);
-    color: var(--bs-body-color);
 }
 
 main.flex-fill {
@@ -25,7 +23,6 @@ main.flex-fill {
     left: 0;
     right: 0;
     z-index: 1030;
-    background-color: var(--bs-gray-800);
 }
 
 .card:hover {
@@ -71,12 +68,10 @@ main.flex-fill {
     flex-shrink: 0;
 }
 
-.page-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
 .titan-one-font {
     font-family: "Titan One", cursive;
+}
+
+.bg-dark-override {
+    background-color: #1d2024;
 }

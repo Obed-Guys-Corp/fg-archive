@@ -21,23 +21,6 @@ export function toggleTheme(): void {
 }
 
 function refreshLook(theme: Theme): void {
-    const navbar = document.getElementById("mainNavbar")!;
-    const footer = document.getElementById("footerInfo")!;
     const themeIcon = document.getElementById("themeIcon")!;
-    const toggleBtn = document.getElementById("toggleThemeBtn")!;
-
-    if (theme === "dark") {
-        navbar.classList.add("navbar-dark");
-        navbar.style.backgroundColor = "#343a40";
-        footer.style.backgroundColor = "#343a40";
-        footer.style.color = "#ccc";
-    } else {
-        navbar.classList.remove("navbar-dark");
-        navbar.style.backgroundColor = "#dee2e6";
-        footer.style.backgroundColor = "#dee2e6";
-        footer.style.color = "#000";
-    }
-    themeIcon.className = theme === "dark" ? "bi bi-moon" : "bi bi-sun";
-    toggleBtn.classList.remove("btn-outline-light", "btn-outline-dark");
-    toggleBtn.classList.add(theme === "dark" ? "btn-outline-light" : "btn-outline-dark");
+    themeIcon.className = `bi ${theme === "dark" ? "bi-moon-stars-fill" : "bi-brightness-high-fill"} text-white`;
 }

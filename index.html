@@ -19,25 +19,27 @@
     </head>
 
     <body>
-        <nav id="mainNavbar" class="navbar">
-            <div class="container px-3">
+        <nav id="mainNavbar" class="navbar bg-dark-override" data-bs-theme="dark">
+            <div class="container">
                 <div class="row w-100 align-items-center gx-2">
                     <div class="col d-flex align-items-center overflow-hidden px-0">
-                        <a class="navbar-brand d-flex align-items-center mb-0" href="#" style="min-width: 0">
+                        <div class="navbar-brand d-flex align-items-center mb-0" style="min-width: 0">
                             <img src="/favicon-512x512.webp" width="32" height="32" class="d-inline-block align-top rounded me-2" alt="beta icon" />
-                            <span
-                                class="titan-one-font text-truncate"
-                                style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inline-block"
-                                >FG: Builds Archive</span
-                            >
-                        </a>
+                            <span class="titan-one-font text-truncate text-white">FG: Builds Archive</span>
+                        </div>
                     </div>
+
                     <div class="col-auto d-flex align-items-center justify-content-end gap-2 px-0">
-                        <select id="seasonFilter" class="form-select form-select-sm" style="min-width: 120px; max-width: 150px">
+                        <select
+                            id="seasonFilter"
+                            class="form-select form-select-sm border-secondary bg-dark-override text-white"
+                            style="min-width: 120px; max-width: 150px"
+                        >
                             <option value="" data-i18n="filter.all"></option>
                         </select>
-                        <button id="toggleThemeBtn" class="btn btn-sm btn-outline-light">
-                            <i id="themeIcon" class="bi"></i>
+
+                        <button id="toggleThemeBtn" class="btn btn-sm btn-outline-secondary">
+                            <i id="themeIcon" class="bi text-white"></i>
                         </button>
                     </div>
                 </div>
@@ -52,13 +54,13 @@
             </div>
         </main>
 
-        <footer id="footerInfo" class="container-fluid border-top py-3">
+        <footer id="footerInfo" class="container-fluid border-top py-3 bg-dark-override" data-bs-theme="dark">
             <div class="row align-items-start">
                 <div id="footerLeft" class="col-md-9 col-12 d-flex flex-column gap-1 text-start">
-                    <div id="footerMainText" class="fw-semibold" data-i18n="footer.poweredBy"></div>
-                    <div id="footerSelected" style="font-weight: 500"></div>
-                    <div id="footerTotal" style="font-size: 0.9rem; font-weight: 500"></div>
-                    <div id="footerNotes" style="font-size: 0.7rem; color: var(--bs-secondary-text)"></div>
+                    <div id="footerMainText" class="fw-semibold text-white" data-i18n="footer.poweredBy"></div>
+                    <div id="footerSelected" style="font-weight: 500" class="text-white-50"></div>
+                    <div id="footerTotal" style="font-size: 0.9rem; font-weight: 500" class="text-white-50"></div>
+                    <div id="footerNotes" style="font-size: 0.7rem" class="text-white-50"></div>
                 </div>
                 <div id="footerRight" class="col-md-3 col-12 d-flex flex-column align-items-md-end align-items-start gap-2 mt-3 mt-md-0">
                     <a href="#" id="helpModal" class="small text-decoration-underline" data-i18n="footer.help"></a>
