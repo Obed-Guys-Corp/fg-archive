@@ -1,7 +1,7 @@
 import type { Build, Builds, BuildType } from "./types";
 
 export class Api {
-    private static _builds: Builds = {
+    static _builds: Builds = {
         steam_beta: [],
         steam: [],
         egs: [],
@@ -11,8 +11,9 @@ export class Api {
         ios_ega: [],
         switch: []
     };
-    private static _strings: Record<string, string> = {};
-    private static _loaded = false;
+
+    static _strings: Record<string, string> = {};
+    static _loaded = false;
 
     public static async fetchBuilds(): Promise<Builds> {
         if (this._loaded) return this._builds;
@@ -23,7 +24,7 @@ export class Api {
             files.map(async type => {
                 const response = await fetch(`./content/${type}.json`);
 
-                if (!response.ok) {
+                if (!response.ok || response.headers.get("content-type") != "application/json") {
                     return;
                 }
 

@@ -1,0 +1,69 @@
+import type { AppState, BuildType } from "../types";
+import { initCardClick } from "../ui/modal";
+import { renderTabContent } from "../ui/cards";
+import { renderFilter, renderTabs } from "../ui/tabs";
+import { Api } from "../api";
+
+const state: AppState = {
+    currentType: null,
+    currentSeason: ""
+};
+
+export async function renderBuilds(): Promise<void> {
+    const app = document.getElementById("app");
+    const controls = document.getElementById("controls");
+
+    if (!app) return;
+
+    if (controls) {
+        controls.innerHTML = `
+            <select
+                id="seasonFilter"
+                class="form-select form-select-sm border-secondary bg-dark-override text-white"
+                style="min-width: 120px; max-width: 150px"
+            >
+                <option value="" data-i18n="filter.all"></option>
+            </select>
+        `;
+    }
+
+    app.innerHTML = `
+        <div id="listContainer" class="container py-3">
+            <ul class="nav nav-tabs" id="typeTabs" role="tablist"></ul>
+            <div id="tabAlert"></div>
+            <div class="tab-content" id="typeTabContent"></div>
+        </div>
+
+         <div class="modal fade" id="modal_build_info" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" data-i18n="modal.buildDetails"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body row">
+                    <div class="col-md-6" id="modalData"></div>
+                    <div class="col-md-6" id="modalSegments"></div>
+                </div>
+                <div class="modal-footer" id="modalFooter"></div>
+            </div>
+        </div>
+    </div>
+    `;
+
+    try {
+        await Api.fetchBuilds();
+    } catch (err) {
+        document.getElementById("typeTabContent")!.innerHTML = `<div class="alert alert-danger">Failed to download assets!<br><br>${err}</div>`;
+        return;
+    }
+
+    renderTabs(state);
+
+    const firstBtn = document.querySelector<HTMLButtonElement>("#typeTabs button[data-type]");
+    if (firstBtn?.dataset.type) {
+        const firstType = firstBtn.dataset.type as BuildType;
+        renderFilter(state, firstType);
+        renderTabContent(state, firstType, state.currentSeason);
+    }
+}

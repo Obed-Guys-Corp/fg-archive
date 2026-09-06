@@ -3,10 +3,9 @@ import { t } from "../i18n/i18n";
 import { renderTabContent } from "./cards";
 import type { AppState, BuildType } from "../types";
 
-const typeTabs = document.getElementById("typeTabs")!;
-const filter = document.getElementById("seasonFilter")! as HTMLSelectElement;
-
 export function renderFilter(state: AppState, selectedType: BuildType): void {
+    const filter = document.getElementById("seasonFilter")! as HTMLSelectElement;
+
     state.currentType = selectedType;
     state.currentSeason = "";
     filter.innerHTML = "";
@@ -38,6 +37,8 @@ export function renderFilter(state: AppState, selectedType: BuildType): void {
 const TAB_ORDER: BuildType[] = ["steam_beta", "steam", "egs_beta", "egs", "android_ega"];
 
 export function renderTabs(state: AppState): void {
+    const typeTabs = document.getElementById("typeTabs")!;
+
     typeTabs.innerHTML = "";
 
     let first = true;

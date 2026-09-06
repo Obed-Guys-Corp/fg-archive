@@ -7,10 +7,10 @@ import { LINKS } from "../constants/links";
 import { sourceIcons } from "./source-maps";
 import * as bootstrap from "bootstrap";
 
-const tabContent = document.getElementById("typeTabContent")!;
-const tabAlert = document.getElementById("tabAlert")!;
-
 export function renderTabContent(state: AppState, selectedType: BuildType, selectedSeason: string): void {
+    const tabAlert = document.getElementById("tabAlert")!;
+    const tabContent = document.getElementById("typeTabContent")!;
+
     tabAlert.innerHTML = "";
     tabContent.innerHTML = "";
 

@@ -1,41 +1,32 @@
 import { Api } from "./api";
 import { initStaticText, t } from "./i18n/i18n";
-import { renderTabContent } from "./ui/cards";
-import { initCardClick } from "./ui/modal";
-import { renderFilter, renderTabs } from "./ui/tabs";
 import { applyTheme, getInitialTheme, toggleTheme } from "./ui/theme";
-import type { AppState, BuildType } from "./types";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../css/styles.css";
 import { LINKS } from "./constants/links";
 import { addFooterLink } from "./utils/footer";
 import { readableUrl } from "./utils/string";
+import { initNavbar, updateNav } from "./ui/navbar";
+import { renderBase } from "./pages/base";
+import { renderBuilds } from "./pages/builds";
+import { maps } from "./map";
 import * as bootstrap from "bootstrap";
-
-const state: AppState = {
-    currentType: null,
-    currentSeason: ""
-};
+import { initCardClick } from "./ui/modal";
 
 async function init(): Promise<void> {
+    initNavbar();
+
     // Init theme
     document.getElementById("toggleThemeBtn")!.onclick = toggleTheme;
     applyTheme(getInitialTheme());
 
-    initCardClick();
+    await Api.fetchStrings();
 
-    try {
-        // Fetch data
-        await Promise.all([Api.fetchBuilds(), Api.fetchStrings()]);
-    } catch (err) {
-        document.getElementById("typeTabContent")!.innerHTML = `<div class="alert alert-danger">Failed to download assets!<br><br>${err}</div>`;
-        return;
-    }
+    renderCurrentPage();
 
-    // I18n
     initStaticText();
+    initCardClick();
 
     const footerLinks = document.getElementById("footerRight")!;
 
@@ -45,14 +36,36 @@ async function init(): Promise<void> {
         addFooterLink(footerLinks, LINKS.github, t("footer.github"));
     }
 
-    renderTabs(state);
+    document.addEventListener("click", async event => {
+        const link = (event.target as HTMLElement).closest<HTMLAnchorElement>("a[data-navigation]");
 
-    const firstBtn = document.querySelector<HTMLButtonElement>("#typeTabs button[data-type]");
-    if (firstBtn?.dataset.type) {
-        const firstType = firstBtn.dataset.type as BuildType;
-        renderFilter(state, firstType);
-        renderTabContent(state, firstType, state.currentSeason);
+        if (!link) return;
+        
+        event.preventDefault();
+
+        history.pushState(null, "", link.href);
+
+        await renderCurrentPage();
+        updateNav();
+    });
+
+    window.addEventListener("popstate", async () => {
+        await renderCurrentPage();
+        updateNav();
+    });
+}
+
+async function renderCurrentPage(): Promise<void> {
+    const route = maps.find(route => `${import.meta.env.BASE_URL}${route.path}` === window.location.pathname);
+
+    if (!route) {
+        renderBase();
+        return;
     }
+
+    document.getElementById("controls")!.innerHTML = "";
+
+    await route.render();
 }
 
 await init();

@@ -6,10 +6,6 @@ import type { AnyBuild, Build, BuildType, SteamProperties } from "../types";
 import { sourceIcons, sourceLocales } from "./source-maps";
 import * as bootstrap from "bootstrap";
 
-const modalData = document.getElementById("modalData")!;
-const modalSegments = document.getElementById("modalSegments")!;
-const modalFooter = document.getElementById("modalFooter")!;
-
 export function initCardClick(): void {
     document.addEventListener("click", e => {
         const card = (e.target as HTMLElement).closest<HTMLElement>(".card");
@@ -34,6 +30,10 @@ function showBuildModal(item: Build, type: BuildType): void {
     const steam = isSteam(type);
     const steamManifest = isSteam(type) ? ((item.properties as SteamProperties).manifest ?? "") : "";
     const manifestLine = steam ? "" : `<li class="list-group-item">${t("modal.field", t("modal.manifest"), steamManifest || t("modal.unknown"))}</li>`;
+
+    const modalData = document.getElementById("modalData")!;
+    const modalSegments = document.getElementById("modalSegments")!;
+    const modalFooter = document.getElementById("modalFooter")!;
 
     const relDate = item.release_date
         ? !steam
