@@ -1,6 +1,5 @@
 import { Api } from "../api";
 import { t } from "../i18n/i18n";
-import type { Commit } from "../types";
 import { calcDateStr } from "../utils/string";
 
 let currPage = 1;
@@ -20,7 +19,7 @@ export async function renderCms(): Promise<void> {
                 <ul id="pageList" class="pagination justify-content-center"></ul>
             </nav>
 
-            <div id="commits" class="row g-3"></div>
+            <div id="commits" class="row g-3 pb-5"></div>
         </div>
     `;
 

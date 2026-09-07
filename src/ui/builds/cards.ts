@@ -134,7 +134,7 @@ function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement
     const card = document.createElement("div");
     card.className = "col-md-4 mb-3";
     card.innerHTML = `
-        <div class="card position-relative p-3 ${!available ? "border border-danger" : ""}" data-type="${type}" data-index="${index}">
+        <div class="card build-card position-relative p-3 ${!available ? "border border-danger" : ""}" data-type="${type}" data-index="${index}">
           <div class="position-absolute top-0 end-0 mt-2 me-2 text-muted small">
             ${item.properties.version ?? ""}
           </div>
