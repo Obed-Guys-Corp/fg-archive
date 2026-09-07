@@ -83,12 +83,9 @@ export async function renderCms(): Promise<void> {
             const cms = await Api.fetchCmsJson(button.dataset.sha);
 
             const encoder = new TextEncoder();
-            const bytes = encoder.encode(JSON.stringify(cms.json)!);
-            const xor = encoder.encode(CMS_CONFIG.xor!);
-
-            for (let i = 0; i < bytes.length; i++) {
-                bytes[i]! ^= xor[i % xor.length]!;
-            }
+            let bytes = encoder.encode(JSON.stringify(cms.json)!);
+            
+            bytes = xor(bytes)
 
             download(bytes, "application/octet-stream", `CMS_v1_${cms.version}`)
         } finally {
@@ -109,9 +106,18 @@ export async function renderCms(): Promise<void> {
         spinner?.classList.remove("d-none");
 
         try {
-            const commit = await Api.fetchCmsJson(button.dataset.sha);
+            const cms = await Api.fetchCmsJson(button.dataset.sha);
 
-            throw new Error();
+            const encoder = new TextEncoder();
+            const bytes = encoder.encode(JSON.stringify(cms.json)!);
+
+            let compressed = new Uint8Array(
+                await new Response(new Blob([bytes]).stream().pipeThrough(new CompressionStream("gzip"))).arrayBuffer()
+            );
+
+            compressed = xor(compressed);
+
+            download(compressed, "application/octet-stream", `CMS_v2_${cms.version}.gdata`)
         } finally {
             button.disabled = false;
             spinner?.classList.add("d-none");
@@ -121,6 +127,16 @@ export async function renderCms(): Promise<void> {
     await loadPage(1);
 
     document.getElementById("builds_loading")?.remove();
+}
+
+function xor<T extends ArrayBufferLike>(content: Uint8Array<T>): Uint8Array<T> {
+    const key = new TextEncoder().encode(CMS_CONFIG.xor!);
+
+    for (let i = 0; i < content.length; i++) {
+        content[i]! ^= key[i % key.length]!;
+    }
+
+    return content;
 }
 
 function download(file: BlobPart, type: string, name: string) {
