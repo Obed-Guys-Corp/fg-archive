@@ -1,4 +1,5 @@
 import { Api } from "../api";
+import { CMS_CONFIG } from "../constants/cms-config";
 import { t } from "../i18n/i18n";
 import { calcDateStr } from "../utils/string";
 
@@ -56,23 +57,61 @@ export async function renderCms(): Promise<void> {
         spinner?.classList.remove("d-none");
 
         try {
+            const cms = await Api.fetchCmsJson(button.dataset.sha);
+
+            const json = JSON.stringify(cms.json);
+
+            download(json, "application/json", `CMS_${cms.version}.json`)
+        } finally {
+            button.disabled = false;
+            spinner?.classList.add("d-none");
+        }
+    });
+
+    commitList?.addEventListener("click", async event => {
+        const target = event.target as HTMLElement;
+        const button = target.closest(".download-v1") as HTMLButtonElement | null;
+
+        if (!button || !button.dataset.sha) return;
+
+        const spinner = button.querySelector<HTMLElement>(".spinner-border");
+
+        button.disabled = true;
+        spinner?.classList.remove("d-none");
+
+        try {
+            const cms = await Api.fetchCmsJson(button.dataset.sha);
+
+            const encoder = new TextEncoder();
+            const bytes = encoder.encode(JSON.stringify(cms.json)!);
+            const xor = encoder.encode(CMS_CONFIG.xor!);
+
+            for (let i = 0; i < bytes.length; i++) {
+                bytes[i]! ^= xor[i % xor.length]!;
+            }
+
+            download(bytes, "application/octet-stream", `CMS_v1_${cms.version}`)
+        } finally {
+            button.disabled = false;
+            spinner?.classList.add("d-none");
+        }
+    });
+
+    commitList?.addEventListener("click", async event => {
+        const target = event.target as HTMLElement;
+        const button = target.closest(".download-v2") as HTMLButtonElement | null;
+
+        if (!button || !button.dataset.sha) return;
+
+        const spinner = button.querySelector<HTMLElement>(".spinner-border");
+
+        button.disabled = true;
+        spinner?.classList.remove("d-none");
+
+        try {
             const commit = await Api.fetchCmsJson(button.dataset.sha);
 
-            const json = JSON.stringify(commit.json);
-
-            const url = URL.createObjectURL(
-                new Blob([json], {
-                    type: "application/json"
-                })
-            );
-
-            const link = document.createElement("a");
-            link.href = url;
-            link.download = `CMS_${commit.version}.json`;
-
-            link.click();
-
-            URL.revokeObjectURL(url);
+            throw new Error();
         } finally {
             button.disabled = false;
             spinner?.classList.add("d-none");
@@ -82,6 +121,22 @@ export async function renderCms(): Promise<void> {
     await loadPage(1);
 
     document.getElementById("builds_loading")?.remove();
+}
+
+function download(file: BlobPart, type: string, name: string) {
+    const url = URL.createObjectURL(
+        new Blob([file], {
+            type: type
+        })
+    );
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = name;
+
+    link.click();
+
+    URL.revokeObjectURL(url);
 }
 
 async function loadPage(page: number) {
@@ -116,11 +171,21 @@ async function loadPage(page: number) {
                             ${date} - ${calcDateStr(date)}
                         </h6>
 
-                        <a href="${update.html_url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">View</a>
+                        <a href="${update.html_url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">${t("cms.view")}</a>
 
                         <button type="button" class="btn btn-primary btn-sm download-json" data-sha="${update.sha}">
-                             <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                            JSON
+                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            ${t("cms.asJson")}
+                        </button>
+
+                         <button type="button" class="btn btn-primary btn-sm download-v1" data-sha="${update.sha}">
+                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            ${t("cms.asV1")}
+                        </button>
+
+                         <button type="button" class="btn btn-primary btn-sm download-v2" data-sha="${update.sha}">
+                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            ${t("cms.asV2")}
                         </button>
                     </div>
                 </div>

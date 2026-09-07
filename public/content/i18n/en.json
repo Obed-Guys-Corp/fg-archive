@@ -134,5 +134,9 @@
     "month": "{0} month",
     "months": "{0} months",
     "year": "{0} year",
-    "years": "{0} years"
+    "years": "{0} years",
+    "cms.view": "View",
+    "cms.asJson": "JSON",
+    "cms.asV1": "V1",
+    "cms.asV2": "V2"
 }
