@@ -36,8 +36,7 @@ export function makeBtn(container: HTMLElement, href: string, txt: string) {
     btn.textContent = txt;
     btn.dataset.navigation = "true";
 
-    div.appendChild(btn)
+    div.appendChild(btn);
 
     container.appendChild(div);
 }
-

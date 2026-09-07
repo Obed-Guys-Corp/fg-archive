@@ -108,3 +108,15 @@ export type Season =
     | "not_season_1"
     | "not_season_2"
     | "not_season_3";
+
+export interface Commit {
+    sha: string;
+    html_url: string;
+    commit: {
+        message: string;
+        author: {
+            name: string;
+            date: string;
+        } | null;
+    };
+}

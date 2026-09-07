@@ -20,13 +20,17 @@ function renderDesktopNav(): void {
 
     container.innerHTML = `
         <ul class="nav nav-tabs navbar-nav d-flex flex-row border-0">
-            ${maps.slice(1).map(route => `
+            ${maps
+                .slice(1)
+                .map(
+                    route => `
                         <li class="nav-item">
                             <a class="nav-link px-2" href="${route.path}" data-route="${route.path}" data-navigation="true">
                                 ${t(route.label)}
                             </a>
                         </li>`
-                    ).join("")}
+                )
+                .join("")}
         </ul>
     `;
 }
@@ -37,13 +41,17 @@ function renderMobileNav(): void {
     if (!container) return;
 
     container.innerHTML = `
-        <ul class="navbar-nav">${maps.slice(1).map(route => `
+        <ul class="navbar-nav">${maps
+            .slice(1)
+            .map(
+                route => `
                         <li class="nav-item">
                             <a class="nav-link" href="${route.path}" data-route="${route.path}" data-navigation="true">
                                 ${t(route.label)}
                             </a>
                         </li>`
-                    ).join("")}
+            )
+            .join("")}
         </ul>
     `;
 }

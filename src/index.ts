@@ -22,7 +22,7 @@ async function init(): Promise<void> {
     await Api.fetchStrings();
 
     initNavbar();
-    
+
     renderCurrentPage();
 
     initStaticText();

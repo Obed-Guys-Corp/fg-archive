@@ -88,7 +88,6 @@ export function setFooter(state: AppState): void {
     footerNotes.textContent = t("footer.note");
 }
 
-
 function createAlert(container: HTMLElement, style: string, title: string, desc: string) {
     const div = document.createElement("div");
     div.className = `alert ${style} my-3`;
@@ -115,16 +114,16 @@ function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement
     // Size (Download sources length)
     const sizeDisplay = downloads?.available?.length
         ? t(
-            "card.size",
-            toGB(buildSizeMB(item)),
-            t("unitGB"),
-            downloads.available
-                .map(item => {
-                    const val = sourceIcons.get(item.source);
-                    return val !== undefined ? `<i class="${val}"></i>` : t(item.source);
-                })
-                .join(" ")
-        )
+              "card.size",
+              toGB(buildSizeMB(item)),
+              t("unitGB"),
+              downloads.available
+                  .map(item => {
+                      const val = sourceIcons.get(item.source);
+                      return val !== undefined ? `<i class="${val}"></i>` : t(item.source);
+                  })
+                  .join(" ")
+          )
         : "";
 
     // Can't get manifest on android and egs builds

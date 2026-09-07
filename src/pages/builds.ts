@@ -65,7 +65,7 @@ export async function renderBuilds(): Promise<void> {
         return;
     }
 
-    setupFooter(document.getElementById("footerLeft")!)
+    setupFooter(document.getElementById("footerLeft")!);
     renderTabs(state);
 
     const firstBtn = document.querySelector<HTMLButtonElement>("#typeTabs button[data-type]");
