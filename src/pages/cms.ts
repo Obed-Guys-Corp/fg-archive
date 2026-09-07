@@ -187,20 +187,26 @@ async function loadPage(page: number) {
                             ${date} - ${calcDateStr(date)}
                         </h6>
 
-                        <a href="${update.html_url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">${t("cms.view")}</a>
+                        <a href="${update.html_url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                            <i class="bi bi-eye"></i>
+                            ${t("cms.view")}
+                        </a>
 
                         <button type="button" class="btn btn-primary btn-sm download-json" data-sha="${update.sha}">
                             <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            <i class="bi bi-code-slash"></i>
                             ${t("cms.asJson")}
                         </button>
 
                          <button type="button" class="btn btn-primary btn-sm download-v1" data-sha="${update.sha}">
                             <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            <i class="bi bi-download"></i>
                             ${t("cms.asV1")}
                         </button>
 
                          <button type="button" class="btn btn-primary btn-sm download-v2" data-sha="${update.sha}">
                             <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            <i class="bi bi-download"></i>
                             ${t("cms.asV2")}
                         </button>
                     </div>
