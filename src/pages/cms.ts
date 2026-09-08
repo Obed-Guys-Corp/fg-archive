@@ -21,7 +21,7 @@ export async function renderCms(): Promise<void> {
                 <ul id="pageList" class="pagination justify-content-center"></ul>
             </nav>
 
-            <div id="commits" class="row gx-1 gy-3 mb-5"></div>
+            <div id="commits" class="row"></div>
         </div>
     `;
 
@@ -53,14 +53,12 @@ export async function renderCms(): Promise<void> {
                     download(JSON.stringify(cms.json), "application/json",`CMS_${cms.version}.json`);
                 });
                 break;
-
             case "v1":
                 await doDownload(button, cms => {
                     const bytes = xor(new TextEncoder().encode(JSON.stringify(cms.json)));
                     download(bytes, "application/octet-stream", `CMS_v1_${cms.version}`);
                 });
                 break;
-
             case "v2":
                 await doDownload(button, async cms => {
                     const bytes = new TextEncoder().encode(JSON.stringify(cms.json));
@@ -168,7 +166,7 @@ async function loadPage(page: number) {
 
             if (release && release !== lastRelease) {
                 html += `
-                    <h4 class="mt-4">
+                    <h4 class="col-12 mt-4 mb-2">
                         ${t("cms.ver", release.ver, new Date(release.date).toLocaleDateString())}
                     </h4>
                 `;
@@ -190,6 +188,7 @@ async function loadPage(page: number) {
 
 
             html += `
+            <div class="col-12 mb-3">
                 <div class="card">
                     <div class="card-body">
                         ${stats}
@@ -223,6 +222,7 @@ async function loadPage(page: number) {
                         </button>
                     </div>
                 </div>
+            </div>
         `;
 
             return html;
