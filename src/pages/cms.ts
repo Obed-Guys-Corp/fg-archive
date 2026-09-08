@@ -51,10 +51,12 @@ export async function renderCms(): Promise<void> {
 
         if (!button || !button.dataset.sha) return;
 
+        const icon = target.querySelector<HTMLElement>("i");
         const spinner = button.querySelector<HTMLElement>(".spinner-border");
 
         button.disabled = true;
         spinner?.classList.remove("d-none");
+        icon?.classList.add("d-none");
 
         try {
             const cms = await Api.fetchCmsJson(button.dataset.sha);
@@ -65,6 +67,7 @@ export async function renderCms(): Promise<void> {
         } finally {
             button.disabled = false;
             spinner?.classList.add("d-none");
+            icon?.classList.remove("d-none");
         }
     });
 
@@ -74,23 +77,26 @@ export async function renderCms(): Promise<void> {
 
         if (!button || !button.dataset.sha) return;
 
+        const icon = target.querySelector<HTMLElement>("i");
         const spinner = button.querySelector<HTMLElement>(".spinner-border");
 
         button.disabled = true;
         spinner?.classList.remove("d-none");
+        icon?.classList.add("d-none");
 
         try {
             const cms = await Api.fetchCmsJson(button.dataset.sha);
 
             const encoder = new TextEncoder();
             let bytes = encoder.encode(JSON.stringify(cms.json)!);
-            
+
             bytes = xor(bytes)
 
             download(bytes, "application/octet-stream", `CMS_v1_${cms.version}`)
         } finally {
             button.disabled = false;
             spinner?.classList.add("d-none");
+            icon?.classList.remove("d-none");
         }
     });
 
@@ -100,10 +106,12 @@ export async function renderCms(): Promise<void> {
 
         if (!button || !button.dataset.sha) return;
 
+        const icon = target.querySelector<HTMLElement>("i");
         const spinner = button.querySelector<HTMLElement>(".spinner-border");
 
         button.disabled = true;
         spinner?.classList.remove("d-none");
+        icon?.classList.add("d-none");
 
         try {
             const cms = await Api.fetchCmsJson(button.dataset.sha);
@@ -121,6 +129,7 @@ export async function renderCms(): Promise<void> {
         } finally {
             button.disabled = false;
             spinner?.classList.add("d-none");
+            icon?.classList.remove("d-none");
         }
     });
 
@@ -173,11 +182,10 @@ async function loadPage(page: number) {
 
         if (updates.totalPages > 1) totalPages = updates.totalPages;
 
-        commitList.innerHTML = updates.commits
-            .map(update => {
-                const date = update.commit.author?.date ? new Date(update.commit.author.date).toLocaleDateString() : "Unknown date";
+        commitList.innerHTML = updates.commits.map(update => {
+            const date = update.commit.author?.date ? new Date(update.commit.author.date).toLocaleDateString() : "Unknown date";
 
-                return `
+            return `
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
@@ -213,7 +221,7 @@ async function loadPage(page: number) {
                 </div>
             </div>
         `;
-            })
+        })
             .join("");
 
         renderPageList();
