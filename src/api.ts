@@ -138,20 +138,26 @@ export class Api {
         const meta = await metaResponse.json();
         const filenames = Object.keys(meta);
 
-        const entries = (
-            await Promise.all(
-                filenames.map(async filename => {
+        const max = 50;
+        const entries: [string, any][] = [];
+
+        for (let i = 0; i < filenames.length; i += max) {
+            const batch = filenames.slice(i, i + max);
+
+            const results = await Promise.all(batch.map(async filename => {
                     if (filename.startsWith("_")) return null;
 
                     const response = await fetch(`https://raw.githubusercontent.com/${CMS_CONFIG.user}/${CMS_CONFIG.repo}/${sha}/${filename}.json`);
 
                     if (!response.ok) throw new Error(`can't get ${filename}.json: ${response.status}`);
-
                     const content = await response.json();
                     return [filename, content] as [string, any];
                 })
-            )
-        ).filter((entry): entry is [string, any] => entry !== null);
+            );
+
+            entries.push(...results.filter((entry): entry is [string, any] => entry !== null));
+        }
+
 
         return {
             json: {
