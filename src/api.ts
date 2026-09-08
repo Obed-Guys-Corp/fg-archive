@@ -1,5 +1,5 @@
 import { CMS_CONFIG } from "./constants/cms-config";
-import type { Build, Builds, BuildType, Commit } from "./types";
+import type { Build, Builds, BuildType, Commit, Release } from "./types";
 import { timeDiff } from "./utils/string";
 
 interface CachedPage {
@@ -25,6 +25,7 @@ export class Api {
     };
 
     static _strings: Record<string, string> = {};
+    static _releases: Release[];
     static _loaded = false;
 
     public static async fetchBuilds(): Promise<Builds> {
@@ -60,6 +61,13 @@ export class Api {
 
         this._strings = await fetch("./content/i18n/en.json").then(res => res.json());
         return this.strings;
+    }
+
+    public static async fetchReleaseMap(): Promise<Release[]> {
+        if (this._releases?.length > 0) return this._releases;
+
+        this._releases = await fetch("./content/cms/releases_map.json").then(res => res.json());
+        return this._releases;
     }
 
     public static get builds(): Builds {

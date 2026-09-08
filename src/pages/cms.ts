@@ -1,6 +1,7 @@
 import { Api } from "../api";
 import { CMS_CONFIG } from "../constants/cms-config";
 import { t } from "../i18n/i18n";
+import type { Release } from "../types";
 import { calcDateStr } from "../utils/string";
 
 let currPage = 1;
@@ -133,6 +134,7 @@ export async function renderCms(): Promise<void> {
         }
     });
 
+    await Api.fetchReleaseMap();
     await loadPage(1);
 
     document.getElementById("builds_loading")?.remove();
@@ -176,6 +178,11 @@ async function loadPage(page: number) {
         </div>
     `;
 
+    const releases = [...Api._releases].sort((x, y) => new Date(y.date).getTime() - new Date(x.date).getTime());
+
+    let releaseIndex = 0;
+    let lastRelease: Release | null = null;
+
     try {
         var updates = await Api.fetchCmsUpdates(page);
         currPage = page;
@@ -183,16 +190,41 @@ async function loadPage(page: number) {
         if (updates.totalPages > 1) totalPages = updates.totalPages;
 
         commitList.innerHTML = updates.commits.map(update => {
-            const date = update.commit.author?.date ? new Date(update.commit.author.date).toLocaleDateString() : "Unknown date";
+            const date = update.commit.author?.date ? new Date(update.commit.author.date) : null;
 
-            return `
-            <div class="col-12">
+            while (date && releaseIndex < releases.length - 1) {
+                const release = releases[releaseIndex];
+                if (!release || date >= new Date(release.date))  break;
+
+                releaseIndex++;
+            }
+
+            const release = releases[releaseIndex];
+
+            let html = "";
+
+            if (release && release !== lastRelease) {
+                html += `
+                    <h4 class="mt-4">
+                        ${t("cms.ver", release.ver, new Date(release.date).toLocaleDateString())}
+                    </h4>
+                `;
+
+                lastRelease = release;
+            }
+
+            const dateStr = date ? date.toLocaleString(undefined, {
+                    dateStyle: "medium",
+                    timeStyle: "short",
+                }) : "Unknown date";
+
+            html += `
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">${update.commit.message}</h5>
 
                         <h6 class="card-subtitle mb-2 text-body-secondary">
-                            ${date} - ${calcDateStr(date)}
+                            ${dateStr} - ${calcDateStr(dateStr)}
                         </h6>
 
                         <a href="${update.html_url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
@@ -219,8 +251,9 @@ async function loadPage(page: number) {
                         </button>
                     </div>
                 </div>
-            </div>
         `;
+
+            return html;
         })
             .join("");
 

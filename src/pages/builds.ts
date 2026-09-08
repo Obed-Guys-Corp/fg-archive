@@ -1,5 +1,4 @@
 import type { AppState, BuildType } from "../types";
-import { initCardClick } from "../ui/builds/modal";
 import { renderTabContent } from "../ui/builds/cards";
 import { renderFilter, renderTabs } from "../ui/builds/tabs";
 import { Api } from "../api";

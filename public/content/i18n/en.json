@@ -138,5 +138,6 @@
     "cms.view": "View",
     "cms.asJson": "JSON",
     "cms.asV1": "V1",
-    "cms.asV2": "V2"
+    "cms.asV2": "V2",
+    "cms.ver": "v{0} - {1}"
 }

@@ -120,3 +120,8 @@ export interface Commit {
         } | null;
     };
 }
+
+export interface Release {
+    ver: string;
+    date: string;
+}
