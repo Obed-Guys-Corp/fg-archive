@@ -1,4 +1,5 @@
 import { CMS_CONFIG } from "./constants/cms-config";
+import { t } from "./i18n/i18n";
 import type { Build, Builds, BuildType, Commit, Release } from "./types";
 import { timeDiff } from "./utils/string";
 
@@ -133,10 +134,12 @@ export class Api {
         return data;
     }
 
-    public static async fetchCmsJson(sha: string): Promise<{
+    public static async fetchCmsJson(sha: string, state?: (s: string) => void): Promise<{
         json: Record<string, any>;
         version: string;
     }> {
+        state?.(t("cms.fetch.init"))
+
         const metaResponse = await fetch(`https://raw.githubusercontent.com/${CMS_CONFIG.user}/${CMS_CONFIG.repo}/${sha}/_meta.json`);
 
         if (!metaResponse.ok) {
@@ -148,19 +151,23 @@ export class Api {
 
         const max = 50;
         const entries: [string, any][] = [];
+        let ready = 0;
+        let toFetch = filenames.filter(x => !x.startsWith("_"));
 
         for (let i = 0; i < filenames.length; i += max) {
             const batch = filenames.slice(i, i + max);
 
             const results = await Promise.all(batch.map(async filename => {
-                    if (filename.startsWith("_")) return null;
+                if (filename.startsWith("_")) return null;
+                
+                const response = await fetch(`https://raw.githubusercontent.com/${CMS_CONFIG.user}/${CMS_CONFIG.repo}/${sha}/${filename}.json`);
 
-                    const response = await fetch(`https://raw.githubusercontent.com/${CMS_CONFIG.user}/${CMS_CONFIG.repo}/${sha}/${filename}.json`);
+                if (!response.ok) throw new Error(`can't get ${filename}.json: ${response.status}`);
+                const content = await response.json();
 
-                    if (!response.ok) throw new Error(`can't get ${filename}.json: ${response.status}`);
-                    const content = await response.json();
-                    return [filename, content] as [string, any];
-                })
+                state?.(t("cms.fetch.progress", ready++, toFetch.length))
+                return [filename, content] as [string, any];
+            })
             );
 
             entries.push(...results.filter((entry): entry is [string, any] => entry !== null));

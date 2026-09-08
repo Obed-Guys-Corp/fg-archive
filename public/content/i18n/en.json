@@ -139,5 +139,7 @@
     "cms.asJson": "JSON",
     "cms.asV1": "V1",
     "cms.asV2": "V2",
-    "cms.ver": "v{0} - {1}"
+    "cms.ver": "v{0} - {1}",
+    "cms.fetch.init": "Initializing...",
+    "cms.fetch.progress": "Fetching... {0} / {1}"
 }

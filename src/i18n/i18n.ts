@@ -1,6 +1,5 @@
 import { Api } from "../api";
 
-/** Resolves key and replaces {0}, {1} placeholders with provided arguments */
 export function t(key: string, ...args: (string | number)[]): string {
     var loc = Api.strings[key];
     if (loc === undefined) console.warn("missing: " + key);
@@ -13,7 +12,6 @@ export function t(key: string, ...args: (string | number)[]): string {
     });
 }
 
-/** Replaces `[data-i18n]` and `[data-i18n-html]` with localised strings */
 export function initStaticText(): void {
     document.querySelectorAll<HTMLElement>("[data-i18n]").forEach(element => {
         const key = element.dataset.i18n!;

@@ -52,20 +52,24 @@ export async function renderCms(): Promise<void> {
 
         if (!button || !button.dataset.sha) return;
 
-        const icon = target.querySelector<HTMLElement>("i");
+        const icon = button.querySelector<HTMLElement>("i");
         const spinner = button.querySelector<HTMLElement>(".spinner-border");
+        const text = button.querySelector(".text")!;
 
         button.disabled = true;
         spinner?.classList.remove("d-none");
         icon?.classList.add("d-none");
 
+        let ogStr = text.textContent;
+
         try {
-            const cms = await Api.fetchCmsJson(button.dataset.sha);
+            const cms = await Api.fetchCmsJson(button.dataset.sha, s => text.textContent = s);
 
             const json = JSON.stringify(cms.json);
 
             download(json, "application/json", `CMS_${cms.version}.json`)
         } finally {
+            text.textContent = ogStr;
             button.disabled = false;
             spinner?.classList.add("d-none");
             icon?.classList.remove("d-none");
@@ -78,15 +82,18 @@ export async function renderCms(): Promise<void> {
 
         if (!button || !button.dataset.sha) return;
 
-        const icon = target.querySelector<HTMLElement>("i");
+        const icon = button.querySelector<HTMLElement>("i");
         const spinner = button.querySelector<HTMLElement>(".spinner-border");
+        const text = button.querySelector(".text")!;
 
         button.disabled = true;
         spinner?.classList.remove("d-none");
         icon?.classList.add("d-none");
 
+        let ogStr = text.textContent;
+
         try {
-            const cms = await Api.fetchCmsJson(button.dataset.sha);
+            const cms = await Api.fetchCmsJson(button.dataset.sha, s => text.textContent = s);
 
             const encoder = new TextEncoder();
             let bytes = encoder.encode(JSON.stringify(cms.json)!);
@@ -95,6 +102,7 @@ export async function renderCms(): Promise<void> {
 
             download(bytes, "application/octet-stream", `CMS_v1_${cms.version}`)
         } finally {
+            text.textContent = ogStr;
             button.disabled = false;
             spinner?.classList.add("d-none");
             icon?.classList.remove("d-none");
@@ -107,15 +115,18 @@ export async function renderCms(): Promise<void> {
 
         if (!button || !button.dataset.sha) return;
 
-        const icon = target.querySelector<HTMLElement>("i");
+        const icon = button.querySelector<HTMLElement>("i");
         const spinner = button.querySelector<HTMLElement>(".spinner-border");
+        const text = button.querySelector(".text")!;
 
         button.disabled = true;
         spinner?.classList.remove("d-none");
         icon?.classList.add("d-none");
 
+        let ogStr = text.textContent;
+
         try {
-            const cms = await Api.fetchCmsJson(button.dataset.sha);
+            const cms = await Api.fetchCmsJson(button.dataset.sha, s => text.textContent = s);
 
             const encoder = new TextEncoder();
             const bytes = encoder.encode(JSON.stringify(cms.json)!);
@@ -128,6 +139,7 @@ export async function renderCms(): Promise<void> {
 
             download(compressed, "application/octet-stream", `CMS_v2_${cms.version}.gdata`)
         } finally {
+            text.textContent = ogStr;
             button.disabled = false;
             spinner?.classList.add("d-none");
             icon?.classList.remove("d-none");
@@ -194,7 +206,7 @@ async function loadPage(page: number) {
 
             while (date && releaseIndex < releases.length - 1) {
                 const release = releases[releaseIndex];
-                if (!release || date >= new Date(release.date))  break;
+                if (!release || date >= new Date(release.date)) break;
 
                 releaseIndex++;
             }
@@ -214,9 +226,9 @@ async function loadPage(page: number) {
             }
 
             const dateStr = date ? date.toLocaleString(undefined, {
-                    dateStyle: "medium",
-                    timeStyle: "short",
-                }) : "Unknown date";
+                dateStyle: "medium",
+                timeStyle: "short",
+            }) : "Unknown date";
 
             html += `
                 <div class="card">
@@ -229,25 +241,25 @@ async function loadPage(page: number) {
 
                         <a href="${update.html_url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
                             <i class="bi bi-eye"></i>
-                            ${t("cms.view")}
+                            <span class="text">${t("cms.view")}</span>
                         </a>
 
                         <button type="button" class="btn btn-primary btn-sm download-json" data-sha="${update.sha}">
                             <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                             <i class="bi bi-code-slash"></i>
-                            ${t("cms.asJson")}
+                            <span class="text">${t("cms.asJson")}</span>
                         </button>
 
                          <button type="button" class="btn btn-primary btn-sm download-v1" data-sha="${update.sha}">
                             <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                             <i class="bi bi-download"></i>
-                            ${t("cms.asV1")}
+                            <span class="text">${t("cms.asV1")}</span>
                         </button>
 
                          <button type="button" class="btn btn-primary btn-sm download-v2" data-sha="${update.sha}">
                             <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                             <i class="bi bi-download"></i>
-                            ${t("cms.asV2")}
+                            <span class="text">${t("cms.asV2")}</span>
                         </button>
                     </div>
                 </div>
