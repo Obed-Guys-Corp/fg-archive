@@ -7,7 +7,7 @@ export function renderBase(): void {
     if (!app) return;
 
     app.innerHTML = `
-        <div class="container py-5">
+        <div class="container py-5 fade" style="transition-duration: 0.5s;">
             <div class="text-center">
                 <h1 class="titan-one-font">${t("base_title")}</h1>
                 <p class="fs-5 mb-3">${t("base_desc")}</p>
@@ -23,6 +23,14 @@ export function renderBase(): void {
             makeBtn(btnList!, route.path, t(route.label));
         });
     }
+
+    const container = app.querySelector<HTMLElement>(".fade");
+
+    if (container) {
+        container.getBoundingClientRect();
+        container.classList.add("show");
+    }
+
 }
 
 export function makeBtn(container: HTMLElement, href: string, txt: string) {
