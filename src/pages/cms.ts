@@ -30,127 +30,78 @@ export async function renderCms(): Promise<void> {
 
     pageList?.addEventListener("click", event => {
         const target = event.target as HTMLElement;
-
         const button = target.closest("[data-page]") as HTMLButtonElement | null;
 
-        if (!button || button.disabled) {
-            return;
-        }
+        if (!button || button.disabled) return;
 
         const page = Number(button.dataset.page);
 
-        if (!page || page === currPage) {
-            return;
-        }
+        if (!page || page === currPage) return;
 
         loadPage(page);
     });
 
     commitList?.addEventListener("click", async event => {
         const target = event.target as HTMLElement;
-        const button = target.closest(".download-json") as HTMLButtonElement | null;
+        const button = target.closest<HTMLButtonElement>(".download");
 
-        if (!button || !button.dataset.sha) return;
+        if (!button) return;
 
-        const icon = button.querySelector<HTMLElement>("i");
-        const spinner = button.querySelector<HTMLElement>(".spinner-border");
-        const text = button.querySelector(".text")!;
+        switch (button.dataset.type) {
+            case "json":
+                await doDownload(button, cms => {
+                    download(JSON.stringify(cms.json), "application/json",`CMS_${cms.version}.json`);
+                });
+                break;
 
-        button.disabled = true;
-        spinner?.classList.remove("d-none");
-        icon?.classList.add("d-none");
+            case "v1":
+                await doDownload(button, cms => {
+                    const bytes = xor(new TextEncoder().encode(JSON.stringify(cms.json)));
+                    download(bytes, "application/octet-stream", `CMS_v1_${cms.version}`);
+                });
+                break;
 
-        let ogStr = text.textContent;
+            case "v2":
+                await doDownload(button, async cms => {
+                    const bytes = new TextEncoder().encode(JSON.stringify(cms.json));
+                    const compressed = new Uint8Array(
+                        await new Response(new Blob([bytes]).stream().pipeThrough(new CompressionStream("gzip"))).arrayBuffer()
+                    );
 
-        try {
-            const cms = await Api.fetchCmsJson(button.dataset.sha, s => text.textContent = s);
-
-            const json = JSON.stringify(cms.json);
-
-            download(json, "application/json", `CMS_${cms.version}.json`)
-        } finally {
-            text.textContent = ogStr;
-            button.disabled = false;
-            spinner?.classList.add("d-none");
-            icon?.classList.remove("d-none");
-        }
-    });
-
-    commitList?.addEventListener("click", async event => {
-        const target = event.target as HTMLElement;
-        const button = target.closest(".download-v1") as HTMLButtonElement | null;
-
-        if (!button || !button.dataset.sha) return;
-
-        const icon = button.querySelector<HTMLElement>("i");
-        const spinner = button.querySelector<HTMLElement>(".spinner-border");
-        const text = button.querySelector(".text")!;
-
-        button.disabled = true;
-        spinner?.classList.remove("d-none");
-        icon?.classList.add("d-none");
-
-        let ogStr = text.textContent;
-
-        try {
-            const cms = await Api.fetchCmsJson(button.dataset.sha, s => text.textContent = s);
-
-            const encoder = new TextEncoder();
-            let bytes = encoder.encode(JSON.stringify(cms.json)!);
-
-            bytes = xor(bytes)
-
-            download(bytes, "application/octet-stream", `CMS_v1_${cms.version}`)
-        } finally {
-            text.textContent = ogStr;
-            button.disabled = false;
-            spinner?.classList.add("d-none");
-            icon?.classList.remove("d-none");
-        }
-    });
-
-    commitList?.addEventListener("click", async event => {
-        const target = event.target as HTMLElement;
-        const button = target.closest(".download-v2") as HTMLButtonElement | null;
-
-        if (!button || !button.dataset.sha) return;
-
-        const icon = button.querySelector<HTMLElement>("i");
-        const spinner = button.querySelector<HTMLElement>(".spinner-border");
-        const text = button.querySelector(".text")!;
-
-        button.disabled = true;
-        spinner?.classList.remove("d-none");
-        icon?.classList.add("d-none");
-
-        let ogStr = text.textContent;
-
-        try {
-            const cms = await Api.fetchCmsJson(button.dataset.sha, s => text.textContent = s);
-
-            const encoder = new TextEncoder();
-            const bytes = encoder.encode(JSON.stringify(cms.json)!);
-
-            let compressed = new Uint8Array(
-                await new Response(new Blob([bytes]).stream().pipeThrough(new CompressionStream("gzip"))).arrayBuffer()
-            );
-
-            compressed = xor(compressed);
-
-            download(compressed, "application/octet-stream", `CMS_v2_${cms.version}.gdata`)
-        } finally {
-            text.textContent = ogStr;
-            button.disabled = false;
-            spinner?.classList.add("d-none");
-            icon?.classList.remove("d-none");
+                    download(xor(compressed), "application/octet-stream",`CMS_v2_${cms.version}.gdata`);
+                });
+                break;
         }
     });
 
     await Api.fetchReleaseMap();
     await loadPage(1);
-
-    document.getElementById("builds_loading")?.remove();
 }
+
+async function doDownload(btn: HTMLButtonElement, action: (cms: Awaited<ReturnType<typeof Api.fetchCmsJson>>) => Promise<void> | void) {
+    const icon = btn.querySelector<HTMLElement>("i");
+    const spinner = btn.querySelector<HTMLElement>(".spinner-border");
+    const text = btn.querySelector<HTMLElement>(".text");
+
+    if (!btn.dataset.sha || !text) return;
+
+    btn.disabled = true;
+    spinner?.classList.remove("d-none");
+    icon?.classList.add("d-none");
+
+    let ogStr = text.textContent;
+
+    try {
+        const cms = await Api.fetchCmsJson(btn.dataset.sha, s => text.textContent = s);
+        await action(cms);
+    } finally {
+        text.textContent = ogStr;
+        btn.disabled = false;
+        spinner?.classList.add("d-none");
+        icon?.classList.remove("d-none");
+    }
+}
+
 
 function xor<T extends ArrayBufferLike>(content: Uint8Array<T>): Uint8Array<T> {
     const key = new TextEncoder().encode(CMS_CONFIG.xor!);
@@ -244,19 +195,19 @@ async function loadPage(page: number) {
                             <span class="text">${t("cms.view")}</span>
                         </a>
 
-                        <button type="button" class="btn btn-primary btn-sm download-json" data-sha="${update.sha}">
+                        <button type="button" class="btn btn-primary btn-sm download" data-type="json" data-sha="${update.sha}">
                             <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                             <i class="bi bi-code-slash"></i>
                             <span class="text">${t("cms.asJson")}</span>
                         </button>
 
-                         <button type="button" class="btn btn-primary btn-sm download-v1" data-sha="${update.sha}">
+                         <button type="button" class="btn btn-primary btn-sm download" data-type="v1" data-sha="${update.sha}">
                             <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                             <i class="bi bi-download"></i>
                             <span class="text">${t("cms.asV1")}</span>
                         </button>
 
-                         <button type="button" class="btn btn-primary btn-sm download-v2" data-sha="${update.sha}">
+                         <button type="button" class="btn btn-primary btn-sm download" data-type="v2" data-sha="${update.sha}">
                             <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                             <i class="bi bi-download"></i>
                             <span class="text">${t("cms.asV2")}</span>
