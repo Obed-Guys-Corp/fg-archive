@@ -197,7 +197,7 @@ async function loadPage(page: number) {
 
                         <button type="button" class="btn btn-primary btn-sm download" data-type="json" data-sha="${update.sha}">
                             <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                            <i class="bi bi-code-slash"></i>
+                            <i class="bi bi-download"></i>
                             <span class="text">${t("cms.asJson")}</span>
                         </button>
 
