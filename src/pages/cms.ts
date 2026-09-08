@@ -21,7 +21,7 @@ export async function renderCms(): Promise<void> {
                 <ul id="pageList" class="pagination justify-content-center"></ul>
             </nav>
 
-            <div id="commits" class="row g-3 pb-5"></div>
+            <div id="commits" class="row gx-1 gy-3 mb-5"></div>
         </div>
     `;
 
@@ -153,7 +153,7 @@ async function loadPage(page: number) {
         if (updates.totalPages > 1) totalPages = updates.totalPages;
 
         commitList.innerHTML = updates.commits.map(update => {
-            const date = update.commit.author?.date ? new Date(update.commit.author.date) : null;
+            const date = update.authored_date ? new Date(update.authored_date) : null;
 
             while (date && releaseIndex < releases.length - 1) {
                 const release = releases[releaseIndex];
@@ -181,33 +181,42 @@ async function loadPage(page: number) {
                 timeStyle: "short",
             }) : "Unknown date";
 
+            const stats = update.stats ? `
+            <div class="position-absolute top-0 end-0 mt-3 me-3 small">
+                <span class="bg-success text-white px-1 rounded">+ ${update.stats.additions}</span>
+                <span class="bg-danger text-white px-1 rounded">- ${update.stats.deletions}</span>
+            </div>
+            ` : "";
+
+
             html += `
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">${update.commit.message}</h5>
+                        ${stats}
+                        <h5 class="card-title">${update.title}</h5>
 
                         <h6 class="card-subtitle mb-2 text-body-secondary">
                             ${dateStr} - ${calcDateStr(dateStr)}
                         </h6>
 
-                        <a href="${update.html_url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                        <a href="${update.web_url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
                             <i class="bi bi-eye"></i>
                             <span class="text">${t("cms.view")}</span>
                         </a>
 
-                        <button type="button" class="btn btn-primary btn-sm download" data-type="json" data-sha="${update.sha}">
+                        <button type="button" class="btn btn-primary btn-sm download" data-type="json" data-sha="${update.id}">
                             <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                             <i class="bi bi-download"></i>
                             <span class="text">${t("cms.asJson")}</span>
                         </button>
 
-                         <button type="button" class="btn btn-primary btn-sm download" data-type="v1" data-sha="${update.sha}">
+                         <button type="button" class="btn btn-primary btn-sm download" data-type="v1" data-sha="${update.id}">
                             <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                             <i class="bi bi-download"></i>
                             <span class="text">${t("cms.asV1")}</span>
                         </button>
 
-                         <button type="button" class="btn btn-primary btn-sm download" data-type="v2" data-sha="${update.sha}">
+                         <button type="button" class="btn btn-primary btn-sm download" data-type="v2" data-sha="${update.id}">
                             <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                             <i class="bi bi-download"></i>
                             <span class="text">${t("cms.asV2")}</span>

@@ -1,17 +1,18 @@
 import { CMS_CONFIG } from "./constants/cms-config";
 import { t } from "./i18n/i18n";
-import type { Build, Builds, BuildType, Commit, Release } from "./types";
+import type { Build, Builds, BuildType, GlCommit, Release } from "./types";
 import { timeDiff } from "./utils/string";
 
 interface CachedPage {
     timestamp: number;
     data: {
-        commits: Commit[];
+        commits: GlCommit[];
         totalPages: number;
     };
 }
 
 const CACHE_TIME = 10 * 60 * 1000;
+const TOTAL_PAGES_KEY = "cms-total-pages";
 
 export class Api {
     static _builds: Builds = {
@@ -80,7 +81,7 @@ export class Api {
     }
 
     public static async fetchCmsUpdates(page = 1): Promise<{
-        commits: Commit[];
+        commits: GlCommit[];
         totalPages: number;
     }> {
         const key = `cms-commits-page-${page}`;
@@ -97,7 +98,7 @@ export class Api {
             localStorage.removeItem(key);
         }
 
-        const response = await fetch(`https://api.github.com/repos/${CMS_CONFIG.user}/${CMS_CONFIG.repo}/commits?per_page=100&page=${page}`);
+        const response = await fetch(`https://gitlab.com/api/v4/projects/82534408/repository/commits?per_page=100&page=${page}&with_stats=true`);
 
         if (!response.ok) {
             var rateLimit = response.headers.get("x-ratelimit-reset");
@@ -105,17 +106,24 @@ export class Api {
             throw new Error("you're ratelimited by github, try again in " + timeDiff(Number(rateLimit)));
         }
 
-        const commits: Commit[] = await response.json();
-        const link = response.headers.get("Link");
-
+        const commits: GlCommit[] = await response.json();
         let totalPages = 1;
+        const cachedTotal = localStorage.getItem(TOTAL_PAGES_KEY);
 
-        if (link) {
-            const match = link.match(/<[^>]+[?&]page=(\d+)[^>]*>;\s*rel="last"/);
+        if (page == 1 || cachedTotal == null) {
+            const latest = commits[0]!;
 
-            if (match) {
-                totalPages = Number(match[1]);
-            }
+            const commitsTotal = await fetch(`https://gitlab.com/api/v4/projects/82534408/repository/commits/${latest.id}/sequence`);
+            const { count } = await commitsTotal.json();
+            totalPages = Math.ceil(count / 100);
+
+            localStorage.setItem(TOTAL_PAGES_KEY, JSON.stringify({
+                timestamp: Date.now(),
+                totalPages
+            }));
+        }
+        else {
+            totalPages = JSON.parse(cachedTotal).totalPages;
         }
 
         var data = {
@@ -159,7 +167,7 @@ export class Api {
 
             const results = await Promise.all(batch.map(async filename => {
                 if (filename.startsWith("_")) return null;
-                
+
                 const response = await fetch(`https://raw.githubusercontent.com/${CMS_CONFIG.user}/${CMS_CONFIG.repo}/${sha}/${filename}.json`);
 
                 if (!response.ok) throw new Error(`can't get ${filename}.json: ${response.status}`);

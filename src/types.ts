@@ -109,7 +109,7 @@ export type Season =
     | "not_season_2"
     | "not_season_3";
 
-export interface Commit {
+export interface GhCommit {
     sha: string;
     html_url: string;
     commit: {
@@ -124,4 +124,15 @@ export interface Commit {
 export interface Release {
     ver: string;
     date: string;
+}
+
+export interface GlCommit {
+    id: string;
+    title: string;
+    authored_date: string;
+    web_url: string;
+    stats: {
+        additions: number;
+        deletions: number;
+    };
 }
