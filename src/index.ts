@@ -14,6 +14,9 @@ import { maps } from "./map";
 import * as bootstrap from "bootstrap";
 import { initCardClick } from "./ui/builds/modal";
 
+declare const COMMIT: string;
+declare const BUILD_DATE: string;
+
 async function init(): Promise<void> {
     // Init theme
     document.getElementById("toggleThemeBtn")!.onclick = toggleTheme;
@@ -28,7 +31,11 @@ async function init(): Promise<void> {
     initStaticText();
     initCardClick();
 
-    const footerLinks = document.getElementById("footerRight")!;
+    const verText = document.getElementById("footerMainText")!;
+    if (verText)
+        verText.innerHTML = `${t("footer.poweredBy")} | <a class="text-reset font-monospace" target="_blank" href=${LINKS.github}/commit/${COMMIT}>#${COMMIT.substring(0, 8)}</a>, ${new Date(BUILD_DATE).toLocaleDateString()}`
+
+    const footerLinks = document.getElementById("footerLinks")!;
 
     if (footerLinks) {
         addFooterLink(footerLinks, LINKS.telegram, readableUrl(LINKS.telegram));

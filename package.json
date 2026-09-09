@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@types/bootstrap": "^5.2.11",
+    "@types/node": "^22.20.2",
     "prettier": "^3.9.6",
     "typescript": "^7.0.2",
     "vite": "^8.2.0"
