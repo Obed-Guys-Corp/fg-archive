@@ -90,8 +90,8 @@ export function setFooter(state: AppState): void {
 
 function createAlert(container: HTMLElement, style: string, title: string, desc: string) {
     const div = document.createElement("div");
-    div.className = `alert ${style} my-3`;
-    div.setAttribute("role", "alert");
+    div.className = `alert ${style} my-3 alert-dismissible fade show`;
+    div.role = "alert";
 
     const h5 = document.createElement("h5");
     h5.className = "alert-heading";
@@ -101,9 +101,13 @@ function createAlert(container: HTMLElement, style: string, title: string, desc:
     p.className = "mb-0";
     p.innerHTML = desc;
 
-    div.appendChild(h5);
-    div.appendChild(p);
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "btn-close";
+    btn.setAttribute("data-bs-dismiss", "alert");
+    btn.setAttribute("aria-label", "Close");
 
+    div.append(h5, p, btn);
     container.appendChild(div);
 }
 
@@ -114,16 +118,16 @@ function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement
     // Size (Download sources length)
     const sizeDisplay = downloads?.available?.length
         ? t(
-              "card.size",
-              toGB(buildSizeMB(item)),
-              t("unitGB"),
-              downloads.available
-                  .map(item => {
-                      const val = sourceIcons.get(item.source);
-                      return val !== undefined ? `<i class="${val}"></i>` : t(item.source);
-                  })
-                  .join(" ")
-          )
+            "card.size",
+            toGB(buildSizeMB(item)),
+            t("unitGB"),
+            downloads.available
+                .map(item => {
+                    const val = sourceIcons.get(item.source);
+                    return val !== undefined ? `<i class="${val}"></i>` : t(item.source);
+                })
+                .join(" ")
+        )
         : "";
 
     // Can't get manifest on android and egs builds
