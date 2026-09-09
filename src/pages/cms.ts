@@ -14,6 +14,11 @@ export async function renderCms(): Promise<void> {
 
     if (!app) return;
 
+    const url = new URL(window.location.href);
+
+    const page = Number(url.searchParams.get("page") ?? "1");
+    const max = Number(url.searchParams.get("max") ?? "50");
+
     app.innerHTML = `
         <div class="container">
 
@@ -34,11 +39,11 @@ export async function renderCms(): Promise<void> {
 
         if (!button || button.disabled) return;
 
-        const page = Number(button.dataset.page);
+        const goTo = Number(button.dataset.page);
 
-        if (!page || page === currPage) return;
+        if (!goTo || goTo === currPage) return;
 
-        loadPage(page);
+        loadPage(goTo, max);
     });
 
     commitList?.addEventListener("click", async event => {
@@ -50,7 +55,7 @@ export async function renderCms(): Promise<void> {
         switch (button.dataset.type) {
             case "json":
                 await doDownload(button, cms => {
-                    download(JSON.stringify(cms.json), "application/json",`CMS_${cms.version}.json`);
+                    download(JSON.stringify(cms.json), "application/json", `CMS_${cms.version}.json`);
                 });
                 break;
             case "v1":
@@ -66,14 +71,14 @@ export async function renderCms(): Promise<void> {
                         await new Response(new Blob([bytes]).stream().pipeThrough(new CompressionStream("gzip"))).arrayBuffer()
                     );
 
-                    download(xor(compressed), "application/octet-stream",`CMS_v2_${cms.version}.gdata`);
+                    download(xor(compressed), "application/octet-stream", `CMS_v2_${cms.version}.gdata`);
                 });
                 break;
         }
     });
 
     await Api.fetchReleaseMap();
-    await loadPage(1);
+    await loadPage(page, max);
 }
 
 async function doDownload(btn: HTMLButtonElement, action: (cms: Awaited<ReturnType<typeof Api.fetchCmsJson>>) => Promise<void> | void) {
@@ -127,9 +132,10 @@ function download(file: BlobPart, type: string, name: string) {
     URL.revokeObjectURL(url);
 }
 
-async function loadPage(page: number) {
+async function loadPage(page: number, pages: number) {
     if (!commitList || !pageList) return;
-    if (page < 1 || page > totalPages) return;
+    if (page < 1) return;
+    if (pages <= 0 || pages >= 100) pages = 50;
 
     commitList.innerHTML = `
         <div class="col-12 d-flex justify-content-center">
@@ -145,10 +151,28 @@ async function loadPage(page: number) {
     let lastRelease: Release | null = null;
 
     try {
-        var updates = await Api.fetchCmsUpdates(page);
-        currPage = page;
+        var updates = await Api.fetchCmsUpdates(page, pages);
+
+        if (page > updates.totalPages) {
+            currPage = 1;
+            updates = await Api.fetchCmsUpdates(currPage, pages)
+        }
+        else
+            currPage = page;
 
         if (updates.totalPages > 1) totalPages = updates.totalPages;
+
+        const url = new URL(window.location.href);
+
+        if (currPage === 1) {
+            url.searchParams.delete("page");
+        } else {
+            url.searchParams.set("page", String(currPage));
+        }
+
+        url.searchParams.set("max", String(pages));
+
+        history.pushState({ page: currPage, max: pages }, "", url);
 
         commitList.innerHTML = updates.commits.map(update => {
             const date = update.authored_date ? new Date(update.authored_date) : null;
@@ -253,9 +277,9 @@ function renderPageList() {
     `;
 
     let start = Math.max(1, currPage - 2);
-    let end = Math.min(totalPages, start + 4);
+    let end = Math.min(totalPages, start + 5);
 
-    start = Math.max(1, end - 4);
+    start = Math.max(1, end - 5);
 
     for (let page = start; page <= end; page++) {
         res += `

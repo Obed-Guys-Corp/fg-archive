@@ -14,7 +14,6 @@ interface CachedPage {
 }
 
 const CACHE_TIME = 10 * 60 * 1000;
-const TOTAL_PAGES_KEY = "cms-total-pages";
 
 export class Api {
     static _builds: Builds = {
@@ -86,7 +85,10 @@ export class Api {
         commits: GlCommit[];
         totalPages: number;
     }> {
-        const key = `cms-commits-page-${page}`;
+        if (pages <= 0 || pages >= 100) pages = 50;
+        
+        const totalPagesKey = `cms-total-pages-${pages}`;
+        const key = `cms-commits-page-${page}-pages-${pages}`;
 
         const cache = localStorage.getItem(key);
 
@@ -110,17 +112,24 @@ export class Api {
 
         const commits: GlCommit[] = await response.json();
         let totalPages = 1;
-        const pagesCache = localStorage.getItem(TOTAL_PAGES_KEY);
+        const pagesCache = localStorage.getItem(totalPagesKey);
         let cachedTotal = pagesCache ? JSON.parse(pagesCache) : null;
 
-        if (page == 1 || cachedTotal == null || cachedTotal.pages != pages) {
+        if (commits.length === 0 && page > 1) {
+            return {
+                commits,
+                totalPages: 0
+            };
+        }
+
+        if (page == 1 || cachedTotal == null || cachedTotal.pages != pages || Date.now() - cachedTotal.timestamp >= CACHE_TIME) {
             const latest = commits[0]!;
 
             const commitsTotal = await fetch(`https://gitlab.com/api/v4/projects/${CMS_CONFIG.gl_repo}/repository/commits/${latest.id}/sequence`);
             const { count } = await commitsTotal.json();
             totalPages = Math.ceil(count / pages);
 
-            localStorage.setItem(TOTAL_PAGES_KEY, JSON.stringify({
+            localStorage.setItem(totalPagesKey, JSON.stringify({
                 timestamp: Date.now(),
                 totalPages,
                 pages
