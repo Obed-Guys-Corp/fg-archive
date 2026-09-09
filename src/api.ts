@@ -1,7 +1,9 @@
+import JSZip from "jszip";
 import { CMS_CONFIG } from "./constants/cms-config";
 import { t } from "./i18n/i18n";
 import type { Build, Builds, BuildType, GlCommit, Release } from "./types";
 import { timeDiff } from "./utils/string";
+
 
 interface CachedPage {
     timestamp: number;
@@ -148,45 +150,33 @@ export class Api {
     }> {
         state?.(t("cms.fetch.init"))
 
-        const metaResponse = await fetch(`https://raw.githubusercontent.com/${CMS_CONFIG.gh_user}/${CMS_CONFIG.gh_repo}/${sha}/_meta.json`);
+        const cmsReq = await fetch(`http://fg-archive.floyzi.dev/api/cms?sha=${sha}`);
 
-        if (!metaResponse.ok) {
-            throw new Error(`can't get _meta.json` + metaResponse.status);
+        if (!cmsReq.ok) throw new Error(`can't get cms` + cmsReq.status);
+
+        state?.(t("cms.fetch.load"))
+
+        const zip = await JSZip.loadAsync(await cmsReq.arrayBuffer());
+
+        const metiaFile = Object.entries(zip.files).find(([path, file]) => !file.dir && path.endsWith("/_meta.json"));
+        if (metiaFile == null) throw new Error(`can't get meta`);
+
+        const [metaPath, metaFile] = metiaFile;
+        const meta = JSON.parse(await metaFile.async("string"));
+
+        const root = metaPath.substring(0, metaPath.indexOf("/"));
+        const cms: Record<string, any> = {};
+
+        for (const f of Object.keys(meta).filter(x => !x.startsWith("_"))) {
+            const file = zip.files[`${root}/${f}.json`];
+
+            if (!file || file.dir) throw new Error(`lack of ${f}`);
+
+            cms[f] = JSON.parse(await file.async("string"));
         }
-
-        const meta = await metaResponse.json();
-        const filenames = Object.keys(meta);
-
-        const max = 30;
-        const entries: [string, any][] = [];
-        let ready = 0;
-        let toFetch = filenames.filter(x => !x.startsWith("_"));
-
-        for (let i = 0; i < filenames.length; i += max) {
-            const batch = filenames.slice(i, i + max);
-
-            const results = await Promise.all(batch.map(async filename => {
-                if (filename.startsWith("_")) return null;
-
-                const response = await fetch(`https://raw.githubusercontent.com/${CMS_CONFIG.gh_user}/${CMS_CONFIG.gh_repo}/${sha}/${filename}.json`);
-
-                if (!response.ok) throw new Error(`can't get ${filename}.json: ${response.status}`);
-                const content = await response.json();
-
-                state?.(t("cms.fetch.progress", ready++, toFetch.length))
-                return [filename, content] as [string, any];
-            })
-            );
-
-            entries.push(...results.filter((entry): entry is [string, any] => entry !== null));
-        }
-
 
         return {
-            json: {
-                ...Object.fromEntries(entries),
-                _meta: meta
-            },
+            json: cms,
             version: meta["_content_version"]
         };
     }

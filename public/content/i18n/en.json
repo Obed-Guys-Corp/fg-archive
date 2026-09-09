@@ -140,8 +140,8 @@
     "cms.asV1": "V1",
     "cms.asV2": "V2",
     "cms.ver": "v{0} - {1}",
-    "cms.fetch.init": "Initializing...",
-    "cms.fetch.progress": "Fetching... {0} / {1}",
+    "cms.fetch.init": "Fetching...",
+    "cms.fetch.load": "Generating file...",
     "modal.tgAlert.0": "Having trouble with downloading from Telegram? Try using {0} if you don't have a Telegram account or can't use Telegram for any other reason. To use it just copy link from \"Download in Telegram\" button and paste it on the website<br><br>Unfortunately, this site only supports single file downloads so you can't download builds that split into segments with it",
     "modal.tgAlert.1": "this website"
 }
