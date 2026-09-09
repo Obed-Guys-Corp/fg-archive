@@ -33,7 +33,13 @@ async function init(): Promise<void> {
 
     const verText = document.getElementById("footerMainText")!;
     if (verText)
-        verText.innerHTML = `${t("footer.poweredBy")} | <a class="text-reset font-monospace" target="_blank" href=${LINKS.github}/commit/${COMMIT}>#${COMMIT.substring(0, 8)}</a>, ${new Date(BUILD_DATE).toLocaleDateString()}`
+        verText.innerHTML = `
+            <span>${t("footer.poweredBy")} | 
+                <a class="text-reset font-monospace" target="_blank" href=${LINKS.github}/commit/${COMMIT}>#${COMMIT.substring(0, 8)}</a>, 
+                    ${new Date(BUILD_DATE).toLocaleDateString()}
+            </span>
+            <br>
+            <span class="text-white-50">${t("footer.copyright", new Date().getFullYear())}</span>`
 
     const footerLinks = document.getElementById("footerLinks")!;
 

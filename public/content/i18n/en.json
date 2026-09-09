@@ -143,5 +143,6 @@
     "cms.fetch.init": "Fetching...",
     "cms.fetch.load": "Generating file...",
     "modal.tgAlert.0": "Having trouble with downloading from Telegram? Try using {0} if you don't have a Telegram account or can't use Telegram for any other reason. To use it just copy link from \"Download in Telegram\" button and paste it on the website<br><br>Unfortunately, this site only supports single file downloads so you can't download builds that split into segments with it",
-    "modal.tgAlert.1": "this website"
+    "modal.tgAlert.1": "this website",
+    "footer.copyright": "This site is not affiliated with Epic Games<br>© {0} Mediatonic Limited Fall Guys and all related \ncharacters and elements are trademarks of Mediatonic Limited "
 }
