@@ -25,6 +25,12 @@ export async function renderCms(): Promise<void> {
     app.innerHTML = `
         <div class="container">
 
+            <div id="init-load" class="col-12 d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden"></span>
+                </div>
+            </div>
+
             <nav class="mt-4">
                 <ul id="pageList" class="pagination justify-content-center"></ul>
             </nav>
@@ -82,6 +88,8 @@ export async function renderCms(): Promise<void> {
     });
 
     await Api.fetchReleaseMap();
+
+    document.getElementById("init-load")?.remove();
 
     if (alerts) {
         createAlert(alerts, "alert-secondary", "", t("cms.about",
