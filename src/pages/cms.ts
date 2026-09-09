@@ -1,12 +1,15 @@
 import { Api } from "../api";
 import { CMS_CONFIG } from "../constants/cms-config";
+import { LINKS } from "../constants/links";
 import { t } from "../i18n/i18n";
 import type { Release } from "../types";
+import { createAlert } from "../ui/alerts";
 import { calcDateStr } from "../utils/string";
 
 let currPage = 1;
 let totalPages = 1;
 let commitList: HTMLDivElement;
+let alerts: HTMLDivElement;
 let pageList: Element;
 
 export async function renderCms(): Promise<void> {
@@ -25,13 +28,14 @@ export async function renderCms(): Promise<void> {
             <nav class="mt-4">
                 <ul id="pageList" class="pagination justify-content-center"></ul>
             </nav>
-
+            <div id="alerts"></div>
             <div id="commits" class="row"></div>
         </div>
     `;
 
     commitList = document.querySelector("#commits")!;
     pageList = document.querySelector("#pageList")!;
+    alerts = document.querySelector("#alerts")!;
 
     pageList?.addEventListener("click", event => {
         const target = event.target as HTMLElement;
@@ -78,6 +82,13 @@ export async function renderCms(): Promise<void> {
     });
 
     await Api.fetchReleaseMap();
+
+    if (alerts) {
+        createAlert(alerts, "alert-secondary", "", t("cms.about",
+            `<a href="${LINKS.cmsGitlab}" class="alert-link" target="_blank">${t(`gitlab`)}</a>`,
+            `<a href="${LINKS.cmsGithub}" class="alert-link" target="_blank">${t(`github`)}</a>`))
+    }
+
     await loadPage(page, max);
 }
 

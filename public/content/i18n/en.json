@@ -8,7 +8,8 @@
     "footer.available": "Available",
     "footer.size": "Size",
     "footer.note": "Please note that information about builds is set only when available and provided information may be inaccurate",
-    "footer.github": "GitHub",
+    "github": "GitHub",
+    "gitlab": "GitLab",
     "tab.lostMediaTitle": "Lost media ahead!",
     "tab.lostMediaDesc": "Some builds on this page are marked red: those builds aren't available for download because we couldn't find them. If you have any information about those builds {0} so we can add them!",
     "tab.lostMediaDesc.link": "let us know",
@@ -144,5 +145,6 @@
     "cms.fetch.load": "Generating file...",
     "modal.tgAlert.0": "Having trouble with downloading from Telegram? Try using {0} if you don't have a Telegram account or can't use Telegram for any other reason. To use it just copy link from \"Download in Telegram\" button and paste it on the website<br><br>Unfortunately, this site only supports single file downloads so you can't download builds that split into segments with it",
     "modal.tgAlert.1": "this website",
-    "footer.copyright": "This site is not affiliated with Epic Games<br>© {0} Mediatonic Limited Fall Guys and all related \ncharacters and elements are trademarks of Mediatonic Limited "
+    "footer.copyright": "This site is not affiliated with Epic Games<br>© {0} Mediatonic Limited Fall Guys and all related \ncharacters and elements are trademarks of Mediatonic Limited",
+    "cms.about": "This page contains Fall Guys content update history. Raw CMS data can be viewed on repositories hosted on {0} and {1}"
 }

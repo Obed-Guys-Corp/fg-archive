@@ -46,7 +46,7 @@ async function init(): Promise<void> {
     if (footerLinks) {
         addFooterLink(footerLinks, LINKS.telegram, readableUrl(LINKS.telegram));
         addFooterLink(footerLinks, LINKS.discord, t("footer.discord"));
-        addFooterLink(footerLinks, LINKS.github, t("footer.github"));
+        addFooterLink(footerLinks, LINKS.github, t("github"));
     }
 
     document.addEventListener("click", async event => {
