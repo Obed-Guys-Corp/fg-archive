@@ -73,7 +73,7 @@ function showBuildModal(item: Build, type: BuildType): void {
     
     if (showAlert) {
         const modalAlerts = document.getElementById("modal-alerts")!;
-        createAlert(modalAlerts, "alert-info", "", t("modal.tgAlert.0", `<a href="${LINKS.tgDownloader}" class="alert-link">${t(`modal.tgAlert.1`)}</a>`));
+        createAlert(modalAlerts, "alert-info", "", t("modal.tgAlert.0", `<a href="${LINKS.tgDownloader}" target="_blank" class="alert-link">${t(`modal.tgAlert.1`)}</a>`));
     }
 
     if (allSegments.length > 0) {

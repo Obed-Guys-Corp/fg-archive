@@ -98,7 +98,7 @@ export class Api {
             localStorage.removeItem(key);
         }
 
-        const response = await fetch(`https://gitlab.com/api/v4/projects/82534408/repository/commits?per_page=100&page=${page}&with_stats=true`);
+        const response = await fetch(`https://gitlab.com/api/v4/projects/${CMS_CONFIG.gl_repo}/repository/commits?per_page=100&page=${page}&with_stats=true`);
 
         if (!response.ok) {
             var rateLimit = response.headers.get("x-ratelimit-reset");
@@ -113,7 +113,7 @@ export class Api {
         if (page == 1 || cachedTotal == null) {
             const latest = commits[0]!;
 
-            const commitsTotal = await fetch(`https://gitlab.com/api/v4/projects/82534408/repository/commits/${latest.id}/sequence`);
+            const commitsTotal = await fetch(`https://gitlab.com/api/v4/projects/${CMS_CONFIG.gl_repo}/repository/commits/${latest.id}/sequence`);
             const { count } = await commitsTotal.json();
             totalPages = Math.ceil(count / 100);
 
@@ -148,7 +148,7 @@ export class Api {
     }> {
         state?.(t("cms.fetch.init"))
 
-        const metaResponse = await fetch(`https://raw.githubusercontent.com/${CMS_CONFIG.user}/${CMS_CONFIG.repo}/${sha}/_meta.json`);
+        const metaResponse = await fetch(`https://raw.githubusercontent.com/${CMS_CONFIG.gh_user}/${CMS_CONFIG.gh_repo}/${sha}/_meta.json`);
 
         if (!metaResponse.ok) {
             throw new Error(`can't get _meta.json` + metaResponse.status);
@@ -157,7 +157,7 @@ export class Api {
         const meta = await metaResponse.json();
         const filenames = Object.keys(meta);
 
-        const max = 50;
+        const max = 30;
         const entries: [string, any][] = [];
         let ready = 0;
         let toFetch = filenames.filter(x => !x.startsWith("_"));
@@ -168,7 +168,7 @@ export class Api {
             const results = await Promise.all(batch.map(async filename => {
                 if (filename.startsWith("_")) return null;
 
-                const response = await fetch(`https://raw.githubusercontent.com/${CMS_CONFIG.user}/${CMS_CONFIG.repo}/${sha}/${filename}.json`);
+                const response = await fetch(`https://raw.githubusercontent.com/${CMS_CONFIG.gh_user}/${CMS_CONFIG.gh_repo}/${sha}/${filename}.json`);
 
                 if (!response.ok) throw new Error(`can't get ${filename}.json: ${response.status}`);
                 const content = await response.json();

@@ -54,7 +54,7 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
             tabAlert,
             "alert-warning my-3",
             t("tab.lostMediaTitle"),
-            t("tab.lostMediaDesc", `<a href="${LINKS.discord}" class="alert-link">${t(`tab.lostMediaDesc.link`)}</a>`)
+            t("tab.lostMediaDesc", `<a href="${LINKS.discord}" class="alert-link" target="_blank">${t(`tab.lostMediaDesc.link`)}</a>`)
         );
 
     document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
