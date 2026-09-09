@@ -202,7 +202,7 @@ async function loadPage(page: number, pages: number) {
             if (release && release !== lastRelease) {
                 html += `
                     <h4 class="col-12 mt-4 mb-2">
-                        ${t("cms.ver", release.ver, new Date(release.date).toLocaleDateString())}
+                        ${t("cms.clientVer", release.ver, new Date(release.date).toLocaleDateString())}
                     </h4>
                 `;
 
@@ -221,13 +221,15 @@ async function loadPage(page: number, pages: number) {
             </div>
             ` : "";
 
+            let titleSplit = update.title.split(":");
+            let title = titleSplit.length >= 2 ? `<span class="font-monospace">${titleSplit[1]}</span>` : t("cms.verFallback")
 
             html += `
             <div class="col-12 mb-3">
                 <div class="card">
                     <div class="card-body">
                         ${stats}
-                        <h5 class="card-title">${update.title}</h5>
+                        <h5 class="card-title">${title}</h5>
 
                         <h6 class="card-subtitle mb-2 text-body-secondary">
                             ${dateStr} - ${calcDateStr(dateStr)}
