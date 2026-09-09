@@ -45,13 +45,13 @@ async function init(): Promise<void> {
 
         history.pushState(null, "", link.href);
 
-        await renderCurrentPage();
         updateNav();
+        await renderCurrentPage();
     });
 
     window.addEventListener("popstate", async () => {
-        await renderCurrentPage();
         updateNav();
+        await renderCurrentPage();
     });
 
     document.documentElement.classList.add("fga-show");
@@ -61,6 +61,7 @@ async function renderCurrentPage(): Promise<void> {
     const route = maps.find(route => `${import.meta.env.BASE_URL}${route.path}` === window.location.pathname);
 
     if (!route) {
+        history.replaceState(null, "", import.meta.env.BASE_URL);
         renderBase();
         return;
     }

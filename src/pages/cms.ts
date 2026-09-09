@@ -134,8 +134,8 @@ function download(file: BlobPart, type: string, name: string) {
 
 async function loadPage(page: number, pages: number) {
     if (!commitList || !pageList) return;
-    if (page < 1) return;
-    if (pages <= 0 || pages >= 100) pages = 50;
+    if (!Number.isFinite(page) || page < 1) return;
+    if (!Number.isFinite(pages) || pages <= 0 || pages >= 100) pages = 50;
 
     commitList.innerHTML = `
         <div class="col-12 d-flex justify-content-center">
