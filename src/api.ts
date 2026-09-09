@@ -82,16 +82,16 @@ export class Api {
         return this._strings;
     }
 
-    public static async fetchCmsUpdates(page = 1): Promise<{
+    public static async fetchCmsUpdates(page = 1, pages = 50): Promise<{
         commits: GlCommit[];
         totalPages: number;
     }> {
         const key = `cms-commits-page-${page}`;
 
-        const cached = localStorage.getItem(key);
+        const cache = localStorage.getItem(key);
 
-        if (cached) {
-            const entry = JSON.parse(cached) as CachedPage;
+        if (cache) {
+            const entry = JSON.parse(cache) as CachedPage;
 
             if (Date.now() - entry.timestamp < CACHE_TIME) {
                 return entry.data;
@@ -100,7 +100,7 @@ export class Api {
             localStorage.removeItem(key);
         }
 
-        const response = await fetch(`https://gitlab.com/api/v4/projects/${CMS_CONFIG.gl_repo}/repository/commits?per_page=100&page=${page}&with_stats=true`);
+        const response = await fetch(`https://gitlab.com/api/v4/projects/${CMS_CONFIG.gl_repo}/repository/commits?per_page=${pages}&page=${page}&with_stats=true`);
 
         if (!response.ok) {
             var rateLimit = response.headers.get("x-ratelimit-reset");
@@ -110,22 +110,24 @@ export class Api {
 
         const commits: GlCommit[] = await response.json();
         let totalPages = 1;
-        const cachedTotal = localStorage.getItem(TOTAL_PAGES_KEY);
+        const pagesCache = localStorage.getItem(TOTAL_PAGES_KEY);
+        let cachedTotal = pagesCache ? JSON.parse(pagesCache) : null;
 
-        if (page == 1 || cachedTotal == null) {
+        if (page == 1 || cachedTotal == null || cachedTotal.pages != pages) {
             const latest = commits[0]!;
 
             const commitsTotal = await fetch(`https://gitlab.com/api/v4/projects/${CMS_CONFIG.gl_repo}/repository/commits/${latest.id}/sequence`);
             const { count } = await commitsTotal.json();
-            totalPages = Math.ceil(count / 100);
+            totalPages = Math.ceil(count / pages);
 
             localStorage.setItem(TOTAL_PAGES_KEY, JSON.stringify({
                 timestamp: Date.now(),
-                totalPages
+                totalPages,
+                pages
             }));
         }
         else {
-            totalPages = JSON.parse(cachedTotal).totalPages;
+            totalPages = cachedTotal.totalPages;
         }
 
         var data = {
