@@ -66,8 +66,6 @@ export function selectType(state: AppState, selectedType: BuildType) {
         );
     });
 
-    if (selectedType === state.currentType) return;
-
     renderFilter(state, selectedType);
     renderTabContent(state, selectedType, state.currentSeason);
 }
