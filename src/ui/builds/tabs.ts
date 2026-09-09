@@ -1,7 +1,7 @@
 import { Api } from "../../api";
 import { t } from "../../i18n/i18n";
 import { renderTabContent } from "./cards";
-import type { AppState, BuildType } from "../../types";
+import { BUILD_TYPES, type AppState, type BuildType } from "../../types";
 
 export function renderFilter(state: AppState, selectedType: BuildType): void {
     const filter = document.getElementById("seasonFilter")! as HTMLSelectElement;
@@ -34,33 +34,40 @@ export function renderFilter(state: AppState, selectedType: BuildType): void {
     };
 }
 
-const TAB_ORDER: BuildType[] = ["steam_beta", "steam", "egs_beta", "egs", "android_ega"];
-
 export function renderTabs(state: AppState): void {
     const typeTabs = document.getElementById("typeTabs")!;
 
     typeTabs.innerHTML = "";
 
-    let first = true;
-    for (const type of TAB_ORDER) {
-        const tabId = `tab-${type}`;
-        const label = t(type);
-        const tabButton = document.createElement("li");
-        tabButton.className = "nav-item";
-        tabButton.innerHTML = `<button class="nav-link${first ? " active" : ""}" id="${tabId}-tab" type="button" data-type="${type}">${label}</button>`;
-        typeTabs.appendChild(tabButton);
-        first = false;
-    }
+    typeTabs.innerHTML = BUILD_TYPES.filter(type => Api._builds[type].length > 0).map((type, index) => `
+        <li class="nav-item">
+            <button class="nav-link${index === 0 ? " active" : ""}" id="tab-${type}-tab" type="button" data-type="${type}">
+                ${t(type)}
+            </button>
+        </li>
+    `).join("");
+
 
     typeTabs.onclick = e => {
         const target = e.target as HTMLElement;
-        if (target.tagName !== "BUTTON" || !target.dataset.type) return;
+        if (!target?.dataset.type) return;
 
-        const selectedType = target.dataset.type as BuildType;
-        if (selectedType === state.currentType) return;
-
-        renderFilter(state, selectedType);
-        renderTabContent(state, selectedType, state.currentSeason);
-        typeTabs.querySelectorAll("button").forEach(btn => btn.classList.toggle("active", btn === target));
+        selectType(state, target.dataset.type as BuildType)
     };
+}
+
+export function selectType(state: AppState, selectedType: BuildType) {
+    const typeTabs = document.getElementById("typeTabs")!;
+
+    typeTabs.querySelectorAll<HTMLButtonElement>("button").forEach(btn => {
+        btn.classList.toggle(
+            "active",
+            btn.dataset.type === selectedType
+        );
+    });
+
+    if (selectedType === state.currentType) return;
+
+    renderFilter(state, selectedType);
+    renderTabContent(state, selectedType, state.currentSeason);
 }

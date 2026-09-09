@@ -1,7 +1,7 @@
 import JSZip from "jszip";
 import { CMS_CONFIG } from "./constants/cms-config";
 import { t } from "./i18n/i18n";
-import type { Build, Builds, BuildType, GlCommit, Release } from "./types";
+import { BUILD_TYPES, type Build, type Builds, type BuildType, type GlCommit, type Release } from "./types";
 import { timeDiff } from "./utils/string";
 
 
@@ -16,16 +16,9 @@ interface CachedPage {
 const CACHE_TIME = 10 * 60 * 1000;
 
 export class Api {
-    static _builds: Builds = {
-        steam_beta: [],
-        steam: [],
-        egs: [],
-        android_ega: [],
-        egs_beta: [],
-        android_os: [],
-        ios_ega: [],
-        switch: []
-    };
+    static _builds: Record<BuildType, Build[]> = Object.fromEntries(
+        BUILD_TYPES.map(type => [type, [] as Build[]])
+    ) as Record<BuildType, Build[]>;
 
     static _strings: Record<string, string> = {};
     static _releases: Release[];
@@ -34,10 +27,8 @@ export class Api {
     public static async fetchBuilds(): Promise<Builds> {
         if (this._loaded) return this._builds;
 
-        const files: BuildType[] = ["android_ega", "steam_beta", "steam", "egs", "egs_beta", "android_os", "ios_ega", "switch"];
-
         await Promise.all(
-            files.map(async type => {
+            BUILD_TYPES.map(async type => {
                 const response = await fetch(`./content/${type}.json`);
 
                 if (!response.ok || response.headers.get("content-type") != "application/json") {
@@ -86,7 +77,7 @@ export class Api {
         totalPages: number;
     }> {
         if (pages <= 0 || pages >= 100) pages = 50;
-        
+
         const totalPagesKey = `cms-total-pages-${pages}`;
         const key = `cms-commits-page-${page}-pages-${pages}`;
 

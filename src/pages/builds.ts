@@ -1,6 +1,6 @@
-import type { AppState, BuildType } from "../types";
+import { BUILD_TYPES, type AppState, type BuildType } from "../types";
 import { renderTabContent } from "../ui/builds/cards";
-import { renderFilter, renderTabs } from "../ui/builds/tabs";
+import { renderFilter, renderTabs, selectType } from "../ui/builds/tabs";
 import { Api } from "../api";
 import { t } from "../i18n/i18n";
 
@@ -14,6 +14,8 @@ export async function renderBuilds(): Promise<void> {
     const controls = document.getElementById("controls");
 
     if (!app) return;
+
+    const url = new URL(window.location.href);
 
     if (controls) {
         controls.innerHTML = `
@@ -68,9 +70,10 @@ export async function renderBuilds(): Promise<void> {
 
         const firstBtn = document.querySelector<HTMLButtonElement>("#typeTabs button[data-type]");
         if (firstBtn?.dataset.type) {
-            const firstType = firstBtn.dataset.type as BuildType;
-            renderFilter(state, firstType);
-            renderTabContent(state, firstType, state.currentSeason);
+            const typeParam = url.searchParams.get("type");
+            const type = BUILD_TYPES.find(type => type === typeParam && Api._builds[type].length > 0) ?? BUILD_TYPES.find(type => Api._builds[type].length > 0) ?? BUILD_TYPES[0];
+            
+            selectType(state, type);
         }
 
         const modal = document.getElementById("modal_build_info");

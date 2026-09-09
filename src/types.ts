@@ -9,7 +9,8 @@ export interface Build<TProperties = GenericProperties> {
     properties: TProperties;
 }
 
-export type BuildType = "steam_beta" | "steam" | "egs" | "android_ega" | "egs_beta" | "android_os" | "ios_ega" | "switch";
+export const BUILD_TYPES = ["steam_beta", "steam", "egs", "android_ega", "egs_beta", "android_os", "ios_ega", "switch"] as const;
+export type BuildType = typeof BUILD_TYPES[number];
 
 export interface BuildPropertiesMap {
     steam_beta: SteamProperties;

@@ -47,6 +47,11 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
         tabContent.appendChild(row);
     }
 
+    const url = new URL(window.location.href);
+
+    url.searchParams.set("type", String(selectedType));
+    history.pushState({ page: selectedType }, "", url);
+
     if (letsLeakSomething) createAlert(tabAlert, "alert-info my-3", t("tab.didYouKnow"), t("tab.sourceLeaksDesc", `<i class="text-info bi bi-code-slash"></i>`));
 
     if (hasLostMedia)
