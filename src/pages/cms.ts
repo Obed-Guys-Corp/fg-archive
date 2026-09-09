@@ -236,7 +236,12 @@ async function loadPage(page: number, pages: number) {
                         </h6>
 
                         <a href="${update.web_url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                            <i class="bi bi-eye"></i>
+                            <i class="bi bi-gitlab"></i>
+                            <span class="text">${t("cms.view")}</span>
+                        </a>
+
+                        <a href="${LINKS.cmsGithub}/commit/${update.id}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                            <i class="bi bi-github"></i>
                             <span class="text">${t("cms.view")}</span>
                         </a>
 
