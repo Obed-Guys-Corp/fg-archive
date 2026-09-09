@@ -67,6 +67,8 @@ async function init(): Promise<void> {
 async function renderCurrentPage(): Promise<void> {
     const route = maps.find(route => `${import.meta.env.BASE_URL}${route.path}` === window.location.pathname);
 
+    document.body.scrollTop = 0;
+
     if (!route) {
         history.replaceState(null, "", import.meta.env.BASE_URL);
         renderBase();
