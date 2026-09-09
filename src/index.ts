@@ -23,7 +23,7 @@ async function init(): Promise<void> {
 
     initNavbar();
 
-    renderCurrentPage();
+    await renderCurrentPage();
 
     initStaticText();
     initCardClick();
@@ -53,6 +53,8 @@ async function init(): Promise<void> {
         await renderCurrentPage();
         updateNav();
     });
+
+    document.documentElement.classList.add("fga-show");
 }
 
 async function renderCurrentPage(): Promise<void> {
