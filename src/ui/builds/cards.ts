@@ -5,6 +5,7 @@ import type { AnyBuild, AppState, Build, BuildType, SteamProperties } from "../.
 import { LINKS } from "../../constants/links";
 import * as bootstrap from "bootstrap";
 import { sourceIcons } from "./source-maps";
+import { createAlert } from "../alerts";
 
 export function renderTabContent(state: AppState, selectedType: BuildType, selectedSeason: string): void {
     const tabAlert = document.getElementById("tabAlert")!;
@@ -46,12 +47,12 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
         tabContent.appendChild(row);
     }
 
-    if (letsLeakSomething) createAlert(tabAlert, "alert-info", t("tab.didYouKnow"), t("tab.sourceLeaksDesc", `<i class="text-info bi bi-code-slash"></i>`));
+    if (letsLeakSomething) createAlert(tabAlert, "alert-info my-3", t("tab.didYouKnow"), t("tab.sourceLeaksDesc", `<i class="text-info bi bi-code-slash"></i>`));
 
     if (hasLostMedia)
         createAlert(
             tabAlert,
-            "alert-warning",
+            "alert-warning my-3",
             t("tab.lostMediaTitle"),
             t("tab.lostMediaDesc", `<a href="${LINKS.discord}" class="alert-link">${t(`tab.lostMediaDesc.link`)}</a>`)
         );
@@ -86,29 +87,6 @@ export function setFooter(state: AppState): void {
     footerSelected.textContent = `${typeLabel}: ${typeBuildsCount} - ${t("footer.available")}: ${typeAvailableCount} - ${t("footer.size")}: ${typeSize} ${t("unitGB")}`;
 
     footerNotes.textContent = t("footer.note");
-}
-
-function createAlert(container: HTMLElement, style: string, title: string, desc: string) {
-    const div = document.createElement("div");
-    div.className = `alert ${style} my-3 alert-dismissible fade show`;
-    div.role = "alert";
-
-    const h5 = document.createElement("h5");
-    h5.className = "alert-heading";
-    h5.textContent = title;
-
-    const p = document.createElement("p");
-    p.className = "mb-0";
-    p.innerHTML = desc;
-
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "btn-close";
-    btn.setAttribute("data-bs-dismiss", "alert");
-    btn.setAttribute("aria-label", "Close");
-
-    div.append(h5, p, btn);
-    container.appendChild(div);
 }
 
 function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement {

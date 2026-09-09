@@ -5,6 +5,8 @@ import { isSteam } from "../../utils/stats";
 import type { AnyBuild, Build, BuildType, SteamProperties } from "../../types";
 import * as bootstrap from "bootstrap";
 import { sourceIcons, sourceLocales } from "./source-maps";
+import { createAlert } from "../alerts";
+import { LINKS } from "../../constants/links";
 
 export function initCardClick(): void {
     document.addEventListener("click", e => {
@@ -56,7 +58,8 @@ function showBuildModal(item: Build, type: BuildType): void {
           <li class="list-group-item">${t("modal.field", t("modal.season"), season || t("modal.unknown"))}</li>
         </ul>`;
 
-    const allSegments = (item.downloads?.available ?? [])
+    const available = item.downloads?.available ?? [];
+    const allSegments = available
         .flatMap(download =>
             (download.segments ?? [{ size: item.downloads!.total_size }]).map((seg, i) => ({
                 source: download.source,
@@ -65,6 +68,13 @@ function showBuildModal(item: Build, type: BuildType): void {
             }))
         )
         .filter(seg => seg.sizeGB > 0);
+
+    const showAlert = available.length === 1 && available[0]!.source === "telegram" && available[0]!.segments === null;
+    
+    if (showAlert) {
+        const modalAlerts = document.getElementById("modal-alerts")!;
+        createAlert(modalAlerts, "alert-info", "", t("modal.tgAlert.0", `<a href="${LINKS.tgDownloader}" class="alert-link">${t(`modal.tgAlert.1`)}</a>`));
+    }
 
     if (allSegments.length > 0) {
         modalSegments.style.display = "block";
@@ -79,12 +89,12 @@ function showBuildModal(item: Build, type: BuildType): void {
                     <div class="mb-4 ${i === 0 ? "mt-3" : ""}">
                       <h6 class="mb-2">${t(segments.length !== 1 ? "modal.segmentsTitle" : "modal.fileTitle", t(source))}</h6>
                       ${segments
-                          .map(
-                              seg =>
-                                  `<div class="alert alert-info p-2 mb-2 w-100" style="text-align: left;">
+                        .map(
+                            seg =>
+                                `<div class="alert alert-info p-2 mb-2 w-100" style="text-align: left;">
                                     ${segments.length !== 1 ? t("modal.segment", seg.index, seg.sizeGB.toFixed(2)) : t("gbFiller", seg.sizeGB.toFixed(2))}</div>`
-                          )
-                          .join("")}
+                        )
+                        .join("")}
                     </div>
                 `;
             })

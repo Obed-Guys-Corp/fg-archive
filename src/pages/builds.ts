@@ -36,19 +36,21 @@ export async function renderBuilds(): Promise<void> {
             <div id="tabAlert"></div>
             <div class="tab-content" id="typeTabContent"></div>
 
-            <div class="modal fade" id="modal_build_info" tabindex="-1" aria-hidden="true">
+           <div class="modal fade" id="modal_build_info" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">${t("modal.buildDetails")}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
-                        <div class="modal-body row">
+                    <div class="modal-body">
+                        <div id="modal-alerts"></div>
+                        <div class="row">
                             <div class="col-md-6" id="modalData"></div>
                             <div class="col-md-6" id="modalSegments"></div>
                         </div>
-                    <div class="modal-footer" id="modalFooter"></div>
-                </div>
+                    </div>
+                <div class="modal-footer" id="modalFooter"></div>
             </div>
         </div>
     `;
@@ -70,6 +72,13 @@ export async function renderBuilds(): Promise<void> {
             renderFilter(state, firstType);
             renderTabContent(state, firstType, state.currentSeason);
         }
+
+        const modal = document.getElementById("modal_build_info");
+
+        modal?.addEventListener("hidden.bs.modal", () => {
+            document.getElementById("modal-alerts")!.innerHTML = "";
+        });
+
     }
     finally {
         document.getElementById("listContainer")?.classList.remove("d-none");
