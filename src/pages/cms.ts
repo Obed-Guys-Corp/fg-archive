@@ -32,8 +32,9 @@ export async function renderCms(): Promise<void> {
             </div>
 
             <nav class="mt-4">
-                <ul id="pageList" class="pagination justify-content-center"></ul>
+                <ul id="pageList" class="pagination justify-content-center flex-wrap"></ul>
             </nav>
+
             <div id="alerts"></div>
             <div id="commits" class="row"></div>
         </div>
@@ -223,53 +224,58 @@ async function loadPage(page: number, pages: number) {
             }) : "Unknown date";
 
             const stats = update.stats ? `
-            <div class="position-absolute top-0 end-0 mt-3 me-3 small">
+            <div class="col-auto small text-nowrap">
                 <span class="bg-success text-white px-1 rounded">+ ${update.stats.additions}</span>
                 <span class="bg-danger text-white px-1 rounded">- ${update.stats.deletions}</span>
             </div>
             ` : "";
 
             let titleSplit = update.title.split(":");
-            let title = titleSplit.length >= 2 ? `<span class="font-monospace">${titleSplit[1]}</span>` : t("cms.verFallback")
 
             html += `
             <div class="col-12 mb-3">
                 <div class="card">
                     <div class="card-body">
-                        ${stats}
-                        <h5 class="card-title">${title}</h5>
+                        <div class="row align-items-center mb-2">
+                            <div class="col">
+                                <h5 class="card-title mb-0">${titleSplit.length >= 2 ? `<span class="font-monospace">${titleSplit[1]}</span>` : t("cms.verFallback")}</h5>
+                            </div>
+                            ${stats}
+                        </div>
 
                         <h6 class="card-subtitle mb-2 text-body-secondary">
                             ${dateStr} - ${calcDateStr(dateStr)}
                         </h6>
 
-                        <a href="${update.web_url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                            <i class="bi bi-gitlab"></i>
-                            <span class="text">${t("cms.view")}</span>
-                        </a>
+                        <div class="d-flex flex-wrap gap-1">
+                            <a href="${update.web_url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                                <i class="bi bi-gitlab"></i>
+                                <span class="text">${t("cms.view")}</span>
+                            </a>
 
-                        <a href="${LINKS.cmsGithub}/commit/${update.id}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                            <i class="bi bi-github"></i>
-                            <span class="text">${t("cms.view")}</span>
-                        </a>
+                            <a href="${LINKS.cmsGithub}/commit/${update.id}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                                <i class="bi bi-github"></i>
+                                <span class="text">${t("cms.view")}</span>
+                            </a>
 
-                        <button type="button" class="btn btn-primary btn-sm download" data-type="json" data-sha="${update.id}">
-                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                            <i class="bi bi-download"></i>
-                            <span class="text">${t("cms.asJson")}</span>
-                        </button>
+                            <button type="button" class="btn btn-primary btn-sm download" data-type="json" data-sha="${update.id}">
+                                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                <i class="bi bi-download"></i>
+                                <span class="text">${t("cms.asJson")}</span>
+                            </button>
 
-                         <button type="button" class="btn btn-primary btn-sm download" data-type="v1" data-sha="${update.id}">
-                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                            <i class="bi bi-download"></i>
-                            <span class="text">${t("cms.asV1")}</span>
-                        </button>
+                            <button type="button" class="btn btn-primary btn-sm download" data-type="v1" data-sha="${update.id}">
+                                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                <i class="bi bi-download"></i>
+                                <span class="text">${t("cms.asV1")}</span>
+                            </button>
 
-                         <button type="button" class="btn btn-primary btn-sm download" data-type="v2" data-sha="${update.id}">
-                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                            <i class="bi bi-download"></i>
-                            <span class="text">${t("cms.asV2")}</span>
-                        </button>
+                            <button type="button" class="btn btn-primary btn-sm download" data-type="v2" data-sha="${update.id}">
+                                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                <i class="bi bi-download"></i>
+                                <span class="text">${t("cms.asV2")}</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -287,25 +293,30 @@ async function loadPage(page: number, pages: number) {
 
 function renderPageList() {
     if (!pageList) return;
+    const pageCount = window.innerWidth < 576 ? 3 : 6;
 
     let res = "";
 
     res += `
         <li class="page-item ${currPage === 1 ? "disabled" : ""}">
-            <button class="page-link" data-page="1">${t("nav.btnFirst")}</button>
+            <button class="page-link" data-page="1">
+                <i class="bi bi-chevron-bar-left"></i>
+            </button>
         </li>
     `;
 
     res += `
-        <li class="page-item ${currPage === 1 ? "disabled" : ""}">
-            <button class="page-link" data-page="${currPage - 1}">${t("nav.btnPrev")}</button>
+        <li class="page-item ${currPage === 1 ? "disabled" : ""}">\
+            <button class="page-link" data-page="${currPage - 1}">
+                <i class="bi bi-chevron-left"></i>
+            </button>
         </li>
     `;
 
-    let start = Math.max(1, currPage - 2);
-    let end = Math.min(totalPages, start + 5);
+    let start = Math.max(1, currPage - Math.floor(pageCount / 2));
+    let end = Math.min(totalPages, start + pageCount - 1);
 
-    start = Math.max(1, end - 5);
+    start = Math.max(1, end - pageCount + 1);
 
     for (let page = start; page <= end; page++) {
         res += `
@@ -317,13 +328,17 @@ function renderPageList() {
 
     res += `
         <li class="page-item ${currPage === totalPages ? "disabled" : ""}">
-            <button class="page-link" data-page="${currPage + 1}">${t("nav.btnNext")}</button>
+            <button class="page-link" data-page="${currPage + 1}">
+                <i class="bi bi-chevron-right"></i>
+            </button>
         </li>
     `;
 
     res += `
         <li class="page-item ${currPage === totalPages ? "disabled" : ""}">
-            <button class="page-link" data-page="${totalPages}">${t("nav.btnLast")}</button>
+            <button class="page-link" data-page="${totalPages}">
+                <i class="bi bi-chevron-bar-right"></i>
+            </button>
         </li>
     `;
 
