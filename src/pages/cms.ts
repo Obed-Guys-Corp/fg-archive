@@ -12,11 +12,16 @@ let totalPages = 1;
 let commitList: HTMLDivElement;
 let alerts: HTMLDivElement;
 let pageList: Element;
+let lastRenderPages = 0;
+
+window.addEventListener('resize', renderPageList);
 
 export async function renderCms(): Promise<void> {
     const app = document.getElementById("app");
 
     if (!app) return;
+
+    lastRenderPages = 0;
 
     const url = new URL(window.location.href);
 
@@ -92,6 +97,9 @@ export async function renderCms(): Promise<void> {
 
                     download(xor(compressed), "application/octet-stream", `CMS_v2_${cms.version}.gdata`);
                 });
+                break;
+            default:
+                showToast("alert", t("cms.fetch.fail"), `Unsupported download type: ${button.dataset.type}`);
                 break;
         }
     });
@@ -235,9 +243,9 @@ async function loadPage(page: number, pages: number) {
 
                 const dateStr = date
                     ? date.toLocaleString(undefined, {
-                          dateStyle: "medium",
-                          timeStyle: "short"
-                      })
+                        dateStyle: "medium",
+                        timeStyle: "short"
+                    })
                     : "Unknown date";
 
                 const stats = update.stats
@@ -312,7 +320,10 @@ async function loadPage(page: number, pages: number) {
 
 function renderPageList() {
     if (!pageList) return;
-    const pageCount = window.innerWidth < 576 ? 3 : 6;
+
+    const pageCount = window.innerWidth < 712 ? window.innerWidth < 576 ? window.innerWidth < 412 ? 3 : 4 : 6 : 8;
+    if (pageCount == lastRenderPages) return;
+    lastRenderPages = pageCount;
 
     let res = "";
 
