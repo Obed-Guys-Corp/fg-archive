@@ -70,14 +70,23 @@ async function init(): Promise<void> {
     document.documentElement.classList.add("fga-show");
 }
 
+let prevPage: (typeof maps)[number] | undefined;
+
 async function renderCurrentPage(): Promise<void> {
     const route = maps.find(route => `${import.meta.env.BASE_URL}${route.path}` === window.location.pathname);
 
     document.body.scrollTop = 0;
 
+    if ((route ?? maps[0]) !== prevPage)
+        document.body.dataset.new = "";
+    else
+        delete document.body.dataset.new;
+
+
     if (!route) {
         history.replaceState(null, "", import.meta.env.BASE_URL);
         renderBase();
+        prevPage = route;
         return;
     }
 
@@ -95,6 +104,8 @@ async function renderCurrentPage(): Promise<void> {
     }
 
     await route.render();
+
+    prevPage = route;
 }
 
 await init();

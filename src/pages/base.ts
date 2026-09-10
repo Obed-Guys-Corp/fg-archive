@@ -6,8 +6,10 @@ export function renderBase(): void {
 
     if (!app) return;
 
+    const isNew = document.body.hasAttribute("data-new");
+
     app.innerHTML = `
-        <div class="container py-5 fade" style="transition-duration: 0.5s;">
+        <div class="container py-5${isNew ? " fade" : ""}" ${isNew ? 'style="transition-duration: 0.5s;"' : ""}>
             <div class="text-center">
                 <h1 class="titan-one-font">${t("base_title")}</h1>
                 <p class="fs-5 mb-3">${t("base_desc")}</p>
