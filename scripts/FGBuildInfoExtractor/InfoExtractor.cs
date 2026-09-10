@@ -137,7 +137,7 @@ internal sealed class InfoExtractor
                     var loginServ = ResolveServer(baseField, "LoginServer");
                     var gatewayServ = ResolveServer(baseField, "GatewayServer");
                     var analyticsServ = ResolveServer(baseField, "AnalyticsServer");
-                    var sign = baseField["ClientVersionSignature"].AsString;
+                    var sign = ReadString(baseField, "ClientVersionSignature");
 
                     _envs.Add(name, new(gatewayServ, loginServ, analyticsServ, sign));
                 }
