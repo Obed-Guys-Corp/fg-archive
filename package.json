@@ -1,7 +1,7 @@
 {
   "name": "fg-archive",
   "version": "1.0.0",
-  "description": "Website of the Fall Guys builds archive",
+  "description": "Website of the Fall Guys archive",
   "main": "src/index.ts",
   "keywords": [
     "fallguys",
@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@types/bootstrap": "^5.2.11",
+    "@types/node": "^22.20.2",
     "prettier": "^3.9.6",
     "typescript": "^7.0.2",
     "vite": "^8.2.0"
@@ -41,6 +42,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
-    "bootstrap-icons": "^1.13.1"
+    "bootstrap-icons": "^1.13.1",
+    "jszip": "^3.10.2"
   }
 }

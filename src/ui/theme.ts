@@ -11,16 +11,12 @@ export function getInitialTheme(): Theme {
 
 export function applyTheme(theme: Theme): void {
     document.documentElement.setAttribute("data-bs-theme", theme);
+    const themeIcon = document.getElementById("themeIcon")!;
+    themeIcon.className = `bi ${theme === "dark" ? "bi-moon-stars-fill" : "bi-brightness-high-fill"} text-white`;
     setCookie(THEME_COOKIE, theme);
-    refreshLook(theme);
 }
 
 export function toggleTheme(): void {
     const current = document.documentElement.getAttribute("data-bs-theme");
     applyTheme(current === "dark" ? "light" : "dark");
-}
-
-function refreshLook(theme: Theme): void {
-    const themeIcon = document.getElementById("themeIcon")!;
-    themeIcon.className = `bi ${theme === "dark" ? "bi-moon-stars-fill" : "bi-brightness-high-fill"} text-white`;
 }

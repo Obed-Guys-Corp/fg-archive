@@ -1,6 +1,7 @@
 {
     "egs": [
         {
+            "id": "121b1d32-c557-4fb9-bfe8-a80b8e02b46f",
             "release_date": "2025-09-16",
             "downloads": {
                 "total_size": 5960,
@@ -32,6 +33,7 @@
             }
         },
         {
+            "id": "4f05fa19-efdb-4cd7-af3f-33305a3ce5e6",
             "release_date": "2025-08-19",
             "downloads": {
                 "total_size": 6172.4,
@@ -63,6 +65,7 @@
             }
         },
         {
+            "id": "8449c028-dc46-41d3-ad8b-34c28658ff5e",
             "release_date": "2025-07-29",
             "downloads": {
                 "total_size": 6172.6,
@@ -94,6 +97,7 @@
             }
         },
         {
+            "id": "3feec12a-4a88-433d-9103-a67f6ac88c1c",
             "release_date": "2025-06-19",
             "downloads": {
                 "total_size": 6054.1,
@@ -125,6 +129,7 @@
             }
         },
         {
+            "id": "3afe4a2a-9b03-4a3f-a642-c3ebd08cce16",
             "release_date": "2023-02-21",
             "downloads": {
                 "total_size": 5025.6,

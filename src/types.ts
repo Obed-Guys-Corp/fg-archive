@@ -4,12 +4,14 @@ export interface AppState {
 }
 
 export interface Build<TProperties = GenericProperties> {
+    id: string;
     release_date: string;
     downloads?: Downloads;
     properties: TProperties;
 }
 
-export type BuildType = "steam_beta" | "steam" | "egs" | "android_ega" | "egs_beta" | "android_os" | "ios_ega" | "switch";
+export const BUILD_TYPES = ["steam_beta", "steam", "egs", "android_ega", "egs_beta", "android_os", "ios_ega", "switch"] as const;
+export type BuildType = (typeof BUILD_TYPES)[number];
 
 export interface BuildPropertiesMap {
     steam_beta: SteamProperties;
@@ -108,3 +110,31 @@ export type Season =
     | "not_season_1"
     | "not_season_2"
     | "not_season_3";
+
+export interface GhCommit {
+    sha: string;
+    html_url: string;
+    commit: {
+        message: string;
+        author: {
+            name: string;
+            date: string;
+        } | null;
+    };
+}
+
+export interface Release {
+    ver: string;
+    date: string;
+}
+
+export interface GlCommit {
+    id: string;
+    title: string;
+    authored_date: string;
+    web_url: string;
+    stats: {
+        additions: number;
+        deletions: number;
+    };
+}

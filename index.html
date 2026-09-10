@@ -1,88 +1,115 @@
 <!doctype html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
     <head>
+        <style>
+            html {
+                background-color: #212529 !important;
+            }
+
+            html[data-bs-theme="light"] {
+                background-color: #fff !important;
+            }
+
+            html::after {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background-color: #212529;
+                z-index: 2147483647;
+                pointer-events: none;
+                transition: opacity 0.75s ease;
+            }
+
+            html[data-bs-theme="light"]::after {
+                background-color: #fff;
+            }
+
+            html.fga-show::after {
+                opacity: 0;
+            }
+        </style>
+        <script>
+            (() => {
+                //s tier gecko fix
+                document.documentElement.dataset.bsTheme =
+                    document.cookie.match(/(?:^|;\s*)theme=(dark|light)(?:;|$)/)?.[1] ??
+                    (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+            })();
+        </script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="og:title" property="og:title" content="Fall Guys: Builds Archive" />
-        <meta name="description" content="Website of the Fall Guys builds archive" />
-        <meta name="og:description" property="og:description" content="Website of the Fall Guys builds archive" />
+        <meta name="og:title" property="og:title" content="Fall Guys Archive" />
+        <meta name="description" content="Website of the Fall Guys archive" />
+        <meta name="og:description" property="og:description" content="Website of the Fall Guys archive" />
         <meta name="og:image" property="og:image" content="favicon-512x512.webp" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Fall Guys: Builds Archive" />
-        <meta name="twitter:description" content="Website of the Fall Guys builds archive" />
+        <meta name="twitter:title" content="Fall Guys Archive" />
+        <meta name="twitter:description" content="Website of the Fall Guys archive" />
         <meta name="twitter:image" content="favicon-512x512.webp" />
         <meta content="#f73ca3" name="theme-color" />
-        <title>FG: Builds Archive</title>
+        <title>Fall Guys Archive</title>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link href="https://www.nerdfonts.com/assets/css/webfont.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet" />
+        <script type="module" src="/src/index.ts"></script>
     </head>
 
     <body>
-        <nav id="mainNavbar" class="navbar bg-dark-override" data-bs-theme="dark">
+        <nav id="mainNavbar" class="navbar sticky-top bg-dark-override" data-bs-theme="dark">
             <div class="container">
-                <div class="row w-100 align-items-center gx-2">
-                    <div class="col d-flex align-items-center overflow-hidden px-0">
-                        <div class="navbar-brand d-flex align-items-center mb-0" style="min-width: 0">
-                            <img src="/favicon-512x512.webp" width="32" height="32" class="d-inline-block align-top rounded me-2" alt="beta icon" />
-                            <span class="titan-one-font text-truncate text-white">FG: Builds Archive</span>
-                        </div>
+                <div class="d-flex align-items-center w-100 flex-nowrap">
+                    <div class="flex-shrink-1 overflow-hidden">
+                        <a href="/" class="navbar-brand d-flex align-items-center mb-0">
+                            <img
+                                src="/favicon-512x512.webp"
+                                width="32"
+                                height="32"
+                                class="rounded me-2 flex-shrink-0"
+                                alt="Fall Guys Archive"
+                                title="Fall Guys Archive"
+                            />
+
+                            <span class="d-inline d-md-none titan-one-font text-truncate text-white" data-i18n="base_title_short"></span>
+                            <span class="d-none d-md-inline titan-one-font text-truncate text-white" data-i18n="base_title"></span>
+                        </a>
                     </div>
 
-                    <div class="col-auto d-flex align-items-center justify-content-end gap-2 px-0">
-                        <select
-                            id="seasonFilter"
-                            class="form-select form-select-sm border-secondary bg-dark-override text-white"
-                            style="min-width: 120px; max-width: 150px"
-                        >
-                            <option value="" data-i18n="filter.all"></option>
-                        </select>
+                    <div id="desktopNav" class="flex-grow-1 flex-shrink-1 overflow-hidden d-none d-md-flex align-items-center"></div>
 
-                        <button id="toggleThemeBtn" class="btn btn-sm btn-outline-secondary">
+                    <div class="d-flex align-items-center gap-2 ms-auto flex-shrink-0">
+                        <button
+                            class="btn btn-sm btn-outline-secondary d-md-none"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#mobileNav"
+                            aria-controls="mobileNav"
+                            aria-expanded="false"
+                        >
+                            <i class="bi bi-list"></i>
+                        </button>
+
+                        <div id="controls" class="d-flex align-items-center gap-2 flex-nowrap"></div>
+
+                        <button id="toggleThemeBtn" class="btn btn-sm btn-outline-secondary flex-shrink-0">
                             <i id="themeIcon" class="bi text-white"></i>
                         </button>
                     </div>
                 </div>
+
+                <div id="mobileNav" class="collapse navbar-collapse d-md-none w-100"></div>
             </div>
         </nav>
 
-        <main class="flex-fill">
-            <div id="listContainer" class="container py-3">
-                <ul class="nav nav-tabs" id="typeTabs" role="tablist"></ul>
-                <div id="tabAlert"></div>
-                <div class="tab-content" id="typeTabContent"></div>
-            </div>
-        </main>
+        <main id="app" class="flex-fill"></main>
 
         <footer id="footerInfo" class="container-fluid border-top py-3 bg-dark-override" data-bs-theme="dark">
             <div class="row align-items-start">
                 <div id="footerLeft" class="col-md-9 col-12 d-flex flex-column gap-1 text-start">
-                    <div id="footerMainText" class="fw-semibold text-white" data-i18n="footer.poweredBy"></div>
-                    <div id="footerSelected" style="font-weight: 500" class="text-white-50"></div>
-                    <div id="footerTotal" style="font-size: 0.9rem; font-weight: 500" class="text-white-50"></div>
-                    <div id="footerNotes" style="font-size: 0.7rem" class="text-white-50"></div>
+                    <div id="footerMainText" class="text-white mb-3"></div>
+                    <br />
                 </div>
-                <div id="footerRight" class="col-md-3 col-12 d-flex flex-column align-items-md-end align-items-start gap-2 mt-3 mt-md-0">
-                </div>
+                <div id="footerLinks" class="col-md-3 col-12 d-flex flex-column align-items-md-end align-items-start gap-2 mt-3 mt-md-0"></div>
             </div>
         </footer>
-
-        <div class="modal fade" id="modal_build_info" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" data-i18n="modal.buildDetails"></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body row">
-                        <div class="col-md-6" id="modalData"></div>
-                        <div class="col-md-6" id="modalSegments"></div>
-                    </div>
-                    <div class="modal-footer" id="modalFooter"></div>
-                </div>
-            </div>
-        </div>
     </body>
-    
-    <script type="module" src="/src/index.ts"></script>
 </html>
