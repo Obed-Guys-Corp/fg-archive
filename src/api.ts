@@ -28,7 +28,7 @@ export class Api {
             BUILD_TYPES.map(async type => {
                 const response = await fetch(`${import.meta.env.BASE_URL}content/${type}.json`);
 
-                if (!response.ok || response.headers.get("content-type") != "application/json") {
+                if (!response.ok || !response?.headers?.get("content-type")?.startsWith("application/json")) {
                     return;
                 }
 
@@ -159,7 +159,7 @@ export class Api {
     }> {
         state?.(t("cms.fetch.init"));
 
-        const cmsReq = await fetch(`http://fg-archive.floyzi.dev/api/cms?sha=${sha}`);
+        const cmsReq = await fetch(`https://fg-archive.floyzi.dev/api/cms?sha=${sha}`);
 
         if (!cmsReq.ok)
             throw new Error(
