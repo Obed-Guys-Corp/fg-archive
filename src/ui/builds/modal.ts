@@ -92,12 +92,12 @@ export function showBuildModal(item: Build, type: BuildType): void {
                     <div class="mb-4 ${i === 0 ? "mt-3" : ""}">
                       <h6 class="mb-2">${t(segments.length !== 1 ? "modal.segmentsTitle" : "modal.fileTitle", t(source))}</h6>
                       ${segments
-                        .map(
-                            seg =>
-                                `<div class="alert alert-info p-2 mb-2 w-100" style="text-align: left;">
+                          .map(
+                              seg =>
+                                  `<div class="alert alert-info p-2 mb-2 w-100" style="text-align: left;">
                                     ${segments.length !== 1 ? t("modal.segment", seg.index, seg.sizeGB.toFixed(2)) : t("gbFiller", seg.sizeGB.toFixed(2))}</div>`
-                        )
-                        .join("")}
+                          )
+                          .join("")}
                     </div>
                 `;
             })
@@ -122,7 +122,6 @@ export function showBuildModal(item: Build, type: BuildType): void {
             btn.innerHTML = `${icon !== undefined ? `<i class="${icon}"></i>` : ""} ${t(sourceLocales.get(source) ?? "modal.downloadIn", t(source))}`;
             modalFooter.appendChild(btn);
         }
-
     }
 
     if (steam && steamManifest) {

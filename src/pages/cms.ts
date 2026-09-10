@@ -14,7 +14,7 @@ let alerts: HTMLDivElement;
 let pageList: Element;
 let lastRenderPages = 0;
 
-window.addEventListener('resize', () => renderPageList(false));
+window.addEventListener("resize", () => renderPageList(false));
 
 export async function renderCms(): Promise<void> {
     const app = document.getElementById("app");
@@ -166,10 +166,10 @@ export async function renderCms(): Promise<void> {
             history.replaceState(null, "", `#${id}`);
         });
 
-        itm.classList.add('border', 'border-primary');
+        itm.classList.add("border", "border-primary");
 
         setTimeout(() => {
-            itm?.classList.remove('border', 'border-primary');
+            itm?.classList.remove("border", "border-primary");
         }, 3500);
     }
 }
@@ -298,9 +298,9 @@ async function loadPage(page: number, pages: number) {
 
                 const dateStr = date
                     ? date.toLocaleString(undefined, {
-                        dateStyle: "medium",
-                        timeStyle: "short"
-                    })
+                          dateStyle: "medium",
+                          timeStyle: "short"
+                      })
                     : "Unknown date";
 
                 const stats = update.stats
@@ -382,7 +382,7 @@ async function loadPage(page: number, pages: number) {
 function renderPageList(force = true) {
     if (!pageList) return;
 
-    const pageCount = window.innerWidth < 712 ? window.innerWidth < 576 ? window.innerWidth < 412 ? 3 : 4 : 6 : 8;
+    const pageCount = window.innerWidth < 712 ? (window.innerWidth < 576 ? (window.innerWidth < 412 ? 3 : 4) : 6) : 8;
     if (!force && pageCount == lastRenderPages) return;
 
     lastRenderPages = pageCount;

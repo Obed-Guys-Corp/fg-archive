@@ -93,8 +93,7 @@ export async function renderBuilds(): Promise<void> {
                 build: Api._builds[type].find(build => build.id === id)
             })).find(result => result.build);
 
-            if (res && res.build)
-                showBuildModal(res.build, res.type);
+            if (res && res.build) showBuildModal(res.build, res.type);
         }
     } finally {
         document.getElementById("listContainer")?.classList.remove("d-none");

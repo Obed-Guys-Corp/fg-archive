@@ -29,4 +29,3 @@ export function format(text: string, ...args: (string | number)[]): string {
         return args[index] !== undefined ? String(args[index]) : match;
     });
 }
-

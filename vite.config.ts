@@ -34,10 +34,11 @@ const setBuilds = (): Plugin => ({
                             ? format(loc["build_desc.downloads_date"], !fgVer ? loc[type] : `${loc[type]} v${fgVer}`, d)
                             : format(loc["build_desc.missing_date"], !fgVer ? loc[type] : `${loc[type]} v${fgVer}`, d)
                         : available
-                            ? format(loc["build_desc.downloads"], !fgVer ? loc[type] : `${loc[type]} v${fgVer}`)
-                            : format(loc["build_desc.missing"], !fgVer ? loc[type] : `${loc[type]} v${fgVer}`);
+                          ? format(loc["build_desc.downloads"], !fgVer ? loc[type] : `${loc[type]} v${fgVer}`)
+                          : format(loc["build_desc.missing"], !fgVer ? loc[type] : `${loc[type]} v${fgVer}`);
 
-                    writeFileSync(resolve(dir, "index.html"),
+                    writeFileSync(
+                        resolve(dir, "index.html"),
                         `<!doctype html>
                         <html lang="en">
                             <head>
@@ -65,10 +66,9 @@ const setBuilds = (): Plugin => ({
             }
         }
 
-        copyFileSync(resolve("dist/index.html"),resolve("dist/404.html"));
+        copyFileSync(resolve("dist/index.html"), resolve("dist/404.html"));
     }
 });
-
 
 export default defineConfig({
     base: "/fg-archive/",
@@ -78,7 +78,5 @@ export default defineConfig({
         BUILD_DATE: JSON.stringify(new Date().toISOString())
     },
 
-    plugins: [
-        setBuilds()
-    ]
+    plugins: [setBuilds()]
 });
