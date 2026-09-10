@@ -11,6 +11,15 @@ export function initNavbar(): void {
 
     renderDesktopNav();
     renderMobileNav();
+
+    const mobileNav = document.getElementById("mobileNav");
+    if (mobileNav) {
+        const mobileNavButton = document.querySelector('[data-bs-target="#mobileNav"]');
+        mobileNav?.addEventListener("show.bs.collapse", () => { mobileNavButton?.classList.add("active"); });
+        mobileNav?.addEventListener("hide.bs.collapse", () => { mobileNavButton?.classList.remove("active"); });
+        Collapse.getOrCreateInstance(mobileNav).hide();
+    }
+
     updateNav();
 }
 
@@ -55,6 +64,12 @@ function renderMobileNav(): void {
             .join("")}
         </ul>
     `;
+
+    container.querySelectorAll<HTMLAnchorElement>("a[data-route]").forEach(link => {
+        link.addEventListener("click", () => {
+            Collapse.getOrCreateInstance(container).hide();
+        });
+    });
 }
 
 export function updateNav(): void {
@@ -62,6 +77,4 @@ export function updateNav(): void {
         element.classList.toggle("active", element.pathname === window.location.pathname);
     });
 
-    const mobileNav = document.getElementById("mobileNav");
-    if (mobileNav) Collapse.getOrCreateInstance(mobileNav).hide();
 }
