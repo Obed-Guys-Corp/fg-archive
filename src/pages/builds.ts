@@ -71,8 +71,11 @@ export async function renderBuilds(): Promise<void> {
         const firstBtn = document.querySelector<HTMLButtonElement>("#typeTabs button[data-type]");
         if (firstBtn?.dataset.type) {
             const typeParam = url.searchParams.get("type");
-            const type = BUILD_TYPES.find(type => type === typeParam && Api._builds[type].length > 0) ?? BUILD_TYPES.find(type => Api._builds[type].length > 0) ?? BUILD_TYPES[0];
-            
+            const type =
+                BUILD_TYPES.find(type => type === typeParam && Api._builds[type].length > 0) ??
+                BUILD_TYPES.find(type => Api._builds[type].length > 0) ??
+                BUILD_TYPES[0];
+
             selectType(state, type);
         }
 
@@ -81,9 +84,7 @@ export async function renderBuilds(): Promise<void> {
         modal?.addEventListener("hidden.bs.modal", () => {
             document.getElementById("modal-alerts")!.innerHTML = "";
         });
-
-    }
-    finally {
+    } finally {
         document.getElementById("listContainer")?.classList.remove("d-none");
         document.getElementById("seasonFilter")?.classList.remove("d-none");
         document.getElementById("init-load")?.remove();

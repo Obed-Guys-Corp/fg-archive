@@ -88,9 +88,7 @@ export async function renderCms(): Promise<void> {
             case "v2":
                 await doDownload(button, async cms => {
                     const bytes = new TextEncoder().encode(JSON.stringify(cms.json));
-                    const compressed = new Uint8Array(
-                        await new Response(new Blob([bytes]).stream().pipeThrough(new CompressionStream("gzip"))).arrayBuffer()
-                    );
+                    const compressed = new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(new CompressionStream("gzip"))).arrayBuffer());
 
                     download(xor(compressed), "application/octet-stream", `CMS_v2_${cms.version}.gdata`);
                 });
@@ -103,9 +101,16 @@ export async function renderCms(): Promise<void> {
     document.getElementById("init-load")?.remove();
 
     if (alerts) {
-        createAlert(alerts, "alert-secondary", "", t("cms.about",
-            `<a href="${LINKS.cmsGitlab}" class="alert-link" target="_blank">${t(`gitlab`)}</a>`,
-            `<a href="${LINKS.cmsGithub}" class="alert-link" target="_blank">${t(`github`)}</a>`))
+        createAlert(
+            alerts,
+            "alert-secondary",
+            "",
+            t(
+                "cms.about",
+                `<a href="${LINKS.cmsGitlab}" class="alert-link" target="_blank">${t(`gitlab`)}</a>`,
+                `<a href="${LINKS.cmsGithub}" class="alert-link" target="_blank">${t(`github`)}</a>`
+            )
+        );
     }
 
     await loadPage(page, max);
@@ -125,19 +130,17 @@ async function doDownload(btn: HTMLButtonElement, action: (cms: Awaited<ReturnTy
     let ogStr = text.textContent;
 
     try {
-        const cms = await Api.fetchCmsJson(btn.dataset.sha, s => text.textContent = s);
+        const cms = await Api.fetchCmsJson(btn.dataset.sha, s => (text.textContent = s));
         await action(cms);
     } catch (err) {
-        showToast("alert", t("cms.fetch.fail"), `${err}`, 7)
-    }
-    finally {
+        showToast("alert", t("cms.fetch.fail"), `${err}`, 7);
+    } finally {
         text.textContent = ogStr;
         btn.disabled = false;
         spinner?.classList.add("d-none");
         icon?.classList.remove("d-none");
     }
 }
-
 
 function xor<T extends ArrayBufferLike>(content: Uint8Array<T>): Uint8Array<T> {
     const key = new TextEncoder().encode(CMS_CONFIG.xor!);
@@ -188,10 +191,8 @@ async function loadPage(page: number, pages: number) {
 
         if (page > updates.totalPages) {
             currPage = 1;
-            updates = await Api.fetchCmsUpdates(currPage, pages)
-        }
-        else
-            currPage = page;
+            updates = await Api.fetchCmsUpdates(currPage, pages);
+        } else currPage = page;
 
         if (updates.totalPages > 1) totalPages = updates.totalPages;
 
@@ -207,45 +208,50 @@ async function loadPage(page: number, pages: number) {
 
         history.pushState({ page: currPage, max: pages }, "", url);
 
-        commitList.innerHTML = updates.commits.map(update => {
-            const date = update.authored_date ? new Date(update.authored_date) : null;
+        commitList.innerHTML = updates.commits
+            .map(update => {
+                const date = update.authored_date ? new Date(update.authored_date) : null;
 
-            while (date && releaseIndex < releases.length - 1) {
+                while (date && releaseIndex < releases.length - 1) {
+                    const release = releases[releaseIndex];
+                    if (!release || date >= new Date(release.date)) break;
+
+                    releaseIndex++;
+                }
+
                 const release = releases[releaseIndex];
-                if (!release || date >= new Date(release.date)) break;
 
-                releaseIndex++;
-            }
+                let html = "";
 
-            const release = releases[releaseIndex];
-
-            let html = "";
-
-            if (release && release !== lastRelease) {
-                html += `
+                if (release && release !== lastRelease) {
+                    html += `
                     <h4 class="col-12 mt-4 mb-2">
                         ${t("cms.clientVer", release.ver, new Date(release.date).toLocaleDateString())}
                     </h4>
                 `;
 
-                lastRelease = release;
-            }
+                    lastRelease = release;
+                }
 
-            const dateStr = date ? date.toLocaleString(undefined, {
-                dateStyle: "medium",
-                timeStyle: "short",
-            }) : "Unknown date";
+                const dateStr = date
+                    ? date.toLocaleString(undefined, {
+                          dateStyle: "medium",
+                          timeStyle: "short"
+                      })
+                    : "Unknown date";
 
-            const stats = update.stats ? `
+                const stats = update.stats
+                    ? `
             <div class="col-auto small text-nowrap">
                 <span class="bg-success text-white px-1 rounded">+ ${update.stats.additions}</span>
                 <span class="bg-danger text-white px-1 rounded">- ${update.stats.deletions}</span>
             </div>
-            ` : "";
+            `
+                    : "";
 
-            let titleSplit = update.title.split(":");
+                let titleSplit = update.title.split(":");
 
-            html += `
+                html += `
             <div class="col-12 mb-3">
                 <div class="card">
                     <div class="card-body">
@@ -294,8 +300,8 @@ async function loadPage(page: number, pages: number) {
             </div>
         `;
 
-            return html;
-        })
+                return html;
+            })
             .join("");
 
         renderPageList();

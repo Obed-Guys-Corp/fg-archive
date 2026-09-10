@@ -39,20 +39,23 @@ export function renderTabs(state: AppState): void {
 
     typeTabs.innerHTML = "";
 
-    typeTabs.innerHTML = BUILD_TYPES.filter(type => Api._builds[type].length > 0).map((type, index) => `
+    typeTabs.innerHTML = BUILD_TYPES.filter(type => Api._builds[type].length > 0)
+        .map(
+            (type, index) => `
         <li class="nav-item">
             <button class="nav-link${index === 0 ? " active" : ""}" id="tab-${type}-tab" type="button" data-type="${type}">
                 ${t(type)}
             </button>
         </li>
-    `).join("");
-
+    `
+        )
+        .join("");
 
     typeTabs.onclick = e => {
         const target = e.target as HTMLElement;
         if (!target?.dataset.type) return;
 
-        selectType(state, target.dataset.type as BuildType)
+        selectType(state, target.dataset.type as BuildType);
     };
 }
 
@@ -60,10 +63,7 @@ export function selectType(state: AppState, selectedType: BuildType) {
     const typeTabs = document.getElementById("typeTabs")!;
 
     typeTabs.querySelectorAll<HTMLButtonElement>("button").forEach(btn => {
-        btn.classList.toggle(
-            "active",
-            btn.dataset.type === selectedType
-        );
+        btn.classList.toggle("active", btn.dataset.type === selectedType);
     });
 
     renderFilter(state, selectedType);

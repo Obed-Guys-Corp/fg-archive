@@ -52,7 +52,8 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
     url.searchParams.set("type", String(selectedType));
     history.pushState({ page: selectedType }, "", url);
 
-    if (letsLeakSomething) createAlert(tabAlert, "alert-info my-3", t("tab.didYouKnow"), t("tab.sourceLeaksDesc", `<i class="text-info bi bi-code-slash"></i>`));
+    if (letsLeakSomething)
+        createAlert(tabAlert, "alert-info my-3", t("tab.didYouKnow"), t("tab.sourceLeaksDesc", `<i class="text-info bi bi-code-slash"></i>`));
 
     if (hasLostMedia)
         createAlert(
@@ -101,16 +102,16 @@ function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement
     // Size (Download sources length)
     const sizeDisplay = downloads?.available?.length
         ? t(
-            "card.size",
-            toGB(buildSizeMB(item)),
-            t("unitGB"),
-            downloads.available
-                .map(item => {
-                    const val = sourceIcons.get(item.source);
-                    return val !== undefined ? `<i class="${val}"></i>` : t(item.source);
-                })
-                .join(" ")
-        )
+              "card.size",
+              toGB(buildSizeMB(item)),
+              t("unitGB"),
+              downloads.available
+                  .map(item => {
+                      const val = sourceIcons.get(item.source);
+                      return val !== undefined ? `<i class="${val}"></i>` : t(item.source);
+                  })
+                  .join(" ")
+          )
         : "";
 
     // Can't get manifest on android and egs builds

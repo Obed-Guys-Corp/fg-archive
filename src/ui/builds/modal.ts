@@ -70,10 +70,15 @@ function showBuildModal(item: Build, type: BuildType): void {
         .filter(seg => seg.sizeGB > 0);
 
     const showAlert = available.length === 1 && available[0]!.source === "telegram" && available[0]!.segments === null;
-    
+
     if (showAlert) {
         const modalAlerts = document.getElementById("modal-alerts")!;
-        createAlert(modalAlerts, "alert-info", "", t("modal.tgAlert.0", `<a href="${LINKS.tgDownloader}" target="_blank" class="alert-link">${t(`modal.tgAlert.1`)}</a>`));
+        createAlert(
+            modalAlerts,
+            "alert-info",
+            "",
+            t("modal.tgAlert.0", `<a href="${LINKS.tgDownloader}" target="_blank" class="alert-link">${t(`modal.tgAlert.1`)}</a>`)
+        );
     }
 
     if (allSegments.length > 0) {
@@ -89,12 +94,12 @@ function showBuildModal(item: Build, type: BuildType): void {
                     <div class="mb-4 ${i === 0 ? "mt-3" : ""}">
                       <h6 class="mb-2">${t(segments.length !== 1 ? "modal.segmentsTitle" : "modal.fileTitle", t(source))}</h6>
                       ${segments
-                        .map(
-                            seg =>
-                                `<div class="alert alert-info p-2 mb-2 w-100" style="text-align: left;">
+                          .map(
+                              seg =>
+                                  `<div class="alert alert-info p-2 mb-2 w-100" style="text-align: left;">
                                     ${segments.length !== 1 ? t("modal.segment", seg.index, seg.sizeGB.toFixed(2)) : t("gbFiller", seg.sizeGB.toFixed(2))}</div>`
-                        )
-                        .join("")}
+                          )
+                          .join("")}
                     </div>
                 `;
             })

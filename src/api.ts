@@ -4,7 +4,6 @@ import { t } from "./i18n/i18n";
 import { BUILD_TYPES, type Build, type Builds, type BuildType, type GlCommit, type Release } from "./types";
 import { timeDiff } from "./utils/string";
 
-
 interface CachedPage {
     timestamp: number;
     data: {
@@ -16,9 +15,7 @@ interface CachedPage {
 const CACHE_TIME = 10 * 60 * 1000;
 
 export class Api {
-    static _builds: Record<BuildType, Build[]> = Object.fromEntries(
-        BUILD_TYPES.map(type => [type, [] as Build[]])
-    ) as Record<BuildType, Build[]>;
+    static _builds: Record<BuildType, Build[]> = Object.fromEntries(BUILD_TYPES.map(type => [type, [] as Build[]])) as Record<BuildType, Build[]>;
 
     static _strings: Record<string, string> = {};
     static _releases: Release[];
@@ -72,7 +69,10 @@ export class Api {
         return this._strings;
     }
 
-    public static async fetchCmsUpdates(page = 1, pages = 50): Promise<{
+    public static async fetchCmsUpdates(
+        page = 1,
+        pages = 50
+    ): Promise<{
         commits: GlCommit[];
         totalPages: number;
     }> {
@@ -93,7 +93,9 @@ export class Api {
             localStorage.removeItem(key);
         }
 
-        const response = await fetch(`https://gitlab.com/api/v4/projects/${CMS_CONFIG.gl_repo}/repository/commits?per_page=${pages}&page=${page}&with_stats=true`);
+        const response = await fetch(
+            `https://gitlab.com/api/v4/projects/${CMS_CONFIG.gl_repo}/repository/commits?per_page=${pages}&page=${page}&with_stats=true`
+        );
 
         if (!response.ok) {
             var rateLimit = response.headers.get("x-ratelimit-reset");
@@ -120,13 +122,15 @@ export class Api {
             const { count } = await commitsTotal.json();
             totalPages = Math.ceil(count / pages);
 
-            localStorage.setItem(totalPagesKey, JSON.stringify({
-                timestamp: Date.now(),
-                totalPages,
-                pages
-            }));
-        }
-        else {
+            localStorage.setItem(
+                totalPagesKey,
+                JSON.stringify({
+                    timestamp: Date.now(),
+                    totalPages,
+                    pages
+                })
+            );
+        } else {
             totalPages = cachedTotal.totalPages;
         }
 
@@ -146,17 +150,23 @@ export class Api {
         return data;
     }
 
-    public static async fetchCmsJson(sha: string, state?: (s: string) => void): Promise<{
+    public static async fetchCmsJson(
+        sha: string,
+        state?: (s: string) => void
+    ): Promise<{
         json: Record<string, any>;
         version: string;
     }> {
-        state?.(t("cms.fetch.init"))
+        state?.(t("cms.fetch.init"));
 
         const cmsReq = await fetch(`http://fg-archive.floyzi.dev/api/cms?sha=${sha}`);
 
-        if (!cmsReq.ok) throw new Error(`can't get cms from sha ${sha}, got status: ${cmsReq.status} ${cmsReq.body && Object.keys(cmsReq.body).length > 0 ? `with reply: ${JSON.stringify(cmsReq.body)}` : "without reply"}`);
+        if (!cmsReq.ok)
+            throw new Error(
+                `can't get cms from sha ${sha}, got status: ${cmsReq.status} ${cmsReq.body && Object.keys(cmsReq.body).length > 0 ? `with reply: ${JSON.stringify(cmsReq.body)}` : "without reply"}`
+            );
 
-        state?.(t("cms.fetch.load"))
+        state?.(t("cms.fetch.load"));
 
         const zip = await JSZip.loadAsync(await cmsReq.arrayBuffer());
 

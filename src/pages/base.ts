@@ -32,7 +32,6 @@ export function renderBase(): void {
         container.getBoundingClientRect();
         container.classList.add("show");
     }
-
 }
 
 export function makeBtn(container: HTMLElement, href: string, txt: string) {

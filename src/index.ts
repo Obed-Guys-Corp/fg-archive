@@ -39,7 +39,7 @@ async function init(): Promise<void> {
                     ${new Date(BUILD_DATE).toLocaleDateString()}
             </span>
             <br>
-            <span class="text-white-50">${t("footer.copyright", new Date().getFullYear())}</span>`
+            <span class="text-white-50">${t("footer.copyright", new Date().getFullYear())}</span>`;
 
     const footerLinks = document.getElementById("footerLinks")!;
 
@@ -77,11 +77,8 @@ async function renderCurrentPage(): Promise<void> {
 
     document.body.scrollTop = 0;
 
-    if ((route ?? maps[0]) !== prevPage)
-        document.body.dataset.new = "";
-    else
-        delete document.body.dataset.new;
-
+    if ((route ?? maps[0]) !== prevPage) document.body.dataset.new = "";
+    else delete document.body.dataset.new;
 
     if (!route) {
         history.replaceState(null, "", import.meta.env.BASE_URL);

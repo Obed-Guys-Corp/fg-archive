@@ -15,8 +15,12 @@ export function initNavbar(): void {
     const mobileNav = document.getElementById("mobileNav");
     if (mobileNav) {
         const mobileNavButton = document.querySelector('[data-bs-target="#mobileNav"]');
-        mobileNav?.addEventListener("show.bs.collapse", () => { mobileNavButton?.classList.add("active"); });
-        mobileNav?.addEventListener("hide.bs.collapse", () => { mobileNavButton?.classList.remove("active"); });
+        mobileNav?.addEventListener("show.bs.collapse", () => {
+            mobileNavButton?.classList.add("active");
+        });
+        mobileNav?.addEventListener("hide.bs.collapse", () => {
+            mobileNavButton?.classList.remove("active");
+        });
     }
 
     updateNav();
@@ -30,16 +34,16 @@ function renderDesktopNav(): void {
     container.innerHTML = `
         <ul class="nav nav-tabs navbar-nav d-flex flex-row border-0">
             ${maps
-            .slice(1)
-            .map(
-                route => `
+                .slice(1)
+                .map(
+                    route => `
                         <li class="nav-item">
                             <a class="nav-link px-2" href="${route.path}" data-route="${route.path}" data-navigation="true">
                                 ${t(route.label)}
                             </a>
                         </li>`
-            )
-            .join("")}
+                )
+                .join("")}
         </ul>
     `;
 }
@@ -75,5 +79,4 @@ export function updateNav(): void {
     document.querySelectorAll<HTMLAnchorElement>("#mainNavbar [data-route]").forEach(element => {
         element.classList.toggle("active", element.pathname === window.location.pathname);
     });
-
 }

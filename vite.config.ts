@@ -5,6 +5,6 @@ export default defineConfig({
     base: "/fg-archive/",
     define: {
         COMMIT: JSON.stringify(execSync("git rev-parse HEAD").toString().trim()),
-        BUILD_DATE: JSON.stringify(new Date().toISOString()),
-    },
+        BUILD_DATE: JSON.stringify(new Date().toISOString())
+    }
 });
