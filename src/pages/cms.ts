@@ -117,9 +117,14 @@ export async function renderCms(): Promise<void> {
         button.classList.remove("btn-secondary");
         button.classList.add("btn-success");
 
+        const ico = button.querySelector<HTMLElement>(".bi");
+        if (ico) ico.className = "bi bi-clipboard-check";
+
         setTimeout(() => {
             button.classList.add("btn-secondary");
             button.classList.remove("btn-success");
+
+            if (ico) ico.className = "bi bi-share";
         }, 350);
     });
 
@@ -190,7 +195,7 @@ async function doDownload(btn: HTMLButtonElement, action: (cms: Awaited<ReturnTy
     } catch (err) {
         showToast("alert", t("cms.fetch.fail"), `${err}`, 7);
     } finally {
-          downloadIn = false;
+        downloadIn = false;
         text.textContent = ogStr;
         btn.disabled = false;
         spinner?.classList.add("d-none");

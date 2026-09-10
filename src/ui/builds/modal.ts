@@ -130,7 +130,7 @@ export function showBuildModal(item: Build, type: BuildType): void {
         steamBtn.href = `https://steamdb.info/depot/${type === "steam_beta" ? 1265941 : 1097151}/history/?changeid=M:${steamManifest}`;
         steamBtn.target = "_blank";
         steamBtn.className = "btn btn-secondary";
-        steamBtn.textContent = t("modal.viewSteamDB");
+        steamBtn.innerHTML = `<i class="bi bi-boxes"></i> ${t("modal.viewSteamDB")}`;
         modalFooter.appendChild(steamBtn);
     }
 
@@ -146,9 +146,14 @@ export function showBuildModal(item: Build, type: BuildType): void {
         shareBtn.classList.remove("btn-secondary");
         shareBtn.classList.add("btn-success");
 
+        const ico = shareBtn.querySelector<HTMLElement>(".bi");
+        if (ico) ico.className = "bi bi-clipboard-check";
+
         setTimeout(() => {
             shareBtn.classList.add("btn-secondary");
             shareBtn.classList.remove("btn-success");
+
+            if (ico) ico.className = "bi bi-share";
         }, 350);
     });
 
