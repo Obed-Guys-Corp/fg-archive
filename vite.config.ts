@@ -1,5 +1,5 @@
 import { execSync } from "node:child_process";
-import { readFileSync, mkdirSync, writeFileSync, readdirSync } from "node:fs";
+import { readFileSync, mkdirSync, writeFileSync, readdirSync, copyFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { defineConfig, type Plugin } from "vite";
 import { format } from "./src/i18n/i18n.ts";
@@ -64,6 +64,8 @@ const setBuilds = (): Plugin => ({
                 }
             }
         }
+
+        copyFileSync(resolve("dist/index.html"),resolve("dist/404.html"));
     }
 });
 
