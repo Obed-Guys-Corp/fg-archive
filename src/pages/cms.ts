@@ -4,6 +4,7 @@ import { LINKS } from "../constants/links";
 import { t } from "../i18n/i18n";
 import type { Release } from "../types";
 import { createAlert } from "../ui/alerts";
+import { showToast } from "../ui/toasts";
 import { calcDateStr } from "../utils/string";
 
 let currPage = 1;
@@ -24,6 +25,15 @@ export async function renderCms(): Promise<void> {
 
     app.innerHTML = `
         <div class="container">
+            <div class="toast-container position-fixed top-0 end-0 mx-3 my-5 p-3" style="z-index: 9999">
+                <div id="alert-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <strong class="me-auto"></strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div i class="toast-body"></div>
+                </div>
+            </div>
 
             <div id="init-load" class="col-12 d-flex justify-content-center my-3">
                 <div class="spinner-border" role="status">
@@ -117,7 +127,10 @@ async function doDownload(btn: HTMLButtonElement, action: (cms: Awaited<ReturnTy
     try {
         const cms = await Api.fetchCmsJson(btn.dataset.sha, s => text.textContent = s);
         await action(cms);
-    } finally {
+    } catch (err) {
+        showToast("alert", t("cms.fetch.fail"), `${err}`, 7)
+    }
+    finally {
         text.textContent = ogStr;
         btn.disabled = false;
         spinner?.classList.add("d-none");

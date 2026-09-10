@@ -147,5 +147,6 @@
     "modal.tgAlert.1": "this website",
     "footer.copyright": "This is a fan-made website that is not affiliated with Epic Games<br>© {0} Mediatonic Limited Fall Guys and all related \ncharacters and elements are trademarks of Mediatonic Limited",
     "cms.about": "This page contains Fall Guys content update history. Raw CMS data can be viewed on repositories hosted on {0} and {1}",
-    "cms.verFallback": "Content Update"
+    "cms.verFallback": "Content Update",
+    "cms.fetch.fail": "Download Error"
 }

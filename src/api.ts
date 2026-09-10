@@ -154,14 +154,14 @@ export class Api {
 
         const cmsReq = await fetch(`http://fg-archive.floyzi.dev/api/cms?sha=${sha}`);
 
-        if (!cmsReq.ok) throw new Error(`can't get cms` + cmsReq.status);
+        if (!cmsReq.ok) throw new Error(`can't get cms from sha ${sha}, got status: ${cmsReq.status} ${cmsReq.body && Object.keys(cmsReq.body).length > 0 ? `with reply: ${JSON.stringify(cmsReq.body)}` : "without reply"}`);
 
         state?.(t("cms.fetch.load"))
 
         const zip = await JSZip.loadAsync(await cmsReq.arrayBuffer());
 
         const metiaFile = Object.entries(zip.files).find(([path, file]) => !file.dir && path.endsWith("/_meta.json"));
-        if (metiaFile == null) throw new Error(`can't get meta`);
+        if (metiaFile == null) throw new Error(`can't get meta inside cms, ${sha}`);
 
         const [metaPath, metaFile] = metiaFile;
         const meta = JSON.parse(await metaFile.async("string"));
