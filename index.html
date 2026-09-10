@@ -56,27 +56,27 @@
 <body>
     <nav id="mainNavbar" class="navbar bg-dark-override" data-bs-theme="dark">
         <div class="container">
-            <div class="row w-100 align-items-center gx-2">
-                <div class="col-auto d-flex align-items-center px-0">
+            <div class="d-flex align-items-center w-100 flex-nowrap">
+                <div class="flex-shrink-1 overflow-hidden">
                     <a href="/" class="navbar-brand d-flex align-items-center mb-0">
-                        <img src="/favicon-512x512.webp" width="32" height="32"
-                            class="d-inline-block align-top rounded me-2" alt="Fall Guys Archive"
-                            title="Fall Guys Archive" />
+                        <img src="/favicon-512x512.webp" width="32" height="32" class="rounded me-2 flex-shrink-0"
+                            alt="Fall Guys Archive" title="Fall Guys Archive" />
                         <span class="titan-one-font text-truncate text-white" data-i18n="base_title"></span>
                     </a>
                 </div>
 
-                <div id="desktopNav" class="col d-none d-md-flex align-items-center"></div>
+                <div id="desktopNav"
+                    class="flex-grow-1 flex-shrink-1 overflow-hidden d-none d-md-flex align-items-center"></div>
 
-                <div class="col-auto d-flex align-items-center gap-2 px-0 ms-auto">
+                <div class="d-flex align-items-center gap-2 ms-auto flex-shrink-0">
                     <button class="btn btn-sm btn-outline-secondary d-md-none" type="button" data-bs-toggle="collapse"
                         data-bs-target="#mobileNav" aria-controls="mobileNav" aria-expanded="false">
                         <i class="bi bi-list"></i>
                     </button>
 
-                    <div id="controls"></div>
+                    <div id="controls" class="d-flex align-items-center gap-2 flex-nowrap"></div>
 
-                    <button id="toggleThemeBtn" class="btn btn-sm btn-outline-secondary">
+                    <button id="toggleThemeBtn" class="btn btn-sm btn-outline-secondary flex-shrink-0">
                         <i id="themeIcon" class="bi text-white"></i>
                     </button>
                 </div>

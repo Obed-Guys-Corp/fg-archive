@@ -1,5 +1,6 @@
 import { t } from "../../i18n/i18n";
 import { maps } from "../../map";
+import { Collapse } from "bootstrap";
 
 export function initNavbar(): void {
     const brand = document.querySelector<HTMLAnchorElement>("#mainNavbar .navbar-brand");
@@ -21,16 +22,16 @@ function renderDesktopNav(): void {
     container.innerHTML = `
         <ul class="nav nav-tabs navbar-nav d-flex flex-row border-0">
             ${maps
-                .slice(1)
-                .map(
-                    route => `
+            .slice(1)
+            .map(
+                route => `
                         <li class="nav-item">
                             <a class="nav-link px-2" href="${route.path}" data-route="${route.path}" data-navigation="true">
                                 ${t(route.label)}
                             </a>
                         </li>`
-                )
-                .join("")}
+            )
+            .join("")}
         </ul>
     `;
 }
@@ -60,4 +61,7 @@ export function updateNav(): void {
     document.querySelectorAll<HTMLAnchorElement>("#mainNavbar [data-route]").forEach(element => {
         element.classList.toggle("active", element.pathname === window.location.pathname);
     });
+
+    const mobileNav = document.getElementById("mobileNav");
+    if (mobileNav) Collapse.getOrCreateInstance(mobileNav).hide();
 }
