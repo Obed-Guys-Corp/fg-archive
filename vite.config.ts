@@ -50,16 +50,16 @@ const setBuilds = (): Plugin => ({
         <meta name="og:title" property="og:title" content="${title}" />
         <meta name="description" content="${desc}" />
         <meta name="og:description" property="og:description" content="${desc}" />
-        <meta name="og:image" property="og:image" content="https://obed-guys-corp.github.io/fg-archive/static/favicon-512x512.webp" />
+        <meta name="og:image" property="og:image" content="https://fga.floyzi.dev/static/favicon-512x512.webp" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="${title}" />
         <meta name="twitter:description" content="${desc}" />
-        <meta name="twitter:image" content="https://obed-guys-corp.github.io/fg-archive/static/favicon-512x512.webp" />
+        <meta name="twitter:image" content="https://fga.floyzi.dev/static/favicon-512x512.webp" />
         <meta content="#f73ca3" name="theme-color" />
-        <link rel="icon" href="https://obed-guys-corp.github.io/fg-archive/static/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="https://fga.floyzi.dev/static/favicon.ico" type="image/x-icon" />
     </head>
     <body>
-    <script>window.location.replace(${JSON.stringify(`/fg-archive/builds?type=${type}#${build.id}`)});</script>
+    <script>window.location.replace(${JSON.stringify(`/builds?type=${type}#${build.id}`)});</script>
     </body>
 </html>`
                     );
@@ -72,7 +72,7 @@ const setBuilds = (): Plugin => ({
 });
 
 export default defineConfig({
-    base: "/fg-archive/",
+    base: "/",
 
     define: {
         COMMIT: JSON.stringify(execSync("git rev-parse HEAD").toString().trim()),

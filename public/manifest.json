@@ -40,23 +40,23 @@
             "density": "4.0"
         }
     ],
-    "start_url": "fg-archive/?source=pwa",
+    "start_url": "/?source=pwa",
     "background_color": "#f8f9fa",
     "display": "standalone",
-    "scope": "/fg-archive/",
+    "scope": "/",
     "theme_color": "#212529",
     "shortcuts": [
         {
             "name": "CMS",
             "short_name": "CMS",
             "description": "View Fall Guys content updates history",
-            "url": "fg-archive/cms?source=pwa"
+            "url": "/cms?source=pwa"
         },
         {
             "name": "Builds",
             "short_name": "Builds",
             "description": "View and download Fall Guys builds",
-            "url": "fg-archive/builds?source=pwa"
+            "url": "/builds?source=pwa"
         }
     ]
 }

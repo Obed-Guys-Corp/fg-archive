@@ -159,7 +159,7 @@ export class Api {
     }> {
         state?.(t("cms.fetch.init"));
 
-        const cmsReq = await fetch(`https://fg-archive.floyzi.dev/api/cms?sha=${sha}`);
+        const cmsReq = await fetch(`https://fga-api.floyzi.dev/cms?sha=${sha}`);
 
         if (!cmsReq.ok)
             throw new Error(

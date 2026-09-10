@@ -2,7 +2,7 @@
 
 Website of the Fall Guys archive
 
-Visit us: https://obed-guys-corp.github.io/fg-archive
+Visit us: https://fga.floyzi.dev
 
 ## Development
 
