@@ -14,7 +14,7 @@ let alerts: HTMLDivElement;
 let pageList: Element;
 let lastRenderPages = 0;
 
-window.addEventListener('resize', renderPageList);
+window.addEventListener('resize', () => renderPageList(false));
 
 export async function renderCms(): Promise<void> {
     const app = document.getElementById("app");
@@ -104,6 +104,25 @@ export async function renderCms(): Promise<void> {
         }
     });
 
+    commitList?.addEventListener("click", async event => {
+        const target = event.target as HTMLElement;
+        const button = target.closest<HTMLButtonElement>(".copy");
+
+        if (!button) return;
+
+        const url = new URL(window.location.href);
+        url.hash = button.dataset.sha!;
+        navigator.clipboard.writeText(url.toString());
+
+        button.classList.remove("btn-secondary");
+        button.classList.add("btn-success");
+
+        setTimeout(() => {
+            button.classList.add("btn-secondary");
+            button.classList.remove("btn-success");
+        }, 350);
+    });
+
     await Api.fetchReleaseMap();
 
     document.getElementById("init-load")?.remove();
@@ -122,14 +141,41 @@ export async function renderCms(): Promise<void> {
     }
 
     await loadPage(page, max);
+
+    const id = window.location.hash.substring(1);
+    console.log(id);
+    if (id) {
+        var itm = document.getElementById(id);
+        if (!itm) return;
+
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+
+        requestAnimationFrame(() => {
+            const itm = document.getElementById(id);
+
+            itm?.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+            history.replaceState(null, "", `#${id}`);
+        });
+
+        itm.classList.add('border', 'border-primary', 'shadow');
+
+        setTimeout(() => {
+            itm?.classList.remove('border', 'border-primary', 'shadow');
+        }, 3500);
+    }
 }
 
+let downloadIn = false;
 async function doDownload(btn: HTMLButtonElement, action: (cms: Awaited<ReturnType<typeof Api.fetchCmsJson>>) => Promise<void> | void) {
     const icon = btn.querySelector<HTMLElement>("i");
     const spinner = btn.querySelector<HTMLElement>(".spinner-border");
     const text = btn.querySelector<HTMLElement>(".text");
 
-    if (!btn.dataset.sha || !text) return;
+    if (downloadIn || !btn.dataset.sha || !text) return;
 
     btn.disabled = true;
     spinner?.classList.remove("d-none");
@@ -138,11 +184,13 @@ async function doDownload(btn: HTMLButtonElement, action: (cms: Awaited<ReturnTy
     let ogStr = text.textContent;
 
     try {
+        downloadIn = true;
         const cms = await Api.fetchCmsJson(btn.dataset.sha, s => (text.textContent = s));
         await action(cms);
     } catch (err) {
         showToast("alert", t("cms.fetch.fail"), `${err}`, 7);
     } finally {
+          downloadIn = false;
         text.textContent = ogStr;
         btn.disabled = false;
         spinner?.classList.add("d-none");
@@ -178,6 +226,7 @@ function download(file: BlobPart, type: string, name: string) {
 
 async function loadPage(page: number, pages: number) {
     if (!commitList || !pageList) return;
+    if (commitList.hasAttribute("data-loading")) return;
     if (!Number.isFinite(page) || page < 1) return;
     if (!Number.isFinite(pages) || pages <= 0 || pages >= 100) pages = 50;
 
@@ -188,6 +237,7 @@ async function loadPage(page: number, pages: number) {
             </div>
         </div>
     `;
+    commitList.dataset.loading = "";
 
     const releases = [...Api._releases].sort((x, y) => new Date(y.date).getTime() - new Date(x.date).getTime());
 
@@ -261,7 +311,7 @@ async function loadPage(page: number, pages: number) {
 
                 html += `
             <div class="col-12 mb-3">
-                <div class="card">
+                <div class="card" id="${update.id}">
                     <div class="card-body">
                         <div class="row align-items-center mb-2">
                             <div class="col">
@@ -302,6 +352,10 @@ async function loadPage(page: number, pages: number) {
                                 <i class="bi bi-download"></i>
                                 <span class="text">${t("cms.asV2")}</span>
                             </button>
+
+                             <button type="button" class="btn btn-secondary btn-sm copy btn-secondary" data-sha="${update.id}">
+                                <i class="bi bi-share"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -313,16 +367,19 @@ async function loadPage(page: number, pages: number) {
             .join("");
 
         renderPageList();
+
+        delete commitList.dataset.loading;
     } catch (e) {
         commitList.innerHTML = `<div class="alert alert-danger">${e}</div>`;
     }
 }
 
-function renderPageList() {
+function renderPageList(force = true) {
     if (!pageList) return;
 
     const pageCount = window.innerWidth < 712 ? window.innerWidth < 576 ? window.innerWidth < 412 ? 3 : 4 : 6 : 8;
-    if (pageCount == lastRenderPages) return;
+    if (!force && pageCount == lastRenderPages) return;
+
     lastRenderPages = pageCount;
 
     let res = "";
