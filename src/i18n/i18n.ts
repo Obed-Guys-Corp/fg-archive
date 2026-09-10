@@ -6,10 +6,7 @@ export function t(key: string, ...args: (string | number)[]): string {
     const text = loc ?? key;
     if (args.length === 0) return text;
 
-    return text.replace(/{(\d+)}/g, (match, number) => {
-        const index = parseInt(number);
-        return args[index] !== undefined ? String(args[index]) : match;
-    });
+    return format(loc ?? key, ...args);
 }
 
 export function initStaticText(): void {
@@ -23,3 +20,13 @@ export function initStaticText(): void {
         element.innerHTML = t(key);
     });
 }
+
+export function format(text: string, ...args: (string | number)[]): string {
+    if (args.length === 0) return text;
+
+    return text.replace(/{(\d+)}/g, (match, number) => {
+        const index = parseInt(number);
+        return args[index] !== undefined ? String(args[index]) : match;
+    });
+}
+
