@@ -3,6 +3,8 @@ using AddressablesTools.Catalog;
 using AssetsTools.NET;
 using AssetsTools.NET.Cpp2IL;
 using AssetsTools.NET.Extra;
+using System.Globalization;
+using System.Reflection.PortableExecutable;
 using System.Text.Json;
 
 internal sealed class InfoExtractor
@@ -40,6 +42,7 @@ internal sealed class InfoExtractor
     readonly string? _dataPath;
     readonly string _bundlesPath;
     readonly string _catalogPath;
+    readonly string _gameAssemblyPath;
     readonly string _globalGameManagersPath;
     readonly string _resourcesPath;
     readonly AssetsManager _manager;
@@ -62,6 +65,7 @@ internal sealed class InfoExtractor
         _globalGameManagersPath = Path.Combine(_dataPath, "globalgamemanagers");
         _bundlesPath = Path.Combine(_dataPath, "StreamingAssets", "aa~", "StandaloneWindows64");
         _catalogPath = Path.Combine(_dataPath, "StreamingAssets", "aa~", "catalog.bundle");
+        _gameAssemblyPath = Path.Combine(_buildPath, "GameAssembly.dll");
 
         _manager.LoadClassPackage(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "lz4.tpk"));
 
@@ -160,15 +164,50 @@ internal sealed class InfoExtractor
         var extractedBuildInfo = FindInBundles() ?? FindInStandaloneAssets();
         if (extractedBuildInfo == null) return null;
 
+        var buildDate = extractedBuildInfo.BuildDate;
+        if (buildDate.Length == 0)
+            buildDate = FindGameAssemblyBuildDate();
+
         var environment = SelectEnvironment();
         return new(
             version,
             extractedBuildInfo.BuildNumber,
             extractedBuildInfo.BuildCommit,
-            extractedBuildInfo.BuildDate,
+            buildDate,
             scenes,
             environment.Name,
             environment.Signature);
+    }
+
+    string FindGameAssemblyBuildDate()
+    {
+        if (!File.Exists(_gameAssemblyPath))
+        {
+            Console.Error.WriteLine($"GameAssembly not found: {_gameAssemblyPath}");
+            return string.Empty;
+        }
+
+        try
+        {
+            using var stream = File.OpenRead(_gameAssemblyPath);
+            using var reader = new PEReader(stream);
+
+            var timestamp = unchecked((uint)reader.PEHeaders.CoffHeader.TimeDateStamp);
+            if (timestamp == 0)
+            {
+                Console.Error.WriteLine($"GameAssembly has no PE timestamp: {_gameAssemblyPath}");
+                return string.Empty;
+            }
+
+            var buildDate = DateTimeOffset.FromUnixTimeSeconds(timestamp).UtcDateTime;
+            Console.WriteLine($"Found GameAssembly build date in: {_gameAssemblyPath}");
+            return buildDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+        }
+        catch (Exception e)
+        {
+            Console.Error.WriteLine($"Can't read GameAssembly PE header {_gameAssemblyPath}: {e.Message}");
+            return string.Empty;
+        }
     }
 
     EnvironmentSelection SelectEnvironment()
