@@ -26,41 +26,42 @@ const setBuilds = (): Plugin => ({
                     mkdirSync(dir, { recursive: true });
 
                     const available = (build.downloads?.available ?? []).some((d: { link: string }) => d.link.trim() !== "");
+
                     const title = loc.build_desc_title;
                     const fgVer = build.properties?.version;
                     const d = build.release_date?.substring(0, 10) ?? "";
+                    const ver = fgVer ? ` v${fgVer}` : "";
+
                     const desc = d
                         ? available
-                            ? format(loc["build_desc.downloads_date"], !fgVer ? loc[type] : `${loc[type]} v${fgVer}`, d)
-                            : format(loc["build_desc.missing_date"], !fgVer ? loc[type] : `${loc[type]} v${fgVer}`, d)
+                            ? format(loc["build_desc.downloads_date"], loc[type], ver, d)
+                            : format(loc["build_desc.missing_date"], loc[type], ver, d)
                         : available
-                          ? format(loc["build_desc.downloads"], !fgVer ? loc[type] : `${loc[type]} v${fgVer}`)
-                          : format(loc["build_desc.missing"], !fgVer ? loc[type] : `${loc[type]} v${fgVer}`);
+                          ? format(loc["build_desc.downloads"], loc[type], ver)
+                          : format(loc["build_desc.missing"], loc[type], ver);
 
                     writeFileSync(
                         resolve(dir, "index.html"),
                         `<!doctype html>
-                        <html lang="en">
-                            <head>
-                                <meta charset="UTF-8" />
-                                <meta name="og:title" property="og:title" content="${title}" />
-                                <meta name="description" content="${desc}" />
-                                <meta name="og:description" property="og:description" content="${desc}" />
-                                <meta name="og:image" property="og:image" content="https://obed-guys-corp.github.io/fg-archive/favicon-512x512.webp" />
-                                <meta name="twitter:card" content="summary" />
-                                <meta name="twitter:title" content="${title}" />
-                                <meta name="twitter:description" content="${desc}" />
-                                <meta name="twitter:image" content="https://obed-guys-corp.github.io/fg-archive/favicon-512x512.webp" />
-                                <meta content="#f73ca3" name="theme-color" />
-                                <title>${title}</title>
-                                <link rel="icon" href="https://obed-guys-corp.github.io/fg-archive/favicon.ico" type="image/x-icon" />
-                            </head>
-                            <body>
-                            <script>
-                                window.location.replace(${JSON.stringify(`/fg-archive/builds?type=${type}#${build.id}`)});
-                            </script>
-                            </body>
-                        </html>`
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>${title}</title>
+        <meta name="og:title" property="og:title" content="${title}" />
+        <meta name="description" content="${desc}" />
+        <meta name="og:description" property="og:description" content="${desc}" />
+        <meta name="og:image" property="og:image" content="https://obed-guys-corp.github.io/fg-archive/favicon-512x512.webp" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="${title}" />
+        <meta name="twitter:description" content="${desc}" />
+        <meta name="twitter:image" content="https://obed-guys-corp.github.io/fg-archive/favicon-512x512.webp" />
+        <meta content="#f73ca3" name="theme-color" />
+        <link rel="icon" href="https://obed-guys-corp.github.io/fg-archive/favicon.ico" type="image/x-icon" />
+    </head>
+    <body>
+    <script>window.location.replace(${JSON.stringify(`/fg-archive/builds?type=${type}#${build.id}`)});</script>
+    </body>
+</html>`
                     );
                 }
             }
