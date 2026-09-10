@@ -139,7 +139,7 @@ export function showBuildModal(item: Build, type: BuildType): void {
     shareBtn.innerHTML = `<i class="bi bi-share"></i>`;
     shareBtn.dataset.build = item.id;
     shareBtn.addEventListener("click", () => {
-        navigator.clipboard.writeText(`${window.location.origin}${import.meta.env.BASE_URL}builds/${item.id}/`);
+        navigator.clipboard.writeText(`${window.location.origin}${import.meta.env.BASE_URL}build/${item.id}/`);
 
         shareBtn.classList.remove("btn-secondary");
         shareBtn.classList.add("btn-success");

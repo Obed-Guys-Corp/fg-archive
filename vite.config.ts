@@ -5,14 +5,14 @@ import { defineConfig, type Plugin } from "vite";
 import { format } from "./src/i18n/i18n.ts";
 
 const setBuilds = (): Plugin => ({
-    name: "build-share-pages",
+    name: "set-builds",
 
     closeBundle() {
         const loc = JSON.parse(readFileSync(resolve("public/content/i18n/en.json"), "utf-8"));
         const dataDir = resolve("public/content");
-        const buildsDir = resolve("dist/builds");
+        const buildMetaDir = resolve("dist/build");
 
-        mkdirSync(buildsDir, { recursive: true });
+        mkdirSync(buildMetaDir, { recursive: true });
 
         for (const file of readdirSync(dataDir)) {
             if (!file.endsWith(".json")) continue;
@@ -21,7 +21,7 @@ const setBuilds = (): Plugin => ({
 
             for (const [type, builds] of Object.entries(data)) {
                 for (const build of builds as Array<Record<string, any>>) {
-                    const dir = resolve(buildsDir, build.id);
+                    const dir = resolve(buildMetaDir, build.id);
 
                     mkdirSync(dir, { recursive: true });
 
