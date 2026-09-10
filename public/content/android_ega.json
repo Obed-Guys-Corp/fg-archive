@@ -1,6 +1,7 @@
 {
     "android_ega": [
         {
+            "id": "aabe82a3-22db-469e-a27d-64ff09d5eda8",
             "release_date": "2025-12-17",
             "downloads": {
                 "total_size": 2149.2,
@@ -24,6 +25,7 @@
             }
         },
         {
+            "id": "52e84dd1-4af1-4c41-b4af-d8ad1f82d08e",
             "release_date": "2025-09-16",
             "downloads": {
                 "total_size": 2145.1,
@@ -47,6 +49,7 @@
             }
         },
         {
+            "id": "26cab2d1-a92d-48c9-9f12-f4c6cd8f9945",
             "release_date": "2025-08-19",
             "downloads": {
                 "total_size": 2094.6,
@@ -70,6 +73,7 @@
             }
         },
         {
+            "id": "88ba53af-c60c-4b2b-ab45-c4ba07a9ae8d",
             "release_date": "2025-03-13",
             "downloads": {
                 "total_size": 1991.3,
@@ -93,6 +97,7 @@
             }
         },
         {
+            "id": "9ebe92e3-d64c-4589-b406-86a5861e401d",
             "release_date": "2024-08-16",
             "downloads": {
                 "total_size": 1874.7,

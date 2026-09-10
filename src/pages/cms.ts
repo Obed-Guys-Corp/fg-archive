@@ -161,10 +161,10 @@ export async function renderCms(): Promise<void> {
             history.replaceState(null, "", `#${id}`);
         });
 
-        itm.classList.add('border', 'border-primary', 'shadow');
+        itm.classList.add('border', 'border-primary');
 
         setTimeout(() => {
-            itm?.classList.remove('border', 'border-primary', 'shadow');
+            itm?.classList.remove('border', 'border-primary');
         }, 3500);
     }
 }

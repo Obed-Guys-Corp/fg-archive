@@ -1,6 +1,7 @@
 {
     "steam_beta": [
         {
+            "id": "2552ce2c-9c2b-408d-acdc-bc13eb32db4e",
             "release_date": "2022-10-12T11:43:27+00:00",
             "downloads": {
                 "total_size": 3471.7,
@@ -30,6 +31,7 @@
             }
         },
         {
+            "id": "63f4dc24-853b-4a7b-a449-59df513fdc34",
             "release_date": "2022-10-04T11:49:31+00:00",
             "downloads": {
                 "total_size": 3471.8,
@@ -59,6 +61,7 @@
             }
         },
         {
+            "id": "b1bf4461-1c5f-4cd1-95d3-5a60abafb3fc",
             "release_date": "2022-09-21T08:59:17+00:00",
             "downloads": {
                 "total_size": 3620.4,
@@ -88,6 +91,7 @@
             }
         },
         {
+            "id": "c7f28bbe-e54c-4f4e-9f85-5397c87f5475",
             "release_date": "2022-09-13T14:57:51+00:00",
             "downloads": {
                 "total_size": 3748.3,
@@ -124,6 +128,7 @@
             }
         },
         {
+            "id": "3a9cf4a7-cd1b-416c-bffd-0f24684b6e11",
             "release_date": "2022-09-06T10:40:55+00:00",
             "downloads": {
                 "total_size": 3830.8,
@@ -160,6 +165,7 @@
             }
         },
         {
+            "id": "f388b1c1-8d16-4a9b-9b6b-378ef60d5872",
             "release_date": "2022-08-23T17:15:09+00:00",
             "downloads": {
                 "total_size": 3831.3,
@@ -196,6 +202,7 @@
             }
         },
         {
+            "id": "8c6a299b-8e5c-4212-ab09-158b4e3194d7",
             "release_date": "2022-08-23T16:40:57+00:00",
             "downloads": {
                 "total_size": 4829.7,
@@ -232,6 +239,7 @@
             }
         },
         {
+            "id": "21b5a7b1-f288-4249-bd32-83e3e269f064",
             "release_date": "2022-08-16T12:02:12+00:00",
             "downloads": {
                 "total_size": 3944.3,
@@ -261,6 +269,7 @@
             }
         },
         {
+            "id": "8466d367-1ed1-4987-b9af-9e5c31f97dd0",
             "release_date": "2022-07-20T09:55:35+00:00",
             "downloads": {
                 "total_size": 3918,
@@ -290,6 +299,7 @@
             }
         },
         {
+            "id": "9f9964f2-f75d-44e3-8aad-002ef0f57b7d",
             "release_date": "2022-07-06T10:35:37+00:00",
             "downloads": {
                 "total_size": 2889.3,
@@ -319,6 +329,7 @@
             }
         },
         {
+            "id": "901768a2-a2d6-4c52-b976-7a9faf830232",
             "release_date": "2022-06-30T15:05:03+00:00",
             "downloads": {
                 "total_size": 2889.2,
@@ -348,6 +359,7 @@
             }
         },
         {
+            "id": "227baa3d-e8f8-4941-b0b3-ed2d30a54165",
             "release_date": "2022-06-21T15:09:57+00:00",
             "downloads": {
                 "total_size": 2889.2,
@@ -377,6 +389,7 @@
             }
         },
         {
+            "id": "459f2afd-ae63-4288-a254-6de91e7779b6",
             "release_date": "2022-06-15T11:33:37+00:00",
             "downloads": {
                 "total_size": 2884.1,
@@ -406,6 +419,7 @@
             }
         },
         {
+            "id": "1156f48a-2d52-4f05-9b07-fa467ce90916",
             "release_date": "2022-06-10T09:40:14+00:00",
             "downloads": {
                 "total_size": 0,
@@ -424,6 +438,7 @@
             }
         },
         {
+            "id": "75351625-7c2f-449a-94ba-e75cf773f611",
             "release_date": "2022-06-07T16:46:44+00:00",
             "downloads": {
                 "total_size": 2865.9,
@@ -448,6 +463,7 @@
             }
         },
         {
+            "id": "19bd8c14-e988-4a34-9665-6215c91d21ab",
             "release_date": "2022-05-31T09:07:47+00:00",
             "downloads": {
                 "total_size": 0,
@@ -466,6 +482,7 @@
             }
         },
         {
+            "id": "dd3a02b8-5fea-4ec2-bd54-c81d67fd4c4d",
             "release_date": "2022-03-24T13:57:48+00:00",
             "downloads": {
                 "total_size": 0,
@@ -484,6 +501,7 @@
             }
         },
         {
+            "id": "de4511d1-eaa7-4584-ad8f-6bb02dae9d4a",
             "release_date": "2022-03-16T11:52:54+00:00",
             "downloads": {
                 "total_size": 0,
@@ -502,6 +520,7 @@
             }
         },
         {
+            "id": "e1b9d147-6072-4a60-8cfc-085de1f60129",
             "release_date": "2022-03-10T12:12:18+00:00",
             "downloads": {
                 "total_size": 0,
@@ -520,6 +539,7 @@
             }
         },
         {
+            "id": "0385bbcc-e2a3-412b-ab72-bb417eefea99",
             "release_date": "2022-03-02T16:05:30+00:00",
             "downloads": {
                 "total_size": 0,
@@ -538,6 +558,7 @@
             }
         },
         {
+            "id": "0c964d2d-7060-4267-b4ea-97f662d15185",
             "release_date": "2022-02-28T12:43:21+00:00",
             "downloads": {
                 "total_size": 0,
@@ -556,6 +577,7 @@
             }
         },
         {
+            "id": "979c2811-8a93-4117-b355-762e862f1423",
             "release_date": "2022-02-16T14:29:54+00:00",
             "downloads": {
                 "total_size": 0,
@@ -574,6 +596,7 @@
             }
         },
         {
+            "id": "4f2c647c-2b6d-421d-b433-ddde7852b918",
             "release_date": "2022-02-10T14:17:15+00:00",
             "downloads": {
                 "total_size": 0,
@@ -592,6 +615,7 @@
             }
         },
         {
+            "id": "5263da14-1039-44f9-bcce-ca608800a3c4",
             "release_date": "2022-02-07T14:39:03+00:00",
             "downloads": {
                 "total_size": 0,
@@ -610,6 +634,7 @@
             }
         },
         {
+            "id": "cd0ff1ff-8690-49a4-8848-06ba85c76332",
             "release_date": "2022-01-28T12:54:58+00:00",
             "downloads": {
                 "total_size": 0,
@@ -628,6 +653,7 @@
             }
         },
         {
+            "id": "0ee1e20d-9d00-4679-aef6-3d0c907b8be7",
             "release_date": "2022-01-21T15:04:51+00:00",
             "downloads": {
                 "total_size": 0,
@@ -646,6 +672,7 @@
             }
         },
         {
+            "id": "eeaebf55-85eb-4369-b57d-04715ed7f389",
             "release_date": "2022-01-12T14:36:31+00:00",
             "downloads": {
                 "total_size": 0,
@@ -664,6 +691,7 @@
             }
         },
         {
+            "id": "a21d4e5a-0ac9-4b16-8d7f-8be44edb1f43",
             "release_date": "2021-11-24T18:54:31+00:00",
             "downloads": {
                 "total_size": 0,
@@ -682,6 +710,7 @@
             }
         },
         {
+            "id": "efdb5447-2281-4457-b5ae-102e2890ba04",
             "release_date": "2021-11-24T16:01:24+00:00",
             "downloads": {
                 "total_size": 0,
@@ -700,6 +729,7 @@
             }
         },
         {
+            "id": "824618f5-bba0-4348-84c6-a4ba0e967cef",
             "release_date": "2021-11-18T15:00:35+00:00",
             "downloads": {
                 "total_size": 4294.6,
@@ -731,6 +761,7 @@
             }
         },
         {
+            "id": "2fba73c9-541e-4eb0-ad62-d112ec8e5b95",
             "release_date": "2021-11-12T09:30:09+00:00",
             "downloads": {
                 "total_size": 4656.7,
@@ -762,6 +793,7 @@
             }
         },
         {
+            "id": "2e7f7d63-ec9f-4c76-852e-51ae482c3e11",
             "release_date": "2021-11-04T16:33:53+00:00",
             "downloads": {
                 "total_size": 4729.3,
@@ -793,6 +825,7 @@
             }
         },
         {
+            "id": "391334d2-e5d6-4cc8-94cc-7d38f2f18885",
             "release_date": "2021-09-22T13:21:14+00:00",
             "downloads": {
                 "total_size": 3810.2,
@@ -822,6 +855,7 @@
             }
         },
         {
+            "id": "f1a80fd2-6a9a-40c7-9aa1-27e4c2ea871b",
             "release_date": "2021-09-14T11:23:54+00:00",
             "downloads": {
                 "total_size": 3782.3,
@@ -851,6 +885,7 @@
             }
         },
         {
+            "id": "4a97a203-d0ba-4173-abac-9ec194621ee4",
             "release_date": "2021-08-23T12:13:30+00:00",
             "downloads": {
                 "total_size": 0,
@@ -869,6 +904,7 @@
             }
         },
         {
+            "id": "c699bcda-e8b7-4b5e-b83c-267df49a12b9",
             "release_date": "2021-08-19T14:34:20+00:00",
             "downloads": {
                 "total_size": 3790.7,
@@ -897,6 +933,7 @@
             }
         },
         {
+            "id": "bf49152f-3ef6-4ead-82bc-8bcd3841ea77",
             "release_date": "2021-08-18T11:19:03+00:00",
             "downloads": {
                 "total_size": 0,
@@ -915,6 +952,7 @@
             }
         },
         {
+            "id": "9150e79c-2171-45f4-bfe7-b4f4c7a8108f",
             "release_date": "2021-07-15T11:42:53+00:00",
             "downloads": {
                 "total_size": 3759.5,
@@ -944,6 +982,7 @@
             }
         },
         {
+            "id": "675d164d-2044-4cce-a3f8-dd18500259c0",
             "release_date": "2021-06-24T14:35:20+00:00",
             "downloads": {
                 "total_size": 3756.8,
@@ -973,6 +1012,7 @@
             }
         },
         {
+            "id": "51ef1703-1f6f-4c5c-a5a2-9e4ff6c7427f",
             "release_date": "2021-06-17T14:08:01+00:00",
             "downloads": {
                 "total_size": 3750.8,
@@ -1002,6 +1042,7 @@
             }
         },
         {
+            "id": "15551543-3e9b-43b4-b556-4cfe26f904bb",
             "release_date": "2021-06-10T11:56:31+00:00",
             "downloads": {
                 "total_size": 3823.4,
@@ -1031,6 +1072,7 @@
             }
         },
         {
+            "id": "c6731bfd-d752-4d19-bea2-431a3d6fdeee",
             "release_date": "2021-05-05T09:41:19+00:00",
             "downloads": {
                 "total_size": 3198.1,
@@ -1061,6 +1103,7 @@
             }
         },
         {
+            "id": "e63ae989-7bfc-413e-9770-f338ea93c5f3",
             "release_date": "2021-04-30T09:02:05+00:00",
             "downloads": {
                 "total_size": 3193.8,
@@ -1091,6 +1134,7 @@
             }
         },
         {
+            "id": "fe4c7430-4339-49ba-a064-c6ce98067761",
             "release_date": "2021-03-16T13:43:33+00:00",
             "downloads": {
                 "total_size": 2888.8,
@@ -1120,6 +1164,7 @@
             }
         },
         {
+            "id": "9c56767a-35fc-4191-aef0-fbe7f9880357",
             "release_date": "2021-03-09T14:31:05+00:00",
             "downloads": {
                 "total_size": 2957.4,
@@ -1149,6 +1194,7 @@
             }
         },
         {
+            "id": "b35a498c-42fa-4465-9088-bb5cdd3b61b3",
             "release_date": "2021-03-05T14:18:55+00:00",
             "downloads": {
                 "total_size": 2974.5,
@@ -1178,6 +1224,7 @@
             }
         },
         {
+            "id": "e28b5239-7fb4-4716-8af8-d9545f10eae0",
             "release_date": "2021-03-03T11:14:03+00:00",
             "downloads": {
                 "total_size": 2971.1,
@@ -1207,6 +1254,7 @@
             }
         },
         {
+            "id": "57126c90-99ee-4e11-960c-59b2cdecb854",
             "release_date": "2021-02-26T10:23:18+00:00",
             "downloads": {
                 "total_size": 2608.5,
@@ -1236,6 +1284,7 @@
             }
         },
         {
+            "id": "0bdcaafe-2115-4c9a-8487-fe3eb37d0a1d",
             "release_date": "2021-01-25T10:39:56+00:00",
             "downloads": {
                 "total_size": 2230,
@@ -1265,6 +1314,7 @@
             }
         },
         {
+            "id": "133e39c5-5247-4b06-8dc6-7538e8a14b36",
             "release_date": "2020-12-08T11:12:01+00:00",
             "downloads": {
                 "total_size": 2248.8,
@@ -1294,6 +1344,7 @@
             }
         },
         {
+            "id": "2cd9b928-f9ff-427a-9ad5-f8f5557647c1",
             "release_date": "2020-12-01T10:39:27+00:00",
             "downloads": {
                 "total_size": 2198.3,
@@ -1323,6 +1374,7 @@
             }
         },
         {
+            "id": "42e4b4c1-2148-4fad-88dd-0de24943e050",
             "release_date": "2020-11-25T11:04:11+00:00",
             "downloads": {
                 "total_size": 2104.9,
@@ -1352,6 +1404,7 @@
             }
         },
         {
+            "id": "bbe8f3c7-7cdc-495f-8440-065d2ea37d61",
             "release_date": "2020-11-03T10:10:06+00:00",
             "downloads": {
                 "total_size": 1757.9,
@@ -1381,6 +1434,7 @@
             }
         },
         {
+            "id": "097b7a68-9cc6-4add-a784-60329c8b272a",
             "release_date": "2020-10-28T18:01:49+00:00",
             "downloads": {
                 "total_size": 1754.3,
@@ -1410,6 +1464,7 @@
             }
         },
         {
+            "id": "745c6346-f6d1-43e9-a0a6-8f60ab8202bb",
             "release_date": "2020-10-01T17:11:36+00:00",
             "downloads": {
                 "total_size": 1502.1,
@@ -1439,6 +1494,7 @@
             }
         },
         {
+            "id": "fb6bf9a9-4cbf-46cf-9561-698412e30384",
             "release_date": "2020-09-29T15:28:37+00:00",
             "downloads": {
                 "total_size": 1488.6,
@@ -1468,6 +1524,7 @@
             }
         },
         {
+            "id": "e0652e1b-da0f-4087-959f-e43f2bda99dd",
             "release_date": "2020-09-09T10:24:34+00:00",
             "downloads": {
                 "total_size": 1338.9,
@@ -1497,6 +1554,7 @@
             }
         },
         {
+            "id": "cb8b2600-7357-4df5-a256-4234b3741645",
             "release_date": "2020-07-31T10:24:47+00:00",
             "downloads": {
                 "total_size": 1417.4,
@@ -1526,6 +1584,7 @@
             }
         },
         {
+            "id": "86856a79-aa94-4ae4-8ea1-06affd72fcf0",
             "release_date": "2020-07-28T13:10:54+00:00",
             "downloads": {
                 "total_size": 1417,
@@ -1555,6 +1614,7 @@
             }
         },
         {
+            "id": "bb9ccc16-6687-40ee-b5f8-25d3e8787579",
             "release_date": "2020-07-24T08:59:57+00:00",
             "downloads": {
                 "total_size": 1345.9,
@@ -1584,6 +1644,7 @@
             }
         },
         {
+            "id": "4cfea9cb-4197-4d0c-9151-968de3271156",
             "release_date": "2020-07-21T13:57:23+00:00",
             "downloads": {
                 "total_size": 1345.8,
@@ -1613,6 +1674,7 @@
             }
         },
         {
+            "id": "c3a7fa08-64b7-4f3a-a9d1-b8e6c4b54410",
             "release_date": "2020-07-17T10:28:55+00:00",
             "downloads": {
                 "total_size": 1339.7,
@@ -1642,6 +1704,7 @@
             }
         },
         {
+            "id": "2dd72a87-5f6b-4ba8-a72c-a8dd43b21d3d",
             "release_date": "2020-07-10T13:18:58+00:00",
             "downloads": {
                 "total_size": 1375.8,
@@ -1671,6 +1734,7 @@
             }
         },
         {
+            "id": "d1e34020-d430-46eb-92c4-03a8135174dd",
             "release_date": "2020-07-03T09:15:14+00:00",
             "downloads": {
                 "total_size": 1386.5,
@@ -1700,6 +1764,7 @@
             }
         },
         {
+            "id": "77aeeda7-2afd-4fd5-86b9-fba369ed1bb7",
             "release_date": "2020-06-25T15:34:52+00:00",
             "downloads": {
                 "total_size": 1389,
@@ -1729,6 +1794,7 @@
             }
         },
         {
+            "id": "b19a0454-6c60-4c96-b86e-d30e0d84feb8",
             "release_date": "2020-06-19T12:54:07+00:00",
             "downloads": {
                 "total_size": 1382,
@@ -1758,6 +1824,7 @@
             }
         },
         {
+            "id": "b418ec1c-ad4e-4afd-baea-740b1f08c584",
             "release_date": "2020-06-05T14:52:13+00:00",
             "downloads": {
                 "total_size": 1300.7,
@@ -1787,6 +1854,7 @@
             }
         },
         {
+            "id": "3ffce0df-8082-422a-945b-a9b0c89a2656",
             "release_date": "2020-05-29T15:15:39+00:00",
             "downloads": {
                 "total_size": 1300.5,
@@ -1816,6 +1884,7 @@
             }
         },
         {
+            "id": "264c6475-f6cb-43b5-8e78-f7181f54250b",
             "release_date": "2020-05-22T09:23:10+00:00",
             "downloads": {
                 "total_size": 1257.5,
@@ -1845,6 +1914,7 @@
             }
         },
         {
+            "id": "077bdde0-4813-4ad2-955f-cc153307cd5d",
             "release_date": "2020-05-13T14:42:22+00:00",
             "downloads": {
                 "total_size": 1185.8,
@@ -1874,6 +1944,7 @@
             }
         },
         {
+            "id": "e037ad5a-f830-434d-b147-7a033e4d6fba",
             "release_date": "2020-04-30T10:55:07+00:00",
             "downloads": {
                 "total_size": 1158.9,
@@ -1903,6 +1974,7 @@
             }
         },
         {
+            "id": "9c0680b5-2ee4-4809-baa3-7f6d6105a839",
             "release_date": "2020-04-27T10:13:04+00:00",
             "downloads": {
                 "total_size": 704.7,
