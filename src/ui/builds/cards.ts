@@ -122,18 +122,25 @@ function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement
     card.className = "col-md-4 mb-3";
     card.innerHTML = `
         <div class="card build-card position-relative p-3 ${!available ? "border border-danger" : ""}" data-type="${type}" data-index="${index}">
-          <div class="position-absolute top-0 end-0 mt-2 me-2 text-muted small">
-            ${item.properties.version ?? ""}
-          </div>
-          <h5 style="padding-right: 6rem;">
-            ${t("card.title", season ? t(season) : t("fallback.noSeason"), item.release_date ? new Date(item.release_date).toLocaleDateString() : t("fallback.noDate"))} ${sourceLeak ? `<i class="text-info bi bi-code-slash" data-bs-toggle="tooltip" data-bs-title="${t("card.sourceLeak")}"></i>` : ""}
-          </h5>
-          <small class="text-muted d-flex justify-content-between">
-            <span>${manifestDisplay}</span>
-            ${sizeDisplay ? `<span>${sizeDisplay}</span>` : ""}
-          </small>
+            <div class="row align-items-start g-2">
+                <div class="col">
+                    <h5 class="mb-0">
+                        ${t("card.title", season ? t(season) : t("fallback.noSeason"), item.release_date ? new Date(item.release_date).toLocaleDateString() : t("fallback.noDate"))}
+                        ${sourceLeak ? `<i class="text-info bi bi-code-slash" data-bs-toggle="tooltip" data-bs-title="${t("card.sourceLeak")}"></i>` : ""}
+                    </h5>
+                </div>
+
+                <div class="col-auto text-muted small text-nowrap">
+                    ${item.properties.version ?? ""}
+                </div>
+            </div>
+
+            <small class="text-muted d-flex justify-content-between mt-2">
+                <span class="text-truncate">${manifestDisplay}</span>
+                ${sizeDisplay ? `<span class="ms-2 text-nowrap">${sizeDisplay}</span>` : ""}
+            </small>
         </div>
-    `;
+`;
 
     return card;
 }
