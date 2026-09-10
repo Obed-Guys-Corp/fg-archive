@@ -25,7 +25,7 @@ export async function renderCms(): Promise<void> {
     app.innerHTML = `
         <div class="container">
 
-            <div id="init-load" class="col-12 d-flex justify-content-center">
+            <div id="init-load" class="col-12 d-flex justify-content-center my-3">
                 <div class="spinner-border" role="status">
                     <span class="visually-hidden"></span>
                 </div>

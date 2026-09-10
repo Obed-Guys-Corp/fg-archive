@@ -26,7 +26,7 @@ export async function renderBuilds(): Promise<void> {
     }
 
     app.innerHTML = `
-        <div id="builds_loading" class="d-flex justify-content-center">
+        <div id="init-load" class="d-flex justify-content-center my-3">
             <div class="spinner-border" role="status">
                 <span class="sr-only"></span>
             </div>
@@ -86,7 +86,7 @@ export async function renderBuilds(): Promise<void> {
     finally {
         document.getElementById("listContainer")?.classList.remove("d-none");
         document.getElementById("seasonFilter")?.classList.remove("d-none");
-        document.getElementById("builds_loading")?.remove();
+        document.getElementById("init-load")?.remove();
     }
 }
 
