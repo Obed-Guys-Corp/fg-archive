@@ -326,7 +326,7 @@ async function loadPage(page: number, pages: number) {
                         </div>
 
                         <h6 class="card-subtitle mb-2 text-body-secondary">
-                            ${dateStr} - ${calcDateStr(dateStr)}
+                            ${dateStr} - ${date ? calcDateStr(date) : "Unknown date"}
                         </h6>
 
                         <div class="d-flex flex-wrap gap-1">
