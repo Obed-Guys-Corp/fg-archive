@@ -1,18 +1,40 @@
 <!doctype html>
-<html lang="en" data-bs-theme="dark" style="background-color: #212529;">
+<html lang="en">
 
 <head>
     <style>
         html {
-            opacity: 0;
-            height: 100%;
+            background-color: #212529 !important;
         }
 
-        html.fga-show {
-            opacity: 1;
-            transition: opacity 0.5s ease;
+        html[data-bs-theme="light"] {
+            background-color: #fff !important;
+        }
+
+        html::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-color: #212529;
+            z-index: 2147483647;
+            pointer-events: none;
+            transition: opacity 0.75s ease;
+        }
+
+        html[data-bs-theme="light"]::after {
+            background-color: #fff;
+        }
+
+        html.fga-show::after {
+            opacity: 0;
         }
     </style>
+    <script>
+        (() => {
+            //s tier gecko fix
+            document.documentElement.dataset.bsTheme = document.cookie.match(/(?:^|;\s*)theme=(dark|light)(?:;|$)/)?.[1] ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="og:title" property="og:title" content="Fall Guys Archive" />
