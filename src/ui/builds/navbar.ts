@@ -17,7 +17,6 @@ export function initNavbar(): void {
         const mobileNavButton = document.querySelector('[data-bs-target="#mobileNav"]');
         mobileNav?.addEventListener("show.bs.collapse", () => { mobileNavButton?.classList.add("active"); });
         mobileNav?.addEventListener("hide.bs.collapse", () => { mobileNavButton?.classList.remove("active"); });
-        Collapse.getOrCreateInstance(mobileNav).hide();
     }
 
     updateNav();
