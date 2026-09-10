@@ -3,6 +3,7 @@ import { renderTabContent } from "../ui/builds/cards";
 import { renderFilter, renderTabs, selectType } from "../ui/builds/tabs";
 import { Api } from "../api";
 import { t } from "../i18n/i18n";
+import { showBuildModal } from "../ui/builds/modal";
 
 const state: AppState = {
     currentType: null,
@@ -84,6 +85,17 @@ export async function renderBuilds(): Promise<void> {
         modal?.addEventListener("hidden.bs.modal", () => {
             document.getElementById("modal-alerts")!.innerHTML = "";
         });
+
+        const id = window.location.hash.substring(1);
+        if (id) {
+            const res = BUILD_TYPES.map(type => ({
+                type,
+                build: Api._builds[type].find(build => build.id === id)
+            })).find(result => result.build);
+
+            if (res && res.build)
+                showBuildModal(res.build, res.type);
+        }
     } finally {
         document.getElementById("listContainer")?.classList.remove("d-none");
         document.getElementById("seasonFilter")?.classList.remove("d-none");

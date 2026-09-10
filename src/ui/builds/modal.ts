@@ -22,12 +22,10 @@ export function initCardClick(): void {
         if (!item) return;
 
         showBuildModal(item, type);
-
-        new bootstrap.Modal(document.getElementById("modal_build_info")!).show();
     });
 }
 
-function showBuildModal(item: Build, type: BuildType): void {
+export function showBuildModal(item: Build, type: BuildType): void {
     const season = t(item.properties.season);
     const steam = isSteam(type);
     const steamManifest = isSteam(type) ? ((item.properties as SteamProperties).manifest ?? "") : "";
@@ -94,12 +92,12 @@ function showBuildModal(item: Build, type: BuildType): void {
                     <div class="mb-4 ${i === 0 ? "mt-3" : ""}">
                       <h6 class="mb-2">${t(segments.length !== 1 ? "modal.segmentsTitle" : "modal.fileTitle", t(source))}</h6>
                       ${segments
-                          .map(
-                              seg =>
-                                  `<div class="alert alert-info p-2 mb-2 w-100" style="text-align: left;">
+                        .map(
+                            seg =>
+                                `<div class="alert alert-info p-2 mb-2 w-100" style="text-align: left;">
                                     ${segments.length !== 1 ? t("modal.segment", seg.index, seg.sizeGB.toFixed(2)) : t("gbFiller", seg.sizeGB.toFixed(2))}</div>`
-                          )
-                          .join("")}
+                        )
+                        .join("")}
                     </div>
                 `;
             })
@@ -124,7 +122,9 @@ function showBuildModal(item: Build, type: BuildType): void {
             btn.innerHTML = `${icon !== undefined ? `<i class="${icon}"></i>` : ""} ${t(sourceLocales.get(source) ?? "modal.downloadIn", t(source))}`;
             modalFooter.appendChild(btn);
         }
+
     }
+
     if (steam && steamManifest) {
         const steamBtn = document.createElement("a");
         steamBtn.href = `https://steamdb.info/depot/${type === "steam_beta" ? 1265941 : 1097151}/history/?changeid=M:${steamManifest}`;
@@ -133,4 +133,26 @@ function showBuildModal(item: Build, type: BuildType): void {
         steamBtn.textContent = t("modal.viewSteamDB");
         modalFooter.appendChild(steamBtn);
     }
+
+    const shareBtn = document.createElement("button");
+    shareBtn.className = "btn btn-secondary me-2 share";
+    shareBtn.innerHTML = `<i class="bi bi-share"></i>`;
+    shareBtn.dataset.build = item.id;
+    shareBtn.addEventListener("click", () => {
+        const url = new URL(window.location.href);
+        url.hash = item.id;
+        navigator.clipboard.writeText(url.toString());
+
+        shareBtn.classList.remove("btn-secondary");
+        shareBtn.classList.add("btn-success");
+
+        setTimeout(() => {
+            shareBtn.classList.add("btn-secondary");
+            shareBtn.classList.remove("btn-success");
+        }, 350);
+    });
+
+    modalFooter.appendChild(shareBtn);
+
+    new bootstrap.Modal(document.getElementById("modal_build_info")!).show();
 }

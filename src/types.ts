@@ -4,6 +4,7 @@ export interface AppState {
 }
 
 export interface Build<TProperties = GenericProperties> {
+    id: string;
     release_date: string;
     downloads?: Downloads;
     properties: TProperties;

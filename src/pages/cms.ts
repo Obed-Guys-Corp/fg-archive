@@ -143,7 +143,7 @@ export async function renderCms(): Promise<void> {
     await loadPage(page, max);
 
     const id = window.location.hash.substring(1);
-    console.log(id);
+
     if (id) {
         var itm = document.getElementById(id);
         if (!itm) return;
