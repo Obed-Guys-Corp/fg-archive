@@ -32,13 +32,15 @@ const setBuilds = (): Plugin => ({
                     const d = build.release_date?.substring(0, 10) ?? "";
                     const ver = fgVer ? ` v${fgVer}` : "";
 
+                    const iconName = !build.properties?.season ? "ls1" : build.properties?.season.startsWith("not") ? "ss5" : build.properties?.season;
+
                     const desc = d
                         ? available
                             ? format(loc["build_desc.downloads_date"], loc[type], ver, d)
                             : format(loc["build_desc.missing_date"], loc[type], ver, d)
                         : available
-                          ? format(loc["build_desc.downloads"], loc[type], ver)
-                          : format(loc["build_desc.missing"], loc[type], ver);
+                            ? format(loc["build_desc.downloads"], loc[type], ver)
+                            : format(loc["build_desc.missing"], loc[type], ver);
 
                     writeFileSync(
                         resolve(dir, "index.html"),
@@ -50,16 +52,16 @@ const setBuilds = (): Plugin => ({
         <meta name="og:title" property="og:title" content="${title}" />
         <meta name="description" content="${desc}" />
         <meta name="og:description" property="og:description" content="${desc}" />
-        <meta name="og:image" property="og:image" content="https://fga.floyzi.dev/static/favicon-512x512.webp" />
+        <meta name="og:image" property="og:image" content="https://fga.floyzi.dev/static/seasons/${iconName}.webp" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="${title}" />
         <meta name="twitter:description" content="${desc}" />
-        <meta name="twitter:image" content="https://fga.floyzi.dev/static/favicon-512x512.webp" />
+        <meta name="twitter:image" content="https://fga.floyzi.dev/static/seasons/${iconName}.webp" />
         <meta content="#f73ca3" name="theme-color" />
         <link rel="icon" href="https://fga.floyzi.dev/static/favicon.ico" type="image/x-icon" />
     </head>
     <body>
-    <script>window.location.replace(${JSON.stringify(`/builds?type=${type}#${build.id}`)});</script>
+        <script>window.location.replace(${JSON.stringify(`/builds?type=${type}#${build.id}`)});</script>
     </body>
 </html>`
                     );
