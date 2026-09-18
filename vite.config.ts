@@ -30,18 +30,29 @@ const setBuilds = (): Plugin => ({
 
                     const title = loc.build_desc_title;
                     const fgVer = build.properties?.version;
-                    const d = build.release_date?.substring(0, 10) ?? "";
+                    const dStr = build.release_date?.substring(0, 10) ?? "";
+                    const dUnix = build.release_date ? Math.floor(new Date(build.release_date).getTime() / 1000) : 0;
                     const ver = fgVer ? ` v${fgVer}` : "";
 
                     const iconName = !build.properties?.season ? "ls1" : build.properties?.season.startsWith("not") ? "ss5" : build.properties?.season;
 
-                    const desc = d
+                    const desc = dStr
                         ? available
-                            ? format(loc["build_desc.downloads_date"], loc[type], ver, d)
-                            : format(loc["build_desc.missing_date"], loc[type], ver, d)
+                            ? format(loc["build_desc.downloads_date"], loc[type], ver, dStr)
+                            : format(loc["build_desc.missing_date"], loc[type], ver, dStr)
                         : available
                             ? format(loc["build_desc.downloads"], loc[type], ver)
                             : format(loc["build_desc.missing"], loc[type], ver);
+
+                    const dStamp = build.release_date.includes("T") ? `<t:${dUnix}:f>` : `<t:${dUnix}:D>`;
+                    
+                    const descEmbed = dStr
+                        ? available
+                            ? format(loc["build_desc.downloads_date"], `**${loc[type]}**`, `**${ver}**`, dStamp)
+                            : format(loc["build_desc.missing_date"], `**${loc[type]}**`, `**${ver}**`, dStamp)
+                        : available
+                            ? format(loc["build_desc.downloads"], `**${loc[type]}**`, `**${ver}**`)
+                            : format(loc["build_desc.missing"], `**${loc[type]}**`, `**${ver}**`);
 
                     const embed = {
                         "component": {
@@ -54,7 +65,7 @@ const setBuilds = (): Plugin => ({
                                     "components": [
                                         {
                                             "type": 10,
-                                            "content": "# " + title + "\n" + desc
+                                            "content": "# " + title + "\n" + descEmbed
                                         }
                                     ],
                                     "accessory": {
