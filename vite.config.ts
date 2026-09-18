@@ -3,6 +3,7 @@ import { readFileSync, mkdirSync, writeFileSync, readdirSync, copyFileSync } fro
 import { resolve } from "node:path";
 import { defineConfig, type Plugin } from "vite";
 import { format } from "./src/i18n/i18n.ts";
+import { sourceLocales } from "./src/ui/builds/source-maps.ts";
 
 const setBuilds = (): Plugin => ({
     name: "set-builds",
@@ -42,6 +43,54 @@ const setBuilds = (): Plugin => ({
                             ? format(loc["build_desc.downloads"], loc[type], ver)
                             : format(loc["build_desc.missing"], loc[type], ver);
 
+                    const embed = {
+                        "component": {
+                            "type": 17,
+                            "spoiler": false,
+                            "accent_color": 16202915,
+                            "components": [
+                                {
+                                    "components": [
+                                        {
+                                            "type": 10,
+                                            "content": "# " + title + "\n" + desc
+                                        },
+                                    ],
+                                    "accessory": {
+                                        "type": 11,
+                                        "media": { "url": "https://fga.floyzi.dev/static/seasons/" + iconName + ".webp" },
+                                        "spoiler": false
+                                    }
+                                }
+                            ]
+                        }
+                    }
+
+                    if (available) {
+                        const comp: any[] = [
+                            {
+                                "type": 14,
+                                "spacing": 1
+                            },
+                            {
+                                "type": 1,
+                                "components": [
+                                ]
+                            },
+                        ]
+
+                        for (const download of build.downloads?.available ?? []) {
+                            if (download.link.trim() !== "") {
+                                const src = download.source;
+                                const label = `${format(loc[sourceLocales.get(src) ?? "modal.downloadIn"], format(loc[src]))}`;
+                                const btn = { "type": 2, "style": 5, "url": download.link, "label": label };
+                                comp[1].components!.push(btn);
+                            }
+                        }
+
+                        embed.component.components.push(...comp);
+                    }
+
                     writeFileSync(
                         resolve(dir, "index.html"),
                         `<!doctype html>
@@ -59,6 +108,7 @@ const setBuilds = (): Plugin => ({
         <meta name="twitter:image" content="https://fga.floyzi.dev/static/seasons/${iconName}.webp" />
         <meta content="#f73ca3" name="theme-color" />
         <link rel="icon" href="https://fga.floyzi.dev/static/favicon.ico" type="image/x-icon" />
+        <script id="discord:component-embed" type="application/json">${JSON.stringify(embed)}</script>
     </head>
     <body>
         <script>window.location.replace(${JSON.stringify(`/builds?type=${type}#${build.id}`)});</script>
