@@ -1,27 +1,27 @@
 import { renderBuilds } from "./pages/builds";
 import { renderCms } from "./pages/cms";
 import { renderBase } from "./pages/base";
-import { pages } from "./pages";
+import { pages, type Page } from "./pages";
 
 export interface Map {
-    path: string;
+    page: Page;
     label: string;
     render: () => void | Promise<void>;
 }
 
 export const maps: [Map, ...Map[]] = [
     {
-        path: "",
+        page: pages[0]!,
         label: "",
         render: renderBase
     },
     {
-        path: pages[0],
+        page: pages[1]!,
         label: "builds_title",
         render: renderBuilds
     },
     {
-        path:  pages[1],
+        page: pages[2]!,
         label: "cms_title",
         render: renderCms
     }

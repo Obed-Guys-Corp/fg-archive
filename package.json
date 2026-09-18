@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@types/bootstrap": "^5.2.11",
+    "@types/ejs": "^3.1.5",
     "@types/node": "^22.20.2",
     "prettier": "^3.9.6",
     "typescript": "^7.0.2",
@@ -44,6 +45,7 @@
   "dependencies": {
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
+    "ejs": "^6.0.1",
     "jszip": "^3.10.2"
   }
 }

@@ -1,8 +1,8 @@
 import { execSync } from "node:child_process";
 import { defineConfig } from "vite";
 import Sitemap from 'vite-plugin-sitemap'
-import { pages } from "./src/pages.ts"
 import { setBuilds } from "./src/config/set-builds.ts"
+import { mkPages } from "./src/config/mk-pages.ts"
 
 export default defineConfig({
     base: "/",
@@ -15,8 +15,14 @@ export default defineConfig({
     plugins: [
         Sitemap({
             hostname: 'https://fga.floyzi.dev',
-            dynamicRoutes: pages.map(x => x)
         }),
         setBuilds(),
+        {
+            name: "mk-pages",
+
+            async writeBundle(options) {
+                await mkPages(options.dir!);
+            },
+        },
     ]
 });

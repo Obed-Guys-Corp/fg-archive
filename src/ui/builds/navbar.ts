@@ -6,7 +6,7 @@ export function initNavbar(): void {
     const brand = document.querySelector<HTMLAnchorElement>("#mainNavbar .navbar-brand");
     if (!brand) return;
 
-    brand.href = `${import.meta.env.BASE_URL}${maps[0].path}`;
+    brand.href = `${import.meta.env.BASE_URL}${maps[0].page.path}`;
     brand.dataset.navigation = "true";
 
     renderDesktopNav();
@@ -38,7 +38,7 @@ function renderDesktopNav(): void {
                 .map(
                     route => `
                         <li class="nav-item">
-                            <a class="nav-link px-2" href="${route.path}" data-route="${route.path}" data-navigation="true">
+                            <a class="nav-link px-2" href="${route.page.path}" data-route="${route.page.path}" data-navigation="true">
                                 ${t(route.label)}
                             </a>
                         </li>`
@@ -59,7 +59,7 @@ function renderMobileNav(): void {
             .map(
                 route => `
                         <li class="nav-item">
-                            <a class="nav-link" href="${route.path}" data-route="${route.path}" data-navigation="true">
+                            <a class="nav-link" href="${route.page.path}" data-route="${route.page.path}" data-navigation="true">
                                 ${t(route.label)}
                             </a>
                         </li>`

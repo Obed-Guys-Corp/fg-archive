@@ -22,7 +22,7 @@ export function renderBase(): void {
     var btnList = document.getElementById("btn_list");
     if (btnList) {
         maps.slice(1).map(route => {
-            makeBtn(btnList!, route.path, t(route.label));
+            makeBtn(btnList!, route.page.path, t(route.label));
         });
     }
 

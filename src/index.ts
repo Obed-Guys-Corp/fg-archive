@@ -73,7 +73,7 @@ async function init(): Promise<void> {
 let prevPage: (typeof maps)[number] | undefined;
 
 async function renderCurrentPage(): Promise<void> {
-    const route = maps.find(route => `${import.meta.env.BASE_URL}${route.path}` === window.location.pathname);
+    const route = maps.find(route => `${import.meta.env.BASE_URL}${route.page.path}` === window.location.pathname);
 
     document.body.scrollTop = 0;
 
@@ -86,6 +86,13 @@ async function renderCurrentPage(): Promise<void> {
         prevPage = route;
         return;
     }
+    document.title = route.page.title;
+    document.querySelector('meta[name="description"]')?.setAttribute("content", route.page.desc);
+    document.querySelector('meta[property="og:title"]')?.setAttribute("content", route.page.title);
+    document.querySelector('meta[property="og:description"]')?.setAttribute("content", route.page.desc);
+    document.querySelector('meta[name="twitter:title"]')?.setAttribute("content", route.page.title);
+    document.querySelector('meta[name="twitter:description"]')?.setAttribute("content", route.page.desc);
+    document.querySelector('link[rel="canonical"]')?.setAttribute("href", new URL(route.page.path ? `/${route.page.path}/` : "/", window.location.origin).href);
 
     document.getElementById("controls")!.innerHTML = "";
     const footer = document.getElementById("footerLeft");
