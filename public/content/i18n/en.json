@@ -150,7 +150,7 @@
     "cms.verFallback": "Content Update",
     "cms.fetch.fail": "Download Error",
     "base_title_short": "FG Archive",
-    "build_desc_title": "Build On Fall Guys Archive",
+    "build_desc_title": "Build on Fall Guys Archive",
     "build_desc.downloads_date": "Explore this {0} Fall Guys build{1} that was released on {2} and download it!",
     "build_desc.downloads": "Explore this {0} Fall Guys build{1} and download it!",
     "build_desc.missing_date": "Explore this {0} Fall Guys build{1} that was released on {2}!",

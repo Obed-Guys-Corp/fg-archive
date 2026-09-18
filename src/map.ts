@@ -1,6 +1,7 @@
 import { renderBuilds } from "./pages/builds";
 import { renderCms } from "./pages/cms";
 import { renderBase } from "./pages/base";
+import { pages } from "./pages";
 
 export interface Map {
     path: string;
@@ -15,12 +16,12 @@ export const maps: [Map, ...Map[]] = [
         render: renderBase
     },
     {
-        path: "builds",
+        path: pages[0],
         label: "builds_title",
         render: renderBuilds
     },
     {
-        path: "cms",
+        path:  pages[1],
         label: "cms_title",
         render: renderCms
     }
