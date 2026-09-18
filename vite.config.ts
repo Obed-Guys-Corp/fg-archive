@@ -50,11 +50,12 @@ const setBuilds = (): Plugin => ({
                             "accent_color": 16202915,
                             "components": [
                                 {
+                                    "type": 9,
                                     "components": [
                                         {
                                             "type": 10,
                                             "content": "# " + title + "\n" + desc
-                                        },
+                                        }
                                     ],
                                     "accessory": {
                                         "type": 11,
