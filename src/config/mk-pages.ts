@@ -4,7 +4,7 @@ import ejs from "ejs";
 import { pages } from "../pages";
 
 export async function mkPages(outDir: string) {
-    const base = await readFile(resolve(process.cwd(), "index.html"), "utf8");
+    const base = await readFile(resolve(outDir, "index.html"), "utf8");
 
     for (const page of pages) {
         const html = ejs.render(base, {
