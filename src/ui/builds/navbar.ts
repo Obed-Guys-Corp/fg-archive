@@ -38,7 +38,7 @@ function renderDesktopNav(): void {
                 .map(
                     route => `
                         <li class="nav-item">
-                            <a class="nav-link px-2" href="${route.page.path}" data-route="${route.page.path}" data-navigation="true">
+                            <a class="nav-link px-2" href="${import.meta.env.BASE_URL}${route.page.path}" data-route="${route.page.path}" data-navigation="true">
                                 ${t(route.label)}
                             </a>
                         </li>`
@@ -59,7 +59,7 @@ function renderMobileNav(): void {
             .map(
                 route => `
                         <li class="nav-item">
-                            <a class="nav-link" href="${route.page.path}" data-route="${route.page.path}" data-navigation="true">
+                            <a class="nav-link" href="${import.meta.env.BASE_URL}${route.page.path}" data-route="${route.page.path}" data-navigation="true">
                                 ${t(route.label)}
                             </a>
                         </li>`
@@ -77,6 +77,6 @@ function renderMobileNav(): void {
 
 export function updateNav(): void {
     document.querySelectorAll<HTMLAnchorElement>("#mainNavbar [data-route]").forEach(element => {
-        element.classList.toggle("active", element.pathname === window.location.pathname);
+        element.classList.toggle("active", element.pathname.replace(/\/+$/, "") === window.location.pathname.replace(/\/+$/, ""));
     });
 }

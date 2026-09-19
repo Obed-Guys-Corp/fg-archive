@@ -73,8 +73,8 @@ async function init(): Promise<void> {
 let prevPage: (typeof maps)[number] | undefined;
 
 async function renderCurrentPage(): Promise<void> {
-    const route = maps.find(route => `${import.meta.env.BASE_URL}${route.page.path}` === window.location.pathname);
-
+    const route = maps.find(route => `${import.meta.env.BASE_URL}${route.page.path}`.replace(/\/+$/, "") === window.location.pathname.replace(/\/+$/, ""));
+    
     document.body.scrollTop = 0;
 
     if ((route ?? maps[0]) !== prevPage) document.body.dataset.new = "";
