@@ -187,6 +187,8 @@ export class Api {
             cms[f] = JSON.parse(await file.async("string"));
         }
 
+        cms["_meta"] = meta;
+
         return {
             json: cms,
             version: meta["_content_version"]
