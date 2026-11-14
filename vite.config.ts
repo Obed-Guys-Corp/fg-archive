@@ -23,7 +23,6 @@ export default defineConfig({
                 changefreq: "daily",
                 priority: 1.0
             }))
-
         }),
         setBuilds(),
         {
