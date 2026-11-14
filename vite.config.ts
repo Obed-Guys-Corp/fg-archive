@@ -1,8 +1,9 @@
 import { execSync } from "node:child_process";
 import { defineConfig } from "vite";
-import Sitemap from "vite-plugin-sitemap";
 import { setBuilds } from "./src/config/set-builds.ts";
 import { mkPages } from "./src/config/mk-pages.ts";
+import { pages } from "./src/pages.ts";
+import { sitemap } from "vite-plugin-sitemap-ts";
 
 export default defineConfig({
     base: "/",
@@ -13,8 +14,16 @@ export default defineConfig({
     },
 
     plugins: [
-        Sitemap({
-            hostname: "https://fga.floyzi.dev"
+        sitemap({
+            hostname: "https://fga.floyzi.dev",
+            outDir: "dist",
+            routes: pages.map(page => ({
+                loc: page.path ? `/${page.path.replace(/^\/+|\/+$/g, "")}/` : "/",
+                lastmod: new Date().toISOString(),
+                changefreq: "daily",
+                priority: 1.0
+            }))
+
         }),
         setBuilds(),
         {
