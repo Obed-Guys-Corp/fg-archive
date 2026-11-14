@@ -10,13 +10,13 @@ export async function mkPages(outDir: string) {
         const html = ejs.render(base, {
             title: page.title,
             description: page.desc,
-            canonical: `https://fga.floyzi.dev/${page.path}`,
+            canonical: `https://fga.floyzi.dev/${page.path}`
         });
 
         const dir = resolve(outDir, page.path);
 
         await mkdir(dir, {
-            recursive: true,
+            recursive: true
         });
 
         await writeFile(resolve(dir, "index.html"), html, "utf8");

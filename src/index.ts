@@ -22,6 +22,11 @@ async function init(): Promise<void> {
     document.getElementById("toggleThemeBtn")!.onclick = toggleTheme;
     applyTheme(getInitialTheme());
 
+    const loadTimeout = setTimeout(() => {
+        document.documentElement.style.setProperty("--fga-show-txt", '"It\'s loading!!!\\A\\AJust wait for a bit"');
+        document.documentElement.classList.add("txt-fade");
+    }, 1200);
+
     await Api.fetchStrings();
 
     initNavbar();
@@ -67,6 +72,7 @@ async function init(): Promise<void> {
         await renderCurrentPage();
     });
 
+    clearTimeout(loadTimeout);
     document.documentElement.classList.add("fga-show");
 }
 
@@ -74,7 +80,7 @@ let prevPage: (typeof maps)[number] | undefined;
 
 async function renderCurrentPage(): Promise<void> {
     const route = maps.find(route => `${import.meta.env.BASE_URL}${route.page.path}`.replace(/\/+$/, "") === window.location.pathname.replace(/\/+$/, ""));
-    
+
     document.body.scrollTop = 0;
 
     if ((route ?? maps[0]) !== prevPage) document.body.dataset.new = "";

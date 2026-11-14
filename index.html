@@ -4,6 +4,7 @@
         <style>
             html {
                 background-color: #212529 !important;
+                --fga-show-txt: "";
             }
 
             html[data-bs-theme="light"] {
@@ -11,13 +12,25 @@
             }
 
             html::after {
-                content: "";
+                content: var(--fga-show-txt);
                 position: fixed;
                 inset: 0;
                 background-color: #212529;
                 z-index: 2147483647;
                 pointer-events: none;
-                transition: opacity 0.75s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: Arial, sans-serif;
+                text-align: center;
+                color: transparent;
+                transition: opacity 0.75s ease, color 0.75s ease;
+                white-space: pre-line;
+                font-size: 26px;
+            }
+
+            html.txt-fade::after {
+                color: white;
             }
 
             html[data-bs-theme="light"]::after {

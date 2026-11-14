@@ -40,8 +40,8 @@ export const setBuilds = (): Plugin => ({
                             ? format(loc["build_desc.downloads_date"], loc[type], ver, dStr)
                             : format(loc["build_desc.missing_date"], loc[type], ver, dStr)
                         : available
-                            ? format(loc["build_desc.downloads"], loc[type], ver)
-                            : format(loc["build_desc.missing"], loc[type], ver);
+                          ? format(loc["build_desc.downloads"], loc[type], ver)
+                          : format(loc["build_desc.missing"], loc[type], ver);
 
                     const dStamp = build.release_date.includes("T") ? `<t:${dUnix}:f>` : `<t:${dUnix}:D>`;
 
@@ -50,51 +50,50 @@ export const setBuilds = (): Plugin => ({
                             ? format(loc["build_desc.downloads_date"], `**${loc[type]}**`, `**${ver}**`, dStamp)
                             : format(loc["build_desc.missing_date"], `**${loc[type]}**`, `**${ver}**`, dStamp)
                         : available
-                            ? format(loc["build_desc.downloads"], `**${loc[type]}**`, `**${ver}**`)
-                            : format(loc["build_desc.missing"], `**${loc[type]}**`, `**${ver}**`);
+                          ? format(loc["build_desc.downloads"], `**${loc[type]}**`, `**${ver}**`)
+                          : format(loc["build_desc.missing"], `**${loc[type]}**`, `**${ver}**`);
 
                     const embed = {
-                        "component": {
-                            "type": 17,
-                            "spoiler": false,
-                            "accent_color": 16202915,
-                            "components": [
+                        component: {
+                            type: 17,
+                            spoiler: false,
+                            accent_color: 16202915,
+                            components: [
                                 {
-                                    "type": 9,
-                                    "components": [
+                                    type: 9,
+                                    components: [
                                         {
-                                            "type": 10,
-                                            "content": "# " + title + "\n" + descEmbed
+                                            type: 10,
+                                            content: "# " + title + "\n" + descEmbed
                                         }
                                     ],
-                                    "accessory": {
-                                        "type": 11,
-                                        "media": { "url": "https://fga.floyzi.dev/static/seasons/" + iconName + ".webp" },
-                                        "spoiler": false
+                                    accessory: {
+                                        type: 11,
+                                        media: { url: "https://fga.floyzi.dev/static/seasons/" + iconName + ".webp" },
+                                        spoiler: false
                                     }
                                 }
                             ]
                         }
-                    }
+                    };
 
                     if (available) {
                         const comp: any[] = [
                             {
-                                "type": 14,
-                                "spacing": 1
+                                type: 14,
+                                spacing: 1
                             },
                             {
-                                "type": 1,
-                                "components": [
-                                ]
-                            },
-                        ]
+                                type: 1,
+                                components: []
+                            }
+                        ];
 
                         for (const download of build.downloads?.available ?? []) {
                             if (download.link.trim() !== "") {
                                 const src = download.source;
                                 const label = `${format(loc[sourceLocales.get(src) ?? "modal.downloadIn"], format(loc[src]))}`;
-                                const btn = { "type": 2, "style": 5, "url": download.link, "label": label };
+                                const btn = { type: 2, style: 5, url: download.link, label: label };
                                 comp[1].components!.push(btn);
                             }
                         }
