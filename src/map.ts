@@ -2,6 +2,7 @@ import { renderBuilds } from "./pages/builds";
 import { renderCms } from "./pages/cms";
 import { renderBase } from "./pages/base";
 import { pages, type Page } from "./pages";
+import { renderCreative } from "./pages/creative";
 
 export interface Map {
     page: Page;
@@ -24,5 +25,10 @@ export const maps: [Map, ...Map[]] = [
         page: pages[2]!,
         label: "cms_title",
         render: renderCms
+    },
+    {
+        page: pages[3]!,
+        label: "creative_title",
+        render: renderCreative
     }
 ];

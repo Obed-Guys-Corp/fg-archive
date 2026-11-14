@@ -19,5 +19,10 @@ export const pages: [Page, ...Page[]] = [
         path: "cms",
         title: "Fall Guys Archive: CMS",
         desc: "View Fall Guys content updates history"
+    },
+    {
+        path: "creative",
+        title: "Fall Guys Creative Archive",
+        desc: ""
     }
 ];
