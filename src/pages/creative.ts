@@ -1,5 +1,5 @@
 import { Api } from "../api";
-import { RecordType, type UGCStats } from "../types";
+import { RecordType, type UGCLevel, type UGCStats } from "../types";
 import { renderPageList } from "../ui/pagination";
 import { formatBytes } from "../utils/string";
 
@@ -245,7 +245,6 @@ async function doUGCASearch(query: string) {
         `
 
         const results = document.getElementById("search-results");
-
         results?.addEventListener("click", (event) => {
             const row = (event.target as HTMLElement).closest("tr");
             if (!row) return;
@@ -274,6 +273,7 @@ async function doUGCASearch(query: string) {
 export async function renderUGCALevel() {
     const params = new URLSearchParams(window.location.search);
     const query = params.get("code") ?? "";
+    const gen = params.get("gen") ?? "-1";
 
     if (!query) {
         window.history.pushState({}, "", `/creative`);
@@ -288,19 +288,29 @@ export async function renderUGCALevel() {
 
     app.innerHTML = `
     <div class="container">
-        <div class="col-12 justify-content-center my-3" id="search-base">
+        <div class="col-12 justify-content-center my-3" id="level-base">
         </div>
     </div>
     `
 
-    try {
+    var res = await Api.searchUGCALevel(query);
+    doLevelRender(res, Number(gen));
+}
 
-        var res = await Api.searchUGCALevel(query);
-        var lastGen = res.generations.find(x => x.version == res.latest_version);
+function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
+    const levelBase = document.getElementById("level-base");
+    if (!levelBase || !level) return;
+    
+
+    try {
+        var lastGen = selectedGen < 0 ? level.generations.find(x => x.version == level.latest_version) : level.generations.find(x => x.version == selectedGen);
+        if (!lastGen) {
+            return;
+        }
 
         var tgd = lastGen?.archive_downloads["tg"];
 
-        app.innerHTML = `
+        levelBase.innerHTML = `
         <div class="container">
             <div id="base-page" class="col-12 justify-content-center my-3">
                 <div class="card">
@@ -313,7 +323,7 @@ export async function renderUGCALevel() {
                                     <table class="table table-sm mt-2">
                                         <tbody>
                                             <tr><td class="fw-bold">Author</td><td>${lastGen?.author?.eos || lastGen?.author?.steam || lastGen?.author?.psn || lastGen?.author?.xbl || lastGen?.author?.nintendo || "Unknown"}</td></tr></td></tr>
-                                            <tr><td class="fw-bold">Share Code</td><td>${res.sharecode}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">Share Code</td><td>${level.sharecode}</td></tr></td></tr>
                                             <tr><td class="fw-bold">Play Count</td><td>${lastGen?.played} 
                                                 <span style="margin-left: 6px;">
                                                     <span class="text-muted">(</span>
@@ -354,21 +364,58 @@ export async function renderUGCALevel() {
     <hr>
     <div class="card">
         <div class="card-header text-center">Other level versions</div>
-            <div class="card-body">
-                <table class="table table-sm mt-2 table-hover">
-                    <tbody>
-                        <tr>
-                            <td class="fw-bold">v102</td>
-                            <td>
-                                <span>date</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="card-body" id="other-generations">
             </div>
         </div>
     </div>
         `
+
+        const otherGens = document.getElementById("other-generations");
+        if (!otherGens) return;
+
+        if (level.generations.length <= 1) {
+            otherGens.innerHTML = `<p class="text-center">There's nothing!</p>`
+            return;
+        }
+
+        otherGens.innerHTML = `
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Version</th>
+                                <th scope="col">Client</th>
+                                <th scope="col">Last Modified</th>
+                                <th scope="col">Source</th>
+                            </tr>
+                        </thead>
+                        <tbody id="level-generations">
+                            ${level.generations.map((item, index) => `
+                                <tr data-gen="${item.version}" class="result-row" style="cursor: pointer">
+                                    <th scope="row">${(currPage - 1) * 50 + index + 1}</th>
+                                    <td>v${item.version}</td>
+                                    <td>${item.client_version}</td>
+                                    <td>${new Date(item?.last_modified! * 1000).toLocaleString(undefined, {dateStyle: "medium", timeStyle: "medium"})}</td>
+                                    <td>${RecordType[item.record_type]}</td>
+                                </tr>
+                            `).join("")}
+                        </tbody>
+                    </table>
+                </div>`
+
+        const generations = document.getElementById("level-generations");
+        generations?.addEventListener("click", (event) => {
+            const row = (event.target as HTMLElement).closest("tr");
+            if (!row) return;
+
+            const gen = row.dataset.gen;
+            if (!gen) return;
+
+            const params = new URLSearchParams({ code: level.sharecode, gen: gen });
+            window.history.pushState({}, "", `/creative/level?${params.toString()}`);
+            doLevelRender(level, Number(gen));
+        });
     }
     catch (ex) {
         console.log(ex);
