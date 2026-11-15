@@ -1,5 +1,6 @@
 import { Api } from "../api";
 import { RecordType, type UGCStats } from "../types";
+import { renderPageList } from "../ui/pagination";
 import { formatBytes } from "../utils/string";
 
 let stats: UGCStats;
@@ -175,7 +176,7 @@ export async function renderUGCASearch() {
                 <h3 class="my-2 text-center">Search results for \"${query}\"</h3>
                 <p class="text-center">Approx. ${res.total} results</p>
                 <nav class="mt-4">
-                    <ul id="pageList" class="pagination justify-content-center flex-wrap"></ul>
+                    <ul id="page-list" class="pagination justify-content-center flex-wrap"></ul>
                 </nav>
                 <hr>
                 <table class="table table-striped table-hover">
@@ -211,6 +212,9 @@ export async function renderUGCASearch() {
             const sharecode = row.dataset.sharecode;
             //todo move to level
         });
+
+        const pageList = document.getElementById("page-list") as HTMLElement;
+        renderPageList(pageList, 1, res.total_pages)
     }
     catch (ex) {
         searchBase.insertAdjacentHTML("beforeend", `<div class="alert alert-danger">${ex}</div>`);
