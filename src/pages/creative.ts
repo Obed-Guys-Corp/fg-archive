@@ -102,6 +102,13 @@ function renderMain() {
         searchBtn.disabled = searchInput.value.length < 3;
     });
 
+    searchInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            searchBtn.click();
+        }
+    });
+
     searchBtn.addEventListener("click", () => {
         const params = new URLSearchParams({ q: searchInput.value.trim() });
         window.history.pushState({}, "", `/creative/search?${params.toString()}`);
@@ -156,7 +163,7 @@ export async function renderUGCAStats() {
             <tbody id="${id}">
                 ${Object.entries(data).map(([key, value]) => `
                     <tr>
-                        <td>${id === "source_stats" ? RecordType[Number(key)] : key}:</td>
+                        <td>${key}:</td>
                         <td class="right">${value} ${value > 1 ? "levels" : "level"}</td>
                     </tr>
                 `).join("")}
