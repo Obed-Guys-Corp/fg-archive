@@ -1,5 +1,6 @@
 import { Api } from "../api";
 import { RecordType, type UGCStats } from "../types";
+import { formatBytes } from "../utils/string";
 
 let stats: UGCStats;
 
@@ -63,8 +64,8 @@ function renderMain() {
     statElement.innerHTML = `
     <table class="table">
         <tbody>
-            <tr><td>Total levels</td><td class="right">${stats.levels}</td></tr>
-            <tr><td>Total size</td><td class="right">${stats.total_size}</td></tr>
+            <tr><td>Total levels</td><td class="right">${stats.levels.toLocaleString("en-US")}</td></tr>
+            <tr><td>Total size</td><td class="right">${formatBytes(stats.total_size)}</td></tr>
         </tbody>
     </table>
     <a href="/creative/stats" class="btn btn-outline-primary d-flex justify-content-center" data-navigation>More statistics</a>
@@ -151,7 +152,7 @@ export function renderUGCASearch() {
                             <th scope="col">Client</th>
                         </tr>
                     </thead>
-                <tbody>
+                <tbody id="search-results">
                 </tbody>
                 </table>
             </div>
