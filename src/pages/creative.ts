@@ -60,9 +60,9 @@ function renderMain() {
                             <div class="card-header">Archive level</div>
                                 <div class="card-body">
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Level share-code" aria-label="Level share-code" aria-describedby="basic-addon2">
+                                        <input id="level-archive" type="text" inputmode="numeric" class="form-control" placeholder="Level share-code" aria-label="Level share-code" aria-describedby="basic-addon2" maxlength="14" minlength="14">
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button" disabled>Archive</button>
+                                            <button id="level-archive-btn" class="btn btn-outline-secondary" type="button" disabled>Archive</button>
                                         </div>
                                     </div>
                                 </div>
@@ -113,6 +113,16 @@ function renderMain() {
         const params = new URLSearchParams({ q: searchInput.value.trim() });
         window.history.pushState({}, "", `/creative/search?${params.toString()}`);
         window.dispatchEvent(new PopStateEvent("popstate"));
+    });
+
+    const archiveInput = document.getElementById("level-archive") as HTMLInputElement;
+    const archiveBtn = document.getElementById("level-archive-btn") as HTMLButtonElement;
+    if (!archiveBtn || !archiveInput) return;
+
+    archiveInput.addEventListener("input", () => {
+        archiveBtn.disabled = archiveInput.value.length != 14;
+        const value = archiveInput.value.replace(/\D/g, "").slice(0, 12);
+        archiveInput.value = value.match(/.{1,4}/g)?.join("-") || "";
     });
 }
 
@@ -402,7 +412,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                                     </table>
                                 <div>
                                 <a href="${lastGen?.scene_url}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> Download from Fall Guys</a>
-                                <a href="https://t.me/fgugcarchive/${tgd!.message_id}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> Download in Telegram (${formatBytes(Number(tgd!.file_size!))})</a>
+                                <a style="${!tgd ? "display: none;" : ""}" href="https://t.me/fgugcarchive/${tgd?.message_id}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> Download in Telegram (${formatBytes(Number(tgd?.file_size!))})</a>
                                 </div>
                         </div>
                     <div class="col-md-5 mt-2">
@@ -488,7 +498,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
         });
     }
     catch (ex) {
-        console.log(ex);
+        levelBase.innerHTML = `<div class="alert alert-danger">This level was too good for my code, it can't be rendered<br><br>${ex}</div>`
     }
     finally {
 
