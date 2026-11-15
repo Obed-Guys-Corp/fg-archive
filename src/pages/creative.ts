@@ -251,7 +251,11 @@ async function doUGCASearch(query: string) {
             if (!row) return;
 
             const sharecode = row.dataset.sharecode;
-            //todo move to level
+            if (!sharecode) return;
+            const params = new URLSearchParams({ code: sharecode });
+            window.history.pushState({}, "", `/creative/level?${params.toString()}`);
+            window.dispatchEvent(new PopStateEvent("popstate"));
+            renderUGCALevel();
         });
 
         if (totalPages > 1) {
