@@ -152,16 +152,26 @@ export async function renderUGCASearch() {
     const params = new URLSearchParams(window.location.search);
     const query = params.get("q") ?? "";
 
-    currPage = 1;
-    totalPages = 1;
-    recentQuery = query;
-
     if (!query) {
         window.history.pushState({}, "", `/creative`);
         window.dispatchEvent(new PopStateEvent("popstate"));
         renderCreative();
         return;
     }
+
+    const codePat = /^\d{4}-\d{4}-\d{4}$/;
+    if (codePat.test(query)) {
+        const params = new URLSearchParams({ code: query });
+        window.history.pushState({}, "", `/creative/level?${params.toString()}`);
+        window.dispatchEvent(new PopStateEvent("popstate"));
+        renderUGCALevel();
+        return;
+    }
+
+    currPage = 1;
+    totalPages = 1;
+    recentQuery = query;
+
 
     const app = document.getElementById("app");
 
