@@ -347,7 +347,15 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                         <div class="carousel img-thumbnail">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img class="d-block w-100" src="${lastGen?.loading_image?.url || lastGen?.preview_image?.url || "https://api.floyzi.dev/random_pic?src=main"}">
+                                    <div class="position-relative w-100" style="aspect-ratio: 2 / 1;">
+                                        <div id="thumb-loader" class="spinner-border position-absolute top-50 start-50" role="status" style="translate: -50% -50%;">
+                                            <span class="visually-hidden"></span>
+                                        </div>
+                                        <img style="object-fit: fit;" class="d-block w-100 h-100" 
+                                            src="${lastGen?.loading_image?.url || lastGen?.preview_image?.url || "https://api.floyzi.dev/random_pic?src=main"}"
+                                            onload="document.getElementById('thumb-loader').style.display='none'"
+                                            onerror="document.getElementById('thumb-loader').style.display='none'; this.onerror=null; this.src='https://api.floyzi.dev/random_pic?src=main';">
+                                    </div>
                                 </div>
                             </div>
                         </div>
