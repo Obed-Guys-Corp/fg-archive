@@ -81,7 +81,7 @@ function renderMain() {
     });
 
     searchBtn.addEventListener("click", () => {
-        const params = new URLSearchParams({q: searchInput.value.trim()});
+        const params = new URLSearchParams({ q: searchInput.value.trim() });
         window.history.pushState({}, "", `/creative/search?${params.toString()}`);
         window.dispatchEvent(new PopStateEvent("popstate"));
     });
@@ -121,7 +121,7 @@ export async function renderUGCAStats() {
         ["Sources", "source_stats", stats.source_stats],
     ] as const;
 
-     for (const [name, id, data] of sections) {
+    for (const [name, id, data] of sections) {
         if (!data || Object.keys(data).length === 0) continue;
 
         statElement.innerHTML += `
@@ -144,9 +144,17 @@ export async function renderUGCAStats() {
     }
 }
 
+let currPage = 1;
+let totalPages = 1;
+let recentQuery = "";
+
 export async function renderUGCASearch() {
     const params = new URLSearchParams(window.location.search);
     const query = params.get("q") ?? "";
+
+    currPage = 1;
+    totalPages = 1;
+    recentQuery = query;
 
     if (!query) {
         window.history.pushState({}, "", `/creative`);
@@ -166,11 +174,32 @@ export async function renderUGCASearch() {
     </div>
     `
 
+    await doUGCASearch(query);
+
+    const searchBase = document.getElementById("search-base")!;
+
+    searchBase.addEventListener("click", async (event) => {
+        const btn = (event.target as HTMLElement).closest<HTMLButtonElement>("button[data-page]");
+        if (!btn || btn.disabled) return;
+
+        const page = Number(btn.dataset.page);
+        if (page < 1 || page > totalPages || page === currPage) return;
+
+        currPage = page;
+        await doUGCASearch(recentQuery);
+    });
+}
+
+async function doUGCASearch(query: string) {
     const searchBase = document.getElementById("search-base");
     if (!searchBase) return;
 
     try {
-        var res = await Api.searchInUGCA(query);
+        //todo cache
+        var res = await Api.searchInUGCA(query, currPage);
+
+        currPage = res.page;
+        totalPages = res.total_pages;
 
         searchBase.innerHTML = `
                 <h3 class="my-2 text-center">Search results for \"${query}\"</h3>
@@ -192,7 +221,7 @@ export async function renderUGCASearch() {
                 <tbody id="search-results">
                     ${res.results.map((item, index) => `
                         <tr data-sharecode="${item.sharecode}" class="result-row" style="cursor: pointer">
-                            <th scope="row">${index + 1}</th>
+                           <th scope="row">${(currPage - 1) * 50 + index + 1}</th>
                             <td>${item.name}</td>
                             <td>${item.author}</td>
                             <td>${item.sharecode}</td>
@@ -213,8 +242,10 @@ export async function renderUGCASearch() {
             //todo move to level
         });
 
-        const pageList = document.getElementById("page-list") as HTMLElement;
-        renderPageList(pageList, 1, res.total_pages)
+        if (totalPages > 1) {
+            const pageList = document.getElementById("page-list") as HTMLElement;
+            renderPageList(pageList, currPage, totalPages);
+        }
     }
     catch (ex) {
         searchBase.insertAdjacentHTML("beforeend", `<div class="alert alert-danger">${ex}</div>`);
