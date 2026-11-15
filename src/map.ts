@@ -2,7 +2,7 @@ import { renderBuilds } from "./pages/builds";
 import { renderCms } from "./pages/cms";
 import { renderBase } from "./pages/base";
 import { pages, type Page } from "./pages";
-import { renderCreative, renderUGCAStats } from "./pages/creative";
+import { renderCreative, renderUGCALevel, renderUGCASearch, renderUGCAStats } from "./pages/creative";
 
 export interface PageMap {
     page: Page;
@@ -36,6 +36,16 @@ export const maps: [PageMap, ...PageMap[]] = [
                 page: pages[4]!,
                 label: "creative_title",
                 render: renderUGCAStats,
+            },
+            {
+                page: pages[5]!,
+                label: "creative_title",
+                render: renderUGCASearch,
+            },
+            {
+                page: pages[6]!,
+                label: "creative_title",
+                render: renderUGCALevel,
             }
         ]
     }

@@ -128,7 +128,7 @@ export async function renderUGCAStats() {
     }
 }
 
-function renderSearch() {
+export function renderUGCASearch() {
     const app = document.getElementById("app");
 
     if (!app) return;
@@ -159,7 +159,7 @@ function renderSearch() {
     `
 }
 
-function renderLevel() {
+export function renderUGCALevel() {
     const app = document.getElementById("app");
 
     if (!app) return;

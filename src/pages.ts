@@ -29,5 +29,15 @@ export const pages: [Page, ...Page[]] = [
         path: "creative/stats",
         title: "Fall Guys Creative Archive",
         desc: ""
+    },
+    {
+        path: "creative/search",
+        title: "Fall Guys Creative Archive",
+        desc: ""
+    },
+    {
+        path: "creative/level",
+        title: "Fall Guys Creative Archive",
+        desc: ""
     }
 ];
