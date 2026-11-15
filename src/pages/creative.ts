@@ -6,13 +6,35 @@ import { formatBytes } from "../utils/string";
 let stats: UGCStats;
 
 export async function renderCreative(): Promise<void> {
-    stats = await Api.fetchUGCAStats();
-    renderMain();
+    const app = document.getElementById("app");
+    if (!app) return;
+
+    app.innerHTML = ` 
+        <div class="col-12 d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden"></span>
+            </div>
+        </div>`
+
+    try {
+        stats = await Api.fetchUGCAStats();
+        renderMain();
+    }
+    catch (ex) {
+        app.innerHTML = `
+            <div class="container">
+                <div id="base-page" class="col-12 justify-content-center my-3">
+                    <div class="alert alert-danger">
+                        Looks like my API is down right now. You can still access Fall Guys Creative Archive directly on GitHub and it's Telegram Channel. You can also check your internet connection, use different browser or a VPN and also simply wait<br><br>${ex}
+                    </div>
+                </div>
+            </div>
+            `
+    }
 }
 
 function renderMain() {
     const app = document.getElementById("app");
-
     if (!app) return;
 
     app.innerHTML = `
@@ -88,13 +110,13 @@ function renderMain() {
 }
 
 export async function renderUGCAStats() {
-    if (stats == null) stats = await Api.fetchUGCAStats();
-
     const app = document.getElementById("app");
-
     if (!app) return;
 
-    app.innerHTML = `
+    try {
+        if (stats == null) stats = await Api.fetchUGCAStats();
+
+        app.innerHTML = `
       <div class="container">
             <div id="base-page" class="col-12 justify-content-center my-3">
                 <div class="card my-3">
@@ -108,23 +130,23 @@ export async function renderUGCAStats() {
         </div>
     `
 
-    const statElement = document.getElementById("full-stats");
-    if (!statElement) return;
+        const statElement = document.getElementById("full-stats");
+        if (!statElement) return;
 
-    const sections = [
-        ["Gamemodes", "gamemode_stats", stats.gamemode_stats],
-        ["Themes", "theme_stats", stats.theme_stats],
-        ["Tags", "tag_stats", stats.tag_stats],
-        ["Platforms", "platform_stats", stats.platform_stats],
-        ["Music", "music_stats", stats.music_stats],
-        ["Versions", "version_stats", stats.version_stats],
-        ["Sources", "source_stats", stats.source_stats],
-    ] as const;
+        const sections = [
+            ["Gamemodes", "gamemode_stats", stats.gamemode_stats],
+            ["Themes", "theme_stats", stats.theme_stats],
+            ["Tags", "tag_stats", stats.tag_stats],
+            ["Platforms", "platform_stats", stats.platform_stats],
+            ["Music", "music_stats", stats.music_stats],
+            ["Versions", "version_stats", stats.version_stats],
+            ["Sources", "source_stats", stats.source_stats],
+        ] as const;
 
-    for (const [name, id, data] of sections) {
-        if (!data || Object.keys(data).length === 0) continue;
+        for (const [name, id, data] of sections) {
+            if (!data || Object.keys(data).length === 0) continue;
 
-        statElement.innerHTML += `
+            statElement.innerHTML += `
         <h3>${name}</h3>
             <table class="table w-100">
                 <colgroup>
@@ -141,6 +163,18 @@ export async function renderUGCAStats() {
             </tbody>
         </table>
     `;
+        }
+    }
+    catch (ex) {
+        app.innerHTML = `
+            <div class="container">
+                <div id="base-page" class="col-12 justify-content-center my-3">
+                    <div class="alert alert-danger">
+                        Looks like my API is down right now. You can still access Fall Guys Creative Archive directly on GitHub and it's Telegram Channel. You can also check your internet connection, use different browser or a VPN and also simply wait<br><br>${ex}
+                    </div>
+                </div>
+            </div>
+            `
     }
 }
 
@@ -205,6 +239,13 @@ async function doUGCASearch(query: string) {
     if (!searchBase) return;
 
     try {
+        searchBase.innerHTML = ` 
+        <div class="col-12 d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden"></span>
+            </div>
+        </div>`
+
         //todo cache
         var res = await Api.searchInUGCA(query, currPage);
 
@@ -263,7 +304,7 @@ async function doUGCASearch(query: string) {
         }
     }
     catch (ex) {
-        searchBase.insertAdjacentHTML("beforeend", `<div class="alert alert-danger">${ex}</div>`);
+        searchBase.innerHTML = `<div class="alert alert-danger">${ex}</div>`;
     }
     finally {
 
@@ -293,14 +334,28 @@ export async function renderUGCALevel() {
     </div>
     `
 
-    var res = await Api.searchUGCALevel(query);
-    doLevelRender(res, Number(gen));
+    const levelBase = document.getElementById("level-base");
+    if (!levelBase) return;
+
+    try {
+        levelBase.innerHTML = ` 
+        <div class="col-12 d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden"></span>
+            </div>
+        </div>`
+
+        var res = await Api.searchUGCALevel(query);
+        doLevelRender(res, Number(gen));
+    }
+    catch (ex) {
+        levelBase.innerHTML = `<div class="alert alert-danger">${ex}</div>`;
+    }
 }
 
 function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
     const levelBase = document.getElementById("level-base");
     if (!levelBase || !level) return;
-    
 
     try {
         var lastGen = selectedGen < 0 ? level.generations.find(x => x.version == level.latest_version) : level.generations.find(x => x.version == selectedGen);
@@ -334,13 +389,13 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                                             <tr><td class="fw-bold">Max players</td><td>${lastGen?.max_player_count}</td></tr></td></tr>
                                             <tr><td class="fw-bold">Theme</td><td>${lastGen?.theme_id}</td></tr></td></tr>
                                             <tr><td class="fw-bold">Gamemode</td><td>${lastGen?.gamemode_id}</td></tr></td></tr>
-                                            <tr><td class="fw-bold">Last Modified</td><td>${new Date(lastGen?.last_modified! * 1000).toLocaleString(undefined, {dateStyle: "medium", timeStyle: "medium"})}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">Last Modified</td><td>${new Date(lastGen?.last_modified! * 1000).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "medium" })}</td></tr></td></tr>
                                             <tr><td class="fw-bold">Made On</td><td>v${lastGen?.client_version} (${lastGen?.platform_id})</td></tr></td></tr>
                                         </tbody>
                                     </table>
                                 <div>
                                 <a href="${lastGen?.scene_url}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> Download from Fall Guys</a>
-                                <a href="https://t.me/fgugcarchive/${tgd!.message_id}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> Download in Telegram</a>
+                                <a href="https://t.me/fgugcarchive/${tgd!.message_id}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> Download in Telegram (${formatBytes(Number(tgd!.file_size!))})</a>
                                 </div>
                         </div>
                     <div class="col-md-5 mt-2">
@@ -352,7 +407,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                                             <span class="visually-hidden"></span>
                                         </div>
                                         <img style="object-fit: fit;" class="d-block w-100 h-100" 
-                                            src="${lastGen?.loading_image?.url || lastGen?.preview_image?.url || "https://api.floyzi.dev/random_pic?src=main"}"
+                                            src="${lastGen?.loading_image?.url || lastGen?.preview_image?.url || "https://cdn.floyzi.dev/shared-images/fallback.webp"}"
                                             onload="document.getElementById('thumb-loader').style.display='none'"
                                             onerror="document.getElementById('thumb-loader').style.display='none'; this.onerror=null; this.src='https://api.floyzi.dev/random_pic?src=main';">
                                     </div>
@@ -360,7 +415,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                             </div>
                         </div>
                         <div class="text-muted fs-7 mt-1">
-                            <div>Last bot touch: ${new Date(lastGen?.last_touch! * 1000).toLocaleString(undefined, {dateStyle: "medium", timeStyle: "medium"})}</div>
+                            <div>Last bot touch: ${new Date(lastGen?.last_touch! * 1000).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "medium" })}</div>
                             <div>Source: ${RecordType[lastGen?.record_type!]}</div>
                             <div>Level version: ${lastGen?.version}</div>
                         </div>
@@ -404,7 +459,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                                     <th scope="row">${(currPage - 1) * 50 + index + 1}</th>
                                     <td>v${item.version}</td>
                                     <td>${item.client_version}</td>
-                                    <td>${new Date(item?.last_modified! * 1000).toLocaleString(undefined, {dateStyle: "medium", timeStyle: "medium"})}</td>
+                                    <td>${new Date(item?.last_modified! * 1000).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "medium" })}</td>
                                     <td>${RecordType[item.record_type]}</td>
                                 </tr>
                             `).join("")}

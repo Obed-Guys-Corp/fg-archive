@@ -204,7 +204,10 @@ export class Api {
         if (!query.trim()) throw new Error();
     
         var res = await fetch(`http://localhost:8080/fga/creative/search?${new URLSearchParams({q: query, page: page.toString()})}`);
-        if (!res.ok) throw new Error(`${res.status}: ${res.statusText}`);
+        if (!res.ok) {
+            if (res.status == 404) throw new Error(`No results were found for \"${query}\"`);
+            throw new Error(`${res.status}: ${res.statusText}`);
+        }
         return await res.json() as UGCSearch;
     }
 
@@ -212,7 +215,10 @@ export class Api {
         if (!sharecode.trim()) throw new Error();
     
         var res = await fetch(`http://localhost:8080/fga/creative/level?${new URLSearchParams({code: sharecode})}`);
-        if (!res.ok) throw new Error(`${res.status}: ${res.statusText}`);
+        if (!res.ok) {
+            if (res.status == 404) throw new Error(`Look's like we don't have level with sharecode ${sharecode} archived yet. If you want to see it here submit it on the main page`);
+            throw new Error(`${res.status}: ${res.statusText}`);
+        }
         return await res.json() as UGCLevel;
     }
 }
