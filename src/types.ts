@@ -173,3 +173,47 @@ export interface UGCSearch {
   page: number;
   total_pages: number;
 }
+
+export interface UGCLevel {
+    sharecode: string;
+    latest_version: number;
+    generations: UGCGeneration[];
+}
+
+export interface UGCGeneration {
+    author: UGCAuthor;
+    version: number;
+    title: string;
+    description: string;
+    tags: string[] | null;
+    max_player_count: number;
+    scene_url: string;
+    platform_id: string;
+    last_modified: number;
+    gamemode_id: string;
+    theme_id: string;
+    client_version: string;
+    config: Record<string, unknown>;
+    completed: boolean;
+    played: number;
+    likes: number;
+    dislikes: number;
+    preview_image: UGCImage | null;
+    loading_image: UGCImage | null;
+    record_type: number;
+    archive_downloads: Record<string, Record<string, unknown>>;
+    last_touch: number;
+}
+
+export interface UGCAuthor {
+    eos: string;
+    steam: string | null;
+    nintendo: string | null;
+    psn: string | null;
+    xbl: string | null;
+}
+
+export interface UGCImage {
+    url: string;
+    created_at: string | null;
+}

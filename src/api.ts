@@ -1,7 +1,7 @@
 import JSZip from "jszip";
 import { CMS_CONFIG } from "./constants/cms-config";
 import { t } from "./i18n/i18n";
-import { BUILD_TYPES, type Build, type Builds, type BuildType, type GlCommit, type Release, type UGCSearch, type UGCStats } from "./types";
+import { BUILD_TYPES, type Build, type Builds, type BuildType, type GlCommit, type Release, type UGCLevel, type UGCSearch, type UGCStats } from "./types";
 import { timeDiff } from "./utils/string";
 
 interface CachedPage {
@@ -200,11 +200,19 @@ export class Api {
         return res;
     }
 
-   public static async searchInUGCA(query: string, page: number = 1): Promise<UGCSearch> {
-    if (!query.trim()) throw new Error();
+    public static async searchInUGCA(query: string, page: number = 1): Promise<UGCSearch> {
+        if (!query.trim()) throw new Error();
     
-    var res = await fetch(`http://localhost:8080/fga/creative/search?${new URLSearchParams({q: query, page: page.toString()})}`);
-    if (!res.ok) throw new Error(`${res.status}: ${res.statusText}`);
-    return await res.json() as UGCSearch;
-}
+        var res = await fetch(`http://localhost:8080/fga/creative/search?${new URLSearchParams({q: query, page: page.toString()})}`);
+        if (!res.ok) throw new Error(`${res.status}: ${res.statusText}`);
+        return await res.json() as UGCSearch;
+    }
+
+     public static async searchUGCALevel(sharecode: string): Promise<UGCLevel> {
+        if (!sharecode.trim()) throw new Error();
+    
+        var res = await fetch(`http://localhost:8080/fga/creative/level?${new URLSearchParams({code: sharecode})}`);
+        if (!res.ok) throw new Error(`${res.status}: ${res.statusText}`);
+        return await res.json() as UGCLevel;
+    }
 }

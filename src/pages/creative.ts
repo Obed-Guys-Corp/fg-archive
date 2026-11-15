@@ -267,12 +267,36 @@ async function doUGCASearch(query: string) {
     }
 }
 
-export function renderUGCALevel() {
+export async function renderUGCALevel() {
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get("code") ?? "";
+
+    if (!query) {
+        window.history.pushState({}, "", `/creative`);
+        window.dispatchEvent(new PopStateEvent("popstate"));
+        renderCreative();
+        return;
+    }
+
     const app = document.getElementById("app");
 
     if (!app) return;
 
     app.innerHTML = `
+    <div class="container">
+        <div class="col-12 justify-content-center my-3" id="search-base">
+        </div>
+    </div>
+    `
+
+    try {
+
+        var res = await Api.searchUGCALevel(query);
+        var lastGen = res.generations.find(x => x.version == res.latest_version);
+
+        var tgd = lastGen?.archive_downloads["tg"];
+
+        app.innerHTML = `
         <div class="container">
             <div id="base-page" class="col-12 justify-content-center my-3">
                 <div class="card">
@@ -280,31 +304,43 @@ export function renderUGCALevel() {
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <div class="fw-bold fs-3 mb-1">Level name</div>
-                                    <div>Level desc</div>
+                                    <div class="fw-bold fs-3 mb-1">${lastGen?.title}</div>
+                                    <div>${!lastGen?.description ? "..." : lastGen?.description}</div>
                                     <table class="table table-sm mt-2">
                                         <tbody>
-                                            <tr>
-                                                <td class="fw-bold">a</td>
-                                                <td>
-                                                    <span>b</span>
-                                                </td>
-                                            </tr>
+                                            <tr><td class="fw-bold">Author</td><td>${lastGen?.author?.eos || lastGen?.author?.steam || lastGen?.author?.psn || lastGen?.author?.xbl || lastGen?.author?.nintendo || "Unknown"}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">Share Code</td><td>${res.sharecode}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">Play Count</td><td>${lastGen?.played} 
+                                                <span style="margin-left: 6px;">
+                                                    <span class="text-muted">(</span>
+                                                        <span class="bi bi-hand-thumbs-up-fill"></span> ${lastGen?.likes}
+                                                        <span class="bi bi-hand-thumbs-down-fill" style="margin-left: 5px;"></span> ${lastGen?.dislikes}
+                                                    <span class="text-muted">)</span>
+                                                </span></td></tr></td></tr>
+                                            <tr><td class="fw-bold">Max players</td><td>${lastGen?.max_player_count}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">Theme</td><td>${lastGen?.theme_id}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">Gamemode</td><td>${lastGen?.gamemode_id}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">Last Modified</td><td>${new Date(lastGen?.last_modified! * 1000).toLocaleString(undefined, {dateStyle: "medium", timeStyle: "medium"})}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">Made On</td><td>v${lastGen?.client_version} (${lastGen?.platform_id})</td></tr></td></tr>
                                         </tbody>
                                     </table>
                                 <div>
-                            </div>
+                                <a href="${lastGen?.scene_url}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> Download from Fall Guys</a>
+                                <a href="https://t.me/fgugcarchive/${tgd!.message_id}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> Download in Telegram</a>
+                                </div>
                         </div>
                     <div class="col-md-5 mt-2">
                         <div class="carousel img-thumbnail">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img class="d-block w-100" src="https://api.floyzi.dev/random_pic?src=main">
+                                    <img class="d-block w-100" src="${lastGen?.loading_image?.url || lastGen?.preview_image?.url || "https://api.floyzi.dev/random_pic?src=main"}">
                                 </div>
                             </div>
                         </div>
                         <div class="text-muted fs-7 mt-1">
-                            <div>text</div>
+                            <div>Last bot touch: ${new Date(lastGen?.last_touch! * 1000).toLocaleString(undefined, {dateStyle: "medium", timeStyle: "medium"})}</div>
+                            <div>Source: ${RecordType[lastGen?.record_type!]}</div>
+                            <div>Level version: ${lastGen?.version}</div>
                         </div>
                     </div>
                 </div>
@@ -329,4 +365,11 @@ export function renderUGCALevel() {
         </div>
     </div>
         `
+    }
+    catch (ex) {
+        console.log(ex);
+    }
+    finally {
+
+    }
 }
