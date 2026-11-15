@@ -24,9 +24,9 @@ function renderMain() {
                             <div class="card-header">Search for a level</div>
                                 <div class="card-body">
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Level share-code or name" aria-label="Level share-code" aria-describedby="basic-addon2">
+                                        <input id="level-search" type="text" class="form-control" placeholder="Level share-code or name" aria-label="Level share-code" aria-describedby="basic-addon2" maxlength="20" minlength="4">
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button">Search</button>
+                                            <button id="level-search-btn" class="btn btn-outline-secondary" type="button" disabled>Search</button>
                                         </div>
                                     </div>
                                 </div>
@@ -39,7 +39,7 @@ function renderMain() {
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" placeholder="Level share-code" aria-label="Level share-code" aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="button">Archive</button>
+                                            <button class="btn btn-outline-secondary" type="button" disabled>Archive</button>
                                         </div>
                                     </div>
                                 </div>
@@ -69,7 +69,21 @@ function renderMain() {
         </tbody>
     </table>
     <a href="/creative/stats" class="btn btn-outline-primary d-flex justify-content-center" data-navigation>More statistics</a>
-`;
+    `;
+
+    const searchInput = document.getElementById("level-search") as HTMLInputElement;
+    const searchBtn = document.getElementById("level-search-btn") as HTMLButtonElement;
+    if (!searchBtn || !searchInput) return;
+
+    searchInput.addEventListener("input", () => {
+        searchBtn.disabled = searchInput.value.length < 3;
+    });
+
+    searchBtn.addEventListener("click", () => {
+        const params = new URLSearchParams({q: searchInput.value.trim()});
+        window.history.pushState({}, "", `/creative/search?${params.toString()}`);
+        window.dispatchEvent(new PopStateEvent("popstate"));
+    });
 }
 
 export async function renderUGCAStats() {
@@ -129,19 +143,41 @@ export async function renderUGCAStats() {
     }
 }
 
-export function renderUGCASearch() {
+export async function renderUGCASearch() {
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get("q") ?? "";
+
+    if (!query) {
+        window.history.pushState({}, "", `/creative`);
+        window.dispatchEvent(new PopStateEvent("popstate"));
+        renderCreative();
+        return;
+    }
+
     const app = document.getElementById("app");
 
     if (!app) return;
 
     app.innerHTML = `
-      <div class="container">
-            <div id="base-page" class="col-12 justify-content-center my-3">
-                <h3 class="my-2 text-center">Search results for "{0}"</h3>
-                <p class="text-center">Approx. 102 results</p>
+    <div class="container">
+        <div class="col-12 justify-content-center my-3" id="search-base">
+        </div>
+    </div>
+    `
+
+    const searchBase = document.getElementById("search-base");
+    if (!searchBase) return;
+
+    try {
+        var res = await Api.searchInUGCA(query);
+
+        searchBase.innerHTML = `
+                <h3 class="my-2 text-center">Search results for \"${query}\"</h3>
+                <p class="text-center">Approx. ${res.total} results</p>
                 <nav class="mt-4">
                     <ul id="pageList" class="pagination justify-content-center flex-wrap"></ul>
                 </nav>
+                <hr>
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -153,11 +189,35 @@ export function renderUGCASearch() {
                         </tr>
                     </thead>
                 <tbody id="search-results">
+                    ${res.results.map((item, index) => `
+                        <tr data-sharecode="${item.sharecode}" class="result-row" style="cursor: pointer">
+                            <th scope="row">${index + 1}</th>
+                            <td>${item.name}</td>
+                            <td>${item.author}</td>
+                            <td>${item.sharecode}</td>
+                            <td>${item.clientVersion}</td>
+                        </tr>
+                    `).join("")}
                 </tbody>
                 </table>
-            </div>
-        </div>
-    `
+        `
+
+        const results = document.getElementById("search-results");
+
+        results?.addEventListener("click", (event) => {
+            const row = (event.target as HTMLElement).closest("tr");
+            if (!row) return;
+
+            const sharecode = row.dataset.sharecode;
+            //todo move to level
+        });
+    }
+    catch (ex) {
+        searchBase.insertAdjacentHTML("beforeend", `<div class="alert alert-danger">${ex}</div>`);
+    }
+    finally {
+
+    }
 }
 
 export function renderUGCALevel() {

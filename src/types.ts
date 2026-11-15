@@ -158,3 +158,18 @@ export interface UGCStats {
     gamemode_stats: Record<string, number> | null;
     tag_stats: Record<string, number> | null;
 }
+
+export interface UGCSearchRes {
+  sharecode: string;
+  author: string;
+  name: string;
+  latestVersion: number;
+  clientVersion: string;
+}
+
+export interface UGCSearch {
+  results: UGCSearchRes[];
+  total: number;
+  page: number;
+  total_pages: number;
+}
