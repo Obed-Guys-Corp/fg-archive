@@ -76,7 +76,10 @@ function renderMobileNav(): void {
 }
 
 export function updateNav(): void {
+    const pathname = window.location.pathname.replace(/\/+$/, "");
+
     document.querySelectorAll<HTMLAnchorElement>("#mainNavbar [data-route]").forEach(element => {
-        element.classList.toggle("active", element.pathname.replace(/\/+$/, "") === window.location.pathname.replace(/\/+$/, ""));
+        const route = element.pathname.replace(/\/+$/, "");
+        element.classList.toggle("active", pathname === route || pathname.startsWith(`${route}/`));
     });
 }

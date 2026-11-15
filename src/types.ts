@@ -138,3 +138,23 @@ export interface GlCommit {
         deletions: number;
     };
 }
+
+export enum RecordType {
+    Unknown = 0,
+    Explore = 1,
+    BotLookup = 2,
+    FGAnalyst = 3,
+    Discord = 4,
+}
+
+export interface UGCStats {
+    levels: number;
+    total_size: number;
+    platform_stats: Record<string, number> | null;
+    version_stats: Record<string, number> | null;
+    source_stats: Partial<Record<RecordType, number>> | null;
+    music_stats: Record<string, number> | null;
+    theme_stats: Record<string, number> | null;
+    gamemode_stats: Record<string, number> | null;
+    tag_stats: Record<string, number> | null;
+}

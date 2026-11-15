@@ -10,7 +10,7 @@ import { readableUrl } from "./utils/string";
 import { initNavbar, updateNav } from "./ui/builds/navbar";
 import { renderBase } from "./pages/base";
 import { renderBuilds } from "./pages/builds";
-import { maps } from "./map";
+import { maps, type PageMap } from "./map";
 import * as bootstrap from "bootstrap";
 import { initCardClick } from "./ui/builds/modal";
 
@@ -79,7 +79,18 @@ async function init(): Promise<void> {
 let prevPage: (typeof maps)[number] | undefined;
 
 async function renderCurrentPage(): Promise<void> {
-    const route = maps.find(route => `${import.meta.env.BASE_URL}${route.page.path}`.replace(/\/+$/, "") === window.location.pathname.replace(/\/+$/, ""));
+    const routes: PageMap[] = [];
+
+    const lookup = (items: PageMap[]) => {
+        for (const item of items) {
+            routes.push(item);
+            if (item.nested) lookup(item.nested);
+        }
+    }
+    
+    lookup(maps);
+
+    const route = routes.find(route => `${import.meta.env.BASE_URL}${route.page.path}`.replace(/\/+$/, "") === window.location.pathname.replace(/\/+$/, ""));
 
     document.body.scrollTop = 0;
 
@@ -92,6 +103,7 @@ async function renderCurrentPage(): Promise<void> {
         prevPage = route;
         return;
     }
+
     document.title = route.page.title;
     document.querySelector('meta[name="description"]')?.setAttribute("content", route.page.desc);
     document.querySelector('meta[property="og:title"]')?.setAttribute("content", route.page.title);
