@@ -208,28 +208,30 @@ async function doUGCASearch(query: string) {
                     <ul id="page-list" class="pagination justify-content-center flex-wrap"></ul>
                 </nav>
                 <hr>
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Author</th>
-                            <th scope="col">Sharecode</th>
-                            <th scope="col">Client</th>
-                        </tr>
-                    </thead>
-                <tbody id="search-results">
-                    ${res.results.map((item, index) => `
-                        <tr data-sharecode="${item.sharecode}" class="result-row" style="cursor: pointer">
-                           <th scope="row">${(currPage - 1) * 50 + index + 1}</th>
-                            <td>${item.name}</td>
-                            <td>${item.author}</td>
-                            <td>${item.sharecode}</td>
-                            <td>${item.clientVersion}</td>
-                        </tr>
-                    `).join("")}
-                </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Author</th>
+                                <th scope="col">Sharecode</th>
+                                <th scope="col">Client</th>
+                            </tr>
+                        </thead>
+                        <tbody id="search-results">
+                            ${res.results.map((item, index) => `
+                                <tr data-sharecode="${item.sharecode}" class="result-row" style="cursor: pointer">
+                                    <th scope="row">${(currPage - 1) * 50 + index + 1}</th>
+                                    <td>${item.name}</td>
+                                    <td>${item.author}</td>
+                                    <td>${item.sharecode}</td>
+                                    <td>${item.clientVersion}</td>
+                                </tr>
+                            `).join("")}
+                        </tbody>
+                    </table>
+                </div>
         `
 
         const results = document.getElementById("search-results");
