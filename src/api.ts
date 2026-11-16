@@ -13,6 +13,7 @@ interface CMSCachedPage {
 }
 
 const CACHE_TIME = 10 * 60 * 1000;
+const UGCA_API = import.meta.env.DEV ? "http://localhost:8080/fga/creative" : "https://api.floyzi.dev/fga/creative";
 
 export class Api {
     static _builds: Record<BuildType, Build[]> = Object.fromEntries(BUILD_TYPES.map(type => [type, [] as Build[]])) as Record<BuildType, Build[]>;
@@ -231,21 +232,21 @@ export class Api {
     }
 
     public static async fetchUGCAStats(): Promise<UGCStats> {
-        var res = await this.cachedFetch<UGCStats>(`http://localhost:8080/fga/creative/stats`);
+        var res = await this.cachedFetch<UGCStats>(`${UGCA_API}/stats`);
         return res.response;
     }
 
     public static async searchInUGCA(query: string, page: number = 1): Promise<UGCSearch> {
         if (!query.trim()) throw new Error();
 
-        var res = await this.cachedFetch<UGCSearch>(`http://localhost:8080/fga/creative/search?${new URLSearchParams({ q: query, page: page.toString() })}`);
+        var res = await this.cachedFetch<UGCSearch>(`${UGCA_API}/search?${new URLSearchParams({ q: query, page: page.toString() })}`);
         return res.response;
     }
 
     public static async searchUGCALevel(sharecode: string): Promise<UGCLevel> {
         if (!sharecode.trim()) throw new Error();
 
-        var res = await this.cachedFetch<UGCLevel>(`http://localhost:8080/fga/creative/level?${new URLSearchParams({ code: sharecode })}`);
+        var res = await this.cachedFetch<UGCLevel>(`${UGCA_API}/level?${new URLSearchParams({ code: sharecode })}`);
         return res.response;
     }
 
@@ -253,7 +254,7 @@ export class Api {
         code: number;
         message: string;
     }> {
-        var res = await fetch("http://localhost:8080/fga/creative/archive", {
+        var res = await fetch(`${UGCA_API}/archive`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -272,7 +273,7 @@ export class Api {
     }
 
     public static async fetchUGCARecent(): Promise<UGCSearchRes[]> {
-        var res = await this.cachedFetch<UGCSearchRes[]>(`http://localhost:8080/fga/creative/recent`);
+        var res = await this.cachedFetch<UGCSearchRes[]>(`${UGCA_API}/recent`);
         return res.response;
     }
 }
