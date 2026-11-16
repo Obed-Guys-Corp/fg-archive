@@ -565,7 +565,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                                     </table>
                                 </div>
                                 <div class="d-flex flex-wrap gap-1">
-                                <a href="${lastGen?.scene_url}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> ${t("ugca.fg_get")}</a>
+                                <a href="${lastGen?.scene_url}" target="_blank" class="btn btn-primary me-2"><i class="bi bi-download"></i> ${t("ugca.fg_get")}</a>
                                 <a style="${!tgd ? "display: none;" : ""}" href="https://t.me/fgugcarchive/${tgd?.message_id}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> ${t(sourceLocales.get("telegram")!, t("telegram"))} (${formatBytes(Number(tgd?.file_size!))})</a>
                                 </div>
                         </div>
