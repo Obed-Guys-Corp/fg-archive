@@ -4,6 +4,8 @@ import { RecordType, type UGCLevel, type UGCStats } from "../types";
 import { renderPageList } from "../ui/pagination";
 import { formatBytes } from "../utils/string";
 import { LINKS } from "../constants/links";
+import { t } from "../i18n/i18n";
+import { sourceLocales } from "../ui/builds/source-maps";
 
 let stats: UGCStats;
 
@@ -27,7 +29,7 @@ export async function renderCreative(): Promise<void> {
             <div class="container">
                 <div id="base-page" class="col-12 justify-content-center my-3">
                     <div class="alert alert-danger">
-                        Looks like my API is down right now. You can still access Fall Guys Creative Archive directly on GitHub and it's Telegram Channel. You can also check your internet connection, use different browser or a VPN and also simply wait<br><br>${ex}
+                        ${t("ugca.generic_ex")}<br><br>${ex}
                     </div>
                 </div>
             </div>
@@ -42,15 +44,11 @@ function renderMain() {
     app.innerHTML = `
         <div class="container">
             <div id="base-page" class="col-12 justify-content-center my-3">
-                <h1 class="my-4 text-center titan-one-font">Fall Guys Creative Archive</h1>
+                <h1 class="my-4 text-center titan-one-font">${t("ugca.title")}</h1>
                 <div class="alert alert-warning my-3 alert-dismissible fade show" role="alert">
-                    <h5 class="alert-heading">Experiment</h5>
+                    <h5 class="alert-heading">${t("ugca.exp_title")}</h5>
                         <p class="mb-0">
-                            This is my experiment in an attempt to archive Fall Guys Creative. 
-                            Unfortunately my resources are very limited so the whole thing may shut down in the future (already archived levels will stay). 
-                            Right now the main source of archived levels is this <a href="${LINKS.ugcTelegram}" class="alert-link" target="_blank">Telegram Channel</a>, 
-                            in the future they may get moved to a proper file hosting. 
-                            This <a href="${LINKS.ugcArchiveGit}" class="alert-link" target="_blank">GitHub repository</a> hosts all metadata about archived levels
+                            ${t("ugca.exp_desc", `<a href="${LINKS.ugcTelegram}" class="alert-link" target="_blank">Telegram Channel</a>`, `<a href="${LINKS.ugcArchiveGit}" class="alert-link" target="_blank">GitHub repository</a>`)}
                         </p>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 <div>
@@ -59,12 +57,12 @@ function renderMain() {
                 <div class="row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <div class="card">
-                            <div class="card-header">Search for a level</div>
+                            <div class="card-header">${t("ugca.search_title")}</div>
                                 <div class="card-body">
                                     <div class="input-group mb-3">
-                                        <input id="level-search" type="text" class="form-control" placeholder="Level share-code or name" aria-label="Level share-code" aria-describedby="basic-addon2" maxlength="20" minlength="4">
+                                        <input id="level-search" type="text" class="form-control" placeholder="${t("ugca.search_ph")}" aria-label="${t("ugca.search_ph")}" aria-describedby="basic-addon2" maxlength="20" minlength="4">
                                         <div class="input-group-append">
-                                            <button id="level-search-btn" class="btn btn-outline-secondary" type="button" disabled>Search</button>
+                                            <button id="level-search-btn" class="btn btn-outline-secondary" type="button" disabled>${t("search")}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -72,12 +70,12 @@ function renderMain() {
                         </div>
                     <div class="col-sm-6">
                         <div class="card">
-                            <div class="card-header">Archive level</div>
+                            <div class="card-header">${t("ugca.archive_title")}</div>
                                 <div class="card-body">
                                     <div class="input-group mb-3">
-                                        <input id="level-archive" type="text" inputmode="numeric" class="form-control" placeholder="Level share-code" aria-label="Level share-code" aria-describedby="basic-addon2" maxlength="14" minlength="14">
+                                        <input id="level-archive" type="text" inputmode="numeric" class="form-control" placeholder="${t("ugca.archive_ph")}" aria-label="${t("ugca.archive_ph")}" aria-describedby="basic-addon2" maxlength="14" minlength="14">
                                         <div class="input-group-append">
-                                            <button id="level-archive-btn" class="btn btn-outline-secondary" type="button" disabled>Archive</button>
+                                            <button id="level-archive-btn" class="btn btn-outline-secondary" type="button" disabled>${t("archive")}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -87,9 +85,8 @@ function renderMain() {
                 </div>
                 <hr>
                     <div class="card my-3">
-                        <div class="card-header">Statistics</div>
+                        <div class="card-header">${t("stats")}</div>
                             <div id="statistics" class="card-body">
-                            
                             </div>
                         </div>
                     </div> 
@@ -102,24 +99,24 @@ function renderMain() {
     statElement.innerHTML = `
     <table class="table">
         <tbody>
-            <tr><td>Total levels</td><td class="right">${stats.levels.toLocaleString("en-US")}</td></tr>
-            <tr><td>Total size</td><td class="right">${formatBytes(stats.total_size)}</td></tr>
+            <tr><td>${t("ugca.stat_levels")}</td><td class="right">${stats.levels.toLocaleString("en-US")}</td></tr>
+            <tr><td>${t("ugca.stat_size")}</td><td class="right">${formatBytes(stats.total_size)}</td></tr>
         </tbody>
     </table>
-    <a href="/creative/stats" class="btn btn-outline-primary d-flex justify-content-center" data-navigation>More statistics</a>
+    <a href="/creative/stats" class="btn btn-outline-secondary d-flex justify-content-center" data-navigation>${t("ugca.more_stats")}</a>
     <div class="modal fade" id="txt-modal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modal-title">Modal title</h5>
-      </div>
-      <div class="modal-body" id="modal-body">...</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-title"></h5>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">${t("close")}</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
     `;
 
     const searchInput = document.getElementById("level-search") as HTMLInputElement;
@@ -192,7 +189,7 @@ export async function renderUGCAStats() {
       <div class="container">
             <div id="base-page" class="col-12 justify-content-center my-3">
                 <div class="card my-3">
-                        <div class="card-header">Statistics</div>
+                        <div class="card-header">${t("stats")}</div>
                             <div id="full-stats" class="card-body">
                             </div>
                         </div>
@@ -206,34 +203,34 @@ export async function renderUGCAStats() {
         if (!statElement) return;
 
         const sections = [
-            ["Gamemodes", "gamemode_stats", stats.gamemode_stats],
-            ["Themes", "theme_stats", stats.theme_stats],
-            ["Tags", "tag_stats", stats.tag_stats],
-            ["Platforms", "platform_stats", stats.platform_stats],
-            ["Music", "music_stats", stats.music_stats],
-            ["Versions", "version_stats", stats.version_stats],
-            ["Sources", "source_stats", stats.source_stats],
+            [t("ugca.stat_gamemodes"), "gamemode_stats", stats.gamemode_stats],
+            [t("ugca.stat_themes"), "theme_stats", stats.theme_stats],
+            [t("ugca.stat_tags"), "tag_stats", stats.tag_stats],
+            [t("ugca.stat_plats"), "platform_stats", stats.platform_stats],
+            [t("ugca.stat_music"), "music_stats", stats.music_stats],
+            [t("ugca.stat_versions"), "version_stats", stats.version_stats],
+            [t("ugca.stat_sources"), "source_stats", stats.source_stats],
         ] as const;
 
         for (const [name, id, data] of sections) {
             if (!data || Object.keys(data).length === 0) continue;
 
             statElement.innerHTML += `
-        <h3>${name}</h3>
-            <table class="table w-100">
-                <colgroup>
-                    <col style="width: 70%">
-                    <col style="width: 30%">
-            </colgroup>
-            <tbody id="${id}">
-                ${Object.entries(data).map(([key, value]) => `
-                    <tr>
-                        <td>${key}:</td>
-                        <td class="right">${value} ${value > 1 ? "levels" : "level"}</td>
-                    </tr>
-                `).join("")}
-            </tbody>
-        </table>
+                <h3>${name}</h3>
+                <table class="table w-100">
+                    <colgroup>
+                        <col style="width: 70%">
+                         <col style="width: 30%">
+                    </colgroup>
+                    <tbody id="${id}">
+                        ${Object.entries(data).map(([key, value]) => `
+                            <tr>
+                                <td>${key}:</td>
+                                <td class="right">${value} ${value > 1 ? "levels" : "level"}</td>
+                            </tr>
+                        `).join("")}
+                    </tbody>
+                </table>
     `;
         }
     }
@@ -242,7 +239,7 @@ export async function renderUGCAStats() {
             <div class="container">
                 <div id="base-page" class="col-12 justify-content-center my-3">
                     <div class="alert alert-danger">
-                        Looks like my API is down right now. You can still access Fall Guys Creative Archive directly on GitHub and it's Telegram Channel. You can also check your internet connection, use different browser or a VPN and also simply wait<br><br>${ex}
+                        ${t("ugca.generic_ex")}<br><br>${ex}
                     </div>
                 </div>
             </div>
@@ -325,8 +322,8 @@ async function doUGCASearch(query: string) {
         totalPages = res.total_pages;
 
         searchBase.innerHTML = `
-                <h3 class="my-2 text-center">Search results for \"${query}\"</h3>
-                <p class="text-center">Approx. ${res.total} results</p>
+                <h3 class="my-2 text-center">${t("ugca.search_res", query)}</h3>
+                <p class="text-center">${t("ugca.search_bttm", res.total, "TBD")}</p>
                 <nav class="mt-4">
                     <ul id="page-list" class="pagination justify-content-center flex-wrap"></ul>
                 </nav>
@@ -336,10 +333,10 @@ async function doUGCASearch(query: string) {
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Author</th>
-                                <th scope="col">Sharecode</th>
-                                <th scope="col">Client</th>
+                                <th scope="col">${t("ugca.lvl_name")}</th>
+                                <th scope="col">${t("ugca.lvl_author")}</th>
+                                <th scope="col">${t("ugca.lvl_code")}</th>
+                                <th scope="col">${t("ugca.lvl_client")}</th>
                             </tr>
                         </thead>
                         <tbody id="search-results">
@@ -431,9 +428,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
 
     try {
         var lastGen = selectedGen < 0 ? level.generations.find(x => x.version == level.latest_version) : level.generations.find(x => x.version == selectedGen);
-        if (!lastGen) {
-            throw new Error("such generation does not exist for this level");
-        }
+        if (!lastGen) throw new Error(t("level_no_gen"));
 
         var tgd = lastGen?.archive_downloads["tg"];
 
@@ -449,25 +444,25 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                                     <div>${!lastGen?.description ? "..." : lastGen?.description}</div>
                                     <table class="table table-sm mt-2">
                                         <tbody>
-                                            <tr><td class="fw-bold">Author</td><td>${lastGen?.author?.eos || lastGen?.author?.steam || lastGen?.author?.psn || lastGen?.author?.xbl || lastGen?.author?.nintendo || "Unknown"}</td></tr></td></tr>
-                                            <tr><td class="fw-bold">Share Code</td><td>${level.sharecode}</td></tr></td></tr>
-                                            <tr><td class="fw-bold">Play Count</td><td>${lastGen?.played} 
+                                            <tr><td class="fw-bold">${t("ugca.lvl_author")}</td><td>${lastGen?.author?.eos || lastGen?.author?.steam || lastGen?.author?.psn || lastGen?.author?.xbl || lastGen?.author?.nintendo || "Unknown"}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">${t("lvl_code")}</td><td>${level.sharecode}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">${t("ugca.lvl_played")}</td><td>${lastGen?.played} 
                                                 <span style="margin-left: 6px;">
                                                     <span class="text-muted">(</span>
                                                         <span class="bi bi-hand-thumbs-up-fill"></span> ${lastGen?.likes}
                                                         <span class="bi bi-hand-thumbs-down-fill" style="margin-left: 5px;"></span> ${lastGen?.dislikes}
                                                     <span class="text-muted">)</span>
                                                 </span></td></tr></td></tr>
-                                            <tr><td class="fw-bold">Max players</td><td>${lastGen?.max_player_count}</td></tr></td></tr>
-                                            <tr><td class="fw-bold">Theme</td><td>${lastGen?.theme_id}</td></tr></td></tr>
-                                            <tr><td class="fw-bold">Gamemode</td><td>${lastGen?.gamemode_id}</td></tr></td></tr>
-                                            <tr><td class="fw-bold">Last Modified</td><td>${new Date(lastGen?.last_modified! * 1000).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "medium" })}</td></tr></td></tr>
-                                            <tr><td class="fw-bold">Made On</td><td>v${lastGen?.client_version} (${lastGen?.platform_id})</td></tr></td></tr>
+                                            <tr><td class="fw-bold">${t("ugca.lvl_maxp")}</td><td>${lastGen?.max_player_count}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">${t("ugca.lvl_theme")}</td><td>${lastGen?.theme_id}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">${t("ugca.lvl_mode")}</td><td>${lastGen?.gamemode_id}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">${t("ugca.lvl_last_edit")}</td><td>${new Date(lastGen?.last_modified! * 1000).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "medium" })}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">${t("ugca.lvl_made_on")}</td><td>v${lastGen?.client_version} (${lastGen?.platform_id})</td></tr></td></tr>
                                         </tbody>
                                     </table>
                                 <div>
-                                <a href="${lastGen?.scene_url}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> Download from Fall Guys</a>
-                                <a style="${!tgd ? "display: none;" : ""}" href="https://t.me/fgugcarchive/${tgd?.message_id}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> Download in Telegram (${formatBytes(Number(tgd?.file_size!))})</a>
+                                <a href="${lastGen?.scene_url}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> ${t("ugca.fg_get")}</a>
+                                <a style="${!tgd ? "display: none;" : ""}" href="https://t.me/fgugcarchive/${tgd?.message_id}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> ${t(sourceLocales.get("telegram")!)} (${formatBytes(Number(tgd?.file_size!))})</a>
                                 </div>
                         </div>
                     <div class="col-md-5 mt-2">
@@ -487,9 +482,9 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                             </div>
                         </div>
                         <div class="text-muted fs-7 mt-1">
-                            <div>Last bot touch: ${new Date(lastGen?.last_touch! * 1000).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "medium" })}</div>
-                            <div>Source: ${RecordType[lastGen?.record_type!]}</div>
-                            <div>Level version: ${lastGen?.version}</div>
+                            <div>${t("ugca.lvl_last_touch")}: ${new Date(lastGen?.last_touch! * 1000).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "medium" })}</div>
+                            <div>${t("ugca.lvl_src")}: ${RecordType[lastGen?.record_type!]}</div>
+                            <div>${t("ugca.lvl_gen")}: ${lastGen?.version}</div>
                         </div>
                     </div>
                 </div>
@@ -498,7 +493,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
     </div>
     <hr>
     <div class="card">
-        <div class="card-header text-center">Other level versions</div>
+        <div class="card-header text-center">${t("ugca.other_gens")}</div>
             <div class="card-body" id="other-generations">
             </div>
         </div>
@@ -509,7 +504,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
         if (!otherGens) return;
 
         if (level.generations.length <= 1) {
-            otherGens.innerHTML = `<p class="text-center">There's nothing!</p>`
+            otherGens.innerHTML = `<p class="text-center">${t("ugca.other_gens_blank")}</p>`
             return;
         }
 
@@ -519,10 +514,10 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Version</th>
-                                <th scope="col">Client</th>
-                                <th scope="col">Last Modified</th>
-                                <th scope="col">Source</th>
+                                <th scope="col">${t("ugca.lvl_gen_shrt")}</th>
+                                <th scope="col">${t("ugca.lvl_client")}</th>
+                                <th scope="col">${t("ugca.lvl_last_edit")}</th>
+                                <th scope="col">${t("ugca.lvl_src")}</th>
                             </tr>
                         </thead>
                         <tbody id="level-generations">
@@ -553,7 +548,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
         });
     }
     catch (ex) {
-        levelBase.innerHTML = `<div class="alert alert-danger">This level was too good for my code, it can't be rendered<br><br>${ex}</div>`
+        levelBase.innerHTML = `<div class="alert alert-danger">${t("level_ex")}<br><br>${ex}</div>`
     }
     finally {
 
