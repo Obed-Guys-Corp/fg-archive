@@ -3,6 +3,7 @@ import { Api } from "../api";
 import { RecordType, type UGCLevel, type UGCStats } from "../types";
 import { renderPageList } from "../ui/pagination";
 import { formatBytes } from "../utils/string";
+import { LINKS } from "../constants/links";
 
 let stats: UGCStats;
 
@@ -47,9 +48,9 @@ function renderMain() {
                         <p class="mb-0">
                             This is my experiment in an attempt to archive Fall Guys Creative. 
                             Unfortunately my resources are very limited so the whole thing may shut down in the future (already archived levels will stay). 
-                            Right now the main source of archived levels is this <a href="https://discord.gg/PEysxvSE3x" class="alert-link" target="_blank">Telegram Channel</a>, 
+                            Right now the main source of archived levels is this <a href="${LINKS.ugcTelegram}" class="alert-link" target="_blank">Telegram Channel</a>, 
                             in the future they may get moved to a proper file hosting. 
-                            This <a href="https://discord.gg/PEysxvSE3x" class="alert-link" target="_blank">GitHub repository</a> hosts all metadata about archived levels
+                            This <a href="${LINKS.ugcArchiveGit}" class="alert-link" target="_blank">GitHub repository</a> hosts all metadata about archived levels
                         </p>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 <div>
