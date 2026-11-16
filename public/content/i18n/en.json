@@ -198,6 +198,14 @@
     "close": "Close",
     "ugca.generic_ex": "Looks like my API is down right now. You can still access Fall Guys Creative Archive directly on GitHub and it's Telegram Channel. You can also check your internet connection, use different browser or a VPN and also simply wait",
     "ugca.level_ex": "This level was too good for my code, it can't be rendered",
-    "ugca.level_no_gen": "Such generation does not exist for this level"
+    "ugca.level_no_gen": "Such generation does not exist for this level",
+    "ugca.lvl_tags": "Tags",
+    "ugca.lvl_mus": "Soundtrack",
+    "ugca.lvl_completed": "Completed",
+    "ugca.lvl_time_limit": "Time Limit",
+    "ugca.qual_perc": "qualifiying",
+    "ugca.lvl_thumb_date": "Thumbnail Creation",
+    "ugca.surv_perc": "survive",
+    "ugca.lvl_preview": "Viewing v{0} dated by {1}"
 
 }

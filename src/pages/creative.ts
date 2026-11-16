@@ -28,7 +28,7 @@ export async function renderCreative(): Promise<void> {
     if (!app) return;
 
     app.innerHTML = ` 
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-12 d-flex justify-content-center my-3">
             <div class="spinner-border" role="status">
                 <span class="visually-hidden"></span>
             </div>
@@ -60,7 +60,6 @@ function renderMain() {
             <div id="base-page" class="col-12 justify-content-center my-3">
                 <h1 class="my-4 text-center titan-one-font">${t("ugca.title")}</h1>
                 <div class="alert alert-warning my-3 alert-dismissible fade show" role="alert">
-                    <h5 class="alert-heading">${t("ugca.exp_title")}</h5>
                         <p class="mb-0">
                             ${t("ugca.exp_desc", `<a href="${LINKS.ugcTelegram}" class="alert-link" target="_blank">Telegram Channel</a>`, `<a href="${LINKS.ugcArchiveGit}" class="alert-link" target="_blank">GitHub repository</a>`)}
                         </p>
@@ -164,6 +163,13 @@ function renderMain() {
         archiveInput.value = value.match(/.{1,4}/g)?.join("-") || "";
     });
 
+    archiveInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            archiveBtn.click();
+        }
+    });
+
     archiveBtn.addEventListener("click", async () => {
         archiveBtn.disabled = true;
         archiveInput.disabled = true;
@@ -240,7 +246,7 @@ export async function renderUGCAStats() {
                         ${Object.entries(data).sort((a, b) => b[1] - a[1]).map(([key, value]) => `
                             <tr>
                                 <td>${key}:</td>
-                                <td class="right">${value} ${value > 1 ? "levels" : "level"}</td>
+                                <td class="right">${value.toLocaleString("en-US")} ${value > 1 ? "levels" : "level"}</td>
                             </tr>
                         `).join("")}
                     </tbody>
@@ -371,7 +377,7 @@ async function doUGCASearch(query: string) {
 
             const sharecode = row.dataset.sharecode;
             if (!sharecode) return;
-            
+
             const params = new URLSearchParams({ code: sharecode });
             window.history.pushState({}, "", `/creative/level?${params.toString()}`);
             renderUGCALevel();
@@ -451,56 +457,68 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
         levelBase.innerHTML = `
         <div class="container">
             <div id="base-page" class="col-12 justify-content-center my-3">
+                <div class="fs-4 mb-1 text-center">${t("ugca.lvl_preview", lastGen.version, new Date(lastGen?.last_modified! * 1000).toLocaleString(undefined, { dateStyle: "short", timeStyle: "short" }))}</div>
                 <div class="card">
                     <div class="card-body">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-7">
                                     <div class="fw-bold fs-3 mb-1">${lastGen?.title}</div>
-                                    <div>${!lastGen?.description ? "..." : lastGen?.description}</div>
+                                    <div style="white-space: pre-line">${!lastGen?.description ? "..." : lastGen?.description.replace(/\\n/g, "\n")}</div>
+                                    <div class="table-responsive">
                                     <table class="table table-sm mt-2">
                                         <tbody>
                                             <tr><td class="fw-bold">${t("ugca.lvl_author")}</td><td>${lastGen?.author?.eos || lastGen?.author?.steam || lastGen?.author?.psn || lastGen?.author?.xbl || lastGen?.author?.nintendo || "Unknown"}</td></tr></td></tr>
                                             <tr><td class="fw-bold">${t("ugca.lvl_code")}</td><td>${level.sharecode}</td></tr></td></tr>
-                                            <tr><td class="fw-bold">${t("ugca.lvl_played")}</td><td>${lastGen?.played} 
+                                            <tr><td class="fw-bold">${t("ugca.lvl_played")}</td><td>${lastGen?.played.toLocaleString("en-US")} 
                                                 <span style="margin-left: 6px;">
                                                     <span class="text-muted">(</span>
-                                                        <span class="bi bi-hand-thumbs-up-fill"></span> ${lastGen?.likes}
-                                                        <span class="bi bi-hand-thumbs-down-fill" style="margin-left: 5px;"></span> ${lastGen?.dislikes}
+                                                        <span class="bi bi-hand-thumbs-up-fill"></span> ${lastGen?.likes.toLocaleString("en-US")}
+                                                        <span class="bi bi-hand-thumbs-down-fill" style="margin-left: 5px;"></span> ${lastGen?.dislikes.toLocaleString("en-US")}
                                                     <span class="text-muted">)</span>
                                                 </span></td></tr></td></tr>
-                                            <tr><td class="fw-bold">${t("ugca.lvl_maxp")}</td><td>${lastGen?.max_player_count}</td></tr></td></tr>
-                                            <tr><td class="fw-bold">${t("ugca.lvl_theme")}</td><td>${lastGen?.theme_id}</td></tr></td></tr>
-                                            <tr><td class="fw-bold">${t("ugca.lvl_mode")}</td><td>${lastGen?.gamemode_id}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">${t("ugca.lvl_maxp")}</td><td>
+                                                ${lastGen?.max_player_count}
+                                                ${lastGen.config && lastGen.config["qualification_percentage"] ? ` (${lastGen.config["qualification_percentage"]}% ${t("ugca.qual_perc")})` : ``}
+                                                ${lastGen.config && lastGen.config["survival_percentage"] ? ` (${lastGen.config["survival_percentage"]}% ${t("ugca.surv_perc")})` : ``}
+                                            </td></tr></td></tr>
+                                            <tr><td class="fw-bold">${t("ugca.lvl_theme")}</td><td>${!lastGen?.theme_id ? `<span class="text-muted">Unknown</span>` : lastGen?.theme_id}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">${t("ugca.lvl_mode")}</td><td>${!lastGen?.gamemode_id ? `<span class="text-muted">Unknown</span>` : lastGen?.gamemode_id}</td></tr></td></tr>
                                             <tr><td class="fw-bold">${t("ugca.lvl_last_edit")}</td><td>${new Date(lastGen?.last_modified! * 1000).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "medium" })}</td></tr></td></tr>
-                                            <tr><td class="fw-bold">${t("ugca.lvl_made_on")}</td><td>v${lastGen?.client_version} (${lastGen?.platform_id})</td></tr></td></tr>
+                                            <tr><td class="fw-bold">${t("ugca.lvl_tags")}</td><td>${!lastGen?.tags ? `<span class="text-muted">None</span>` : lastGen.tags.join(", ")}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">${t("ugca.lvl_mus")}</td><td>${lastGen.config && lastGen.config["ingame_music_soundtrack"] ? `${lastGen.config["ingame_music_soundtrack"]}` : `<span class="text-muted">Random</span>`}</td></tr></td></tr>
                                         </tbody>
                                     </table>
-                                <div>
+                                </div>
+                                <div class="d-flex flex-wrap gap-1">
                                 <a href="${lastGen?.scene_url}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> ${t("ugca.fg_get")}</a>
                                 <a style="${!tgd ? "display: none;" : ""}" href="https://t.me/fgugcarchive/${tgd?.message_id}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> ${t(sourceLocales.get("telegram")!, t("telegram"))} (${formatBytes(Number(tgd?.file_size!))})</a>
                                 </div>
                         </div>
                     <div class="col-md-5 mt-2">
-                        <div class="carousel img-thumbnail">
+                        <div class="carousel border rounded overflow-hidden w-100 border-2">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <div class="position-relative w-100" style="aspect-ratio: 2 / 1;">
                                         <div id="thumb-loader" class="spinner-border position-absolute top-50 start-50" role="status" style="translate: -50% -50%;">
                                             <span class="visually-hidden"></span>
                                         </div>
-                                        <img style="object-fit: fit;" class="d-block w-100 h-100" 
-                                            src="${lastGen?.loading_image?.url || lastGen?.preview_image?.url || "https://cdn.floyzi.dev/shared-images/fallback.webp"}"
+                                        <img class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: fit;" 
+                                            src="${lastGen?.loading_image?.url || lastGen?.preview_image?.url || LINKS.fallbackPic}"
                                             onload="document.getElementById('thumb-loader').style.display='none'"
-                                            onerror="document.getElementById('thumb-loader').style.display='none'; this.onerror=null; this.src='https://cdn.floyzi.dev/shared-images/fallback.webp';">
+                                            onerror="document.getElementById('thumb-loader').style.display='none'; this.onerror=null; this.src='${LINKS.fallbackPic}';">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="text-muted fs-7 mt-1">
+                            ${lastGen?.loading_image?.created_at || lastGen?.preview_image?.created_at ? `<div>${t("ugca.lvl_thumb_date")}: ${new Date(lastGen?.loading_image?.created_at! || lastGen?.preview_image?.created_at!).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "medium" })}</div>` : ``}
                             <div>${t("ugca.lvl_last_touch")}: ${new Date(lastGen?.last_touch! * 1000).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "medium" })}</div>
                             <div>${t("ugca.lvl_src")}: ${RecordType[lastGen?.record_type!]}</div>
                             <div>${t("ugca.lvl_gen")}: ${lastGen?.version}</div>
+                            <div>${t("ugca.lvl_made_on")}: v${lastGen?.client_version} (${lastGen?.platform_id})</div>
+                            <div>${t("ugca.lvl_completed")}: ${lastGen?.completed}</div>
+                            <div>${t("ugca.lvl_time_limit")}: ${lastGen.config && lastGen.config["time_limit_seconds"] ? `${lastGen.config["time_limit_seconds"]}s` : `<span class="text-muted">???</span>`}</div>
                         </div>
                     </div>
                 </div>
@@ -558,9 +576,16 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
             const gen = row.dataset.gen;
             if (!gen) return;
 
-            const params = new URLSearchParams({ code: level.sharecode, gen: gen });
-            window.history.pushState({}, "", `/creative/level?${params.toString()}`);
-            doLevelRender(level, Number(gen));
+            var genNum = Number(gen);
+            if (lastGen?.version != genNum) {
+                const params = new URLSearchParams({ code: level.sharecode, gen: gen });
+                window.history.pushState({}, "", `/creative/level?${params.toString()}`);
+                doLevelRender(level, genNum);
+            }
+            document.body.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
         });
     }
     catch (ex) {
