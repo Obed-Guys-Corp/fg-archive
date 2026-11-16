@@ -331,7 +331,7 @@ async function doUGCASearch(query: string) {
 
         searchBase.innerHTML = `
                 <h3 class="my-2 text-center">${t("ugca.search_res", query)}</h3>
-                <p class="text-center">${t("ugca.search_bttm", res.total, "TBD")}</p>
+                <p class="text-center">${t("ugca.search_bttm", res.total, `${res.took}${res.took < 1000 ? "ms" : "s"}`)}</p>
                 <nav class="mt-4">
                     <ul id="page-list" class="pagination justify-content-center flex-wrap"></ul>
                 </nav>
@@ -350,7 +350,7 @@ async function doUGCASearch(query: string) {
                         <tbody id="search-results">
                             ${res.results.map((item, index) => `
                                 <tr data-sharecode="${item.sharecode}" class="result-row" style="cursor: pointer">
-                                    <th scope="row">${(currPage - 1) * 50 + index + 1}</th>
+                                    <th scope="row">${(currPage - 1) * res.page_size + index + 1}</th>
                                     <td>${item.name}</td>
                                     <td>${item.author}</td>
                                     <td>${item.sharecode}</td>

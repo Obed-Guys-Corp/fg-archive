@@ -172,12 +172,15 @@ export interface UGCSearch {
     total: number;
     page: number;
     total_pages: number;
+    page_size: number;
+    took: number;
 }
 
 export interface UGCLevel {
     sharecode: string;
     latest_version: number;
     generations: UGCGeneration[];
+    took: number;
 }
 
 export interface UGCGeneration {
