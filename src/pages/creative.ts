@@ -9,6 +9,18 @@ import { sourceLocales } from "../ui/builds/source-maps";
 
 let stats: UGCStats;
 
+window.addEventListener("popstate", () => {
+    const path = window.location.pathname;
+
+    if (path === "/creative") {
+        renderCreative();
+    } else if (path === "/creative/level") {
+        renderUGCALevel();
+    } else if (path === "/creative/search") {
+        renderUGCASearch();
+    }
+});
+
 export async function renderCreative(): Promise<void> {
     const app = document.getElementById("app");
     if (!app) return;
@@ -21,7 +33,7 @@ export async function renderCreative(): Promise<void> {
         </div>`
 
     try {
-        stats = await Api.fetchUGCAStats();
+        if (stats == null) stats = await Api.fetchUGCAStats();
         renderMain();
     }
     catch (ex) {
@@ -256,18 +268,14 @@ export async function renderUGCASearch() {
     const query = params.get("q") ?? "";
 
     if (!query) {
-        window.history.pushState({}, "", `/creative`);
-        window.dispatchEvent(new PopStateEvent("popstate"));
-        renderCreative();
+        window.history.replaceState({}, "", `/creative`);
         return;
     }
 
     const codePat = /^\d{4}-\d{4}-\d{4}$/;
     if (codePat.test(query)) {
         const params = new URLSearchParams({ code: query });
-        window.history.pushState({}, "", `/creative/level?${params.toString()}`);
-        window.dispatchEvent(new PopStateEvent("popstate"));
-        renderUGCALevel();
+        window.history.replaceState({}, "", `/creative/level?${params.toString()}`);
         return;
     }
 
@@ -361,9 +369,9 @@ async function doUGCASearch(query: string) {
 
             const sharecode = row.dataset.sharecode;
             if (!sharecode) return;
+            
             const params = new URLSearchParams({ code: sharecode });
             window.history.pushState({}, "", `/creative/level?${params.toString()}`);
-            window.dispatchEvent(new PopStateEvent("popstate"));
             renderUGCALevel();
         });
 
@@ -385,9 +393,9 @@ export async function renderUGCALevel() {
     const query = params.get("code") ?? "";
     const gen = params.get("gen") ?? "-1";
 
-    if (!query) {
-        window.history.pushState({}, "", `/creative`);
-        window.dispatchEvent(new PopStateEvent("popstate"));
+    const codePat = /^\d{4}-\d{4}-\d{4}$/;
+    if (!query || !codePat.test(query)) {
+        window.history.replaceState({}, "", `/creative`);
         renderCreative();
         return;
     }
@@ -445,7 +453,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                                     <table class="table table-sm mt-2">
                                         <tbody>
                                             <tr><td class="fw-bold">${t("ugca.lvl_author")}</td><td>${lastGen?.author?.eos || lastGen?.author?.steam || lastGen?.author?.psn || lastGen?.author?.xbl || lastGen?.author?.nintendo || "Unknown"}</td></tr></td></tr>
-                                            <tr><td class="fw-bold">${t("lvl_code")}</td><td>${level.sharecode}</td></tr></td></tr>
+                                            <tr><td class="fw-bold">${t("ugca.lvl_code")}</td><td>${level.sharecode}</td></tr></td></tr>
                                             <tr><td class="fw-bold">${t("ugca.lvl_played")}</td><td>${lastGen?.played} 
                                                 <span style="margin-left: 6px;">
                                                     <span class="text-muted">(</span>
@@ -462,7 +470,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                                     </table>
                                 <div>
                                 <a href="${lastGen?.scene_url}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> ${t("ugca.fg_get")}</a>
-                                <a style="${!tgd ? "display: none;" : ""}" href="https://t.me/fgugcarchive/${tgd?.message_id}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> ${t(sourceLocales.get("telegram")!)} (${formatBytes(Number(tgd?.file_size!))})</a>
+                                <a style="${!tgd ? "display: none;" : ""}" href="https://t.me/fgugcarchive/${tgd?.message_id}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> ${t(sourceLocales.get("telegram")!, t("telegram"))} (${formatBytes(Number(tgd?.file_size!))})</a>
                                 </div>
                         </div>
                     <div class="col-md-5 mt-2">
