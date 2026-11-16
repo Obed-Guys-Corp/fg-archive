@@ -210,12 +210,13 @@ async function renderMain() {
         }
     });
 
-    var res = await Api.fetchUGCARecent();
-
     const recentElem = document.getElementById("recent-changes");
     if (!recentElem) return;
 
-    recentElem.innerHTML = `
+    try {
+        var res = await Api.fetchUGCARecent();
+
+        recentElem.innerHTML = `
     <div class="table-responsive">
     <table class="table table-hover">
         <thead>
@@ -237,17 +238,21 @@ async function renderMain() {
     </div>
     `;
 
-    recentElem?.addEventListener("click", (event) => {
-        const row = (event.target as HTMLElement).closest("tr");
-        if (!row) return;
+        recentElem?.addEventListener("click", (event) => {
+            const row = (event.target as HTMLElement).closest("tr");
+            if (!row) return;
 
-        const sharecode = row.dataset.sharecode;
-        if (!sharecode) return;
-        
-        const params = new URLSearchParams({ code: sharecode });
-        window.history.pushState({}, "", `/creative/level?${params.toString()}`);
-        renderUGCALevel();
-    });
+            const sharecode = row.dataset.sharecode;
+            if (!sharecode) return;
+
+            const params = new URLSearchParams({ code: sharecode });
+            window.history.pushState({}, "", `/creative/level?${params.toString()}`);
+            renderUGCALevel();
+        });
+    }
+    catch (ex) {
+        recentElem.innerHTML = `<p class="text-center">${t("generic_error")}<br>${ex}</p>`
+    }
 }
 
 export async function renderUGCAStats() {
@@ -550,7 +555,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                                 </div>
                         </div>
                     <div class="col-md-5 mt-2">
-                        <div class="carousel border rounded overflow-hidden w-100 border-2">
+                        <div class="carousel border rounded overflow-hidden w-100 border-3">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <div class="position-relative w-100" style="aspect-ratio: 2 / 1;">
