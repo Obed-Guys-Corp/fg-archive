@@ -41,7 +41,20 @@ function renderMain() {
     app.innerHTML = `
         <div class="container">
             <div id="base-page" class="col-12 justify-content-center my-3">
-                <h1 class="my-4 text-center">Fall Guys Creative Archive (EXPERIMENTAL)</h1>
+                <h1 class="my-4 text-center titan-one-font">Fall Guys Creative Archive</h1>
+                <div class="alert alert-warning my-3 alert-dismissible fade show" role="alert">
+                    <h5 class="alert-heading">Experiment</h5>
+                        <p class="mb-0">
+                            This is my experiment in an attempt to archive Fall Guys Creative. 
+                            Unfortunately my resources are very limited so the whole thing may shut down in the future (already archived levels will stay). 
+                            Right now the main source of archived levels is this <a href="https://discord.gg/PEysxvSE3x" class="alert-link" target="_blank">Telegram Channel</a>, 
+                            in the future they may get moved to a proper file hosting. 
+                            This <a href="https://discord.gg/PEysxvSE3x" class="alert-link" target="_blank">GitHub repository</a> hosts all metadata about archived levels
+                        </p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div>
+            </div>
+            </div>
                 <div class="row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <div class="card">
