@@ -18,6 +18,8 @@ window.addEventListener("popstate", () => {
         renderUGCALevel();
     } else if (path === "/creative/search") {
         renderUGCASearch();
+    } else if (path === "/creative/stats") {
+        renderUGCAStats();
     }
 });
 
@@ -69,7 +71,7 @@ function renderMain() {
                 <div class="row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <div class="card">
-                            <div class="card-header">${t("ugca.search_title")}</div>
+                            <div class="card-header lead">${t("ugca.search_title")}</div>
                                 <div class="card-body">
                                     <div class="input-group mb-3">
                                         <input id="level-search" type="text" class="form-control" placeholder="${t("ugca.search_ph")}" aria-label="${t("ugca.search_ph")}" aria-describedby="basic-addon2" maxlength="20" minlength="4">
@@ -82,7 +84,7 @@ function renderMain() {
                         </div>
                     <div class="col-sm-6">
                         <div class="card">
-                            <div class="card-header">${t("ugca.archive_title")}</div>
+                            <div class="card-header lead">${t("ugca.archive_title")}</div>
                                 <div class="card-body">
                                     <div class="input-group mb-3">
                                         <input id="level-archive" type="text" inputmode="numeric" class="form-control" placeholder="${t("ugca.archive_ph")}" aria-label="${t("ugca.archive_ph")}" aria-describedby="basic-addon2" maxlength="14" minlength="14">
@@ -235,7 +237,7 @@ export async function renderUGCAStats() {
                          <col style="width: 30%">
                     </colgroup>
                     <tbody id="${id}">
-                        ${Object.entries(data).map(([key, value]) => `
+                        ${Object.entries(data).sort((a, b) => b[1] - a[1]).map(([key, value]) => `
                             <tr>
                                 <td>${key}:</td>
                                 <td class="right">${value} ${value > 1 ? "levels" : "level"}</td>
