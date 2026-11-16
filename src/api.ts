@@ -202,8 +202,8 @@ export class Api {
 
     public static async searchInUGCA(query: string, page: number = 1): Promise<UGCSearch> {
         if (!query.trim()) throw new Error();
-    
-        var res = await fetch(`http://localhost:8080/fga/creative/search?${new URLSearchParams({q: query, page: page.toString()})}`);
+
+        var res = await fetch(`http://localhost:8080/fga/creative/search?${new URLSearchParams({ q: query, page: page.toString() })}`);
         if (!res.ok) {
             if (res.status == 404) throw new Error(`No results were found for \"${query}\"`);
             throw new Error(`${res.status}: ${res.statusText}`);
@@ -211,14 +211,36 @@ export class Api {
         return await res.json() as UGCSearch;
     }
 
-     public static async searchUGCALevel(sharecode: string): Promise<UGCLevel> {
+    public static async searchUGCALevel(sharecode: string): Promise<UGCLevel> {
         if (!sharecode.trim()) throw new Error();
-    
-        var res = await fetch(`http://localhost:8080/fga/creative/level?${new URLSearchParams({code: sharecode})}`);
+
+        var res = await fetch(`http://localhost:8080/fga/creative/level?${new URLSearchParams({ code: sharecode })}`);
         if (!res.ok) {
             if (res.status == 404) throw new Error(`Look's like we don't have level with sharecode ${sharecode} archived yet. If you want to see it here submit it on the main page`);
             throw new Error(`${res.status}: ${res.statusText}`);
         }
         return await res.json() as UGCLevel;
+    }
+
+    public static async submitLevel(sharecode: string, version: number = -1): Promise<{
+        code: number;
+        message: string;
+    }> {
+        var res = await fetch("http://localhost:8080/fga/creative/archive", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                sharecode: sharecode,
+                version: version,
+            }),
+        });
+
+        const json = await res.json();
+        return {
+            code: res.status,
+            message: json.message
+        };
     }
 }

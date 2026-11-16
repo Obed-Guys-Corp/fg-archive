@@ -1,3 +1,4 @@
+import { Modal } from "bootstrap";
 import { Api } from "../api";
 import { RecordType, type UGCLevel, type UGCStats } from "../types";
 import { renderPageList } from "../ui/pagination";
@@ -92,6 +93,19 @@ function renderMain() {
         </tbody>
     </table>
     <a href="/creative/stats" class="btn btn-outline-primary d-flex justify-content-center" data-navigation>More statistics</a>
+    <div class="modal fade" id="txt-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-title">Modal title</h5>
+      </div>
+      <div class="modal-body" id="modal-body">...</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
     `;
 
     const searchInput = document.getElementById("level-search") as HTMLInputElement;
@@ -123,6 +137,33 @@ function renderMain() {
         archiveBtn.disabled = archiveInput.value.length != 14;
         const value = archiveInput.value.replace(/\D/g, "").slice(0, 12);
         archiveInput.value = value.match(/.{1,4}/g)?.join("-") || "";
+    });
+
+    archiveBtn.addEventListener("click", async () => {
+        archiveBtn.disabled = true;
+        archiveInput.disabled = true;
+
+        try {
+            var subRes = await Api.submitLevel(archiveInput.value);
+
+            const modal = document.getElementById("txt-modal");
+
+            if (modal) {
+                const title = document.getElementById("modal-title");
+                const body = document.getElementById("modal-body");
+
+                if (!title || !body) return;
+
+                title.textContent = "Submit Result";
+                body.textContent = subRes.message ?? `??? (http ${subRes.code})`;
+
+                Modal.getOrCreateInstance(modal).show();
+            }
+        }
+        finally {
+            archiveInput.disabled = false;
+            archiveInput.value = "";
+        }
     });
 }
 
@@ -377,7 +418,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
     try {
         var lastGen = selectedGen < 0 ? level.generations.find(x => x.version == level.latest_version) : level.generations.find(x => x.version == selectedGen);
         if (!lastGen) {
-            return;
+            throw new Error("such generation does not exist for this level");
         }
 
         var tgd = lastGen?.archive_downloads["tg"];
@@ -426,7 +467,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                                         <img style="object-fit: fit;" class="d-block w-100 h-100" 
                                             src="${lastGen?.loading_image?.url || lastGen?.preview_image?.url || "https://cdn.floyzi.dev/shared-images/fallback.webp"}"
                                             onload="document.getElementById('thumb-loader').style.display='none'"
-                                            onerror="document.getElementById('thumb-loader').style.display='none'; this.onerror=null; this.src='https://api.floyzi.dev/random_pic?src=main';">
+                                            onerror="document.getElementById('thumb-loader').style.display='none'; this.onerror=null; this.src='https://cdn.floyzi.dev/shared-images/fallback.webp';">
                                     </div>
                                 </div>
                             </div>
