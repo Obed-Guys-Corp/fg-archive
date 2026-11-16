@@ -158,7 +158,7 @@
     "creative_title": "Creative",
     "ugca.title": "Fall Guys Creative Archive",
     "ugca.exp_title": "Experiment",
-    "ugca.exp_desc": "This is my experiment in an attempt to archive Fall Guys Creative. Unfortunately my resources are very limited so the whole thing may shut down in the future (already archived levels will stay). Right now the main source of archived levels is this {0}, in the future they may get moved to a proper file hosting. This {1} hosts all metadata about archived levels",
+    "ugca.exp_desc": "This is my experiment in an attempt to archive Fall Guys creative levels. Unfortunately, my resources are very limited so as of now all archived levels being hosted in this {0}. If i continue expanding this experiment in the future, they will be moved to a proper file hosting.",
     "ugca.search_title": "Search for a level",
     "ugca.search_ph": "Level share-code or name",
     "search": "Search",

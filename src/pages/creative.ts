@@ -61,7 +61,7 @@ function renderMain() {
                 <h1 class="my-4 text-center titan-one-font">${t("ugca.title")}</h1>
                 <div class="alert alert-warning my-3 alert-dismissible fade show" role="alert">
                         <p class="mb-0">
-                            ${t("ugca.exp_desc", `<a href="${LINKS.ugcTelegram}" class="alert-link" target="_blank">Telegram Channel</a>`, `<a href="${LINKS.ugcArchiveGit}" class="alert-link" target="_blank">GitHub repository</a>`)}
+                            ${t("ugca.exp_desc", `<a href="${LINKS.ugcTelegram}" class="alert-link" target="_blank">Telegram Channel</a>`)}
                         </p>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 <div>
@@ -97,12 +97,15 @@ function renderMain() {
                     </div>
                 </div>
                 <hr>
-                    <div class="card my-3">
-                        <div class="card-header">${t("stats")}</div>
-                            <div id="statistics" class="card-body">
-                            </div>
-                        </div>
-                    </div> 
+                <div class="card my-3">
+                    <div class="card-header">${t("stats")}</div>
+                        <div id="statistics" class="card-body"></div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="${LINKS.ugcTelegram}" class="text-decoration-underline">Telegram Channel</a> • <a href="${LINKS.ugcArchiveGit}" class="text-decoration-underline">GitHub Repository</a><br>
+                    <span class="text-muted">Special thanks to <a href="${LINKS.fga}" class="text-decoration-underline">FGAnalyst</a> team for allowing me to archive their indexed levels</span>
+                </div>
         </div>
     `;
 
@@ -582,6 +585,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                 window.history.pushState({}, "", `/creative/level?${params.toString()}`);
                 doLevelRender(level, genNum);
             }
+
             document.body.scrollTo({
                 top: 0,
                 behavior: "smooth"

@@ -7,5 +7,6 @@ export const LINKS = {
     cmsGitlab: "https://gitlab.com/floyzi/fallguys-cms",
     ugcArchiveGit: "https://github.com/Obed-Guys-Corp/fallguys-ugc-archive",
     ugcTelegram: "https://t.me/fgugcarchive",
-    fallbackPic: "https://cdn.floyzi.dev/shared-images/fallback.webp"
+    fallbackPic: "https://cdn.floyzi.dev/shared-images/fallback.webp",
+    fga: "https://cloudseeker.xyz/fga/"
 } as const;
