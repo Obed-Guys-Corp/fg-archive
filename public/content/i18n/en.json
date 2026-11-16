@@ -208,5 +208,7 @@
     "ugca.surv_perc": "survive",
     "ugca.lvl_preview": "Viewing v{0} dated by {1}",
     "ugca.recent_levels": "Recent Levels",
-    "generic_error": "Couldn't load!"
+    "generic_error": "Couldn't load!",
+    "ugca.no_level": "Couldn't find a level with share-code \"{0}\", if you want, you can archive it on the main page",
+    "ugca.no_res": "Couldn't find any levels with requested parameters. Try using a different search term or chaning search parameters"
 }

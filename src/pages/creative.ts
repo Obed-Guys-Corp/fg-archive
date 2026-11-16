@@ -1,6 +1,6 @@
 import { Modal } from "bootstrap";
 import { Api } from "../api";
-import { RecordType, type UGCLevel, type UGCSearchRes, type UGCStats } from "../types";
+import { HttpError, RecordType, type UGCLevel, type UGCSearchRes, type UGCStats } from "../types";
 import { renderPageList } from "../ui/pagination";
 import { formatBytes } from "../utils/string";
 import { LINKS } from "../constants/links";
@@ -448,10 +448,16 @@ async function doUGCASearch(query: string) {
         }
     }
     catch (ex) {
-        searchBase.innerHTML = `<div class="alert alert-danger">${ex}</div>`;
-    }
-    finally {
+        if (ex instanceof HttpError) {
+            switch (ex.status) {
+                case 404:
+                    searchBase.innerHTML = `<div class="alert alert-warning">${t("ugca.no_res")}<br><br><a href="/creative" class="alert-link"  data-navigation>Click here to return back on the main page</a></div>`;
+                    break;
+                default:
+                    searchBase.innerHTML = `<div class="alert alert-danger">${ex}</div>`;
+            }
 
+        }
     }
 }
 
@@ -499,7 +505,16 @@ export async function renderUGCALevel() {
         doLevelRender(res, Number(gen));
     }
     catch (ex) {
-        levelBase.innerHTML = `<div class="alert alert-danger">${ex}</div>`;
+        if (ex instanceof HttpError) {
+            switch (ex.status) {
+                case 404:
+                    levelBase.innerHTML = `<div class="alert alert-warning">${t("ugca.no_level", query)}<br><br><a href="/creative" class="alert-link"  data-navigation>Click here to return back on the main page</a></div>`;
+                    break;
+                default:
+                    levelBase.innerHTML = `<div class="alert alert-danger">${ex}</div>`;
+            }
+
+        }
     }
 }
 
@@ -509,7 +524,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
 
     try {
         var lastGen = selectedGen < 0 ? level.generations.find(x => x.version == level.latest_version) : level.generations.find(x => x.version == selectedGen);
-        if (!lastGen) throw new Error(t("level_no_gen"));
+        if (!lastGen) throw new Error("NO_GEN");
 
         var tgd = lastGen?.archive_downloads["tg"];
 
@@ -616,7 +631,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                         <tbody id="level-generations">
                             ${level.generations.map((item, index) => `
                                 <tr data-gen="${item.version}" class="result-row" style="cursor: pointer">
-                                    <th scope="row">${(currPage - 1) * 50 + index + 1}</th>
+                                    <th scope="row">${index + 1}</th>
                                     <td>v${item.version}</td>
                                     <td>${item.client_version}</td>
                                     <td>${new Date(item?.last_modified! * 1000).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "medium" })}</td>
@@ -649,9 +664,11 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
         });
     }
     catch (ex) {
-        levelBase.innerHTML = `<div class="alert alert-danger">${t("level_ex")}<br><br>${ex}</div>`
-    }
-    finally {
-
+       if (ex instanceof Error && ex.message === "NO_GEN") {
+            levelBase.innerHTML = `<div class="alert alert-warning">${t("ugca.level_no_gen")}<br><br><a href="/creative" class="alert-link"  data-navigation>Click here to return back on the main page</a></div>`;
+       }
+       else {
+            levelBase.innerHTML = `<div class="alert alert-danger">${t("ugca.level_ex")}<br><br>${ex}</div>`
+       }
     }
 }

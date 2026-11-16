@@ -1,7 +1,7 @@
 import JSZip from "jszip";
 import { CMS_CONFIG } from "./constants/cms-config";
 import { t } from "./i18n/i18n";
-import { BUILD_TYPES, type Build, type Builds, type BuildType, type GlCommit, type HttpResponse, type Release, type UGCLevel, type UGCSearch, type UGCSearchRes, type UGCStats } from "./types";
+import { BUILD_TYPES, HttpError, type Build, type Builds, type BuildType, type GlCommit, type HttpResponse, type Release, type UGCLevel, type UGCSearch, type UGCSearchRes, type UGCStats } from "./types";
 import { timeDiff } from "./utils/string";
 
 interface CMSCachedPage {
@@ -209,7 +209,7 @@ export class Api {
             const res = await fetch(url);
 
             if (!res.ok) {
-                throw new Error(`${res.status}: ${res.statusText}`);
+                throw new HttpError(res.status, res.statusText);
             }
 
             return {
@@ -239,10 +239,6 @@ export class Api {
         if (!query.trim()) throw new Error();
 
         var res = await this.cachedFetch<UGCSearch>(`http://localhost:8080/fga/creative/search?${new URLSearchParams({ q: query, page: page.toString() })}`);
-        if (!res.ok) {
-            if (res.status == 404) throw new Error(`No results were found for \"${query}\"`);
-            throw new Error(`${res.status}: ${res.statusText}`);
-        }
         return res.response;
     }
 
@@ -250,10 +246,6 @@ export class Api {
         if (!sharecode.trim()) throw new Error();
 
         var res = await this.cachedFetch<UGCLevel>(`http://localhost:8080/fga/creative/level?${new URLSearchParams({ code: sharecode })}`);
-        if (!res.ok) {
-            if (res.status == 404) throw new Error(`Look's like we don't have level with sharecode ${sharecode} archived yet. If you want to see it here submit it on the main page`);
-            throw new Error(`${res.status}: ${res.statusText}`);
-        }
         return res.response;
     }
 

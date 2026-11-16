@@ -236,3 +236,14 @@ export type HttpResponse<T> = {
     ok: boolean;
     statusText: string;
 };
+
+export class HttpError extends Error {
+    constructor(
+        public status: number,
+        public statusText: string,
+        message?: string
+    ) {
+        super(message ?? `${status}: ${statusText}`);
+        this.name = "HttpError";
+    }
+}
