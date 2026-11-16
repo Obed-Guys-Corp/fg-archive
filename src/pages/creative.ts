@@ -1,6 +1,6 @@
 import { Modal } from "bootstrap";
 import { Api } from "../api";
-import { RecordType, type UGCLevel, type UGCStats } from "../types";
+import { RecordType, type UGCLevel, type UGCSearchRes, type UGCStats } from "../types";
 import { renderPageList } from "../ui/pagination";
 import { formatBytes } from "../utils/string";
 import { LINKS } from "../constants/links";
@@ -8,6 +8,7 @@ import { t } from "../i18n/i18n";
 import { sourceLocales } from "../ui/builds/source-maps";
 
 let stats: UGCStats;
+let recent: UGCSearchRes[];
 
 window.addEventListener("popstate", () => {
     const path = window.location.pathname;
@@ -51,7 +52,7 @@ export async function renderCreative(): Promise<void> {
     }
 }
 
-function renderMain() {
+async function renderMain() {
     const app = document.getElementById("app");
     if (!app) return;
 
@@ -64,9 +65,7 @@ function renderMain() {
                             ${t("ugca.exp_desc", `<a href="${LINKS.ugcTelegram}" class="alert-link" target="_blank">Telegram Channel</a>`)}
                         </p>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                <div>
-            </div>
-            </div>
+                </div>
                 <div class="row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <div class="card">
@@ -97,15 +96,37 @@ function renderMain() {
                     </div>
                 </div>
                 <hr>
-                <div class="card my-3">
-                    <div class="card-header">${t("stats")}</div>
-                        <div id="statistics" class="card-body"></div>
+                <div class="row mb-3">
+                     <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div class="card h-100">
+                            <div class="card-header">${t("stats")}</div>
+                            <div id="statistics" class="card-body"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card h-100">
+                            <div class="card-header">${t("ugca.recent_levels")}</div>
+                            <div id="recent-changes" class="card-body"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="text-center">
+                <div class="text-center mb-3">
                     <a href="${LINKS.ugcTelegram}" class="text-decoration-underline">Telegram Channel</a> • <a href="${LINKS.ugcArchiveGit}" class="text-decoration-underline">GitHub Repository</a><br>
                     <span class="text-muted">Special thanks to <a href="${LINKS.fga}" class="text-decoration-underline">FGAnalyst</a> team for allowing me to archive their indexed levels</span>
                 </div>
+        </div>
+        <div class="modal fade" id="txt-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-title"></h5>
+                    </div>
+                    <div class="modal-body" id="modal-body"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">${t("close")}</button>
+                    </div>
+                </div>
+            </div>
         </div>
     `;
 
@@ -113,25 +134,14 @@ function renderMain() {
     if (!statElement) return;
 
     statElement.innerHTML = `
+    <div class="d-flex flex-column h-100">
     <table class="table">
         <tbody>
             <tr><td>${t("ugca.stat_levels")}</td><td class="right">${stats.levels.toLocaleString("en-US")}</td></tr>
             <tr><td>${t("ugca.stat_size")}</td><td class="right">${formatBytes(stats.total_size)}</td></tr>
         </tbody>
     </table>
-    <a href="/creative/stats" class="btn btn-outline-secondary d-flex justify-content-center" data-navigation>${t("ugca.more_stats")}</a>
-    <div class="modal fade" id="txt-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modal-title"></h5>
-            </div>
-            <div class="modal-body" id="modal-body"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">${t("close")}</button>
-                </div>
-            </div>
-        </div>
+    <a href="/creative/stats" class="btn btn-outline-secondary d-flex justify-content-center mt-auto" data-navigation>${t("ugca.more_stats")}</a>
     </div>
     `;
 
@@ -199,6 +209,45 @@ function renderMain() {
             archiveInput.value = "";
         }
     });
+
+    var res = await Api.fetchUGCARecent();
+
+    const recentElem = document.getElementById("recent-changes");
+    if (!recentElem) return;
+
+    recentElem.innerHTML = `
+    <div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">${t("ugca.lvl_name")}</th>
+                <th scope="col">${t("ugca.lvl_code")}</th>
+            </tr>
+        </thead>
+        <tbody>
+           ${res.map((item) => `
+            <tr data-sharecode="${item.sharecode}" style="cursor: pointer">
+                <td>${item.name}</td>
+                <td class="right">${item.sharecode}</td>
+            </tr>
+        `).join("")}
+            
+        </tbody>
+    </table>
+    </div>
+    `;
+
+    recentElem?.addEventListener("click", (event) => {
+        const row = (event.target as HTMLElement).closest("tr");
+        if (!row) return;
+
+        const sharecode = row.dataset.sharecode;
+        if (!sharecode) return;
+        
+        const params = new URLSearchParams({ code: sharecode });
+        window.history.pushState({}, "", `/creative/level?${params.toString()}`);
+        renderUGCALevel();
+    });
 }
 
 export async function renderUGCAStats() {
@@ -243,7 +292,7 @@ export async function renderUGCAStats() {
                 <table class="table w-100">
                     <colgroup>
                         <col style="width: 70%">
-                         <col style="width: 30%">
+                        <col style="width: 30%">
                     </colgroup>
                     <tbody id="${id}">
                         ${Object.entries(data).sort((a, b) => b[1] - a[1]).map(([key, value]) => `
@@ -354,6 +403,7 @@ async function doUGCASearch(query: string) {
                                 <th scope="col">#</th>
                                 <th scope="col">${t("ugca.lvl_name")}</th>
                                 <th scope="col">${t("ugca.lvl_author")}</th>
+                                <th scope="col">${t("ugca.lvl_played")}</th>
                                 <th scope="col">${t("ugca.lvl_code")}</th>
                                 <th scope="col">${t("ugca.lvl_client")}</th>
                             </tr>
@@ -364,6 +414,7 @@ async function doUGCASearch(query: string) {
                                     <th scope="row">${(currPage - 1) * res.page_size + index + 1}</th>
                                     <td>${item.name}</td>
                                     <td>${item.author}</td>
+                                    <td>${item.played.toLocaleString("en-US")}</td>
                                     <td>${item.sharecode}</td>
                                     <td>${item.clientVersion}</td>
                                 </tr>

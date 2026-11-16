@@ -165,6 +165,15 @@ export interface UGCSearchRes {
     name: string;
     latestVersion: number;
     clientVersion: string;
+    played: number;
+    likes: number;
+    dislikes: number;
+    platform: string;
+    gamemode: string;
+    theme: string;
+    soundtrack: string;
+    tags: string[];
+    lastTouch: number;
 }
 
 export interface UGCSearch {

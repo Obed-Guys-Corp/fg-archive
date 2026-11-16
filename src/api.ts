@@ -1,7 +1,7 @@
 import JSZip from "jszip";
 import { CMS_CONFIG } from "./constants/cms-config";
 import { t } from "./i18n/i18n";
-import { BUILD_TYPES, type Build, type Builds, type BuildType, type GlCommit, type HttpResponse, type Release, type UGCLevel, type UGCSearch, type UGCStats } from "./types";
+import { BUILD_TYPES, type Build, type Builds, type BuildType, type GlCommit, type HttpResponse, type Release, type UGCLevel, type UGCSearch, type UGCSearchRes, type UGCStats } from "./types";
 import { timeDiff } from "./utils/string";
 
 interface CMSCachedPage {
@@ -277,5 +277,10 @@ export class Api {
             code: res.status,
             message: json.message
         };
+    }
+
+    public static async fetchUGCARecent(): Promise<UGCSearchRes[]> {
+        var res = await this.cachedFetch<UGCSearchRes[]>(`http://localhost:8080/fga/creative/recent`);
+        return res.response;
     }
 }

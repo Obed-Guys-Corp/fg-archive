@@ -206,6 +206,6 @@
     "ugca.qual_perc": "qualifiying",
     "ugca.lvl_thumb_date": "Thumbnail Creation",
     "ugca.surv_perc": "survive",
-    "ugca.lvl_preview": "Viewing v{0} dated by {1}"
-
+    "ugca.lvl_preview": "Viewing v{0} dated by {1}",
+    "ugca.recent_levels": "Recent Levels"
 }
