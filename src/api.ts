@@ -1,10 +1,10 @@
 import JSZip from "jszip";
 import { CMS_CONFIG } from "./constants/cms-config";
 import { t } from "./i18n/i18n";
-import { BUILD_TYPES, type Build, type Builds, type BuildType, type GlCommit, type Release, type UGCLevel, type UGCSearch, type UGCStats } from "./types";
+import { BUILD_TYPES, type Build, type Builds, type BuildType, type GlCommit, type HttpResponse, type Release, type UGCLevel, type UGCSearch, type UGCStats } from "./types";
 import { timeDiff } from "./utils/string";
 
-interface CachedPage {
+interface CMSCachedPage {
     timestamp: number;
     data: {
         commits: GlCommit[];
@@ -84,7 +84,7 @@ export class Api {
         const cache = localStorage.getItem(key);
 
         if (cache) {
-            const entry = JSON.parse(cache) as CachedPage;
+            const entry = JSON.parse(cache) as CMSCachedPage;
 
             if (Date.now() - entry.timestamp < CACHE_TIME) {
                 return entry.data;
@@ -144,7 +144,7 @@ export class Api {
             JSON.stringify({
                 timestamp: Date.now(),
                 data
-            } satisfies CachedPage)
+            } satisfies CMSCachedPage)
         );
 
         return data;
@@ -195,31 +195,66 @@ export class Api {
         };
     }
 
+    private static cache = new Map<
+        string,
+        { req: Promise<HttpResponse<unknown>>; expires: number }
+    >();
+
+    private static async cachedFetch<T>(url: string): Promise<HttpResponse<T>> {
+        const cached = this.cache.get(url);
+
+        if (cached && cached.expires > Date.now()) return cached.req as Promise<HttpResponse<T>>;
+
+        const req = (async () => {
+            const res = await fetch(url);
+
+            if (!res.ok) {
+                throw new Error(`${res.status}: ${res.statusText}`);
+            }
+
+            return {
+                response: await res.json() as T,
+                status: res.status,
+                ok: res.ok,
+                statusText: res.statusText
+            };
+        })();
+
+        this.cache.set(url, { req, expires: Date.now() + CACHE_TIME });
+
+        try {
+            return await req;
+        } catch (error) {
+            this.cache.delete(url);
+            throw error;
+        }
+    }
+
     public static async fetchUGCAStats(): Promise<UGCStats> {
-        var res = await fetch(`http://localhost:8080/fga/creative/stats`).then(res => res.json());
-        return res;
+        var res = await this.cachedFetch<UGCStats>(`http://localhost:8080/fga/creative/stats`);
+        return res.response;
     }
 
     public static async searchInUGCA(query: string, page: number = 1): Promise<UGCSearch> {
         if (!query.trim()) throw new Error();
 
-        var res = await fetch(`http://localhost:8080/fga/creative/search?${new URLSearchParams({ q: query, page: page.toString() })}`);
+        var res = await this.cachedFetch<UGCSearch>(`http://localhost:8080/fga/creative/search?${new URLSearchParams({ q: query, page: page.toString() })}`);
         if (!res.ok) {
             if (res.status == 404) throw new Error(`No results were found for \"${query}\"`);
             throw new Error(`${res.status}: ${res.statusText}`);
         }
-        return await res.json() as UGCSearch;
+        return res.response;
     }
 
     public static async searchUGCALevel(sharecode: string): Promise<UGCLevel> {
         if (!sharecode.trim()) throw new Error();
 
-        var res = await fetch(`http://localhost:8080/fga/creative/level?${new URLSearchParams({ code: sharecode })}`);
+        var res = await this.cachedFetch<UGCLevel>(`http://localhost:8080/fga/creative/level?${new URLSearchParams({ code: sharecode })}`);
         if (!res.ok) {
             if (res.status == 404) throw new Error(`Look's like we don't have level with sharecode ${sharecode} archived yet. If you want to see it here submit it on the main page`);
             throw new Error(`${res.status}: ${res.statusText}`);
         }
-        return await res.json() as UGCLevel;
+        return res.response;
     }
 
     public static async submitLevel(sharecode: string, version: number = -1): Promise<{

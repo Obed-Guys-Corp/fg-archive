@@ -160,18 +160,18 @@ export interface UGCStats {
 }
 
 export interface UGCSearchRes {
-  sharecode: string;
-  author: string;
-  name: string;
-  latestVersion: number;
-  clientVersion: string;
+    sharecode: string;
+    author: string;
+    name: string;
+    latestVersion: number;
+    clientVersion: string;
 }
 
 export interface UGCSearch {
-  results: UGCSearchRes[];
-  total: number;
-  page: number;
-  total_pages: number;
+    results: UGCSearchRes[];
+    total: number;
+    page: number;
+    total_pages: number;
 }
 
 export interface UGCLevel {
@@ -217,3 +217,10 @@ export interface UGCImage {
     url: string;
     created_at: string | null;
 }
+
+export type HttpResponse<T> = {
+    response: T;
+    status: number;
+    ok: boolean;
+    statusText: string;
+};
