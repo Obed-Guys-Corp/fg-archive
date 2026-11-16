@@ -388,6 +388,12 @@ async function doUGCASearch(query: string) {
     }
 }
 
+window.addEventListener("resize", () => {
+    var pages = document.getElementById("page-list");
+    if (!pages) return;
+    renderPageList(pages, currPage, totalPages, false)
+});
+
 export async function renderUGCALevel() {
     const params = new URLSearchParams(window.location.search);
     const query = params.get("code") ?? "";
