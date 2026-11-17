@@ -44,7 +44,7 @@ export async function renderCreative(): Promise<void> {
             <div class="container">
                 <div id="base-page" class="col-12 justify-content-center my-3">
                     <div class="alert alert-danger">
-                        ${t("ugca.generic_ex")}<br><br>${ex}
+                        ${t("ugca.generic_ex", `<a href="${LINKS.ugcArchiveGit}" class="alert-link">GitHub Repository</a>`, `<a href="${LINKS.ugcTelegram}" class="alert-link">Telegram Channel</a>`)}<br><br>${ex}
                     </div>
                 </div>
             </div>
@@ -316,7 +316,7 @@ export async function renderUGCAStats() {
             <div class="container">
                 <div id="base-page" class="col-12 justify-content-center my-3">
                     <div class="alert alert-danger">
-                        ${t("ugca.generic_ex")}<br><br>${ex}
+                       ${t("ugca.generic_ex", `<a href="${LINKS.ugcArchiveGit}" class="alert-link">GitHub Repository</a>`, `<a href="${LINKS.ugcTelegram}" class="alert-link">Telegram Channel</a>`)}<br><br>${ex}
                     </div>
                 </div>
             </div>
@@ -508,7 +508,7 @@ export async function renderUGCALevel() {
         if (ex instanceof HttpError) {
             switch (ex.status) {
                 case 404:
-                    levelBase.innerHTML = `<div class="alert alert-warning">${t("ugca.no_level", query)}<br><br><a href="/creative" class="alert-link"  data-navigation>Click here to return back on the main page</a></div>`;
+                    levelBase.innerHTML = `<div class="alert alert-warning">${t("ugca.no_level", query)}<br><br><a href="/creative" class="alert-link" data-navigation>Click here to return back on the main page</a></div>`;
                     break;
                 default:
                     levelBase.innerHTML = `<div class="alert alert-danger">${ex}</div>`;

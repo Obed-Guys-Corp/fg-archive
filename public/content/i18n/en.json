@@ -196,7 +196,7 @@
     "ugca.other_gens": "Other level versions",
     "ugca.other_gens_blank": "There's nothing!",
     "close": "Close",
-    "ugca.generic_ex": "Looks like my API is down right now. You can still access Fall Guys Creative Archive directly on GitHub and it's Telegram Channel. You can also check your internet connection, use different browser or a VPN and also simply wait",
+    "ugca.generic_ex": "Looks like my API is down right now. You can still access Fall Guys Creative Archive directly on {0} and it's {1}. You can also check your internet connection, use different browser or a VPN and also simply wait",
     "ugca.level_ex": "This level was too good for my code, it can't be rendered",
     "ugca.level_no_gen": "Such generation does not exist for this level",
     "ugca.lvl_tags": "Tags",
