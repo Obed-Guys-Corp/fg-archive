@@ -210,5 +210,11 @@
     "ugca.recent_levels": "Recent Levels",
     "generic_error": "Couldn't load!",
     "ugca.no_level": "Couldn't find a level with share-code \"{0}\", if you want, you can archive it on the main page",
-    "ugca.no_res": "Couldn't find any levels with requested parameters. Try using a different search term or chaning search parameters"
+    "ugca.no_res": "Couldn't find any levels with requested parameters. Try using a different search term or chaning search parameters",
+    "ugca.rec_unknown": "An unknown record",
+    "ugca.rec_explore": "Level was archived because it was found in explore",
+    "ugca.rec_botlookup": "Level was archived because someone searched for it via my Telegram bot",
+    "ugca.rec_fganalyst": "Level was archived because it was found in level index provided by FG Analyst",
+    "ugca.rec_discord": "Level was archived because it's sharecode was scrapped from a public Discord server",
+    "ugca.rec_web": "Level was archived because it was requested for archival on the FG Archive Website"
 }

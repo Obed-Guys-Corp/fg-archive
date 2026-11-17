@@ -6,6 +6,7 @@ import { formatBytes } from "../utils/string";
 import { LINKS } from "../constants/links";
 import { t } from "../i18n/i18n";
 import { sourceLocales } from "../ui/builds/source-maps";
+import * as bootstrap from "bootstrap";
 
 let stats: UGCStats;
 let recent: UGCSearchRes[];
@@ -137,11 +138,11 @@ async function renderMain() {
     <div class="d-flex flex-column h-100">
     <table class="table">
         <tbody>
-            <tr><td>${t("ugca.stat_levels")}</td><td class="right">${stats.levels.toLocaleString("en-US")}</td></tr>
-            <tr><td>${t("ugca.stat_size")}</td><td class="right">${formatBytes(stats.total_size)}</td></tr>
+            <tr><td><span>${t("ugca.stat_levels")}:</span></td><td class="right">${stats.levels.toLocaleString("en-US")}</td></tr>
+            <tr><td>${t("ugca.stat_size")}:</td><td class="right">${formatBytes(stats.total_size)}</td></tr>
             ${Object.entries(stats.source_stats!).sort((a, b) => b[1] - a[1]).map(([key, value]) => `
                             <tr>
-                                <td>${key}:</td>
+                                <td><span data-bs-toggle="tooltip" title="${t(`ugca.rec_${key.toLocaleLowerCase()}`)}" tabindex="0">${key}:</span></td>
                                 <td class="right">${value.toLocaleString("en-US")} ${value > 1 ? "levels" : "level"}</td>
                             </tr>
                         `).join("")}
@@ -259,6 +260,9 @@ async function renderMain() {
     catch (ex) {
         recentElem.innerHTML = `<p class="text-center">${t("generic_error")}<br>${ex}</p>`
     }
+    finally {
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+    }
 }
 
 export async function renderUGCAStats() {
@@ -308,7 +312,7 @@ export async function renderUGCAStats() {
                     <tbody id="${id}">
                         ${Object.entries(data).sort((a, b) => b[1] - a[1]).map(([key, value]) => `
                             <tr>
-                                <td>${key}:</td>
+                                ${id != "source_stats" ? `<td>${key}:</td>` : `<td><span data-bs-toggle="tooltip" title="${t(`ugca.rec_${key.toLocaleLowerCase()}`)}" tabindex="0">${key}:</span></td>`}
                                 <td class="right">${value.toLocaleString("en-US")} ${value > 1 ? "levels" : "level"}</td>
                             </tr>
                         `).join("")}
@@ -327,6 +331,9 @@ export async function renderUGCAStats() {
                 </div>
             </div>
             `
+    }
+    finally {
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
     }
 }
 
@@ -594,7 +601,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                         <div class="text-muted fs-7 mt-1">
                             ${lastGen?.loading_image?.created_at || lastGen?.preview_image?.created_at ? `<div>${t("ugca.lvl_thumb_date")}: ${new Date(lastGen?.loading_image?.created_at! || lastGen?.preview_image?.created_at!).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "medium" })}</div>` : ``}
                             <div>${t("ugca.lvl_last_touch")}: ${new Date(lastGen?.last_touch! * 1000).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "medium" })}</div>
-                            <div>${t("ugca.lvl_src")}: ${RecordType[lastGen?.record_type!]}</div>
+                            <div><span data-bs-toggle="tooltip" title="${t(`ugca.rec_${String(RecordType[lastGen?.record_type]).toLocaleLowerCase()}`)}" tabindex="0">${t("ugca.lvl_src")}: ${RecordType[lastGen?.record_type!]}</span></div>
                             <div>${t("ugca.lvl_gen")}: ${lastGen?.version}</div>
                             <div>${t("ugca.lvl_made_on")}: v${lastGen?.client_version} (${lastGen?.platform_id})</div>
                             <div>${t("ugca.lvl_completed")}: ${lastGen?.completed}</div>
@@ -641,7 +648,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                                     <td>v${item.version}</td>
                                     <td>${item.client_version}</td>
                                     <td>${new Date(item?.last_modified! * 1000).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "medium" })}</td>
-                                    <td>${RecordType[item.record_type]}</td>
+                                    <td><span data-bs-toggle="tooltip" title="${t(`ugca.rec_${String(RecordType[item.record_type]).toLocaleLowerCase()}`)}" tabindex="0">${RecordType[item.record_type]}</span></td>
                                 </tr>
                             `).join("")}
                         </tbody>
@@ -670,11 +677,14 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
         });
     }
     catch (ex) {
-       if (ex instanceof Error && ex.message === "NO_GEN") {
+        if (ex instanceof Error && ex.message === "NO_GEN") {
             levelBase.innerHTML = `<div class="alert alert-warning">${t("ugca.level_no_gen")}<br><br><a href="/creative" class="alert-link"  data-navigation>Click here to return back on the main page</a></div>`;
-       }
-       else {
+        }
+        else {
             levelBase.innerHTML = `<div class="alert alert-danger">${t("ugca.level_ex")}<br><br>${ex}</div>`
-       }
+        }
+    }
+    finally {
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
     }
 }

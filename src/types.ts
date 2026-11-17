@@ -145,6 +145,7 @@ export enum RecordType {
     BotLookup = 2,
     FGAnalyst = 3,
     Discord = 4,
+    Web = 5
 }
 
 export interface UGCStats {
