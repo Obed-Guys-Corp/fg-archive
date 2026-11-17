@@ -14,6 +14,10 @@ let recent: UGCSearchRes[];
 window.addEventListener("popstate", () => {
     const path = window.location.pathname;
 
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => {
+        bootstrap.Tooltip.getInstance(el)?.dispose();
+    });
+
     if (path === "/creative") {
         renderCreative();
     } else if (path === "/creative/level") {
