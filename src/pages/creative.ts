@@ -44,7 +44,7 @@ export async function renderCreative(): Promise<void> {
             <div class="container">
                 <div id="base-page" class="col-12 justify-content-center my-3">
                     <div class="alert alert-danger">
-                        ${t("ugca.generic_ex", `<a href="${LINKS.ugcArchiveGit}" class="alert-link">GitHub Repository</a>`, `<a href="${LINKS.ugcTelegram}" class="alert-link">Telegram Channel</a>`)}<br><br>${ex}
+                        ${t("ugca.generic_ex", `<a href="${LINKS.ugcArchiveGit}" class="alert-link">GitHub</a>`, `<a href="${LINKS.ugcTelegram}" class="alert-link">Telegram Channel</a>`)}<br><br>${ex}
                     </div>
                 </div>
             </div>
@@ -139,6 +139,12 @@ async function renderMain() {
         <tbody>
             <tr><td>${t("ugca.stat_levels")}</td><td class="right">${stats.levels.toLocaleString("en-US")}</td></tr>
             <tr><td>${t("ugca.stat_size")}</td><td class="right">${formatBytes(stats.total_size)}</td></tr>
+            ${Object.entries(stats.source_stats!).sort((a, b) => b[1] - a[1]).map(([key, value]) => `
+                            <tr>
+                                <td>${key}:</td>
+                                <td class="right">${value.toLocaleString("en-US")} ${value > 1 ? "levels" : "level"}</td>
+                            </tr>
+                        `).join("")}
         </tbody>
     </table>
     <a href="/creative/stats" class="btn btn-outline-secondary d-flex justify-content-center mt-auto" data-navigation>${t("ugca.more_stats")}</a>
@@ -316,7 +322,7 @@ export async function renderUGCAStats() {
             <div class="container">
                 <div id="base-page" class="col-12 justify-content-center my-3">
                     <div class="alert alert-danger">
-                       ${t("ugca.generic_ex", `<a href="${LINKS.ugcArchiveGit}" class="alert-link">GitHub Repository</a>`, `<a href="${LINKS.ugcTelegram}" class="alert-link">Telegram Channel</a>`)}<br><br>${ex}
+                       ${t("ugca.generic_ex", `<a href="${LINKS.ugcArchiveGit}" class="alert-link">GitHub</a>`, `<a href="${LINKS.ugcTelegram}" class="alert-link">Telegram Channel</a>`)}<br><br>${ex}
                     </div>
                 </div>
             </div>
