@@ -594,7 +594,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                                         <div id="thumb-loader" class="spinner-border position-absolute top-50 start-50" role="status" style="translate: -50% -50%;">
                                             <span class="visually-hidden"></span>
                                         </div>
-                                        <img class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: fit;" 
+                                        <img class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: fit; cursor: pointer" 
                                             src="${lastGen?.loading_image?.url || lastGen?.preview_image?.url || LINKS.fallbackPic}"
                                             onload="document.getElementById('thumb-loader').style.display='none'"
                                             onerror="document.getElementById('thumb-loader').style.display='none'; this.onerror=null; this.src='${LINKS.fallbackPic}';">
@@ -624,6 +624,16 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
         </div>
     </div>
         `
+
+        levelBase?.addEventListener("click", (event) => {
+            const img = (event.target as HTMLElement).closest("img");
+            if (!img) return;
+
+            const src = img.src;
+            if (!src) return;
+
+            window.open(src, '_blank');
+        });
 
         const otherGens = document.getElementById("other-generations");
         if (!otherGens) return;
