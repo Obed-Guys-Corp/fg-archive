@@ -23,12 +23,12 @@ export const pages: [Page, ...Page[]] = [
     {
         path: "creative",
         title: "Fall Guys Creative Archive",
-        desc: ""
+        desc: "Browse archived Fall Guys Creative levels"
     },
     {
         path: "creative/stats",
         title: "Fall Guys Creative Archive",
-        desc: ""
+        desc: "Browse archived Fall Guys Creative levels statistics"
     },
     {
         path: "creative/search",

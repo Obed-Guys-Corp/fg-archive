@@ -57,6 +57,12 @@
             "short_name": "Builds",
             "description": "View and download Fall Guys builds",
             "url": "/builds?source=pwa"
+        },
+        {
+            "name": "Creative",
+            "short_name": "Creative",
+            "description": "Browse archived Fall Guys Creative levels",
+            "url": "/creative?source=pwa"
         }
     ]
 }
