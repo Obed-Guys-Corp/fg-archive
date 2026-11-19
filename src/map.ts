@@ -2,14 +2,16 @@ import { renderBuilds } from "./pages/builds";
 import { renderCms } from "./pages/cms";
 import { renderBase } from "./pages/base";
 import { pages, type Page } from "./pages";
+import { renderCreative, renderUGCALevel, renderUGCASearch, renderUGCAStats } from "./pages/creative";
 
-export interface Map {
+export interface PageMap {
     page: Page;
     label: string;
     render: () => void | Promise<void>;
+    nested?: PageMap[];
 }
 
-export const maps: [Map, ...Map[]] = [
+export const maps: [PageMap, ...PageMap[]] = [
     {
         page: pages[0]!,
         label: "",
@@ -24,5 +26,27 @@ export const maps: [Map, ...Map[]] = [
         page: pages[2]!,
         label: "cms_title",
         render: renderCms
+    },
+    {
+        page: pages[3]!,
+        label: "creative_title",
+        render: renderCreative,
+        nested: [
+            {
+                page: pages[4]!,
+                label: "creative_title",
+                render: renderUGCAStats,
+            },
+            {
+                page: pages[5]!,
+                label: "creative_title",
+                render: renderUGCASearch,
+            },
+            {
+                page: pages[6]!,
+                label: "creative_title",
+                render: renderUGCALevel,
+            }
+        ]
     }
 ];

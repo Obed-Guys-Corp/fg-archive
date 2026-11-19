@@ -1,8 +1,16 @@
 import { readFileSync, mkdirSync, writeFileSync, readdirSync, copyFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { type Plugin } from "vite";
-import { format } from "../i18n/i18n";
 import { sourceLocales } from "../ui/builds/source-maps";
+
+function format(text: string, ...args: (string | number)[]): string {
+    if (args.length === 0) return text;
+
+    return text.replace(/{(\d+)}/g, (match, number) => {
+        const index = parseInt(number);
+        return args[index] !== undefined ? String(args[index]) : match;
+    });
+}
 
 export const setBuilds = (): Plugin => ({
     name: "set-builds",

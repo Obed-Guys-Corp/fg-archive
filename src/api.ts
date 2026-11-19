@@ -1,10 +1,10 @@
 import JSZip from "jszip";
 import { CMS_CONFIG } from "./constants/cms-config";
 import { t } from "./i18n/i18n";
-import { BUILD_TYPES, type Build, type Builds, type BuildType, type GlCommit, type Release } from "./types";
+import { BUILD_TYPES, HttpError, type Build, type Builds, type BuildType, type GlCommit, type HttpResponse, type Release, type UGCLevel, type UGCSearch, type UGCSearchRes, type UGCStats } from "./types";
 import { timeDiff } from "./utils/string";
 
-interface CachedPage {
+interface CMSCachedPage {
     timestamp: number;
     data: {
         commits: GlCommit[];
@@ -13,6 +13,7 @@ interface CachedPage {
 }
 
 const CACHE_TIME = 10 * 60 * 1000;
+const UGCA_API = import.meta.env.DEV ? "http://localhost:8080/fga/creative" : "https://api.floyzi.dev/fga/creative";
 
 export class Api {
     static _builds: Record<BuildType, Build[]> = Object.fromEntries(BUILD_TYPES.map(type => [type, [] as Build[]])) as Record<BuildType, Build[]>;
@@ -84,7 +85,7 @@ export class Api {
         const cache = localStorage.getItem(key);
 
         if (cache) {
-            const entry = JSON.parse(cache) as CachedPage;
+            const entry = JSON.parse(cache) as CMSCachedPage;
 
             if (Date.now() - entry.timestamp < CACHE_TIME) {
                 return entry.data;
@@ -144,7 +145,7 @@ export class Api {
             JSON.stringify({
                 timestamp: Date.now(),
                 data
-            } satisfies CachedPage)
+            } satisfies CMSCachedPage)
         );
 
         return data;
@@ -193,5 +194,86 @@ export class Api {
             json: cms,
             version: meta["_content_version"]
         };
+    }
+
+    private static cache = new Map<
+        string,
+        { req: Promise<HttpResponse<unknown>>; expires: number }
+    >();
+
+    private static async cachedFetch<T>(url: string): Promise<HttpResponse<T>> {
+        const cached = this.cache.get(url);
+
+        if (cached && cached.expires > Date.now()) return cached.req as Promise<HttpResponse<T>>;
+
+        const req = (async () => {
+            const res = await fetch(url);
+
+            if (!res.ok) {
+                throw new HttpError(res.status, res.statusText);
+            }
+
+            return {
+                response: await res.json() as T,
+                status: res.status,
+                ok: res.ok,
+                statusText: res.statusText
+            };
+        })();
+
+        this.cache.set(url, { req, expires: Date.now() + CACHE_TIME });
+
+        try {
+            return await req;
+        } catch (error) {
+            this.cache.delete(url);
+            throw error;
+        }
+    }
+
+    public static async fetchUGCAStats(): Promise<UGCStats> {
+        var res = await this.cachedFetch<UGCStats>(`${UGCA_API}/stats`);
+        return res.response;
+    }
+
+    public static async searchInUGCA(query: string, page: number = 1): Promise<UGCSearch> {
+        if (!query.trim()) throw new Error();
+
+        var res = await this.cachedFetch<UGCSearch>(`${UGCA_API}/search?${new URLSearchParams({ q: query, page: page.toString() })}`);
+        return res.response;
+    }
+
+    public static async searchUGCALevel(sharecode: string): Promise<UGCLevel> {
+        if (!sharecode.trim()) throw new Error();
+
+        var res = await this.cachedFetch<UGCLevel>(`${UGCA_API}/level?${new URLSearchParams({ code: sharecode })}`);
+        return res.response;
+    }
+
+    public static async submitLevel(sharecode: string, version: number = -1): Promise<{
+        code: number;
+        message: string;
+    }> {
+        var res = await fetch(`${UGCA_API}/archive`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                sharecode: sharecode,
+                version: version,
+            }),
+        });
+
+        const json = await res.json();
+        return {
+            code: res.status,
+            message: json.message
+        };
+    }
+
+    public static async fetchUGCARecent(): Promise<UGCSearchRes[]> {
+        var res = await this.cachedFetch<UGCSearchRes[]>(`${UGCA_API}/recent`);
+        return res.response;
     }
 }

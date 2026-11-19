@@ -4,6 +4,7 @@ import { LINKS } from "../constants/links";
 import { t } from "../i18n/i18n";
 import type { Release } from "../types";
 import { createAlert } from "../ui/alerts";
+import { renderPageList } from "../ui/pagination";
 import { showToast } from "../ui/toasts";
 import { calcDateStr } from "../utils/string";
 
@@ -11,17 +12,14 @@ let currPage = 1;
 let totalPages = 1;
 let commitList: HTMLDivElement;
 let alerts: HTMLDivElement;
-let pageList: Element;
-let lastRenderPages = 0;
+let pageList: HTMLElement;
 
-window.addEventListener("resize", () => renderPageList(false));
+window.addEventListener("resize", () => renderPageList(pageList, currPage, totalPages, false));
 
 export async function renderCms(): Promise<void> {
     const app = document.getElementById("app");
 
     if (!app) return;
-
-    lastRenderPages = 0;
 
     const url = new URL(window.location.href);
 
@@ -371,68 +369,10 @@ async function loadPage(page: number, pages: number) {
             })
             .join("");
 
-        renderPageList();
+        renderPageList(pageList, currPage, totalPages);
 
         delete commitList.dataset.loading;
     } catch (e) {
         commitList.innerHTML = `<div class="alert alert-danger">${e}</div>`;
     }
-}
-
-function renderPageList(force = true) {
-    if (!pageList) return;
-
-    const pageCount = window.innerWidth < 712 ? (window.innerWidth < 576 ? (window.innerWidth < 412 ? 3 : 4) : 6) : 8;
-    if (!force && pageCount == lastRenderPages) return;
-
-    lastRenderPages = pageCount;
-
-    let res = "";
-
-    res += `
-        <li class="page-item ${currPage === 1 ? "disabled" : ""}">
-            <button class="page-link" data-page="1">
-                <i class="bi bi-chevron-bar-left"></i>
-            </button>
-        </li>
-    `;
-
-    res += `
-        <li class="page-item ${currPage === 1 ? "disabled" : ""}">\
-            <button class="page-link" data-page="${currPage - 1}">
-                <i class="bi bi-chevron-left"></i>
-            </button>
-        </li>
-    `;
-
-    let start = Math.max(1, currPage - Math.floor(pageCount / 2));
-    let end = Math.min(totalPages, start + pageCount - 1);
-
-    start = Math.max(1, end - pageCount + 1);
-
-    for (let page = start; page <= end; page++) {
-        res += `
-            <li class="page-item ${page === currPage ? "active" : ""}">
-                <button class="page-link" data-page="${page}">${page}</button>
-            </li>
-        `;
-    }
-
-    res += `
-        <li class="page-item ${currPage === totalPages ? "disabled" : ""}">
-            <button class="page-link" data-page="${currPage + 1}">
-                <i class="bi bi-chevron-right"></i>
-            </button>
-        </li>
-    `;
-
-    res += `
-        <li class="page-item ${currPage === totalPages ? "disabled" : ""}">
-            <button class="page-link" data-page="${totalPages}">
-                <i class="bi bi-chevron-bar-right"></i>
-            </button>
-        </li>
-    `;
-
-    pageList.innerHTML = res;
 }

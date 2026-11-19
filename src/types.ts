@@ -138,3 +138,113 @@ export interface GlCommit {
         deletions: number;
     };
 }
+
+export enum RecordType {
+    Unknown = 0,
+    Explore = 1,
+    BotLookup = 2,
+    FGAnalyst = 3,
+    Discord = 4,
+    Web = 5
+}
+
+export interface UGCStats {
+    levels: number;
+    total_size: number;
+    platform_stats: Record<string, number> | null;
+    version_stats: Record<string, number> | null;
+    source_stats: Partial<Record<RecordType, number>> | null;
+    music_stats: Record<string, number> | null;
+    theme_stats: Record<string, number> | null;
+    gamemode_stats: Record<string, number> | null;
+    tag_stats: Record<string, number> | null;
+}
+
+export interface UGCSearchRes {
+    sharecode: string;
+    author: string;
+    name: string;
+    latestVersion: number;
+    clientVersion: string;
+    played: number;
+    likes: number;
+    dislikes: number;
+    platform: string;
+    gamemode: string;
+    theme: string;
+    soundtrack: string;
+    tags: string[];
+    lastTouch: number;
+}
+
+export interface UGCSearch {
+    results: UGCSearchRes[];
+    total: number;
+    page: number;
+    total_pages: number;
+    page_size: number;
+    took: number;
+}
+
+export interface UGCLevel {
+    sharecode: string;
+    latest_version: number;
+    generations: UGCGeneration[];
+    took: number;
+}
+
+export interface UGCGeneration {
+    author: UGCAuthor;
+    version: number;
+    title: string;
+    description: string;
+    tags: string[] | null;
+    max_player_count: number;
+    scene_url: string;
+    platform_id: string;
+    last_modified: number;
+    gamemode_id: string;
+    theme_id: string;
+    client_version: string;
+    config: Record<string, unknown>;
+    completed: boolean;
+    played: number;
+    likes: number;
+    dislikes: number;
+    preview_image: UGCImage | null;
+    loading_image: UGCImage | null;
+    record_type: number;
+    archive_downloads: Record<string, Record<string, unknown>>;
+    last_touch: number;
+}
+
+export interface UGCAuthor {
+    eos: string;
+    steam: string | null;
+    nintendo: string | null;
+    psn: string | null;
+    xbl: string | null;
+}
+
+export interface UGCImage {
+    url: string;
+    created_at: string | null;
+}
+
+export type HttpResponse<T> = {
+    response: T;
+    status: number;
+    ok: boolean;
+    statusText: string;
+};
+
+export class HttpError extends Error {
+    constructor(
+        public status: number,
+        public statusText: string,
+        message?: string
+    ) {
+        super(message ?? `${status}: ${statusText}`);
+        this.name = "HttpError";
+    }
+}
