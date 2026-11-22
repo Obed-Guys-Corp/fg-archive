@@ -18,14 +18,19 @@ window.addEventListener("popstate", () => {
         bootstrap.Tooltip.getInstance(el)?.dispose();
     });
 
-    if (path === "/creative") {
-        renderCreative();
-    } else if (path === "/creative/level") {
-        renderUGCALevel();
-    } else if (path === "/creative/search") {
-        renderUGCASearch();
-    } else if (path === "/creative/stats") {
-        renderUGCAStats();
+    switch (path) {
+        case "/creative":
+            renderCreative();
+            break;
+         case "/creative/level":
+            renderUGCALevel();
+            break;
+         case "/creative/search":
+            renderUGCASearch();
+            break;
+         case "/creative/stats":
+            renderUGCAStats();
+            break;
     }
 });
 
