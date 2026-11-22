@@ -22,13 +22,13 @@ window.addEventListener("popstate", () => {
         case "/creative":
             renderCreative();
             break;
-         case "/creative/level":
+        case "/creative/level":
             renderUGCALevel();
             break;
-         case "/creative/search":
+        case "/creative/search":
             renderUGCASearch();
             break;
-         case "/creative/stats":
+        case "/creative/stats":
             renderUGCAStats();
             break;
     }
@@ -679,7 +679,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                         </thead>
                         <tbody id="level-generations">
                             ${level.generations.map((item, index) => `
-                                <tr data-gen="${item.version}" class="result-row" style="cursor: pointer">
+                                <tr data-gen="${item.version}" class="result-row ${item.version == lastGen?.version ? "tr-selected" : ""}" style="cursor: pointer">
                                     <th scope="row">${index + 1}</th>
                                     <td>v${item.version}</td>
                                     <td>${item.client_version}</td>
@@ -705,6 +705,10 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                 window.history.pushState({}, "", `/creative/level?${params.toString()}`);
                 doLevelRender(level, genNum);
             }
+
+            generations?.querySelectorAll("tr.tr-selected").forEach((r) => {
+                r.classList.remove("tr-selected");
+            });
 
             document.body.scrollTo({
                 top: 0,
