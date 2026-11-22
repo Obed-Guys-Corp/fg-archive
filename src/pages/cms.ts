@@ -1,3 +1,4 @@
+import JSZip from "jszip";
 import { Api } from "../api";
 import { CMS_CONFIG } from "../constants/cms-config";
 import { LINKS } from "../constants/links";
@@ -94,6 +95,18 @@ export async function renderCms(): Promise<void> {
                     const compressed = new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(new CompressionStream("gzip"))).arrayBuffer());
 
                     download(xor(compressed), "application/octet-stream", `CMS_v2_${cms.version}.gdata`);
+                });
+                break;
+            case "zip":
+                await doDownload(button, async cms => {
+                    const zip = new JSZip();
+
+                    for (const [filename, content] of Object.entries(cms.json)) {
+                        zip.file(filename + ".json", typeof content === "string" ? content : JSON.stringify(content));
+                    }
+
+                    const blob = await zip.generateAsync({ type: "blob" });
+                    download(blob, "application/octet-stream", `CMS_${cms.version}.zip`);
                 });
                 break;
             default:
@@ -296,9 +309,9 @@ async function loadPage(page: number, pages: number) {
 
                 const dateStr = date
                     ? date.toLocaleString(undefined, {
-                          dateStyle: "medium",
-                          timeStyle: "short"
-                      })
+                        dateStyle: "medium",
+                        timeStyle: "short"
+                    })
                     : "Unknown date";
 
                 const stats = update.stats
@@ -354,6 +367,12 @@ async function loadPage(page: number, pages: number) {
                                 <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                                 <i class="bi bi-download"></i>
                                 <span class="text">${t("cms.asV2")}</span>
+                            </button>
+
+                            <button type="button" class="btn btn-primary btn-sm download" data-type="zip" data-sha="${update.id}">
+                                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                <i class="bi bi-download"></i>
+                                <span class="text">${t("cms.asZip")}</span>
                             </button>
 
                              <button type="button" class="btn btn-secondary btn-sm copy btn-secondary" data-sha="${update.id}">
