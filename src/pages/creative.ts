@@ -365,7 +365,6 @@ export async function renderUGCASearch() {
     totalPages = 1;
     recentQuery = query;
 
-
     const app = document.getElementById("app");
 
     if (!app) return;
@@ -581,9 +580,9 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="d-flex flex-wrap gap-1">
-                                <a href="${lastGen?.scene_url}" target="_blank" class="btn btn-primary me-2"><i class="bi bi-download"></i> ${t("ugca.fg_get")}</a>
-                                <a style="${!tgd ? "display: none;" : ""}" href="https://t.me/fgugcarchive/${tgd?.message_id}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> ${t(sourceLocales.get("telegram")!, t("telegram"))} (${formatBytes(Number(tgd?.file_size!))})</a>
+                                <div class="d-flex gap-1 flex-column">
+                                    <a href="${lastGen?.scene_url}" target="_blank" class="btn btn-primary me-2"><i class="bi bi-download"></i> ${t("ugca.fg_get")}</a>
+                                    <a style="${!tgd ? "display: none;" : ""}" href="${LINKS.ugcTelegram}/${tgd?.message_id}" target="_blank" class="btn btn-primary me-2"><i class="nf nf-fae-telegram"></i> ${t(sourceLocales.get("telegram")!, t("telegram"))} (${formatBytes(Number(tgd?.file_size!))})</a>
                                 </div>
                         </div>
                     <div class="col-md-5 mt-2">
@@ -594,15 +593,15 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                                         <div id="thumb-loader" class="spinner-border position-absolute top-50 start-50" role="status" style="translate: -50% -50%;">
                                             <span class="visually-hidden"></span>
                                         </div>
-                                        <img class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: fit; cursor: pointer" 
+                                        <img id="level-thumb" class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: fit; cursor: pointer" 
                                             src="${lastGen?.loading_image?.url || lastGen?.preview_image?.url || LINKS.fallbackPic}"
-                                            onload="document.getElementById('thumb-loader').style.display='none'"
-                                            onerror="document.getElementById('thumb-loader').style.display='none'; this.onerror=null; this.src='${LINKS.fallbackPic}';">
+                                            onload="document.getElementById('thumb-loader').style.display='none'">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="text-muted fs-7 mt-1">
+                            <span id="thumb-alert" class="text-warning" style="display:none;">${t("ugca.thumb_alert_0")} <a href="${LINKS.ugcTelegram}/${Number(tgd?.message_id) - 1}">${t("ugca.thumb_alert_1")}</a></span>
                             ${lastGen?.loading_image?.created_at || lastGen?.preview_image?.created_at ? `<div>${t("ugca.lvl_thumb_date")}: ${new Date(lastGen?.loading_image?.created_at! || lastGen?.preview_image?.created_at!).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "medium" })}</div>` : ``}
                             <div>${t("ugca.lvl_last_touch")}: ${new Date(lastGen?.last_touch! * 1000).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "medium" })}</div>
                             <div><span data-bs-toggle="tooltip" title="${t(`ugca.rec_${String(RecordType[lastGen?.record_type]).toLocaleLowerCase()}`)}" tabindex="0">${t("ugca.lvl_src")}: ${RecordType[lastGen?.record_type!]}</span></div>
@@ -625,9 +624,27 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
     </div>
         `
 
-        levelBase?.addEventListener("click", (event) => {
-            const img = (event.target as HTMLElement).closest("img");
-            if (!img) return;
+        const thumb = document.getElementById("level-thumb");
+
+        const thumbErr = (event: Event) => {
+            const img = event.currentTarget as HTMLImageElement;
+            const loader = document.getElementById("thumb-loader");
+            if (loader) loader.style.display = "none";
+
+            img.src = `${LINKS.fallbackPic}`;
+
+            const thumbAlert = document.getElementById("thumb-alert");
+            if (!thumbAlert || !(lastGen?.loading_image?.url || lastGen?.preview_image?.url)) return;
+
+            thumbAlert.style.display = "";
+
+            thumb?.removeEventListener("error", thumbErr);
+        };
+
+        thumb?.addEventListener("error", thumbErr);
+
+        thumb?.addEventListener("click", (event) => {
+            const img = event.currentTarget as HTMLImageElement;
 
             const src = img.src;
             if (!src) return;

@@ -216,5 +216,7 @@
     "ugca.rec_botlookup": "Level was archived because someone searched for it via my Telegram bot",
     "ugca.rec_fganalyst": "Level was archived because it was found in level index provided by FG Analyst",
     "ugca.rec_discord": "Level was archived because it's sharecode was scrapped from a public Discord server",
-    "ugca.rec_web": "Level was archived because it was requested for archival on the FG Archive Website"
+    "ugca.rec_web": "Level was archived because it was requested for archival on the FG Archive Website",
+    "ugca.thumb_alert_0": "This level version has thumbnail but it probably got removed from the server because a newer level version exists.",
+    "ugca.thumb_alert_1": "You can still view old thumbnail here"
 }
