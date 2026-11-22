@@ -28,8 +28,8 @@ export function initCardClick(): void {
 export function showBuildModal(item: Build, type: BuildType): void {
     const season = t(item.properties.season);
     const steam = isSteam(type);
-    const steamManifest = isSteam(type) ? ((item.properties as SteamProperties).manifest ?? "") : "";
-    const manifestLine = steam ? "" : `<li class="list-group-item">${t("modal.field", t("modal.manifest"), steamManifest || t("modal.unknown"))}</li>`;
+    const steamManifest = steam ? ((item.properties as SteamProperties).manifest ?? "") : "";
+    const manifestLine = !steam ? "" : `<li class="list-group-item">${t("modal.field", t("modal.manifest"), steamManifest || t("modal.unknown"))}</li>`;
 
     const modalData = document.getElementById("modalData")!;
     const modalSegments = document.getElementById("modalSegments")!;
