@@ -220,5 +220,6 @@
     "ugca.thumb_alert_0": "This level version has thumbnail but it probably got removed from the server because a newer level version exists.",
     "ugca.thumb_alert_1": "You can still view old thumbnail here",
     "cms.asZip": "ZIP",
-    "modal.internalCms": "Internal CMS"
+    "modal.internalCms": "Internal CMS",
+    "modal.internalCmsStat": "{0} ({1} builds in common)"
 }

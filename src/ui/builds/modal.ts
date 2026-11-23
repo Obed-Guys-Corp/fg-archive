@@ -41,6 +41,8 @@ export function showBuildModal(item: Build, type: BuildType): void {
             : new Date(item.release_date).toLocaleString()
         : t("modal.unknown");
 
+        const withInternal = item.downloads?.internal_cms ? Api._builds[type].filter(x => x.downloads?.internal_cms == item.downloads?.internal_cms).length : 0
+
     modalData.innerHTML = `
         <h6 class="mb-2">${t("modal.buildDetails")}</h6>
         <ul class="list-group">
@@ -53,6 +55,7 @@ export function showBuildModal(item: Build, type: BuildType): void {
           <li class="list-group-item">${t("modal.field", t("modal.unityVersion"), item.properties.unity_version || t("modal.unknown"))}</li>
           <li class="list-group-item">${t("modal.field", t("modal.env"), item.properties.env || t("modal.unknown"))}</li>
           <li class="list-group-item text-break">${t("modal.field", t("modal.signature"), item.properties.signature || t("modal.unknown"))}</li>
+          <li class="list-group-item">${t("modal.field", t("modal.internalCms"), item.downloads?.internal_cms ? t("modal.internalCmsStat", item.downloads?.internal_cms, withInternal) : t("modal.unknown"))}</li>
           <li class="list-group-item">${t("modal.field", t("modal.season"), season || t("modal.unknown"))}</li>
         </ul>`;
 
