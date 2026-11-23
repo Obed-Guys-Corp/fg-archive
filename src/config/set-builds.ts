@@ -17,7 +17,7 @@ export const setBuilds = (): Plugin => ({
 
     closeBundle() {
         const loc = JSON.parse(readFileSync(resolve("public/content/i18n/en.json"), "utf-8"));
-        const dataDir = resolve("public/content");
+        const dataDir = resolve("public/content/builds");
         const buildMetaDir = resolve("dist/build");
 
         mkdirSync(buildMetaDir, { recursive: true });

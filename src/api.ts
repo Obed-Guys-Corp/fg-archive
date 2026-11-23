@@ -27,7 +27,7 @@ export class Api {
 
         await Promise.all(
             BUILD_TYPES.map(async type => {
-                const response = await fetch(`${import.meta.env.BASE_URL}content/${type}.json`);
+                const response = await fetch(`${import.meta.env.BASE_URL}content/builds/${type}.json`);
 
                 if (!response.ok || !response?.headers?.get("content-type")?.startsWith("application/json")) {
                     return;
@@ -58,7 +58,7 @@ export class Api {
     public static async fetchReleaseMap(): Promise<Release[]> {
         if (this._releases?.length > 0) return this._releases;
 
-        this._releases = await fetch(`${import.meta.env.BASE_URL}content/cms/releases_map.json`).then(res => res.json());
+        this._releases = await fetch(`${import.meta.env.BASE_URL}content/releases_map.json`).then(res => res.json());
         return this._releases;
     }
 

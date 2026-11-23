@@ -92,12 +92,12 @@ export function showBuildModal(item: Build, type: BuildType): void {
                     <div class="mb-4 ${i === 0 ? "mt-3" : ""}">
                       <h6 class="mb-2">${t(segments.length !== 1 ? "modal.segmentsTitle" : "modal.fileTitle", t(source))}</h6>
                       ${segments
-                          .map(
-                              seg =>
-                                  `<div class="alert alert-info p-2 mb-2 w-100" style="text-align: left;">
+                        .map(
+                            seg =>
+                                `<div class="alert alert-info p-2 mb-2 w-100" style="text-align: left;">
                                     ${segments.length !== 1 ? t("modal.segment", seg.index, seg.sizeGB.toFixed(2)) : t("gbFiller", seg.sizeGB.toFixed(2))}</div>`
-                          )
-                          .join("")}
+                        )
+                        .join("")}
                     </div>
                 `;
             })
@@ -125,12 +125,12 @@ export function showBuildModal(item: Build, type: BuildType): void {
     }
 
     if (item.downloads?.internal_cms) {
-         const btn = document.createElement("a");
-            btn.href = item.downloads?.internal_cms;
-            btn.target = "_blank";
-            btn.className = "btn btn-primary me-2";
-            btn.innerHTML = `<i class="bi bi-code-slash"></i> ${t("modal.internalCms")}`;
-            modalFooter.appendChild(btn);
+        const btn = document.createElement("a");
+        btn.href = `${import.meta.env.BASE_URL}content/cms/cms_data_${item.downloads?.internal_cms}.json`;
+        btn.target = "_blank";
+        btn.className = "btn btn-primary me-2";
+        btn.innerHTML = `<i class="bi bi-code-slash"></i> ${t("modal.internalCms")}`;
+        modalFooter.appendChild(btn);
     }
 
     if (steam && steamManifest) {
