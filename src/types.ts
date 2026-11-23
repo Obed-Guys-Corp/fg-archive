@@ -35,6 +35,7 @@ export type AnyBuild = {
 export interface Downloads {
     total_size: number;
     available: Download[];
+    internal_cms: string;
 }
 
 export interface Download {

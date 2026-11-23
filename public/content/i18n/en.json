@@ -219,5 +219,6 @@
     "ugca.rec_web": "Level was archived because it was requested for archival on the FG Archive Website",
     "ugca.thumb_alert_0": "This level version has thumbnail but it probably got removed from the server because a newer level version exists.",
     "ugca.thumb_alert_1": "You can still view old thumbnail here",
-    "cms.asZip": "ZIP"
+    "cms.asZip": "ZIP",
+    "modal.internalCms": "Internal CMS"
 }

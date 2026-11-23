@@ -124,6 +124,15 @@ export function showBuildModal(item: Build, type: BuildType): void {
         }
     }
 
+    if (item.downloads?.internal_cms) {
+         const btn = document.createElement("a");
+            btn.href = item.downloads?.internal_cms;
+            btn.target = "_blank";
+            btn.className = "btn btn-primary me-2";
+            btn.innerHTML = `<i class="bi bi-code-slash"></i> ${t("modal.internalCms")}`;
+            modalFooter.appendChild(btn);
+    }
+
     if (steam && steamManifest) {
         const steamBtn = document.createElement("a");
         steamBtn.href = `https://steamdb.info/depot/${type === "steam_beta" ? 1265941 : 1097151}/history/?changeid=M:${steamManifest}`;
