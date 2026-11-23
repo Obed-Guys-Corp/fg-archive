@@ -704,11 +704,12 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                 const params = new URLSearchParams({ code: level.sharecode, gen: gen });
                 window.history.pushState({}, "", `/creative/level?${params.toString()}`);
                 doLevelRender(level, genNum);
-            }
 
-            generations?.querySelectorAll("tr.tr-selected").forEach((r) => {
-                r.classList.remove("tr-selected");
-            });
+                generations?.querySelectorAll("tr.tr-selected").forEach((r) => {
+                    r.classList.remove("tr-selected");
+                });
+
+            }
 
             document.body.scrollTo({
                 top: 0,
