@@ -1,6 +1,25 @@
 {
     "steam": [
         {
+            "id": "91862472-bbf7-40ce-8a02-678b7fce159f",
+            "release_date": "2026-08-25T09:03:49+00:00",
+            "downloads": {
+                "total_size": 0,
+                "available": []
+            },
+            "properties": {
+                "manifest": "5404972839635283975",
+                "version": "21.3.1",
+                "build_number": 20990,
+                "build_commit": "fe4077230c5",
+                "build_date": "29/07/2026",
+                "unity_version": "2022.3.62f2",
+                "env": "Production",
+                "signature": "EDE2D3413C91515AE7F4A03A4C7AB8C6E557E22A19DE6AEFAB30033DC029C943",
+                "season": "not_season_3"
+            }
+        },
+        {
             "id": "b2a2b804-abbb-4602-97d3-d89759d601ca",
             "release_date": "2026-05-19T09:09:48+00:00",
             "downloads": {
@@ -14,8 +33,8 @@
                 "build_commit": "4bf1cb268cf",
                 "build_date": "27/04/2026",
                 "unity_version": "2022.3.62f2",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "86F990EAD0E6B6D4C246D053E4898F96C2C6749FA6199C6951E27210496E4FF9",
                 "season": "not_season_3"
             }
         },
@@ -33,8 +52,8 @@
                 "build_commit": "51b53c80628",
                 "build_date": "27/01/2026",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "F9491952DF67672B3B579257EEF284A528C234E98A68304047464F644D8301E7",
                 "season": "not_season_3"
             }
         },
@@ -52,8 +71,8 @@
                 "build_commit": "95133c93719",
                 "build_date": "05/12/2025",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "9B1B0858D4CB86E921D8BB2BA6CF965B1841CF107F67828A2C2300ECD8E7C2FD",
                 "season": "not_season_3"
             }
         },
@@ -71,8 +90,8 @@
                 "build_commit": "0e30a4865ff",
                 "build_date": "10/11/2025",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "184FAF16C297BCA66051FFF5B23C938F90E9E61D8D3C6457A18D7D312CCFE370",
                 "season": "not_season_3"
             }
         },
@@ -90,8 +109,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "7E0E611BD33C4F005588A998F36603643CB52936337AE8B4C6F3979B695FC8EA",
                 "season": "not_season_3"
             }
         },
@@ -109,8 +128,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "7F68BF4E173C4EBD0ECCF3964B3C3BDA42688C259F4C86282981CF4455E1C8E5",
                 "season": "not_season_3"
             }
         },
@@ -128,8 +147,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "7F68BF4E173C4EBD0ECCF3964B3C3BDA42688C259F4C86282981CF4455E1C8E5",
                 "season": "not_season_3"
             }
         },
@@ -147,8 +166,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "840A91141488B04B1DD5F615FD74EBEC1EFCBF265C27FEE875FB5FA05BDCB2B4",
                 "season": "not_season_2"
             }
         },
@@ -166,8 +185,8 @@
                 "build_commit": "6b3a17d2651",
                 "build_date": "27/06/2025",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "45F5216EFE477367AAF9A7BD904240BE587F54876E1565CD7A77538FCA6983D3",
                 "season": "not_season_2"
             }
         },
@@ -198,8 +217,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "D83A9E06DD55D69E078BBF75B2CD174629ED1399A925AA27FDB2D9F33FCD5B7A",
                 "season": "not_season_1"
             }
         },
@@ -230,8 +249,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "D83A9E06DD55D69E078BBF75B2CD174629ED1399A925AA27FDB2D9F33FCD5B7A",
                 "season": "not_season_1"
             }
         },
@@ -262,8 +281,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "B5410DAEECED9DA46528FCECE118CF9232036D8FC4BD795A25B3419E3BA7112A",
                 "season": "not_season_0"
             }
         },
@@ -294,8 +313,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "FA23C69F60D476B48348D6A90B5D31FEDE1A4F6CF2704A47CA9F64D2314F3887",
                 "season": "ss5"
             }
         },
@@ -326,8 +345,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "16A5301AB0B8D4E51F85AF5B7CE4D748D2EFDC81A6DC7BED664A0B587E7E445B",
                 "season": "ss5"
             }
         },
@@ -358,8 +377,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "A93A667366E8086BFEBC405B6C5A7DAF64AF9E22855233122E02811D1B8C11CC",
                 "season": "ss5"
             }
         },
@@ -390,8 +409,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "DD8A756EEC93D4711189CDF194D5F12DDEDBFE4B8C04A4202E281CD92895980E",
                 "season": "ss5"
             }
         },
@@ -422,8 +441,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "630314D65B0A1A11FC6229053693443F50256EF65C392845328FAC8A73484935",
                 "season": "ss5"
             }
         },
@@ -454,8 +473,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "95D4CA088076B441F9935D97564A9680D839C180E5481933AF09CE754F0AC6D9",
                 "season": "ss5"
             }
         },
@@ -486,8 +505,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "6B4DA21779C2D9AD3CD6A7E5826C43E756CFF0EEBF93A95ACFCC5B83050B2321",
                 "season": "ss5"
             }
         },
@@ -518,8 +537,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "BEF54FB2F5E5B5C3E2CDA245B54E31585EBB6500BBA130EDC98331659CB64E8E",
                 "season": "ss5"
             }
         },
@@ -553,8 +572,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "DCAAC93D31459B1F85CA3DE508ED1DC93E6DD606249A1CDC46149B447E600E09",
                 "season": "ss5"
             }
         },
@@ -585,8 +604,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "44BE2F58CED162597FBA5F1D8AABCFA0A1B1C2AF488FB74BF78CAECA883E5C56",
                 "season": "ss45"
             }
         },
@@ -617,8 +636,8 @@
                 "build_commit": "77e16d03b4f",
                 "build_date": "05/03/2024",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "BC5C93808331C1549D8CFCE27BCCE3F8F0A368C91AEA72CEDCB6E72A29286FFB",
                 "season": "ss45"
             }
         },
@@ -648,8 +667,8 @@
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2021.3.16f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ss45"
             }
@@ -681,8 +700,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "B8129597A1AC49683803143ACE93B23DD3B31077288F5E3702C79C9BB3D2BA54",
                 "season": "ss45"
             }
         },
@@ -716,8 +735,8 @@
                 "build_commit": "caf5bdb38f8",
                 "build_date": "22/12/2023",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "70AF472E919AB5D0791409E84E842ABE59D191705EF232B364C58695641C1DCE",
                 "season": "ss45"
             }
         },
@@ -748,8 +767,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "349DDB0AF7CDFEDCF8D424303B22B268661F331D4C045E4EA4EDB281DB0964F1",
                 "season": "ss45"
             }
         },
@@ -783,8 +802,8 @@
                 "build_commit": "aa3e8470569",
                 "build_date": "07/12/2023",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "5F1739F633EBE1D474577CA1A099AF1FCDA94844A23E45D8E583667D59066DA0",
                 "season": "ss45"
             }
         },
@@ -815,8 +834,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "66967FFD23A99EE693932E0A8B98F18F1288205FF4F2615BB7718E50590CA2B5",
                 "season": "ss45"
             }
         },
@@ -850,8 +869,8 @@
                 "build_commit": "f0080fc3055",
                 "build_date": "25/10/2023",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "05177B9265B93788A3E3CAFAD0E047536203AF9ABA9815F8F16198E3BDD28CBE",
                 "season": "ss45"
             }
         },
@@ -882,8 +901,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "7A3885D74A543E7A4C1230C7D3C433DD915609442E3F0E5EF7FAD0235124E3CE",
                 "season": "ss45"
             }
         },
@@ -909,13 +928,13 @@
             },
             "properties": {
                 "manifest": "3628645968777028845",
-                "version": "",
+                "version": "10.4.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "4E61DBA913843FD85FDB82C9F9235CD03EF29728985C51D35537680301D2D445",
                 "season": "ss45"
             }
         },
@@ -949,8 +968,8 @@
                 "build_commit": "6aef742d5ad",
                 "build_date": "08/09/2023",
                 "unity_version": "2021.3.16f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "4E61DBA913843FD85FDB82C9F9235CD03EF29728985C51D35537680301D2D445",
                 "season": "ss45"
             }
         },
@@ -981,8 +1000,8 @@
                 "build_commit": "2293ba87d5b",
                 "build_date": "19/07/2023",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "67906880981734F9955F0189A1D13B4B1F75E66E789ADCC07CCF8D5F80D4FB19",
                 "season": "ss4"
             }
         },
@@ -1013,8 +1032,8 @@
                 "build_commit": "456a9946916",
                 "build_date": "27/06/2023",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "B54A1AC45846604E5E3E6810263E7019521C35D8EDC648BF032C198AB708325F",
                 "season": "ss4"
             }
         },
@@ -1045,8 +1064,8 @@
                 "build_commit": "43110a28b9d",
                 "build_date": "06/06/2023",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "E7862251B0BFDC59FDE82135946E1981012EADC8EF039764ED24D65C85D37D1F",
                 "season": "ss4"
             }
         },
@@ -1076,9 +1095,9 @@
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
-                "signature": "",
+                "unity_version": "2019.4.37f1",
+                "env": "Production",
+                "signature": "2719C8E199A0C854D454E31678AD2EE6AC73AE56CA5C7A361E04C8DEA5A4223F",
                 "season": "ss4"
             }
         },
@@ -1109,8 +1128,8 @@
                 "build_commit": "4a0d5f452d9",
                 "build_date": "17/04/2023",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "C4A9012C14C7B9484DA304A7BD469F0C6F0EEBC0E1D4F4CC79BFEAE15CAB2EA3",
                 "season": "ss4"
             }
         },
@@ -1141,8 +1160,8 @@
                 "build_commit": "240c958f039",
                 "build_date": "03/02/2023",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "CE99CEF7905B5BBE2AE2A83DD345CC1542D4FFE2C5E381EDC667E1D6C7D7418A",
                 "season": "ss3"
             }
         },
@@ -1173,8 +1192,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "76B71ED52A0D9DDA51A22FF8B67654549D0463A5A318017DA24F1690F6CD27E4",
                 "season": "ss3"
             }
         },
@@ -1205,8 +1224,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "FF2BD013A352DA09969B1A9CBF4570F024C877F43F37C47B87B7DE31D0106C29",
                 "season": "ss3"
             }
         },
@@ -1237,8 +1256,8 @@
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "E0C4631ADE10B2CB8A0B51F4E6E2A97BA590AE3596E1A8D9F0437BD1BE154497",
                 "season": "ss3"
             }
         },
@@ -1269,8 +1288,8 @@
                 "build_commit": "c3dd948ddf1",
                 "build_date": "08/11/2022",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "03000F22C0E7A43BC86154F837E1DF51F39EF846AB8D619DBDCC29FD08723D75",
                 "season": "ss3"
             }
         },
@@ -1296,13 +1315,13 @@
             },
             "properties": {
                 "manifest": "3555965707510986996",
-                "version": "8.2.0",
+                "version": "8.3.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "D49A5762808C1CC3C48E7A8DD51BB5EC3F4633BA25468C7C8CE9EB67430BE5A3",
                 "season": "ss2"
             }
         },
@@ -1328,13 +1347,13 @@
             },
             "properties": {
                 "manifest": "9197053796078784898",
-                "version": "",
+                "version": "8.2.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "671D483EE06086406D27F7BE94E1289110375E94A4EB27A1EDBA515BCCBE0E2C",
                 "season": "ss2"
             }
         },
@@ -1365,8 +1384,8 @@
                 "build_commit": "b3f4391e7e5",
                 "build_date": "23/08/2022",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "E109DC0F3E67F646DFAD3B233E584100A7305C442AECEADE92347902D3659BD8",
                 "season": "ss2"
             }
         },
@@ -1385,13 +1404,13 @@
             },
             "properties": {
                 "manifest": "242988054047923695",
-                "version": "",
+                "version": "7.4.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
                 "unity_version": "2019.4.37f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "11B0BA0EBFACB0C8A99CB8E5F1A95489A6C55AC27DEFA239988F449F45DB77FD",
                 "season": "ss1"
             }
         },
@@ -1410,13 +1429,13 @@
             },
             "properties": {
                 "manifest": "5376636721554121138",
-                "version": "",
+                "version": "7.3.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
-                "signature": "",
+                "unity_version": "2019.4.37f1",
+                "env": "Production",
+                "signature": "628255AB7F9D3740EBC24CBE0060C20FDF3AD9F17AB77027E78A45D82C2C5A6F",
                 "season": "ss1"
             }
         },
@@ -1435,13 +1454,13 @@
             },
             "properties": {
                 "manifest": "978133964548439964",
-                "version": "",
+                "version": "7.2.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
-                "signature": "",
+                "unity_version": "2019.4.37f1",
+                "env": "Production",
+                "signature": "CE1B33D7CFBF770017EA41DAB18F8BC9AA6F3CE6A9EC16865E28B04E64C64EF6",
                 "season": "ss1"
             }
         },
@@ -1460,13 +1479,13 @@
             },
             "properties": {
                 "manifest": "5745550454379341276",
-                "version": "",
+                "version": "7.1.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
-                "signature": "",
+                "unity_version": "2019.4.37f1",
+                "env": "Production",
+                "signature": "02C13D9A169D902EAADFF38FBA47EC8FA6CA0640B452FE8A23F554BDD6EE86D0",
                 "season": "ss1"
             }
         },
@@ -1489,9 +1508,9 @@
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
-                "signature": "",
+                "unity_version": "2019.4.37f1",
+                "env": "Production",
+                "signature": "6334DB72DC11207BC26939E0191765AB54343AD0760D9CBC02B3B1B9E078AA75",
                 "season": "ss1"
             }
         },
@@ -1515,8 +1534,8 @@
                 "build_commit": "b4d49ebf81a",
                 "build_date": "",
                 "unity_version": "2019.4.31f1",
-                "env": "",
-                "signature": "",
+                "env": "Production",
+                "signature": "DCDD59A99F2CED64B7884586FCAFDA7AC9D55BE01E2AFA1F13CDD6D50D4C06BA",
                 "season": "ls65"
             }
         },
@@ -1535,13 +1554,13 @@
             },
             "properties": {
                 "manifest": "3539631198148609646",
-                "version": "",
+                "version": "6.3.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
-                "signature": "",
+                "unity_version": "2019.4.31f1",
+                "env": "Production",
+                "signature": "DCDD59A99F2CED64B7884586FCAFDA7AC9D55BE01E2AFA1F13CDD6D50D4C06BA",
                 "season": "ls65"
             }
         },
@@ -1560,13 +1579,13 @@
             },
             "properties": {
                 "manifest": "7648259600739599889",
-                "version": "",
+                "version": "6.2.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
-                "signature": "",
+                "unity_version": "2019.4.31f1",
+                "env": "Production",
+                "signature": "D393F04FF51F469869233BD67299559FA5C1CE8DCF2AD94F089A07BE269439B3",
                 "season": "ls65"
             }
         },
@@ -1585,13 +1604,13 @@
             },
             "properties": {
                 "manifest": "8767273831226382243",
-                "version": "",
+                "version": "6.1.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
-                "signature": "",
+                "unity_version": "2019.4.31f1",
+                "env": "Production",
+                "signature": "EFC892A35EE260C9E9B00E5911FEDF8A082C6EFCC399F4E748B049A831A988FD",
                 "season": "ls6"
             }
         },
@@ -1620,13 +1639,13 @@
             },
             "properties": {
                 "manifest": "1884605578774488475",
-                "version": "",
+                "version": "6.0.2",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
-                "signature": "",
+                "unity_version": "2019.4.28f1",
+                "env": "Production",
+                "signature": "F96DF065AAFCD2174BFF984FEF27997986943670E94807D380B17C4B416940F5",
                 "season": "ls6"
             }
         },
@@ -1655,13 +1674,13 @@
             },
             "properties": {
                 "manifest": "4848691758868654778",
-                "version": "",
+                "version": "6.0.2",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
-                "signature": "",
+                "unity_version": "2019.4.28f1",
+                "env": "Production",
+                "signature": "F96DF065AAFCD2174BFF984FEF27997986943670E94807D380B17C4B416940F5",
                 "season": "ls6"
             }
         },
@@ -1687,13 +1706,13 @@
             },
             "properties": {
                 "manifest": "8465018983924282468",
-                "version": "",
+                "version": "6.0.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
-                "signature": "",
+                "unity_version": "2019.4.28f1",
+                "env": "Production",
+                "signature": "5AEB4F2DBF4970B3F6F929ADD293CE51500EC9E8BE5A789C4B3D4711FFE2E554",
                 "season": "ls6"
             }
         },
@@ -1719,13 +1738,13 @@
             },
             "properties": {
                 "manifest": "6998577641171871598",
-                "version": "",
+                "version": "6.0.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
-                "signature": "",
+                "unity_version": "2019.4.28f1",
+                "env": "Production",
+                "signature": "5AEB4F2DBF4970B3F6F929ADD293CE51500EC9E8BE5A789C4B3D4711FFE2E554",
                 "season": "ls6"
             }
         },
@@ -1751,13 +1770,13 @@
             },
             "properties": {
                 "manifest": "3115093187342213137",
-                "version": "",
+                "version": "6.0.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
-                "signature": "",
+                "unity_version": "2019.4.28f1",
+                "env": "Production",
+                "signature": "5AEB4F2DBF4970B3F6F929ADD293CE51500EC9E8BE5A789C4B3D4711FFE2E554",
                 "season": "ls6"
             }
         },
@@ -1788,13 +1807,13 @@
             },
             "properties": {
                 "manifest": "4255532964276673288",
-                "version": "",
+                "version": "6.0.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
-                "signature": "",
+                "unity_version": "2019.4.28f1",
+                "env": "Production",
+                "signature": "5AEB4F2DBF4970B3F6F929ADD293CE51500EC9E8BE5A789C4B3D4711FFE2E554",
                 "season": "ls6"
             }
         },
@@ -1818,12 +1837,12 @@
             },
             "properties": {
                 "manifest": "9178225534409480726",
-                "version": "",
+                "version": "5.2.1",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.4.28f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls55"
             }
@@ -1848,12 +1867,12 @@
             },
             "properties": {
                 "manifest": "8788493614976874816",
-                "version": "",
+                "version": "5.2.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.4.28f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls55"
             }
@@ -1878,12 +1897,12 @@
             },
             "properties": {
                 "manifest": "7823190448145834983",
-                "version": "",
+                "version": "5.1.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.4.15f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls55"
             }
@@ -1908,12 +1927,12 @@
             },
             "properties": {
                 "manifest": "6532741374031236985",
-                "version": "",
+                "version": "5.0.1",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.4.15f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls5"
             }
@@ -1938,12 +1957,12 @@
             },
             "properties": {
                 "manifest": "5693399366362827278",
-                "version": "",
+                "version": "5.0.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.4.15f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls5"
             }
@@ -1968,12 +1987,12 @@
             },
             "properties": {
                 "manifest": "1389344541695781740",
-                "version": "",
+                "version": "4.1.1",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.4.15f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls45"
             }
@@ -1998,12 +2017,12 @@
             },
             "properties": {
                 "manifest": "3268970811856408153",
-                "version": "",
+                "version": "4.1.1",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.4.15f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls45"
             }
@@ -2028,12 +2047,12 @@
             },
             "properties": {
                 "manifest": "7130325047774921606",
-                "version": "",
+                "version": "4.1.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.4.15f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls45"
             }
@@ -2058,14 +2077,15 @@
             },
             "properties": {
                 "manifest": "9072305705647716775",
-                "version": "",
+                "version": "4.1.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.4.15f1",
+                "env": "Production",
                 "signature": "",
-                "season": "ls45"
+                "season": "ls45",
+                "source_leak": true
             }
         },
         {
@@ -2088,12 +2108,12 @@
             },
             "properties": {
                 "manifest": "7259681007687138983",
-                "version": "",
+                "version": "0.9.12",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.3.14f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls4"
             }
@@ -2118,12 +2138,12 @@
             },
             "properties": {
                 "manifest": "8186821359203181145",
-                "version": "",
+                "version": "0.9.12",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.3.14f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls4"
             }
@@ -2148,12 +2168,12 @@
             },
             "properties": {
                 "manifest": "5893883379728001054",
-                "version": "",
+                "version": "0.9.11",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.3.14f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls4"
             }
@@ -2183,7 +2203,7 @@
                 "build_commit": "2658879519",
                 "build_date": "",
                 "unity_version": "2019.3.14f1",
-                "env": "",
+                "env": "Production",
                 "signature": "",
                 "season": "ls35"
             }
@@ -2208,12 +2228,12 @@
             },
             "properties": {
                 "manifest": "1703959378194142378",
-                "version": "",
+                "version": "0.9.9",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.3.14f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls3"
             }
@@ -2238,12 +2258,12 @@
             },
             "properties": {
                 "manifest": "2347463014525970390",
-                "version": "",
+                "version": "0.9.8",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.3.14f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls3"
             }
@@ -2268,12 +2288,12 @@
             },
             "properties": {
                 "manifest": "4643743283249613721",
-                "version": "",
+                "version": "0.9.7",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.3.14f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls3"
             }
@@ -2298,12 +2318,12 @@
             },
             "properties": {
                 "manifest": "2862592106262426959",
-                "version": "",
+                "version": "0.9.6",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.3.14f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls25"
             }
@@ -2328,12 +2348,12 @@
             },
             "properties": {
                 "manifest": "1287946132897679594",
-                "version": "",
+                "version": "0.9.5",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.3.14f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls25"
             }
@@ -2358,12 +2378,12 @@
             },
             "properties": {
                 "manifest": "3233052260934368807",
-                "version": "",
+                "version": "0.9.4",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.3.14f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls2"
             }
@@ -2388,12 +2408,12 @@
             },
             "properties": {
                 "manifest": "3694740791525983586",
-                "version": "",
+                "version": "0.9.3",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.3.14f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls2"
             }
@@ -2418,12 +2438,12 @@
             },
             "properties": {
                 "manifest": "8688381616420641174",
-                "version": "",
+                "version": "0.9.1",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.3.14f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls15"
             }
@@ -2448,12 +2468,12 @@
             },
             "properties": {
                 "manifest": "6038344339979299117",
-                "version": "",
+                "version": "0.9.0",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.3.14f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls15"
             }
@@ -2478,12 +2498,12 @@
             },
             "properties": {
                 "manifest": "117650925852504231",
-                "version": "",
+                "version": "0.8.9",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.3.14f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls1"
             }
@@ -2508,12 +2528,12 @@
             },
             "properties": {
                 "manifest": "6005306049049899391",
-                "version": "",
+                "version": "0.8.8",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.3.14f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls1"
             }
@@ -2538,12 +2558,12 @@
             },
             "properties": {
                 "manifest": "606630862955742779",
-                "version": "",
+                "version": "0.8.8",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.3.14f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls1"
             }
@@ -2568,12 +2588,12 @@
             },
             "properties": {
                 "manifest": "1199846569987058453",
-                "version": "",
+                "version": "0.8.7",
                 "build_number": 0,
                 "build_commit": "",
                 "build_date": "",
-                "unity_version": "",
-                "env": "",
+                "unity_version": "2019.3.14f1",
+                "env": "Production",
                 "signature": "",
                 "season": "ls1"
             }
