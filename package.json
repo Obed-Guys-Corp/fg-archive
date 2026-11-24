@@ -28,12 +28,14 @@
     "prettier": "prettier --ignore-path .gitignore --ignore-path .prettierignore --write \"**/*.{ts,json,md,html,css}\""
   },
   "devDependencies": {
+    "@mpen/vite-plugin-minify": "^0.1.2",
     "@types/bootstrap": "^5.2.11",
     "@types/ejs": "^3.1.5",
     "@types/node": "^22.20.2",
     "prettier": "^3.9.6",
     "typescript": "^7.0.2",
     "vite": "^8.2.0",
+    "vite-plugin-cp": "^8.0.2",
     "vite-plugin-sitemap-ts": "^1.4.9"
   },
   "prettier": {
