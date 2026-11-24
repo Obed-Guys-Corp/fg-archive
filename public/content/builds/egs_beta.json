@@ -2,7 +2,7 @@
     "egs_beta": [
         {
             "id": "c93f4cf5-782b-4e1d-9ffb-a5eddab88f8b",
-            "release_date": "2022-11-28",
+            "release_date": "2023-11-28",
             "downloads": {
                 "total_size": 5140.5,
                 "available": [
@@ -33,7 +33,7 @@
                 "build_date": "28/11/2023",
                 "unity_version": "2021.3.16f1",
                 "env": "Development",
-                "signature": "",
+                "signature": "4AA1A9FDC710994B488EAE82E912A67F62B97354534CD6546F97CD8E5A7ECACC",
                 "season": "ss45",
                 "source_leak": true
             }

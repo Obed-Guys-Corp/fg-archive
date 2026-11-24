@@ -9,16 +9,19 @@
                     {
                         "source": "egdownload",
                         "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/cc323e3c-7b12-40b3-9788-c3ac72c9a81c.obb",
+                        "file_type": "obb",
                         "segments": null
                     },
                     {
                         "source": "epicgames-download1",
                         "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/cc323e3c-7b12-40b3-9788-c3ac72c9a81c.obb",
+                        "file_type": "obb",
                         "segments": null
                     },
                     {
                         "source": "egs-cloudfront-chunks",
                         "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/cc323e3c-7b12-40b3-9788-c3ac72c9a81c.obb",
+                        "file_type": "obb",
                         "segments": null
                     }
                 ]
@@ -45,16 +48,19 @@
                     {
                         "source": "egdownload",
                         "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/39078ad2-7af8-43cf-a9d4-01a8ab1b1756.obb",
+                        "file_type": "obb",
                         "segments": null
                     },
                     {
                         "source": "epicgames-download1",
                         "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/39078ad2-7af8-43cf-a9d4-01a8ab1b1756.obb",
+                        "file_type": "obb",
                         "segments": null
                     },
                     {
                         "source": "egs-cloudfront-chunks",
                         "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/39078ad2-7af8-43cf-a9d4-01a8ab1b1756.obb",
+                        "file_type": "obb",
                         "segments": null
                     }
                 ]
@@ -81,21 +87,25 @@
                     {
                         "source": "google",
                         "link": "https://google.epicgamescdn.com/Builds/fall-guys/d6f9158e-a190-4e53-9a7c-a0ef539870a3.obb",
+                        "file_type": "obb",
                         "segments": null
                     },
                     {
                         "source": "egs-cloudfront-chunks",
                         "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/d6f9158e-a190-4e53-9a7c-a0ef539870a3.obb",
+                        "file_type": "obb",
                         "segments": null
                     },
                     {
                         "source": "epicgames-download1",
                         "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/d6f9158e-a190-4e53-9a7c-a0ef539870a3.obb",
+                        "file_type": "obb",
                         "segments": null
                     },
                     {
                         "source": "egdownload",
                         "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/d6f9158e-a190-4e53-9a7c-a0ef539870a3.obb",
+                        "file_type": "obb",
                         "segments": null
                     }
                 ]
@@ -122,16 +132,19 @@
                     {
                         "source": "egs-cloudfront-chunks",
                         "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/5d0ea62e-255f-4ffe-904d-03685fb62bb3.obb",
+                        "file_type": "obb",
                         "segments": null
                     },
                     {
                         "source": "epicgames-download1",
                         "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/5d0ea62e-255f-4ffe-904d-03685fb62bb3.obb",
+                        "file_type": "obb",
                         "segments": null
                     },
                     {
                         "source": "egdownload",
                         "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/5d0ea62e-255f-4ffe-904d-03685fb62bb3.obb",
+                        "file_type": "obb",
                         "segments": null
                     }
                 ]
@@ -158,16 +171,19 @@
                     {
                         "source": "egdownload",
                         "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/fe775ee4-2108-4bf8-9ff5-ec46ca69593d.obb",
+                        "file_type": "obb",
                         "segments": null
                     },
                     {
                         "source": "epicgames-download1",
                         "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/fe775ee4-2108-4bf8-9ff5-ec46ca69593d.obb",
+                        "file_type": "obb",
                         "segments": null
                     },
                     {
                         "source": "egs-cloudfront-chunks",
                         "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/fe775ee4-2108-4bf8-9ff5-ec46ca69593d.obb",
+                        "file_type": "obb",
                         "segments": null
                     }
                 ]
@@ -194,16 +210,19 @@
                     {
                         "source": "egdownload",
                         "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/439ba467-d494-4f3a-ba66-7f4a8cd21507.obb",
+                        "file_type": "obb",
                         "segments": null
                     },
                     {
                         "source": "epicgames-download1",
                         "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/439ba467-d494-4f3a-ba66-7f4a8cd21507.obb",
+                        "file_type": "obb",
                         "segments": null
                     },
                     {
                         "source": "egs-cloudfront-chunks",
                         "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/439ba467-d494-4f3a-ba66-7f4a8cd21507.obb",
+                        "file_type": "obb",
                         "segments": null
                     }
                 ]
@@ -230,16 +249,19 @@
                     {
                         "source": "egdownload",
                         "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/b906b39c-eafe-4cec-96fc-5dbef9b38a0a.obb",
+                        "file_type": "obb",
                         "segments": null
                     },
                     {
                         "source": "epicgames-download1",
                         "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/b906b39c-eafe-4cec-96fc-5dbef9b38a0a.obb",
+                        "file_type": "obb",
                         "segments": null
                     },
                     {
                         "source": "egs-cloudfront-chunks",
                         "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/b906b39c-eafe-4cec-96fc-5dbef9b38a0a.obb",
+                        "file_type": "obb",
                         "segments": null
                     }
                 ]
@@ -266,17 +288,30 @@
                     {
                         "source": "egdownload",
                         "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/34bdfdc4-deac-421a-a296-15f174be4b72.obb",
+                        "file_type": "obb",
                         "segments": null
                     },
                     {
                         "source": "epicgames-download1",
                         "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/34bdfdc4-deac-421a-a296-15f174be4b72.obb",
+                        "file_type": "obb",
                         "segments": null
                     },
                     {
                         "source": "egs-cloudfront-chunks",
                         "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/34bdfdc4-deac-421a-a296-15f174be4b72.obb",
+                        "file_type": "obb",
                         "segments": null
+                    },
+                    {
+                        "source": "telegram",
+                        "link": "https://t.me/FallGuysBuilds/259",
+                        "file_type": "apk",
+                        "segments": [
+                            {
+                                "size": 105.5
+                            }
+                        ]
                     }
                 ]
             },

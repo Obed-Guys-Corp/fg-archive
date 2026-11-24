@@ -31,7 +31,7 @@
     "modal.signature": "Signature",
     "modal.season": "Season",
     "modal.segmentsTitle": "File Segments – {0}",
-    "modal.segment": "{0}: {1} GB",
+    "modal.segment": "{0}: {1}",
     "modal.downloadIn": "Download in {0}",
     "modal.downloadOn": "Download on {0}",
     "modal.viewSteamDB": "View on SteamDB",
@@ -221,5 +221,9 @@
     "ugca.thumb_alert_1": "You can still view old thumbnail here",
     "cms.asZip": "ZIP",
     "modal.internalCms": "Internal CMS",
-    "modal.internalCmsStat": "{0} ({1} builds in common)"
+    "modal.internalCmsStat": "{0} ({1} builds in common)",
+    "modal.egsDownload": "Download from EGS ({0})",
+    "tab.partialDesc": "Some builds on this page are marked yellow: those builds are available for download but only partially which means you may not be able to run those builds even though some parts of it are available.",
+    "modal.obbHash": "OBB Hash",
+    "mbFiller": "{0} MB"
 }

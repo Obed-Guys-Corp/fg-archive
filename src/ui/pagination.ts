@@ -3,8 +3,8 @@ export function renderPageList(pageList: HTMLElement, currPage: number, totalPag
 
     const pageCount = window.innerWidth < 712 ? (window.innerWidth < 576 ? (window.innerWidth < 412 ? 3 : 4) : 6) : 8;
     if (!force && Number(pageList.dataset.lastRenderPages) === pageCount) return;
-    
-     pageList.dataset.lastRenderPages = pageCount.toString();
+
+    pageList.dataset.lastRenderPages = pageCount.toString();
 
     let res = "";
 

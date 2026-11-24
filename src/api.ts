@@ -1,7 +1,20 @@
 import JSZip from "jszip";
 import { CMS_CONFIG } from "./constants/cms-config";
 import { t } from "./i18n/i18n";
-import { BUILD_TYPES, HttpError, type Build, type Builds, type BuildType, type GlCommit, type HttpResponse, type Release, type UGCLevel, type UGCSearch, type UGCSearchRes, type UGCStats } from "./types";
+import {
+    BUILD_TYPES,
+    HttpError,
+    type Build,
+    type Builds,
+    type BuildType,
+    type GlCommit,
+    type HttpResponse,
+    type Release,
+    type UGCLevel,
+    type UGCSearch,
+    type UGCSearchRes,
+    type UGCStats
+} from "./types";
 import { timeDiff } from "./utils/string";
 
 interface CMSCachedPage {
@@ -196,10 +209,7 @@ export class Api {
         };
     }
 
-    private static cache = new Map<
-        string,
-        { req: Promise<HttpResponse<unknown>>; expires: number }
-    >();
+    private static cache = new Map<string, { req: Promise<HttpResponse<unknown>>; expires: number }>();
 
     private static async cachedFetch<T>(url: string): Promise<HttpResponse<T>> {
         const cached = this.cache.get(url);
@@ -214,7 +224,7 @@ export class Api {
             }
 
             return {
-                response: await res.json() as T,
+                response: (await res.json()) as T,
                 status: res.status,
                 ok: res.ok,
                 statusText: res.statusText
@@ -250,19 +260,22 @@ export class Api {
         return res.response;
     }
 
-    public static async submitLevel(sharecode: string, version: number = -1): Promise<{
+    public static async submitLevel(
+        sharecode: string,
+        version: number = -1
+    ): Promise<{
         code: number;
         message: string;
     }> {
         var res = await fetch(`${UGCA_API}/archive`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 sharecode: sharecode,
-                version: version,
-            }),
+                version: version
+            })
         });
 
         const json = await res.json();

@@ -10,7 +10,7 @@ export interface Build<TProperties = GenericProperties> {
     properties: TProperties;
 }
 
-export const BUILD_TYPES = ["steam_beta", "steam", "egs", "android_ega", "egs_beta", "android_os", "ios_ega", "switch"] as const;
+export const BUILD_TYPES = ["steam", "steam_beta", "egs", "egs_beta", "android_ega", "android_os", "ios_ega", "switch"] as const;
 export type BuildType = (typeof BUILD_TYPES)[number];
 
 export interface BuildPropertiesMap {
@@ -41,10 +41,11 @@ export interface Downloads {
 export interface Download {
     source: DownloadSource;
     link: string;
+    file_type: string;
     segments: Segment[] | null;
 }
 
-export type DownloadSource = "telegram" | "gdrive";
+export type DownloadSource = "telegram" | "gdrive" | "google" | "egdownload" | "epicgames-download1" | "egs-cloudfront-chunks";
 
 export interface Segment {
     size: number;

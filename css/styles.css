@@ -26,6 +26,11 @@ body {
     background-color: rgba(220, 53, 69, 0.15);
 }
 
+.card.build-card.border.border-warning:hover {
+    box-shadow: 0 0 0 3px rgba(220, 195, 53, 0.5);
+    background-color: rgba(220, 203, 53, 0.15);
+}
+
 #typeTabContent,
 #typeTabs {
     margin-top: 1rem;

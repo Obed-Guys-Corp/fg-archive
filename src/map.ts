@@ -35,17 +35,17 @@ export const maps: [PageMap, ...PageMap[]] = [
             {
                 page: pages[4]!,
                 label: "creative_title",
-                render: renderUGCAStats,
+                render: renderUGCAStats
             },
             {
                 page: pages[5]!,
                 label: "creative_title",
-                render: renderUGCASearch,
+                render: renderUGCASearch
             },
             {
                 page: pages[6]!,
                 label: "creative_title",
-                render: renderUGCALevel,
+                render: renderUGCALevel
             }
         ]
     }

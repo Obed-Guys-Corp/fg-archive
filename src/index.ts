@@ -86,8 +86,8 @@ async function renderCurrentPage(): Promise<void> {
             routes.push(item);
             if (item.nested) lookup(item.nested);
         }
-    }
-    
+    };
+
     lookup(maps);
 
     const route = routes.find(route => `${import.meta.env.BASE_URL}${route.page.path}`.replace(/\/+$/, "") === window.location.pathname.replace(/\/+$/, ""));

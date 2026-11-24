@@ -309,9 +309,9 @@ async function loadPage(page: number, pages: number) {
 
                 const dateStr = date
                     ? date.toLocaleString(undefined, {
-                        dateStyle: "medium",
-                        timeStyle: "short"
-                    })
+                          dateStyle: "medium",
+                          timeStyle: "short"
+                      })
                     : "Unknown date";
 
                 const stats = update.stats

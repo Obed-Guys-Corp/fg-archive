@@ -43,13 +43,12 @@ export async function renderCreative(): Promise<void> {
             <div class="spinner-border" role="status">
                 <span class="visually-hidden"></span>
             </div>
-        </div>`
+        </div>`;
 
     try {
         if (stats == null) stats = await Api.fetchUGCAStats();
         renderMain();
-    }
-    catch (ex) {
+    } catch (ex) {
         app.innerHTML = `
             <div class="container">
                 <div id="base-page" class="col-12 justify-content-center my-3">
@@ -58,7 +57,7 @@ export async function renderCreative(): Promise<void> {
                     </div>
                 </div>
             </div>
-            `
+            `;
     }
 }
 
@@ -149,12 +148,17 @@ async function renderMain() {
         <tbody>
             <tr><td><span>${t("ugca.stat_levels")}:</span></td><td class="right">${stats.levels.toLocaleString("en-US")}</td></tr>
             <tr><td>${t("ugca.stat_size")}:</td><td class="right">${formatBytes(stats.total_size)}</td></tr>
-            ${Object.entries(stats.source_stats!).sort((a, b) => b[1] - a[1]).map(([key, value]) => `
+            ${Object.entries(stats.source_stats!)
+                .sort((a, b) => b[1] - a[1])
+                .map(
+                    ([key, value]) => `
                             <tr>
                                 <td><span data-bs-toggle="tooltip" title="${t(`ugca.rec_${key.toLocaleLowerCase()}`)}" tabindex="0">${key}:</span></td>
                                 <td class="right">${value.toLocaleString("en-US")} ${value > 1 ? "levels" : "level"}</td>
                             </tr>
-                        `).join("")}
+                        `
+                )
+                .join("")}
         </tbody>
     </table>
     <a href="/creative/stats" class="btn btn-outline-secondary d-flex justify-content-center mt-auto" data-navigation>${t("ugca.more_stats")}</a>
@@ -219,8 +223,7 @@ async function renderMain() {
 
                 Modal.getOrCreateInstance(modal).show();
             }
-        }
-        finally {
+        } finally {
             archiveInput.disabled = false;
             archiveInput.value = "";
         }
@@ -242,19 +245,23 @@ async function renderMain() {
             </tr>
         </thead>
         <tbody>
-           ${res.map((item) => `
+           ${res
+               .map(
+                   item => `
             <tr data-sharecode="${item.sharecode}" style="cursor: pointer">
                 <td>${item.name}</td>
                 <td class="right">${item.sharecode}</td>
             </tr>
-        `).join("")}
+        `
+               )
+               .join("")}
             
         </tbody>
     </table>
     </div>
     `;
 
-        recentElem?.addEventListener("click", (event) => {
+        recentElem?.addEventListener("click", event => {
             const row = (event.target as HTMLElement).closest("tr");
             if (!row) return;
 
@@ -265,11 +272,9 @@ async function renderMain() {
             window.history.pushState({}, "", `/creative/level?${params.toString()}`);
             renderUGCALevel();
         });
-    }
-    catch (ex) {
-        recentElem.innerHTML = `<p class="text-center">${t("generic_error")}<br>${ex}</p>`
-    }
-    finally {
+    } catch (ex) {
+        recentElem.innerHTML = `<p class="text-center">${t("generic_error")}<br>${ex}</p>`;
+    } finally {
         document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
     }
 }
@@ -293,7 +298,7 @@ export async function renderUGCAStats() {
                 </div>
             </div>
         </div>
-    `
+    `;
 
         const statElement = document.getElementById("full-stats");
         if (!statElement) return;
@@ -305,7 +310,7 @@ export async function renderUGCAStats() {
             [t("ugca.stat_plats"), "platform_stats", stats.platform_stats],
             [t("ugca.stat_music"), "music_stats", stats.music_stats],
             [t("ugca.stat_versions"), "version_stats", stats.version_stats],
-            [t("ugca.stat_sources"), "source_stats", stats.source_stats],
+            [t("ugca.stat_sources"), "source_stats", stats.source_stats]
         ] as const;
 
         for (const [name, id, data] of sections) {
@@ -319,18 +324,22 @@ export async function renderUGCAStats() {
                         <col style="width: 30%">
                     </colgroup>
                     <tbody id="${id}">
-                        ${Object.entries(data).sort((a, b) => b[1] - a[1]).map(([key, value]) => `
+                        ${Object.entries(data)
+                            .sort((a, b) => b[1] - a[1])
+                            .map(
+                                ([key, value]) => `
                             <tr>
                                 ${id != "source_stats" ? `<td>${key}:</td>` : `<td><span data-bs-toggle="tooltip" title="${t(`ugca.rec_${key.toLocaleLowerCase()}`)}" tabindex="0">${key}:</span></td>`}
                                 <td class="right">${value.toLocaleString("en-US")} ${value > 1 ? "levels" : "level"}</td>
                             </tr>
-                        `).join("")}
+                        `
+                            )
+                            .join("")}
                     </tbody>
                 </table>
     `;
         }
-    }
-    catch (ex) {
+    } catch (ex) {
         app.innerHTML = `
             <div class="container">
                 <div id="base-page" class="col-12 justify-content-center my-3">
@@ -339,9 +348,8 @@ export async function renderUGCAStats() {
                     </div>
                 </div>
             </div>
-            `
-    }
-    finally {
+            `;
+    } finally {
         document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
     }
 }
@@ -379,13 +387,13 @@ export async function renderUGCASearch() {
         <div class="col-12 justify-content-center my-3" id="search-base">
         </div>
     </div>
-    `
+    `;
 
     await doUGCASearch(query);
 
     const searchBase = document.getElementById("search-base")!;
 
-    searchBase.addEventListener("click", async (event) => {
+    searchBase.addEventListener("click", async event => {
         const btn = (event.target as HTMLElement).closest<HTMLButtonElement>("button[data-page]");
         if (!btn || btn.disabled) return;
 
@@ -407,7 +415,7 @@ async function doUGCASearch(query: string) {
             <div class="spinner-border" role="status">
                 <span class="visually-hidden"></span>
             </div>
-        </div>`
+        </div>`;
 
         //todo cache
         var res = await Api.searchInUGCA(query, currPage);
@@ -435,7 +443,9 @@ async function doUGCASearch(query: string) {
                             </tr>
                         </thead>
                         <tbody id="search-results">
-                            ${res.results.map((item, index) => `
+                            ${res.results
+                                .map(
+                                    (item, index) => `
                                 <tr data-sharecode="${item.sharecode}" class="result-row" style="cursor: pointer">
                                     <th scope="row">${(currPage - 1) * res.page_size + index + 1}</th>
                                     <td>${item.name}</td>
@@ -444,14 +454,16 @@ async function doUGCASearch(query: string) {
                                     <td>${item.sharecode}</td>
                                     <td>${item.clientVersion}</td>
                                 </tr>
-                            `).join("")}
+                            `
+                                )
+                                .join("")}
                         </tbody>
                     </table>
                 </div>
-        `
+        `;
 
         const results = document.getElementById("search-results");
-        results?.addEventListener("click", (event) => {
+        results?.addEventListener("click", event => {
             const row = (event.target as HTMLElement).closest("tr");
             if (!row) return;
 
@@ -467,8 +479,7 @@ async function doUGCASearch(query: string) {
             const pageList = document.getElementById("page-list") as HTMLElement;
             renderPageList(pageList, currPage, totalPages);
         }
-    }
-    catch (ex) {
+    } catch (ex) {
         if (ex instanceof HttpError) {
             switch (ex.status) {
                 case 404:
@@ -477,7 +488,6 @@ async function doUGCASearch(query: string) {
                 default:
                     searchBase.innerHTML = `<div class="alert alert-danger">${ex}</div>`;
             }
-
         }
     }
 }
@@ -485,7 +495,7 @@ async function doUGCASearch(query: string) {
 window.addEventListener("resize", () => {
     var pages = document.getElementById("page-list");
     if (!pages) return;
-    renderPageList(pages, currPage, totalPages, false)
+    renderPageList(pages, currPage, totalPages, false);
 });
 
 export async function renderUGCALevel() {
@@ -509,7 +519,7 @@ export async function renderUGCALevel() {
         <div class="col-12 justify-content-center my-3" id="level-base">
         </div>
     </div>
-    `
+    `;
 
     const levelBase = document.getElementById("level-base");
     if (!levelBase) return;
@@ -520,12 +530,11 @@ export async function renderUGCALevel() {
             <div class="spinner-border" role="status">
                 <span class="visually-hidden"></span>
             </div>
-        </div>`
+        </div>`;
 
         var res = await Api.searchUGCALevel(query);
         doLevelRender(res, Number(gen));
-    }
-    catch (ex) {
+    } catch (ex) {
         if (ex instanceof HttpError) {
             switch (ex.status) {
                 case 404:
@@ -534,7 +543,6 @@ export async function renderUGCALevel() {
                 default:
                     levelBase.innerHTML = `<div class="alert alert-danger">${ex}</div>`;
             }
-
         }
     }
 }
@@ -627,7 +635,7 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
             </div>
         </div>
     </div>
-        `
+        `;
 
         const thumb = document.getElementById("level-thumb");
 
@@ -648,20 +656,20 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
 
         thumb?.addEventListener("error", thumbErr);
 
-        thumb?.addEventListener("click", (event) => {
+        thumb?.addEventListener("click", event => {
             const img = event.currentTarget as HTMLImageElement;
 
             const src = img.src;
             if (!src) return;
 
-            window.open(src, '_blank');
+            window.open(src, "_blank");
         });
 
         const otherGens = document.getElementById("other-generations");
         if (!otherGens) return;
 
         if (level.generations.length <= 1) {
-            otherGens.innerHTML = `<p class="text-center">${t("ugca.other_gens_blank")}</p>`
+            otherGens.innerHTML = `<p class="text-center">${t("ugca.other_gens_blank")}</p>`;
             return;
         }
 
@@ -678,7 +686,9 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                             </tr>
                         </thead>
                         <tbody id="level-generations">
-                            ${level.generations.map((item, index) => `
+                            ${level.generations
+                                .map(
+                                    (item, index) => `
                                 <tr data-gen="${item.version}" class="result-row ${item.version == lastGen?.version ? "tr-selected" : ""}" style="cursor: pointer">
                                     <th scope="row">${index + 1}</th>
                                     <td>v${item.version}</td>
@@ -686,13 +696,15 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                                     <td>${new Date(item?.last_modified! * 1000).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "medium" })}</td>
                                     <td><span data-bs-toggle="tooltip" title="${t(`ugca.rec_${String(RecordType[item.record_type]).toLocaleLowerCase()}`)}" tabindex="0">${RecordType[item.record_type]}</span></td>
                                 </tr>
-                            `).join("")}
+                            `
+                                )
+                                .join("")}
                         </tbody>
                     </table>
-                </div>`
+                </div>`;
 
         const generations = document.getElementById("level-generations");
-        generations?.addEventListener("click", (event) => {
+        generations?.addEventListener("click", event => {
             const row = (event.target as HTMLElement).closest("tr");
             if (!row) return;
 
@@ -705,10 +717,9 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                 window.history.pushState({}, "", `/creative/level?${params.toString()}`);
                 doLevelRender(level, genNum);
 
-                generations?.querySelectorAll("tr.tr-selected").forEach((r) => {
+                generations?.querySelectorAll("tr.tr-selected").forEach(r => {
                     r.classList.remove("tr-selected");
                 });
-
             }
 
             document.body.scrollTo({
@@ -716,16 +727,13 @@ function doLevelRender(level: UGCLevel, selectedGen: number = -1) {
                 behavior: "smooth"
             });
         });
-    }
-    catch (ex) {
+    } catch (ex) {
         if (ex instanceof Error && ex.message === "NO_GEN") {
             levelBase.innerHTML = `<div class="alert alert-warning">${t("ugca.level_no_gen")}<br><br><a href="/creative" class="alert-link"  data-navigation>Click here to return back on the main page</a></div>`;
+        } else {
+            levelBase.innerHTML = `<div class="alert alert-danger">${t("ugca.level_ex")}<br><br>${ex}</div>`;
         }
-        else {
-            levelBase.innerHTML = `<div class="alert alert-danger">${t("ugca.level_ex")}<br><br>${ex}</div>`
-        }
-    }
-    finally {
+    } finally {
         document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
     }
 }

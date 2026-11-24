@@ -1,8 +1,8 @@
 import { Api } from "../../api";
 import { t } from "../../i18n/i18n";
 import { capitalize } from "../../utils/string";
-import { isSteam } from "../../utils/stats";
-import type { AnyBuild, Build, BuildType, SteamProperties } from "../../types";
+import { isMobile, isSteam } from "../../utils/stats";
+import type { AndroidProperties, AnyBuild, Build, BuildType, SteamProperties } from "../../types";
 import * as bootstrap from "bootstrap";
 import { sourceIcons, sourceLocales } from "./source-maps";
 import { createAlert } from "../alerts";
@@ -28,8 +28,13 @@ export function initCardClick(): void {
 export function showBuildModal(item: Build, type: BuildType): void {
     const season = t(item.properties.season);
     const steam = isSteam(type);
+    const mobile = isMobile(type);
+
     const steamManifest = steam ? ((item.properties as SteamProperties).manifest ?? "") : "";
+    const obbHash = mobile ? ((item.properties as AndroidProperties).obb_hash ?? "") : "";
+
     const manifestLine = !steam ? "" : `<li class="list-group-item">${t("modal.field", t("modal.manifest"), steamManifest || t("modal.unknown"))}</li>`;
+    const obbLine = !mobile ? "" : `<li class="list-group-item text-break">${t("modal.field", t("modal.obbHash"), obbHash || t("modal.unknown"))}</li>`;
 
     const modalData = document.getElementById("modalData")!;
     const modalSegments = document.getElementById("modalSegments")!;
@@ -41,7 +46,7 @@ export function showBuildModal(item: Build, type: BuildType): void {
             : new Date(item.release_date).toLocaleString()
         : t("modal.unknown");
 
-        const withInternal = item.downloads?.internal_cms ? Api._builds[type].filter(x => x.downloads?.internal_cms == item.downloads?.internal_cms).length : 0
+    const withInternal = item.downloads?.internal_cms ? Api._builds[type].filter(x => x.downloads?.internal_cms == item.downloads?.internal_cms).length : 0;
 
     modalData.innerHTML = `
         <h6 class="mb-2">${t("modal.buildDetails")}</h6>
@@ -51,12 +56,13 @@ export function showBuildModal(item: Build, type: BuildType): void {
           <li class="list-group-item">${t("modal.field", t("modal.appVersion"), item.properties.version || t("modal.unknown"))}</li>
           <li class="list-group-item">${t("modal.field", t("modal.buildNo"), item.properties.build_number === 0 ? "?" : (item.properties.build_number ?? "?"))}</li>
           <li class="list-group-item">${t("modal.field", t("modal.commit"), item.properties.build_commit || t("modal.unknown"))}</li>
-          <li class="list-group-item">${t("modal.field", t("modal.buildDate"), item.properties.build_date || t("modal.unknown"))}</li>
+          <li class="list-group-item">${t("modal.field", t("modal.buildDate"), item.properties.build_date ? (item.properties.build_date.includes("/") ? item.properties.build_date : new Date(item.properties.build_date).toLocaleString()) : item.properties.build_date || t("modal.unknown"))}</li>
           <li class="list-group-item">${t("modal.field", t("modal.unityVersion"), item.properties.unity_version || t("modal.unknown"))}</li>
           <li class="list-group-item">${t("modal.field", t("modal.env"), item.properties.env || t("modal.unknown"))}</li>
           <li class="list-group-item text-break">${t("modal.field", t("modal.signature"), item.properties.signature || t("modal.unknown"))}</li>
-          <li class="list-group-item">${t("modal.field", t("modal.internalCms"), item.downloads?.internal_cms ? t("modal.internalCmsStat", item.downloads?.internal_cms, withInternal) : t("modal.unknown"))}</li>
+          <li class="list-group-item text-break">${t("modal.field", t("modal.internalCms"), item.downloads?.internal_cms ? t("modal.internalCmsStat", item.downloads?.internal_cms, withInternal) : t("modal.unknown"))}</li>
           <li class="list-group-item">${t("modal.field", t("modal.season"), season || t("modal.unknown"))}</li>
+          ${obbLine}
         </ul>`;
 
     const available = item.downloads?.available ?? [];
@@ -64,6 +70,7 @@ export function showBuildModal(item: Build, type: BuildType): void {
         .flatMap(download =>
             (download.segments ?? [{ size: item.downloads!.total_size }]).map((seg, i) => ({
                 source: download.source,
+                file_type: download.file_type,
                 index: i + 1,
                 sizeGB: seg.size / 1024
             }))
@@ -94,13 +101,22 @@ export function showBuildModal(item: Build, type: BuildType): void {
                 return `
                     <div class="mb-4 ${i === 0 ? "mt-3" : ""}">
                       <h6 class="mb-2">${t(segments.length !== 1 ? "modal.segmentsTitle" : "modal.fileTitle", t(source))}</h6>
-                      ${segments
-                        .map(
-                            seg =>
-                                `<div class="alert alert-info p-2 mb-2 w-100" style="text-align: left;">
-                                    ${segments.length !== 1 ? t("modal.segment", seg.index, seg.sizeGB.toFixed(2)) : t("gbFiller", seg.sizeGB.toFixed(2))}</div>`
-                        )
-                        .join("")}
+                        ${segments
+                            .map(
+                                seg =>
+                                    `<div class="alert alert-info p-2 mb-2 w-100" style="text-align: left;">
+                               ${segments.length !== 1 ? 
+                                    t("modal.segment", seg.index, 
+                                        seg.sizeGB < 1 
+                                            ? t("mbFiller", (seg.sizeGB * 1024).toFixed(2))  
+                                            : t("gbFiller", seg.sizeGB.toFixed(2)))
+                                        : seg.sizeGB < 1  
+                                            ? t("mbFiller", (seg.sizeGB * 1024).toFixed(2))  
+                                            : t("gbFiller", seg.sizeGB.toFixed(2))} 
+                                    ${seg.file_type ? ` [${seg.file_type}]` : ""}
+                            </div>`
+                            )
+                            .join("")}
                     </div>
                 `;
             })
@@ -122,7 +138,7 @@ export function showBuildModal(item: Build, type: BuildType): void {
             btn.className = "btn btn-primary me-2";
             const source = download.source;
             const icon = sourceIcons.get(source);
-            btn.innerHTML = `${icon !== undefined ? `<i class="${icon}"></i>` : ""} ${t(sourceLocales.get(source) ?? "modal.downloadIn", t(source))}`;
+            btn.innerHTML = `${icon !== undefined ? `<i class="${icon}"></i>` : ""} ${t(sourceLocales.get(source) ?? "modal.downloadIn", t(source))} ${download.file_type ? `[${download.file_type}]` : ""}`;
             modalFooter.appendChild(btn);
         }
     }

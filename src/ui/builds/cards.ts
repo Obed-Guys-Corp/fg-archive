@@ -1,7 +1,7 @@
 import { Api } from "../../api";
 import { t } from "../../i18n/i18n";
-import { availableBuilds, buildSizeMB, isAvailable, isSteam, toGB, totalSizeMB } from "../../utils/stats";
-import type { AnyBuild, AppState, Build, BuildType, SteamProperties } from "../../types";
+import { availableBuilds, buildSizeMB, isAvailable, isFullyAvailable, isMobile, isSteam, toGB, totalSizeMB } from "../../utils/stats";
+import type { AndroidProperties, AnyBuild, AppState, Build, BuildType, GenericProperties, SteamProperties } from "../../types";
 import { LINKS } from "../../constants/links";
 import * as bootstrap from "bootstrap";
 import { sourceIcons } from "./source-maps";
@@ -25,6 +25,7 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
 
     let hasLostMedia = false;
     let letsLeakSomething = false;
+    let partialAvailable = false;
 
     for (const [season, items] of bySeason) {
         const header = document.createElement("div");
@@ -37,8 +38,14 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
         const row = document.createElement("div");
         row.className = "row";
         for (const item of items) {
-            if ((item.downloads?.available?.length ?? 0) === 0) hasLostMedia = true;
             if (item.properties.source_leak) letsLeakSomething = true;
+
+            //slop
+            if ((item.downloads?.available?.length ?? 0) === 0) {
+                hasLostMedia = true;
+            } else if (!isFullyAvailable(selectedType, item)) {
+                partialAvailable = true;
+            }
 
             const index = Api.builds[selectedType].indexOf(item);
             row.appendChild(renderCard(item, selectedType, index));
@@ -54,6 +61,8 @@ export function renderTabContent(state: AppState, selectedType: BuildType, selec
 
     if (letsLeakSomething)
         createAlert(tabAlert, "alert-info my-3", t("tab.didYouKnow"), t("tab.sourceLeaksDesc", `<i class="text-info bi bi-code-slash"></i>`));
+
+    if (partialAvailable) createAlert(tabAlert, "alert-warning my-3", "", t("tab.partialDesc"));
 
     if (hasLostMedia)
         createAlert(
@@ -98,31 +107,44 @@ export function setFooter(state: AppState): void {
 function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement {
     const downloads = item.downloads;
     const available = isAvailable(item);
+    const mobile = isMobile(type);
 
-    // Size (Download sources length)
-    const sizeDisplay = downloads?.available?.length
-        ? t(
-              "card.size",
-              toGB(buildSizeMB(item)),
-              t("unitGB"),
-              downloads.available
-                  .map(item => {
-                      const val = sourceIcons.get(item.source);
-                      return val !== undefined ? `<i class="${val}"></i>` : t(item.source);
-                  })
-                  .join(" ")
-          )
-        : "";
+    const sources = downloads?.available.map(item => {
+        const val = sourceIcons.get(item.source);
 
-    // Can't get manifest on android and egs builds
+        return {
+            icon: val,
+            label: val !== undefined ? `<i class="${val}"></i>` : t(item.source)
+        };
+    });
+
+    const counts = new Map<string, number>();
+
+    sources?.forEach(({ icon, label }) => {
+        const key = icon ?? label;
+        counts.set(key, (counts.get(key) ?? 0) + 1);
+    });
+
+    const render = [...counts.entries()]
+        .sort((a, b) => a[1] - b[1])
+        .map(([key, count]) => {
+            const source = sources?.find(s => (s.icon ?? s.label) === key)!;
+            return source.label + (count > 1 ? ` (+${count})` : "");
+        })
+        .join(" ");
+
+    const sizeDisplay = downloads?.available?.length ? t("card.size", toGB(buildSizeMB(item)), t("unitGB"), render) : "";
+
     const manifestDisplay = isSteam(type) ? ((item.properties as SteamProperties).manifest ?? "") : "";
+    const buildNumDisplay = isMobile(type) ? ((item.properties as GenericProperties).build_number ?? "") : "";
+
     const season = item.properties.season;
     const sourceLeak = item.properties.source_leak;
 
     const card = document.createElement("div");
     card.className = "col-md-4 mb-3";
     card.innerHTML = `
-        <div class="card build-card position-relative p-3 ${!available ? "border border-danger" : ""}" data-type="${type}" data-index="${index}">
+        <div class="card build-card position-relative p-3 ${!available ? "border border-danger" : mobile && !isFullyAvailable(type, item) ? "border border-warning" : ""}" data-type="${type}" data-index="${index}">
             <div class="row align-items-start g-2">
                 <div class="col">
                     <h5 class="mb-0">
@@ -137,7 +159,7 @@ function renderCard(item: AnyBuild, type: BuildType, index: number): HTMLElement
             </div>
 
             <small class="text-muted d-flex justify-content-between mt-2">
-                <span class="text-truncate">${manifestDisplay}</span>
+                <span class="text-truncate">${manifestDisplay || buildNumDisplay}</span>
                 ${sizeDisplay ? `<span class="ms-2 text-nowrap">${sizeDisplay}</span>` : ""}
             </small>
         </div>

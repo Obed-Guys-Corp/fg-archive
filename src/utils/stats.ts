@@ -8,6 +8,16 @@ export function isSteam(type: BuildType): boolean {
     return type === "steam_beta" || type === "steam";
 }
 
+export function isMobile(type: BuildType): boolean {
+    return type === "android_ega" || type === "android_os";
+}
+
+export function isFullyAvailable(type: BuildType, build: Build): boolean {
+    if (!build || !isAvailable(build)) return false;
+    if (isMobile(type)) return (build.downloads?.available.some(x => x.file_type === "apk") && build.downloads?.available.some(x => x.file_type === "obb"))!;
+    return true;
+}
+
 export function availableBuilds(builds: Build[]): Build[] {
     return builds.filter(isAvailable);
 }
