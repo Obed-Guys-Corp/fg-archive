@@ -1,11 +1,98 @@
 {
     "android_ega": [
         {
+            "id": "95118ae0-dff2-41d0-bdc3-e97563070a24",
+            "release_date": "2026-05-19",
+            "downloads": {
+                "total_size": 2288,
+                "available": [
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/746723f3-da42-4204-bf4c-7f0c9c21d368.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/746723f3-da42-4204-bf4c-7f0c9c21d368.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/746723f3-da42-4204-bf4c-7f0c9c21d368.obb",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "version": "21.3.0",
+                "build_number": "8807",
+                "build_commit": "",
+                "build_date": "2026-05-12T17:20:54+00:00",
+                "unity_version": "",
+                "env": "Production",
+                "signature": "",
+                "scenes": 0,
+                "season": "not_season_3",
+                "obb_hash": "Ow2pe2MXLt7d8LQ+ekk2iAaLVDDMoWdhVaZQezstyaxBtal/xK49zypapzZJ2Y0hpypNbbmQ8+Tp8EdIGZbqzh0Sd+KkS1JhnYGMFYOSp/RTjif2bI8s1T4b50va+x4Z/xqIv7CFfTCCwEJNx6tZ1g2PTqzaLz0fpqQmiwrqpNJP6ikwGkUnYxgVK85MZ0ZKJeAe22ljlB8K7d3lQcqta30SZzABDwSH6g1wphtpwJG4jlqaMvMUR711Abm3ldXs9kPO7nHGrrgYWWCf7yCF/BSJG8tsc5+vzeDnRmVUoiuog9lfqvg/VVmregX3+0lXjW2rlY8WavAS3imWmaWoyg=="
+            }
+        },
+        {
+            "id": "33c79160-c92e-4660-af3c-fe1f7a99207a",
+            "release_date": "2026-02-25",
+            "downloads": {
+                "total_size": 2269,
+                "available": [
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/12495d82-584b-4e12-9154-7189f0bd06cf.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/12495d82-584b-4e12-9154-7189f0bd06cf.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/12495d82-584b-4e12-9154-7189f0bd06cf.obb",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "version": "21.2.0",
+                "build_number": "8406",
+                "build_commit": "",
+                "build_date": "2026-01-28T15:14:14+00:00",
+                "unity_version": "",
+                "env": "Production",
+                "signature": "",
+                "scenes": 0,
+                "season": "not_season_3",
+                "obb_hash": "hXRtsI6TgBcjC6w+3q67GKDXCIt0BkH4Mdom6TJBRhiFbgOiu9IdS5VA4epGHLVTTGfpN4k/6Jb/p8yMuzDlPWXK8MI8qlBQss7uqvKYqtBY45dpZMNM4b8dU0ZnNDjAv921qAvQTXU7ughF+L0XcyK0S5kRr+veRyRtsJ+quxOqHCIfFnvEE9uF2mupm8eMV67S8h1Oh4GkABxst+/kFepYrAhdgn6ZtHu9Dp3c0gpubWNCruwGppa3auyizAR7IkXfYBJtihnruPQqVuBqYm5He/E4WfiplLBl8t3spZ4hnXNAdcUAWVBzPnmRw3QtvgxhR+cvaRooJJQAjuJxaA=="
+            }
+        },
+        {
             "id": "aabe82a3-22db-469e-a27d-64ff09d5eda8",
             "release_date": "2025-12-17",
             "downloads": {
-                "total_size": 2149.2,
+                "total_size": 2269,
                 "available": [
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/de21a195-b890-49c3-a4ae-db0811242fb2.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/de21a195-b890-49c3-a4ae-db0811242fb2.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/de21a195-b890-49c3-a4ae-db0811242fb2.obb",
+                        "segments": null
+                    },
                     {
                         "source": "telegram",
                         "link": "https://t.me/FallGuysBuilds/236",
@@ -15,21 +102,110 @@
             },
             "properties": {
                 "version": "21.1.2",
-                "build_number": 0,
+                "build_number": "8218",
                 "build_commit": "",
-                "build_date": "",
+                "build_date": "2025-12-05T17:00:16+00:00",
                 "unity_version": "2021.3.16f1",
-                "env": "",
+                "env": "Production",
                 "signature": "",
-                "season": "not_season_3"
+                "scenes": 0,
+                "season": "not_season_3",
+                "obb_hash": "rO1E7rdAMvVk5c+wYElUddXFgD07HDgz9ksVJT3spIOojQEivLErgbhmOYxilJw9EbJDu8j1y5jrIMj3YNJgMcVwkiF/0HVvsLLupaczq6XMauj2It12EliKqTb6qVC6ezNKxjKoxW1ZuvuJONkwsn65bxCjHoj090xeWaFa2kR/hrIEcgSN1LhuXi872RxUWE5b812SW89wY4Mw2Q01kk07HMpsuaoo677aSI7maErr7LeyOk1UryC/QSu930inyWaKcoy+wWLV0sZjsNtZw4rTxNNwwCsnzzkM78OzcgKYMiQ/pFBxGq5CvFsKgGwILS2qDkotWqzc1Ea/nA9BfQ=="
+            }
+        },
+        {
+            "id": "7790642b-1639-4a66-b709-1d41c22319d5",
+            "release_date": "2025-11-27",
+            "downloads": {
+                "total_size": 2269,
+                "available": [
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/ed12509e-bbe9-4220-8d33-80903846bfb4.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/ed12509e-bbe9-4220-8d33-80903846bfb4.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/ed12509e-bbe9-4220-8d33-80903846bfb4.obb",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "version": "21.1.1",
+                "build_number": "8177",
+                "build_commit": "",
+                "build_date": "2025-11-27T15:08:02+00:00",
+                "unity_version": "",
+                "env": "Production",
+                "signature": "",
+                "scenes": 0,
+                "season": "not_season_3",
+                "obb_hash": "mtXAIr8+4zriGTF7kubBzABVjYqrRiGirUIL82H3rjEQ8Y21znld2erLIcM0cEM2+wYrhlfHEBlxRLNM22GWAZqPh9i2XDM7VvGk675lcEOfe7gqGyRgtl1hKWO9KjO5LMYhpJwfGDlCJziu4KaAzMhAh7plNvx5r7zgiVOxaeUWRu/tyZX1C6lWMSsLNFtN14xLeD5MM6b032TTvwrfTT4DxOSUIy6inWtJH799j3oKejLxjGC2h/pr0YvHu3S1YnC7z2Bz6ZWXwp+K5ktsrKw9852QLwGw9GtE/F16rH0TpUjls7kbtNKBc5ORXdZcT09UBW1W1sBUByXNp5Yigg=="
+            }
+        },
+        {
+            "id": "0f9d1b2a-ad19-488f-8bd9-72f101272835",
+            "release_date": "2025-10-14",
+            "downloads": {
+                "total_size": 2264,
+                "available": [
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/7a51ddcf-2e8c-43a1-b87f-4440d7734da6.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/7a51ddcf-2e8c-43a1-b87f-4440d7734da6.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/7a51ddcf-2e8c-43a1-b87f-4440d7734da6.obb",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "version": "21.0.1",
+                "build_number": "7986",
+                "build_commit": "",
+                "build_date": "2025-10-11T03:05:22+00:00",
+                "unity_version": "",
+                "env": "Production",
+                "signature": "",
+                "scenes": 0,
+                "season": "not_season_3",
+                "obb_hash": "rz+/ysof62/mb664PNjc7B42+userTqF8h7sk4OL3PazDBVLL2VkRIusK8MLVIFXFcYYjD0eLiXzzZDn2EqWBe2HuZjOl1HV6paX1Y+1d8eA8O53yOhk5h+Eyw10IhqTClJPjdKRA76HhbtwGiPEWKdBzmQyVCPp1hHkjOTuhRf6jvL3AG7H2dHkAIVDMMGCZqJpvzpA/ew6LbA+t4q4TNseDUWXcvELaHKZB8NbXIPio6vWBcxMzhtd/8tG5w5S7qC45df+mfHGlw/Cnu0iLPka8YFprd3BDEfqoN3fPnEZkXWrI9rFhDB1XG7S3qnfdXPxuzse1ESs5E/LmVoqeQ=="
             }
         },
         {
             "id": "52e84dd1-4af1-4c41-b4af-d8ad1f82d08e",
             "release_date": "2025-09-16",
             "downloads": {
-                "total_size": 2145.1,
+                "total_size": 2265,
                 "available": [
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/99bc9825-751b-46c0-92fd-2870b5e22741.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/99bc9825-751b-46c0-92fd-2870b5e22741.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/99bc9825-751b-46c0-92fd-2870b5e22741.obb",
+                        "segments": null
+                    },
                     {
                         "source": "telegram",
                         "link": "https://t.me/FallGuysBuilds/229",
@@ -39,21 +215,74 @@
             },
             "properties": {
                 "version": "21.0.0",
-                "build_number": 0,
+                "build_number": "7953",
                 "build_commit": "",
-                "build_date": "",
+                "build_date": "2025-10-04T14:14:44+00:00",
                 "unity_version": "2021.3.16f1",
-                "env": "",
+                "env": "Production",
                 "signature": "",
-                "season": "not_season_3"
+                "scenes": 0,
+                "season": "not_season_3",
+                "obb_hash": "qLTiG6CF+8VBf0YF0TR4L5ODHaCMyujJ/EbtyfP5fHZvhgOCN9LfUuewPQ0gVLJo0/HnX7cg1JiPVTleJkicPiPyyppFU9sHIXmpakptkxvP3OhvEMSSwQyOtURaJcbfT0DhWALG4GmD5lIXUpSjWgHOs30FCI/2FynzWv5zCzjIG0hEhs2/K9RR0oVipuBkvARhEne5Y6Yld+7gEWa2RyplEEk1rw5SCFSMzKgYOWFZTMACIgFguSJCJgvPROybh3TX/tmrb2A+KuwNjewTAmrxxY725tiJ3G0GDwqZC6D3mDJ6i6v/AjE9ZeTXbPCgDVadd2JXHjSEPl5QfX2iKg=="
+            }
+        },
+        {
+            "id": "ed501b00-d628-4679-8892-21c0abe44ae4",
+            "release_date": "2025-09-16",
+            "downloads": {
+                "total_size": 2265,
+                "available": [
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/fa7a47a7-c1b6-4dc6-8481-517df3b3f1cf.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/fa7a47a7-c1b6-4dc6-8481-517df3b3f1cf.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/fa7a47a7-c1b6-4dc6-8481-517df3b3f1cf.obb",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "version": "21.0.0",
+                "build_number": "7763",
+                "build_commit": "",
+                "build_date": "2025-08-29T21:24:41+00:00",
+                "unity_version": "",
+                "env": "Production",
+                "signature": "",
+                "scenes": 0,
+                "season": "not_season_3",
+                "obb_hash": "axotkRgAcyTHGYAhk6gUjoQn/e/mnaCufCj1UOEaX1UOvdsismGGCjL3ObmRkipn1ZCYP4Qi6yLHaQo+aVGEYs6SmkqzIybRg9jnOpujydwez2aU3735x7iLJ7WgMU7Ni4wlnPQOdX/lovLsM0NOKXNSZSme/BH8hegwg4ZVFAgSkwiQZy9uVXMgIfLqvETmYR2tmuzYfr+7O+tPfwQZIR8T9RLu8mq5kHOhfmWmy270cohBXIPHWj35VfMVsFt3vnVuKj4l9Yx3DiFWq4kmBX9mL1WMt9r5GpxROnHwewdYBmDC1Icr6urntSdJa7zS61XH5DeXPp1kMbGi6hMEhw=="
             }
         },
         {
             "id": "26cab2d1-a92d-48c9-9f12-f4c6cd8f9945",
             "release_date": "2025-08-19",
             "downloads": {
-                "total_size": 2094.6,
+                "total_size": 2210,
                 "available": [
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/96653ef2-f4a5-4a1e-b782-baf8c39744fd.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/96653ef2-f4a5-4a1e-b782-baf8c39744fd.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/96653ef2-f4a5-4a1e-b782-baf8c39744fd.obb",
+                        "segments": null
+                    },
                     {
                         "source": "telegram",
                         "link": "https://t.me/FallGuysBuilds/224",
@@ -63,21 +292,182 @@
             },
             "properties": {
                 "version": "20.0.2",
-                "build_number": 0,
+                "build_number": "7638",
                 "build_commit": "",
-                "build_date": "",
+                "build_date": "2025-08-05T18:41:26+00:00",
                 "unity_version": "2021.3.16f1",
-                "env": "",
+                "env": "Production",
                 "signature": "",
-                "season": "not_season_2"
+                "scenes": 0,
+                "season": "not_season_2",
+                "obb_hash": "LwssJFHP4OX9W77yBQCFOx4V18n7d7gKnwwORaeyXVCmhvPVjmCZxc0jhqUl8B5Sg/yc4U7RzEwlMj7FqwjW7edR0kwR6s9m5SnUu7EmngR9KekiD5sJGZyCWFxyiEjAvR8MKYxKXBRY0gu8OFySoD65JtIraBvBjjYfBxa0xG/8Pp8u6uoOWeI5GdpMvTXpk/VQEJ8t9cSQbZi0/P0wnI+4I70j8xPSZh+lso1afMaop9lB41w4VkHsyD7KV+jnAszMYqOmPHXeao1zZYdc8QMZz5RcXDCtBNeqU2WW1GL2qkaA2e14l27owBJwxS5PMCVPedadOgyw2RODeJlqRA=="
+            }
+        },
+        {
+            "id": "5240da41-762b-4a9f-a342-3bbd260dcec2",
+            "release_date": "2025-07-29",
+            "downloads": {
+                "total_size": 2210,
+                "available": [
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/821b3c65-cd06-4820-a617-31779df859d0.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/821b3c65-cd06-4820-a617-31779df859d0.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/821b3c65-cd06-4820-a617-31779df859d0.obb",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "version": "20.0.0",
+                "build_number": "7424",
+                "build_commit": "",
+                "build_date": "2025-06-27T18:53:10+00:00",
+                "unity_version": "",
+                "env": "Production",
+                "signature": "",
+                "scenes": 0,
+                "season": "not_season_2",
+                "obb_hash": "qELYLNqaWov6pxCOZeASWqmppkPTmQ9K5HH+KYrBR6sy1NgvW3nR/ms6O+fJezDKAqJbeYVkVLFFWfuQu/e1E0VqexMeZbRe5u0813yEj5BhEBZSXHiGoDUaJMwtp4jNpl787FeS/UQ/qCW+3cwrATHKvfuP33jHBsiE/1LrvD9FZObgXjalwsgxBffA8pXqOm+GaBTj/SqzrRPm8OSXoA/wtm7rgVPK0zokMX8JdPXqm/pvUPw0TTl6YHEKrWtyyHsdfcpNG1RA5eZoO5l4UN+qRcJqZRqTNfMF5iG7WkVox0poBAQ252nfOx9KYA+77wNbo+4aSFGNxySzBZeutA=="
+            }
+        },
+        {
+            "id": "bc548984-38fa-4a8e-849d-3d990aa51027",
+            "release_date": "2025-06-19",
+            "downloads": {
+                "total_size": 2160,
+                "available": [
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/e2c21fad-e83f-492b-bb37-9a828a16d318.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/e2c21fad-e83f-492b-bb37-9a828a16d318.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/e2c21fad-e83f-492b-bb37-9a828a16d318.obb",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "version": "19.0.0",
+                "build_number": "7334",
+                "build_commit": "",
+                "build_date": "2025-06-16T19:33:17+00:00",
+                "unity_version": "",
+                "env": "Production",
+                "signature": "",
+                "scenes": 0,
+                "season": "not_season_1",
+                "obb_hash": "Mho9iuE+sW1udvEgnd99FjWUOFb6gkLszt7BB+GueCZtAeT4y+Dw3M03FR2VJl1qOa3eTDBhwfNEEypvNzA63BpWwk6Q0Lp8RYVNWtCg2CnivF8aS9lyFf38pnMDDydLKqzbl3qHzIw11pvoWD6MAzMPBIegy+15o6z4PtAvoMOt+fAcNtqOEVWRjIqolQqMCSos+XeGNbOXRxG+YTe92xhxLOGMFeCti5nwVrb0pyvGiPg0x7zMFdVmP7OQDO0E5rhnhj3JHa22E8H4BnK9e/i301Ot4l5ajxARvf1Io0wS8tD5JntS3JyOBy9PsnMypiNh+YraBRYZT9KC9bEYRg=="
+            }
+        },
+        {
+            "id": "37358bad-dcc9-4716-8519-2b10324fd44b",
+            "release_date": "2025-05-27",
+            "downloads": {
+                "total_size": 2159,
+                "available": [
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/00e0e764-e703-4875-bbcb-648722ed9307.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/00e0e764-e703-4875-bbcb-648722ed9307.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/00e0e764-e703-4875-bbcb-648722ed9307.obb",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "version": "19.0.0",
+                "build_number": "7034",
+                "build_commit": "",
+                "build_date": "2025-05-11T18:13:56+00:00",
+                "unity_version": "",
+                "env": "Production",
+                "signature": "",
+                "scenes": 0,
+                "season": "not_season_1",
+                "obb_hash": "gwI+wN89X8KaEzlrrL7PpbJup+yln81DFfEm/d4z7TX8iA3FBGxBvvn/oY+7aVWNJ0lnNqjabZ5hyR0rWPVauWeX2GUGGV6xeXAUdr/obAFrGMie4nBSFN+b43WEg+/xxfh9yCaCl1yhm6rfKefaEU51A7JdXdNHH00ZXGEDsvCgup7kNIsM1cFPUSKnESHpK7Jf5IMDwcm2cmECVkWi+LnoGJxvx4ntmTI56XCJ0BUPoXZdygJ4Oul0lg50LfuGZfmHXirGieBTFocMIwy8wNzh5fiDOAHzvVpFqAYjU9Om8X93z46j4Qqt4/rfGKk/M7eO+LBWZlcwUt2EGyS7tQ=="
+            }
+        },
+        {
+            "id": "e9cb18d0-9c19-4dd4-b128-846a7fc6d3e0",
+            "release_date": "2025-04-01",
+            "downloads": {
+                "total_size": 2133,
+                "available": [
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/565cadc1-ed93-4cd8-9a7e-cd31e0698603.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/565cadc1-ed93-4cd8-9a7e-cd31e0698603.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/565cadc1-ed93-4cd8-9a7e-cd31e0698603.obb",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "version": "18.0.0",
+                "build_number": "6618",
+                "build_commit": "",
+                "build_date": "2025-03-19T14:45:43+00:00",
+                "unity_version": "",
+                "env": "Production",
+                "signature": "",
+                "scenes": 0,
+                "season": "not_season_0",
+                "obb_hash": "WZZsdUmzsSaF7SWNql6RUXYFANqUMEX7MrZopD4zkiVLjbeAnfU1OUzLS2kSALPopejgh+5VWvRmhuPcG5IsBr0VwANK/qYJDh2RmsSRCVjwL22cwj9U3SKPu2ghDJw/jgdefRcFZ+ZO3n3rrbdRQYIjQJYCAY2HlIbElOGITo5S3BftpqtoZTp3U19h7rk4gwH2a5QOOllVu6QELPQhIxhrrJ/80bORdy0fz1a+eVVYdtfG1jNQKy5DXbEWU7RV2qQzmhnsjTz2dDbk7o5DMdPILSv3jXZOo6RUYQ9nuI4HDhPkcJZDe8V4cqLzsLT7ur71rIavguSATXNgYpzSTw=="
             }
         },
         {
             "id": "88ba53af-c60c-4b2b-ab45-c4ba07a9ae8d",
             "release_date": "2025-03-13",
             "downloads": {
-                "total_size": 1991.3,
+                "total_size": 2099,
                 "available": [
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/0eb713f5-e96d-4f9c-9ead-15c8424df727.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/0eb713f5-e96d-4f9c-9ead-15c8424df727.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/0eb713f5-e96d-4f9c-9ead-15c8424df727.obb",
+                        "segments": null
+                    },
                     {
                         "source": "telegram",
                         "link": "https://t.me/FallGuysBuilds/231",
@@ -87,21 +477,259 @@
             },
             "properties": {
                 "version": "11.6.1",
-                "build_number": 0,
+                "build_number": "6522",
                 "build_commit": "",
-                "build_date": "",
+                "build_date": "2025-03-05T16:45:28+00:00",
                 "unity_version": "2021.3.16f1",
-                "env": "",
+                "env": "Production",
                 "signature": "",
-                "season": "ss5"
+                "scenes": 0,
+                "season": "ss5",
+                "obb_hash": "jlJ5+BkIADlN0mqn+XJSFgPMBlTjb2tsF0j0HrGQhx9INBSOigA1QY6YiTZ3T0qs+f3GwsB8EdlJrjxAlNYbPSKYKVU+5U7eXLTtvxUYz4q226Ku9CefrGWiaSLeiRYJAYRNVZqdBIoXMIy5A83sZUMwap2+KHBDoQitKycXJjaCU0Z67rgeZigZ56HEpRfLNem58hIXjfYY8fv9BM2w175ArE+gER10Yss+nvKaHmXleZ7jUKH0izmo0o7EmYqqnQkE3HMYlau8zyPHtNKQHVaiVsIcgKqQ0MpKN8nogwG4FVSYNTnzoR+/4Ot03rouPfWUhHYNekgPXkLPDyifkQ=="
+            }
+        },
+        {
+            "id": "c416b9f2-6979-4c25-bb19-aac5c07fe8fc",
+            "release_date": "2025-02-04",
+            "downloads": {
+                "total_size": 2099,
+                "available": [
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/b46c75b9-8c22-45c8-b3c9-3c79f047f1b4.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/b46c75b9-8c22-45c8-b3c9-3c79f047f1b4.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/b46c75b9-8c22-45c8-b3c9-3c79f047f1b4.obb",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "version": "11.6.0",
+                "build_number": "6211",
+                "build_commit": "",
+                "build_date": "2025-01-20T23:11:15+00:00",
+                "unity_version": "",
+                "env": "Production",
+                "signature": "",
+                "scenes": 0,
+                "season": "ss5",
+                "obb_hash": "HCoF+YVr9iZt2tsFLju/mvJOeSB2P/CBf+f9kmy+Drusq1NsnucWOcHUkT2cqpVLhFQTULN5S6f2tiU6HFQwHJGW88JImlf5RUq90c5zExQzksNXynsj59MhGMy71l971UkPFPe4t90ioM0WxpHEhxSSbWyThypu4oKqgHCLzEDpGo7mol4iZeHNKtSAuhFdNEvv647U2hCMwFINWTDtTs6Ojmr5cEphzeyun8BF1AnfVuqw5qZDP0/F91XmT41Tb/QYn9HYjQ64U9dwC0dgsBuuaE16qx3MPmMoOH9kOeGMtk0VHVeOihqRyXBCfWY/6zlVYXBof+Jttzg+8VidHQ=="
+            }
+        },
+        {
+            "id": "14fd154a-3cb8-4b4a-8af3-7c9a6e652fb1",
+            "release_date": "2024-12-10",
+            "downloads": {
+                "total_size": 2084,
+                "available": [
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/70265566-c54c-4bd1-8060-c9701dbf0961.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/70265566-c54c-4bd1-8060-c9701dbf0961.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/70265566-c54c-4bd1-8060-c9701dbf0961.obb",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "version": "11.5.0",
+                "build_number": "5882",
+                "build_commit": "",
+                "build_date": "2024-11-25T23:37:12+00:00",
+                "unity_version": "",
+                "env": "Production",
+                "signature": "",
+                "scenes": 0,
+                "season": "ss5",
+                "obb_hash": "mza4M6pMbwjC4bhfvbwZ7/FmfwzdbI1ayG+3bGTKtMR3wkKbEDev4O37YE3npOJJRl1C7Iu9bYK99BtJgRIY+9pmtzb63mq3aYJFhWjOWDCAFiLXeQYzq7LoNZhDcJC9QXKFONeLgWZM0WTw3k/0ocyRhFzzMq5iGTmgxYzWUGRS1e3aVWlMdXyFmJy83zsVW0B94T5TBjlKf32hhCKXFcDi4Mdn085eFvtVocmeNvGoCcDcfkNGOzTbxxxVc6Aa+aJXTxkBHEPgQ7LYBOOBe8Trul09L3BLF58WaychmJ1QNY7UDEF/spvSdG+Mf9cbjFvW2+udXJynps4Hkr24Qg=="
+            }
+        },
+        {
+            "id": "5ea0eca6-8f7d-4e35-89e5-cc44fc3ad2a8",
+            "release_date": "2024-11-07",
+            "downloads": {
+                "total_size": 2110,
+                "available": [
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/25568536-444d-470c-beff-e627122bf060.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/25568536-444d-470c-beff-e627122bf060.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/25568536-444d-470c-beff-e627122bf060.obb",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "version": "11.4.0",
+                "build_number": "5582",
+                "build_commit": "",
+                "build_date": "2024-10-23T16:40:50+00:00",
+                "unity_version": "",
+                "env": "Production",
+                "signature": "",
+                "scenes": 0,
+                "season": "ss5",
+                "obb_hash": "SsMeGLS5C8T5hOq15EVnpULUCW8CZBF6nzGqM5Qijk27fa1D2lgEmiIjLRAqIEidKH7GieEwYwWl4L4jq04unoQA4t3LuJd61E8K39KjEqOG+kK73HlYsMlEjhWoWjyJpjV6FDCGChuQBUxS6evpHDDCHWYv+4gqCKG72TGF7GNUrCZFCBhmJ0/SzgntX/8zwqqCC/V6ML9O9+4YOX82VHH4/ysq6RzlDgee4emaefP527oAZ044I7VubWD5pmZ4+yYNUnu3w2nKhnC5xqBkYG2Y3SZSEnhWEogGBCpYPtAFdJSYqnaEpoz1hLcI3ebabl30W+AqMCAbOfZN/8XXTA=="
+            }
+        },
+        {
+            "id": "64102e12-0752-47c0-8145-cf33bd10afa4",
+            "release_date": "2024-10-08",
+            "downloads": {
+                "total_size": 2071,
+                "available": [
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/e17ed923-7406-4935-8ab3-cb44f3c72644.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/e17ed923-7406-4935-8ab3-cb44f3c72644.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/e17ed923-7406-4935-8ab3-cb44f3c72644.obb",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "version": "11.3.0",
+                "build_number": "5339",
+                "build_commit": "",
+                "build_date": "2024-09-30T18:45:41+00:00",
+                "unity_version": "",
+                "env": "Production",
+                "signature": "",
+                "scenes": 0,
+                "season": "ss5",
+                "obb_hash": "NWzIBcf/ozdrA4S8WzNYE2V474nAFUr6ozeOJyKyXQvXnU7l2vyMDJiH8jzlVczFoOBdC8Jhmry5TzQTMs1+iHDz4G8eFHXM+KlegyoXtgNwmAs2n9RgCnzMzSadQmJysJY1JembSoXEUwBYYRx3XE32BTbDYT/1hnhqAWeNQfBLXW+Sg/oRyhcosqfTUTASur8JBB1gBp3KxlSIg/hrIg3IkV7bYuMFLbg2fsx/RRejhLrxRSjWzN6abZ9YUZf2D5kwP6Dya+QgEmz6b5MMiFlN3gOS88w2HS/7cdAEGjmdapAsB1YD97nVK+xR/cYZ1cLtz1v26I34tdWT+704bQ=="
+            }
+        },
+        {
+            "id": "70a02878-98cf-4e28-8875-149b2f38b28e",
+            "release_date": "2024-09-24",
+            "downloads": {
+                "total_size": 2043,
+                "available": [
+                    {
+                        "source": "google",
+                        "link": "https://google.epicgamescdn.com/Builds/fall-guys/d49c4a7e-0cec-4345-86fd-6cd90a0b4e38.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/d49c4a7e-0cec-4345-86fd-6cd90a0b4e38.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/d49c4a7e-0cec-4345-86fd-6cd90a0b4e38.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/d49c4a7e-0cec-4345-86fd-6cd90a0b4e38.obb",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "version": "11.2.1",
+                "build_number": "5027",
+                "build_commit": "",
+                "build_date": "2024-09-09T18:54:22+00:00",
+                "unity_version": "",
+                "env": "Production",
+                "signature": "",
+                "scenes": 0,
+                "season": "ss5",
+                "obb_hash": "q17nm3N5UsYLYLfodseUU/1EqkJ4bnYcCs/AMMfasImavaSEsbUzQmmhy3auJIg9DEVrU3Q4eL7Eqxt3QzsHI6uaY36iUD8LEm5w/dpdwqHheXHhEzMHLbnt7vOGDcWbcHevFIVDnT0L5PQh2FqqMO/JCgcPmSxdhIxSyJstX8tWiOzyrpOPFog3Ub9+Uv11xK9ntu1MCHu3WB7pAXTrNttNkDJqBc1voCvCsE8Eym6XYlVdSsTmrS9ieOb3Kq2iUqVCr0EjDOJ9R9iPBV0cd19QbmrHL1TZxQs6Sdvwpp8pyGdq12ACchRfMRDcnrJk6TyFhONPwN2IE5LD5+LJ+Q=="
+            }
+        },
+        {
+            "id": "c50cda50-cb4a-4a3c-8a1a-494dc2500202",
+            "release_date": "2024-09-03",
+            "downloads": {
+                "total_size": 2050,
+                "available": [
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/57731f98-c132-4662-bde1-aec9dee77c50.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/57731f98-c132-4662-bde1-aec9dee77c50.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/57731f98-c132-4662-bde1-aec9dee77c50.obb",
+                        "segments": null
+                    }
+                ]
+            },
+            "properties": {
+                "version": "11.2.0",
+                "build_number": "4858",
+                "build_commit": "",
+                "build_date": "2024-08-24T18:06:27+00:00",
+                "unity_version": "",
+                "env": "Production",
+                "signature": "",
+                "scenes": 0,
+                "season": "ss5",
+                "obb_hash": "rYaBcqEbuMii9lIYC/ZJy1w8puSIi34hWd8cGCONQE+fFKyC3KZx6aEK9HRFkdsbUJ5wjM966k8UT8e+3sRGVFWnuYSOpbn9QojFs+zuXjqzmtlq69wQYNm44Zte1jHfYwk3hwfcBx5g8CcobWs+JD7ajHF5YjrmElMu/GHNvjr3JzEhPqBu7HZfFeWklvDB9+bUecT2HEX6Xwjju/T5T51SKJlUB53DZAFFJuDLxuxnyvLxv5BXVvxk+6ITwA6N64cYfUmAedWqZpdPI1AOTzf6ZqeSdfQV5lkexYXu/Srxzt/z1kmfo2zvYMf2cK/p18WJ8LAUXknFysCnSa+2mg=="
             }
         },
         {
             "id": "9ebe92e3-d64c-4589-b406-86a5861e401d",
             "release_date": "2024-08-16",
             "downloads": {
-                "total_size": 1874.7,
+                "total_size": 1967,
                 "available": [
+                    {
+                        "source": "egdownload",
+                        "link": "https://egdownload.fastly-edge.com/Builds/fall-guys/c40ddfe8-b857-4b43-8247-58dfb0ddcbfb.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "epicgames-download1",
+                        "link": "https://epicgames-download1.akamaized.net/Builds/fall-guys/c40ddfe8-b857-4b43-8247-58dfb0ddcbfb.obb",
+                        "segments": null
+                    },
+                    {
+                        "source": "egs-cloudfront-chunks",
+                        "link": "https://egs-cloudfront-chunks.epicgamescdn.com/Builds/fall-guys/c40ddfe8-b857-4b43-8247-58dfb0ddcbfb.obb",
+                        "segments": null
+                    },
                     {
                         "source": "telegram",
                         "link": "https://t.me/FallGuysBuilds/230",
@@ -111,13 +739,15 @@
             },
             "properties": {
                 "version": "11.1.4",
-                "build_number": 0,
+                "build_number": "4671",
                 "build_commit": "",
-                "build_date": "",
+                "build_date": "2024-08-08T20:29:02+00:00",
                 "unity_version": "2021.3.16f1",
-                "env": "",
+                "env": "Production",
                 "signature": "",
-                "season": "ss5"
+                "scenes": 0,
+                "season": "ss5",
+                "obb_hash": "iMlVPk2clSc2tDxwY+9omBYk8lQAGjxR/kM1LApGD9P+Z9+fiIl/r5NQR457hUvgs2jUxb0S9DqLDCfKG5LQ9LlNlz9wDo28wg6gtrN/qwLrQ3tR2yzNcBjZKMZYrUSfJLq40X6D+K9FVJ6c6TB+V1dz6CD+z88TTIp81GX/ls/188KUKGbqLATQoZXuuC/8+ZDFzkHyoj+CYRJliETJhwPTv0IIPCaW9naM6yf+1B3PTcKhd7l5tYRRcHMaH7S+yfYk7WRRerwtNF0xcqlE/ZaGTd6BOwPOZOQUsPztkej87QCKiKs+WuqFyijbUstdRSJtr++S2cYxc1zmdWGUfA=="
             }
         }
     ]
