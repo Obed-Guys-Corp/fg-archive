@@ -53,13 +53,15 @@ export const setBuilds = (): Plugin => ({
 
                     const dStamp = build.release_date.includes("T") ? `<t:${dUnix}:f>` : `<t:${dUnix}:D>`;
 
+                    const embedVer = fgVer ? ` **v${fgVer}**` : "";
+
                     const descEmbed = dStr
                         ? available
-                            ? format(loc["build_desc.downloads_date"], `**${loc[type]}**`, `**${ver}**`, dStamp)
-                            : format(loc["build_desc.missing_date"], `**${loc[type]}**`, `**${ver}**`, dStamp)
+                            ? format(loc["build_desc.downloads_date"], `**${loc[type]}**`, `${embedVer}`, dStamp)
+                            : format(loc["build_desc.missing_date"], `**${loc[type]}**`, `${embedVer}`, dStamp)
                         : available
-                          ? format(loc["build_desc.downloads"], `**${loc[type]}**`, `**${ver}**`)
-                          : format(loc["build_desc.missing"], `**${loc[type]}**`, `**${ver}**`);
+                          ? format(loc["build_desc.downloads"], `**${loc[type]}**`, `${embedVer}`)
+                          : format(loc["build_desc.missing"], `**${loc[type]}**`, `${embedVer}`);
 
                     const embed = {
                         component: {
@@ -100,7 +102,7 @@ export const setBuilds = (): Plugin => ({
                         for (const download of build.downloads?.available ?? []) {
                             if (download.link.trim() !== "") {
                                 const src = download.source;
-                                const label = `${format(loc[sourceLocales.get(src) ?? "modal.downloadIn"], format(loc[src]))}`;
+                                const label = `${format(loc[sourceLocales.get(src) ?? "modal.downloadIn"], loc[src] ? loc[src] : src)}${download.file_type ? ` [${download.file_type}]` : ``}`;
                                 const btn = { type: 2, style: 5, url: download.link, label: label };
                                 comp[1].components!.push(btn);
                             }
